@@ -16,19 +16,19 @@ download on Getty Images using an active download agreement.
 ##Endpoints
 
 ###Session Operations
-- **[<code>POST</code> CreateSession](https://github.com/gettyimages/connect/documentation/endpoints/session/CreateSession.md)**
-- **[<code>POST</code> RenewSession](https://github.com/gettyimages/connect/documentation/endpoints/session/RenewSession.md)**
+- **[<code>POST</code> CreateSession](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/endpoints/session/CreateSession.md)**
+- **[<code>POST</code> RenewSession](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/endpoints/session/RenewSession.md)**
 
 ###Search Operations
-- **[<code>POST</code> SearchForImages](https://github.com/gettyimages/connect/documentation/endpoints/search/SearchForImages.md)**
-- **[<code>POST</code> GetImageDetails](https://github.com/gettyimages/connect/documentation/endpoints/search/GetImageDetails.md)**
-- **[<code>POST</code> GetEventDetails](https://github.com/gettyimages/connect/documentation/endpoints/search/GetEventDetails.md)**
-- **[<code>POST</code> SearchForVideos](https://github.com/gettyimages/connect/documentation/endpoints/search/SearchForVideos.md)**
+- **[<code>POST</code> SearchForImages](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/endpoints/search/SearchForImages.md)**
+- **[<code>POST</code> GetImageDetails](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/endpoints/search/GetImageDetails.md)**
+- **[<code>POST</code> GetEventDetails](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/endpoints/search/GetEventDetails.md)**
+- **[<code>POST</code> SearchForVideos](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/endpoints/search/SearchForVideos.md)**
 
 ###Download Operations
-- **[<code>POST</code> GetImageDownloadAuthorizations](https://github.com/gettyimages/connect/documentation/endpoints/download/GetImageDownloadAuthorizations.md)**
-- **[<code>POST</code> GetLargestImageDownloadAuthorizations](https://github.com/gettyimages/connect/documentation/endpoints/download/GetLargestImageDownloadAuthorizations.md)**
-- **[<code>POST</code> CreateDownloadRequest](https://github.com/gettyimages/connect/documentation/endpoints/download/CreateDownloadRequest.md)**
+- **[<code>POST</code> GetImageDownloadAuthorizations](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/endpoints/download/GetImageDownloadAuthorizations.md)**
+- **[<code>POST</code> GetLargestImageDownloadAuthorizations](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/endpoints/download/GetLargestImageDownloadAuthorizations.md)**
+- **[<code>POST</code> CreateDownloadRequest](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/endpoints/download/CreateDownloadRequest.md)**
 
 ##Core Concepts
 
