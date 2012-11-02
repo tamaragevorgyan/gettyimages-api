@@ -251,10 +251,9 @@ The SearchForImagesResult contains these fields.
 |*Image*.Caption|String|Describes the image.|
 |*Image*.CollectionId|String|Identifies a collection to which the image belongs.|
 |*Image*.CollectionName|String|Identifies the name of the collection to which the image belongs.|
-|*Image*.ColorType|String|Indicates where the image is color or black and white. Possible values are:
-<br>• Color <br>• Black/White|
+|*Image*.ColorType|String|Indicates where the image is color or black and white. Possible values are: <br>• Color <br>• Black/White|
 |*Image*.DateCreated|String|Identifies the date the image was created. Date is in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-and-json.aspx.|
-|*Image*.DateSubmitted|String Identifies the date the image was created. Date is in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-and-json.aspx.|
+|*Image*.DateSubmitted|String|Identifies the date the image was created. Date is in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-and-json.aspx.|
 |*Image*.EditorialSegments|Collection|Contains an EditorialSegment entry for each editorial category to which the image belongs, if the image is in the editorial image family.|
 |EditorialSegment *entry*|String|Indicates the editorial category to which the image belongs, if the image is in the editorial image family. Possible values are: <br>• News <br>• Sport <br>• Entertainment <br>• Contour <br>• Travel <br>• Publicity <br>• Royalty <br>• Archival|
 |EditorialSortOrder|String|Identifies the sort order applied to an editorial search in the SearchForImages request. Possible values are: <br>• Default <br>• MostRecent <br>• Trending (not available at this time) <br>• MostPopular|
