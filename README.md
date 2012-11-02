@@ -8,7 +8,7 @@ The Connect API uses JSON over HTTP POST to allow you to build applications capa
 download on Getty Images using an active download agreement.
 
 ##Checklist
-* Activate a download agreement for organization.
+* Activate a download agreement for your organization.
 * Get credentials for your application.
 * Familiarize yourself with the core concepts and the API operations.
 * Begin developing your application.
