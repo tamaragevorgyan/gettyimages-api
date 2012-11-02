@@ -115,10 +115,8 @@ The RequestHeader specifies metadata about the request.
 |Filter|Object|Optional|Specifies an instance to filter the query results.|
 |DateCreatedRange|Object|Optional|Specifies an instance to query on the images creation date. This query only applies to images when the ImageFamilies filter is null or has an “editorial” ImageFamily entry.|
 |EditorialSortOrder|String|Optional|Specifies a sort order for the results of an editorial image search. Note that an entry of "editorial" for the "ImageFamilies" filter must be used for the sort order to take effect. Possible values are: <br>• Null (order by DateCreated, Date-submitted, ImageId descending) <br>• MostRecent (order by DateSubmitted descending) <br>• MostPopular (order by relevancy as determined from data gathered from customer interactions on Getty Images websites) <br>•  Trending (not available at this time)|
-|EndDate|String|Optional|Specifies a date that images created prior to that date are to be included in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-andjson.
-aspx.|
-|StartDate|String|Optional|Specifies a date that images created after that date are to be included in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-andjson.
-aspx.|
+|EndDate|String|Optional|Specifies a date that images created prior to that date are to be included in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-andjson.aspx.|
+|StartDate|String|Optional|Specifies a date that images created after that date are to be included in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-andjson.aspx.|
 |EventId|Integer|Optional|Specifies an eventId to include imagesonly for that event.|
 |FileTypes|Collection|Optional|Adds a FileType entry for each file type. These entries are used to filter results.|
 |FileType *entry*|String|Optional|Specifies a file type. Possible values are: <br>• eps <br>• jpg|
@@ -146,10 +144,8 @@ filter.|
 |Refinement.Category|String|Conditional|Required when providing a Refinement entry. Specifies the category of the refinement filter. Use the RefinementOption.Category value for the desired refinement option in the response.|
 |Refinement.Id|String|Conditional|Required when providing a Refinement entry. Specifies the identifier of the refinement filter. Use the Refinement Option.Id value from the desire refinement
 option in the response.|
-|RefinementOptionsSet|String|Optional|Specifies a profile that activates a custom set of available refinement options. If no value is provided, defaults to Getty Images standard refinement options.
-Possible values are client specific and are communicated by our product owner after analysis.|
-|ResultOptions|Object|Required|Specifies an instance to control paging,
-sorting or other result options.|
+|RefinementOptionsSet|String|Optional|Specifies a profile that activates a custom set of available refinement options. If no value is provided, defaults to Getty Images standard refinement options. Possible values are client specific and are communicated by our product owner after analysis.|
+|ResultOptions|Object|Required|Specifies an instance to control paging, sorting or other result options.|
 |SearchPhrase|String|Optional|Specifies the search phrase.|
 |SpecificPersons|Collection|Optional|Specifies the personalities to query the images that match all the specified personalities. It is the logical AND of all specified personalities.|
 
@@ -239,8 +235,7 @@ The ResponseHeader contains metadata about the operation execution and response.
 |Status|String|Indicates the overall operation processing status notification. Possible values are: <br>• Success <br>• Error <br>• Warning|
 |StatusList|Collecton|Contains a Status entry for each detailed processing status notification.|
 |Status entry|Object|Contains the details of a status notification.|
-|Status.Type|String|Indicates the type, or severity, of the status notification. Possible values are:
-<br>• Information <br>• Warning <br>• Error|
+|Status.Type|String|Indicates the type, or severity, of the status notification. Possible values are: <br>• Information <br>• Warning <br>• Error|
 |*Status*.Code|String|Identifies the category of the status notification. See Status Codes for an explanations of codes.|
 |*Status*.Message|String|Provides a human readable explanation of the status.|
 |CoordinationId|String|Indicates the CoordinationId value provided in the triggering request.|
@@ -252,7 +247,7 @@ The SearchForImagesResult contains these fields.
 |:---------------|:------------|:--------------------------------------------------------------------------------------------------------------|
 |Images|Collection|Contains an image entry for each matching image found.|
 |Image *entry*|Object|Contains details of the specific matching image.|
-|*Image* ApplicableProductOfferings|Collection Contains an ApplicableProductOffering entry for each of the customer’s product offerings that
+|*Image* ApplicableProductOfferings|Collection|Contains an ApplicableProductOffering entry for each of the customer’s product offerings that
 authorize access to the image. If empty, the customer is not authorized to access the image. Note: Also check the AuthorizationConstraints
 collection for possible image specific limitations to the authorization.|
 |ApplicableProductOffering *entry*|String|Indicates a customer’s product offering that authorizes access to the image. Possible values are: <br>• EasyAccess <br>• EditorialSubscription <br>• PremiumAccess <br>• RoyaltyFreeSubscription <br>• Imagepack|
