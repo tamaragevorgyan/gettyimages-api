@@ -107,67 +107,36 @@ The RequestHeader specifies metadata about the request.
 | CoordinationId |String       |Optional      |Specify a value to echo in the response to track requests and their associated responses.                      |
 |Collections     |Object       |Optional      |Contains details for filtering search results by specific CollectionIds.                                       |
 |*Collections*.Ids|Collection  |Optional      |Specifies one or more CollectionIds by which to filter search results either on an include or exclude basis.   |
-|*Collections*.Mode|String|Optional|Specifies whether the Collection.Ids are being included or excluded from the search results possible values are: <br>• include <br>• exclude
-|
-|EditorialSegments|Collection|Optional|Specifies a segment of Editorial Image search results being filtered on. Possible values are:
-- News
-- Sports
-- Entertainment
-- Publicity
-- Royalty
-- Archival|
+|*Collections*.Mode|String|Optional|Specifies whether the Collection.Ids are being included or excluded from the search results possible values are: <br>• include <br>• exclude|
+|EditorialSegments|Collection|Optional|Specifies a segment of Editorial Image search results being filtered on. Possible values are: <br>• News <br>• Sports <br>• Entertainment<br>• Publicity <br>• Royalty <br>• Archival|
 |EditorialSources|Object|Optional|Specifies editorial source Ids to exclude or include from search results.|
 |*EditorialSources*.Ids|Collection|Optional|List of editorial source IDs by which to filter.|
-|*EditorialSources*.Mode|String|Optional|Specifies whether the EditorialSources are being included or excluded from the search result. Possible values are:
-
-- include
-
-- exclude|
+|*EditorialSources*.Mode|String|Optional|Specifies whether the EditorialSources are being included or excluded from the search result. Possible values are: <br>• include<br>• exclude|
 |Filter|Object|Optional|Specifies an instance to filter the query results.|
 |DateCreatedRange|Object|Optional|Specifies an instance to query on the images creation date. This query only applies to images when the ImageFamilies filter is null or has an “editorial” ImageFamily entry.|
-|EditorialSortOrder|String|Optional|Specifies a sort order for the results of an editorial image search. Note that an entry of "editorial" for the "ImageFamilies" filter must be used for the sort order to take effect. Possible values are:
-- Null (order by DateCreated, Date-submitted, ImageId descending)
-- MostRecent (order by DateSubmitted descending)
-- MostPopular (order by relevancy as determined from data gathered from customer interactions on Getty Images websites)
-- Trending (not available)|
+|EditorialSortOrder|String|Optional|Specifies a sort order for the results of an editorial image search. Note that an entry of "editorial" for the "ImageFamilies" filter must be used for the sort order to take effect. Possible values are: <br>• Null (order by DateCreated, Date-submitted, ImageId descending) <br>• MostRecent (order by DateSubmitted descending) <br>• MostPopular (order by relevancy as determined from data gathered from customer interactions on Getty Images websites) <br>•  Trending (not available at this time)|
 |EndDate|String|Optional|Specifies a date that images created prior to that date are to be included in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-andjson.
 aspx.|
 |StartDate|String|Optional|Specifies a date that images created after that date are to be included in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-andjson.
 aspx.|
 |EventId|Integer|Optional|Specifies an eventId to include imagesonly for that event.|
 |FileTypes|Collection|Optional|Adds a FileType entry for each file type. These entries are used to filter results.|
-|FileType *entry*|String|Optional|Specifies a file type. Possible valuesare:
-- eps
-- jpg|
+|FileType *entry*|String|Optional|Specifies a file type. Possible values are: <br>• eps <br>• jpg|
 |GraphicStyles|Collection|Optional|Adds a GraphicStyle entry for each type of graphics file. These entries are used to filter results.|
-|GraphicStyles *entry*|String|Optional|Specifies a type of graphic style. Use to filter results. Possible values are:
-- Photography
-- Illustration|
+|GraphicStyles *entry*|String|Optional|Specifies a type of graphic style. Use to filter results. Possible values are: <br>• Photography <br>• Illustration|
 |ImageFamilies|Collection|Optional|Adds an ImageFamily entry for each image family filter to apply to the query results. A null field is equivalent to an ImageFamilies field with entries for all possible values.|
-|ImageFamily *entry*|String|Optional|Specifies the image family filter to apply to the query results. Possible values are:
-- Creative
-- Editorial|
+|ImageFamily *entry*|String|Optional|Specifies the image family filter to apply to the query results. Possible values are: <br>• Creative <br>• Editorial|
 |ItemCount|Integer|Required|Specifies the count of matching images returning response. Use with the item start number to support pagination. Valid values are: 1,2,3,4,5,6,10,12,15,20,25,30, 50, 60,75|
 |ItemStartNumber|Integer|Required|Specifies the (1-based) index of the first image to return the response. Use with item count to support pagination. ItemsStartNumber should be the index of the first result to return, based on the specified ItemCount. For example, assuming a specified ItemCount of 25, the following values of ItemStartNumber would be used: 1 (1st page), 26 (2nd page), 51 (3rd page), and so forth.|
 |IncludeKeywords|Boolean|Optional|To include keywords in the response, set to “true”. Set to “false” otherwise.|
 |KeywordIds|Collection|Optional|Specifies the KeywordIds to query the images that match all the specified KeywordIds. It is the logical “AND” of all the specified KeywordIds.|
 |Language|String|Optional|Specifies an IETF RFC 5646 compliant language tag to determine the language used for localizable strings returned in the response. Defaults to “en-US” if no value is provided.|
 |LicensingModels|Collection|Optional|Adds a LicensingModel entry for each type of license. Use to filter results.|
-|LicensingModel *entry*|String|Optional|Specifies the type of license to filter results by. Possible values are:
-- RoyaltyFree
-- RightsManaged|
+|LicensingModel *entry*|String|Optional|Specifies the type of license to filter results by. Possible values are: <br>• RoyaltyFree <br>• RightsManaged|
 |Orientations|Collection|Optional|Adds an orientation entry for each type of orientation. These entries are used to filter results.|
-|Orientations *entry*|String|Optional|Specifies image orientations to be included in search results. Possible values are:
-- Horizontal
-- Vertical
-- Panoramichorizontal
-- Panoramicvertical
-- Square|
+|Orientations *entry*|String|Optional|Specifies image orientations to be included in search results. Possible values are: <br>• Horizontal <br>• Vertical <br>• Panoramichorizontal <br>• Panoramicvertical <br>• Square|
 |Product Offerings|Collection|Optional|Adds a ProductOfferings entry for each type of product offering. Use to filter results.|
-|Product Offerings *entry*|String|Optional|Specifies product offerings to be included in search results. Possible values are:
-- PremiumAccess
-- EditorialSubscription
-- EasyAccess|
+|Product Offerings *entry*|String|Optional|Specifies product offerings to be included in search results. Possible values are: <br>• PremiumAccess <br>• EditorialSubscription <br>• EasyAccess|
 |Query|Object|Required|Specifies an instance to provide the
 search query.|
 |Refinements|Collection|Optional|Adds a Refinement entry for each refinement filter to apply to the query results. This functionality supports “drill down” style filtering of a prior search query. Thus the applicable refinement filters for a query are provided in the search responses RefinementOptions
@@ -267,17 +236,11 @@ The ResponseHeader contains metadata about the operation execution and response.
 
 | Field          | Type        | Description                                                                                                   |
 |:---------------|:------------|:--------------------------------------------------------------------------------------------------------------|
-|Status|String|Indicates the overall operation processing status notification. Possible values are:
-- Success
-- Error
-- Warning|
+|Status|String|Indicates the overall operation processing status notification. Possible values are: <br>• Success <br>• Error <br>• Warning|
 |StatusList|Collecton|Contains a Status entry for each detailed processing status notification.|
 |Status entry|Object|Contains the details of a status notification.|
 |Status.Type|String|Indicates the type, or severity, of the status notification. Possible values are:
-
-- Information
-- Warning
-- Error|
+<br>• Information <br>• Warning <br>• Error|
 |*Status*.Code|String|Identifies the category of the status notification. See Status Codes for an explanations of codes.|
 |*Status*.Message|String|Provides a human readable explanation of the status.|
 |CoordinationId|String|Indicates the CoordinationId value provided in the triggering request.|
@@ -292,121 +255,38 @@ The SearchForImagesResult contains these fields.
 |*Image* ApplicableProductOfferings|Collection Contains an ApplicableProductOffering entry for each of the customer’s product offerings that
 authorize access to the image. If empty, the customer is not authorized to access the image. Note: Also check the AuthorizationConstraints
 collection for possible image specific limitations to the authorization.|
-|ApplicableProductOffering *entry*|String|Indicates a customer’s product offering that authorizes access to the image. Possible values are:
-
-- EasyAccess
-- EditorialSubscription
-- PremiumAccess
-- RoyaltyFreeSubscription
-- Imagepack|
-
+|ApplicableProductOffering *entry*|String|Indicates a customer’s product offering that authorizes access to the image. Possible values are: <br>• EasyAccess <br>• EditorialSubscription <br>• PremiumAccess <br>• RoyaltyFreeSubscription <br>• Imagepack|
 |*Image*.Artist|String|Identifies the image creator.
 |Image.AuthorizationConstraints|Collection|Contains an AuthorizationConstraint entry for each category of possible image-specific limitations to authorization. Authorization constraints occur when an image that would normally be authorized by a customer’s agreement has additional limitations.|
-|AuthorizationConstraint *entry*|String|Indicates the category of possible image-specific limitations to authorization. Possible values are:
-
-- CallForImage 
-
-See Authorization Constraints for an explanation of constraint categories.|
+|AuthorizationConstraint *entry*|String|Indicates the category of possible image-specific limitations to authorization. Possible values are: <br>• CallForImage <br> See Authorization Constraints for an explanation of constraint categories.|
 |*Image*.Caption|String|Describes the image.|
 |*Image*.CollectionId|String|Identifies a collection to which the image belongs.|
 |*Image*.CollectionName|String|Identifies the name of the collection to which the image belongs.|
 |*Image*.ColorType|String|Indicates where the image is color or black and white. Possible values are:
-
-- Color
-- Black/White|
-
+<br>• Color <br>• Black/White|
 |*Image*.DateCreated|String|Identifies the date the image was created. Date is in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-and-json.aspx.|
 |*Image*.DateSubmitted|String Identifies the date the image was created. Date is in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-and-json.aspx.|
 |*Image*.EditorialSegments|Collection|Contains an EditorialSegment entry for each editorial category to which the image belongs, if the image is in the editorial image family.|
-|EditorialSegment *entry*|String|Indicates the editorial category to which the image belongs, if the image is in the editorial image family. Possible values are:
-
-- News
-- Sport
-- Entertainment
-- Contour
-- Travel
-- Publicity
-- Royalty
-- Archival|
-
-|EditorialSortOrder|String|Identifies the sort order applied to an editorial search in the SearchForImages request. Possible values are:
-
-- Default
-- MostRecent
-- Trending (not available until September, 2012)
-- MostPopular|
-
+|EditorialSegment *entry*|String|Indicates the editorial category to which the image belongs, if the image is in the editorial image family. Possible values are: <br>• News <br>• Sport <br>• Entertainment <br>• Contour <br>• Travel <br>• Publicity <br>• Royalty <br>• Archival|
+|EditorialSortOrder|String|Identifies the sort order applied to an editorial search in the SearchForImages request. Possible values are: <br>• Default <br>• MostRecent <br>• Trending (not available at this time) <br>• MostPopular|
 |*Image*.editorialSourceId|String|Identifies the source of the image, if the image is in the editorial image family.|
 |*Image*.EditorialSource-Name|String|The source name of the image, if the image is in the editorial image family. **Note**: This field is not yet being populated.|
 |*Image*.EventIds|Collection|Contains an EventId entry for each event associated with the image. All editorial image family images have event Ids. Some creative image family images may have event Ids.|
 |EventID *entry*|String|Specifies the Id of an event associated with the image. All editorial image family images have EventIds. Some creative image family images have EventIds.|
-|*Image*.GraphicStyle|String|Indicates the graphic style of the image. Possible values are:
-
-- Photography
-- Illustration|
-
-|Image.ImageFamily|String|Indicates the image family classification. Possible values are:
-
-- Creative
-- Editorial|
-
+|*Image*.GraphicStyle|String|Indicates the graphic style of the image. Possible values are: <br>• Photography <br>• Illustration|
+|Image.ImageFamily|String|Indicates the image family classification. Possible values are: <br>• Creative <br>• Editorial|
 |*Image*.ImageId|String|Identifies the image.|
 |Image.Keywords|Collection|Contains a keyword entry for each keyword related to the image.|
 |Keyword entry|Object|Contains keyword details.|
 |Keyword.Id|String|Identifies the keyword.|
 |Keyword.Text|String|Provides localized text of the keyword.|
-|Keyword.Type|String|Identifies the type of keyword. Possible values are:
-
-- Unknown
-- Specific people
-- Ethnicity
-- Age
-- Gender
-- Number of People
-- Concept
-- Location
-- Viewpoint
-- Image technique
-- Composition
-- Color
-- Additional Info
-- Candidate Term
-- Fashion Phrases
-- Entertainment|
-
-|Keyword.VisualProminence|String|In "Specific people" keywords, identifies the visual prominence of that person in the image. Possible values are:
-
-- Unknown
-- Medium
-- High
-- VeryHigh|
-
-|Image.Licensing Model|String|Identifies a licensing model for the image. Possible values are:
-
-- RoyaltyFree
-- RightsManaged|
-
-|Image.Orientations|Collection|Contains an Orientation entry for each of the available orientations of the image. Orientation entry String Indicates available orientations of the image. Possible values are:
-
-- Horizontal
-- Vertical
-- Square
-- Panoramic|
-
-|Image.QualityRank|Integer|Assigned to editorial images to rank their relevance to the event they belong to. This number has no relevance for creative images eventhough it does appear in the metadata. Possible values are:
-
-- 1 most relevant
-- 2 tells story from a wider perspective
-- 3 stock/repeats/less important|
-
+|Keyword.Type|String|Identifies the type of keyword. Possible values are: <br>• Unknown <br>• Specific people <br>• Ethnicity <br>• Age <br>• Gender <br>• Number of People <br>• Concept <br>• Location <br>• Viewpoint <br>• Image technique <br>• Composition <br>• Color <br>• Additional Info <br>• Candidate Term <br>• Fashion Phrases <br>• Entertainment|
+|Keyword.VisualProminence|String|In "Specific people" keywords, identifies the visual prominence of that person in the image. Possible values are: <br>• Unknown <br>• Medium <br>• High <br>• VeryHigh|
+|Image.Licensing Model|String|Identifies a licensing model for the image. Possible values are: <br>• RoyaltyFree <br>• RightsManaged|
+|Image.Orientations|Collection|Contains an Orientation entry for each of the available orientations of the image. Orientation entry String Indicates available orientations of the image. Possible values are: <br>• Horizontal <br>• Vertical <br>• Square <br>• Panoramic|
+|Image.QualityRank|Integer|Assigned to editorial images to rank their relevance to the event they belong to. This number has no relevance for creative images eventhough it does appear in the metadata. Possible values are: <br>• 1 most relevant <br>• 2 tells story from a wider perspective <br>• 3 stock/repeats/less important|
 |Image.ReferralDestinations|Collection|Contains a ReferralDestination entry for each of the sites on which the image can be found.|
-|SiteName *entry*|String|Indicates the name of the website(s) on which the image can be found. Possible values are:
-
-- gettyimages
-- thinkstock
-- jupiterimages
-- photos|
-
+|SiteName *entry*|String|Indicates the name of the website(s) on which the image can be found. Possible values are: <br>• gettyimages <br>• thinkstock <br>• jupiterimages <br>• photos|
 |Url *entry*|String|Indicates the specific URL for the page on which the images can be found.|
 |*Image*.Title|String|Indicates the image title.|
 |*Image*.UrlComp|String|Identifies the URL of the image, sized for layout composition. Comp images are larger than preview and thumbnail, but not full sized.|
@@ -427,11 +307,7 @@ See Authorization Constraints for an explanation of constraint categories.|
 1. Call CreateSession with system and user credentials to create an authentication token.
 2. Call SearchForImages, providing the authentication token in the request header and
 specifying the query in the request body.
-3. For an initial search, populate the following fields:
-- Query.SearchPhrase
-- ResultOptions.ItemCount
-- ResultOptions.ItemStartNumber
-- Leave Filter undefined.
+3. For an initial search, populate the following fields: <br>• Query.SearchPhrase <br>• ResultOptions.ItemCount <br>• ResultOptions.ItemStartNumber <br>• Leave Filter undefined.
 4. Retrieve image metadata from the Images entries.
 5. Retrieve refinement filters from the RefinementOptions entries if a refined search will be
 supported.
