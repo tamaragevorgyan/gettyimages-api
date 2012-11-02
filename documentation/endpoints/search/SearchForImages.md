@@ -107,11 +107,7 @@ The RequestHeader specifies metadata about the request.
 | CoordinationId |String       |Optional      |Specify a value to echo in the response to track requests and their associated responses.                      |
 |Collections     |Object       |Optional      |Contains details for filtering search results by specific CollectionIds.                                       |
 |*Collections*.Ids|Collection  |Optional      |Specifies one or more CollectionIds by which to filter search results either on an include or exclude basis.   |
-|*Collections*.Mode|String|Optional|Specifies whether the Collection.Ids are being included or excluded from the search results possible values are: 
-
-- include
-
-- exclude
+|*Collections*.Mode|String|Optional|Specifies whether the Collection.Ids are being included or excluded from the search results possible values are: <br>• include <br>• exclude
 |
 |EditorialSegments|Collection|Optional|Specifies a segment of Editorial Image search results being filtered on. Possible values are:
 - News
