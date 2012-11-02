@@ -135,15 +135,11 @@ The RequestHeader specifies metadata about the request.
 |Orientations *entry*|String|Optional|Specifies image orientations to be included in search results. Possible values are: <br>• Horizontal <br>• Vertical <br>• Panoramichorizontal <br>• Panoramicvertical <br>• Square|
 |Product Offerings|Collection|Optional|Adds a ProductOfferings entry for each type of product offering. Use to filter results.|
 |Product Offerings *entry*|String|Optional|Specifies product offerings to be included in search results. Possible values are: <br>• PremiumAccess <br>• EditorialSubscription <br>• EasyAccess|
-|Query|Object|Required|Specifies an instance to provide the
-search query.|
-|Refinements|Collection|Optional|Adds a Refinement entry for each refinement filter to apply to the query results. This functionality supports “drill down” style filtering of a prior search query. Thus the applicable refinement filters for a query are provided in the search responses RefinementOptions
-collection.|
-|Refinement *entry*|Object|Optional|Contains the details for specific refinement
-filter.|
+|Query|Object|Required|Specifies an instance to provide the search query.|
+|Refinements|Collection|Optional|Adds a Refinement entry for each refinement filter to apply to the query results. This functionality supports “drill down” style filtering of a prior search query. Thus the applicable refinement filters for a query are provided in the search responses RefinementOptions collection.|
+|Refinement *entry*|Object|Optional|Contains the details for specific refinement filter.|
 |Refinement.Category|String|Conditional|Required when providing a Refinement entry. Specifies the category of the refinement filter. Use the RefinementOption.Category value for the desired refinement option in the response.|
-|Refinement.Id|String|Conditional|Required when providing a Refinement entry. Specifies the identifier of the refinement filter. Use the Refinement Option.Id value from the desire refinement
-option in the response.|
+|Refinement.Id|String|Conditional|Required when providing a Refinement entry. Specifies the identifier of the refinement filter. Use the Refinement Option.Id value from the desire refinement option in the response.|
 |RefinementOptionsSet|String|Optional|Specifies a profile that activates a custom set of available refinement options. If no value is provided, defaults to Getty Images standard refinement options. Possible values are client specific and are communicated by our product owner after analysis.|
 |ResultOptions|Object|Required|Specifies an instance to control paging, sorting or other result options.|
 |SearchPhrase|String|Optional|Specifies the search phrase.|
@@ -247,11 +243,9 @@ The SearchForImagesResult contains these fields.
 |:---------------|:------------|:--------------------------------------------------------------------------------------------------------------|
 |Images|Collection|Contains an image entry for each matching image found.|
 |Image *entry*|Object|Contains details of the specific matching image.|
-|*Image* ApplicableProductOfferings|Collection|Contains an ApplicableProductOffering entry for each of the customer’s product offerings that
-authorize access to the image. If empty, the customer is not authorized to access the image. Note: Also check the AuthorizationConstraints
-collection for possible image specific limitations to the authorization.|
+|*Image* ApplicableProductOfferings|Collection|Contains an ApplicableProductOffering entry for each of the customer’s product offerings that authorize access to the image. If empty, the customer is not authorized to access the image. Note: Also check the AuthorizationConstraints collection for possible image specific limitations to the authorization.|
 |ApplicableProductOffering *entry*|String|Indicates a customer’s product offering that authorizes access to the image. Possible values are: <br>• EasyAccess <br>• EditorialSubscription <br>• PremiumAccess <br>• RoyaltyFreeSubscription <br>• Imagepack|
-|*Image*.Artist|String|Identifies the image creator.
+|*Image*.Artist|String|Identifies the image creator.|
 |Image.AuthorizationConstraints|Collection|Contains an AuthorizationConstraint entry for each category of possible image-specific limitations to authorization. Authorization constraints occur when an image that would normally be authorized by a customer’s agreement has additional limitations.|
 |AuthorizationConstraint *entry*|String|Indicates the category of possible image-specific limitations to authorization. Possible values are: <br>• CallForImage <br> See Authorization Constraints for an explanation of constraint categories.|
 |*Image*.Caption|String|Describes the image.|
