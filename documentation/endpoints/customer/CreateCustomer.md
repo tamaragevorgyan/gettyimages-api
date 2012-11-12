@@ -1,16 +1,16 @@
 CreateCustomer
 -------------
-The Create Customer call creates a new customer in the Getty Images system.
+The Create Customer call creates a new customer in the Getty Images system. Note that the new user created by the CreateCustomer operation is created with marketing email opt-out selected.
 
 ###Endpoint
-Use the following endpoints to access this operation:
+Use the following endpoint to access this operation:
 
 	https://connect.gettyimages.com/v1/CreateCustomer
 	
 Note that this call must be made with the HTTPS protocol.
 
 ###Request
-The GetEventDetails JSON request has this form:
+The CreateCustomer JSON request has this form:
 
 	{
 	  "RequestHeader": {
@@ -41,11 +41,11 @@ The CreateCustomerRequestBody contains the request arguments.
 
 | Field 		| Type		| Use 	 	| Description 																	|
 |:--------------|:----------|:----------|:------------------------------------------------------------------------------|
-| UserName  	| String 	| Required 	| UserName for the customer to log in with. This is a unique name.				|
+| UserName  	| String 	| Required 	| UserName for the customer to log in with. This must be a unique name.			|
 | Password  	| String 	| Required 	| Password for the customer's login. This password cannot be the same as the UserName field and must be longer than 3 characters.	|
 | EmailAddress  | String 	| Required 	| Email address for the customer.												|
 | FirstName     | String 	| Required 	| First name of the customer. 													|
-| LastName  	| String 	| Required 	| Last name of the customer,													|
+| LastName  	| String 	| Required 	| Last name of the customer.													|
 | MiddleName	| String 	| Optional 	| Middle name of the customer. Optional.										|
 | BillingCountryChar3Iso | String | Required	| Specifies the 3 character Country Code for Billing. 					|
 
@@ -81,7 +81,7 @@ The ResponseHeader contains metadata about the operation execution and response.
 
 ###Workflow Example
 1. Call CreateApplicationSession with system credentials to create an authentication token.
-2. Call CreateCustomer via HTTPS and the System authentication token to create a new Customer with provided values.
+2. Call CreateCustomer via HTTPS and using the System authentication token to create a new Customer with provided values.
 
 
 
