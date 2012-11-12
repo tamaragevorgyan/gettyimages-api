@@ -33,7 +33,7 @@ The RequestHeader specifies metadata about the request.
 
 | Field          | Type        | Use          | Description                                                                               |
 |:---------------|:------------|:-------------|:------------------------------------------------------------------------------------------|
-| Token          | String      | Required     | Specify the authentication token provided by CreateApplicationSession.                    | 
+| Token          | String      | Required     | Specify the authentication token provided by CreateSession or CreateApplicationSession.   | 
 | CoordinationId | String      | Optional     | Specify a value to echo in the response to track requests and their associated responses. |
 
 ####CreateCustomerRequestBody Fields
@@ -80,8 +80,8 @@ The ResponseHeader contains metadata about the operation execution and response.
 | CoordinationId| String	| Indicates the CoordinationId value provided in the triggering request.										|
 
 ###Workflow Example
-1. Call CreateApplicationSession with system credentials to create an authentication token.
-2. Call CreateCustomer via HTTPS and using the System authentication token to create a new Customer with provided values.
+1. Call either CreateSession or CreateApplicationSession to create an authentication token.
+2. Call CreateCustomer via HTTPS and using the authentication token to create a new Customer with provided values.
 
 
 
