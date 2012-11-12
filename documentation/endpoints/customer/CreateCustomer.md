@@ -10,7 +10,7 @@ Use the following endpoint to access this operation:
 Note that this call must be made with the HTTPS protocol.
 
 ###Request
-The CreateCustomer JSON request has this form:
+The CreateCustomer JSON request has this format:
 
 	{
 	  "RequestHeader": {
@@ -50,7 +50,7 @@ The CreateCustomerRequestBody contains the request arguments.
 | BillingCountryChar3Iso | String | Required	| Specifies the 3 character Country Code for Billing. 					|
 
 ###Response
-The CreateCustomer JSON response has this form:
+The CreateCustomer JSON response has this format:
 
 	{
 	  "ResponseHeader": {
