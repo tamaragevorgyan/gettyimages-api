@@ -5,7 +5,7 @@ The CreateApplicationSession call starts a Getty Images Connect API anonymous ap
 ###Endpoint
 Use the following endpoint to access this operation:
 
-	https://connect.gettyimages.com/v1/CreateApplicationSession
+	https://connect.gettyimages.com/v1/session/CreateApplicationSession
 
 Note that this call must be made with the HTTPS protocol.
 	
