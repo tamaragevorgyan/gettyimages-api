@@ -75,11 +75,18 @@ The ResponseHeader contains metadata about the operation execution and response.
 | _Status_.Code    | String      | Identifies the category of the status notification. See [Status Codes](#statuscodes) for an explanations of the codes.        |
 | _Status_.Message | String      | Provides a human readable explanation of the status.                                                                          |
 | CoordinationId   | String      | Indicates the CoordinationId value provided in the triggering request.                                                        |
-| Countries	       | Collection  | Contains a list of _Country_ results for the query.							                                                 |
-| Country _entry_   		| Object	| The Country object that contains two and three character country codes as well as name of the country.  |
-| _Country_.CountryChar2ISO	| String    | Contains the two character ISO Country Code. Example: "US". |
-| _Country_.CountryChar3ISO | String    | Contains the three character ISO Country Code, which can be used in the [CreateCustomer] operation. Example: "USA". |
-| _Country_.CountryName 	| String    | Contains the full name of the country. Example: "United States". |
+
+
+####GetCountriesResult Fields
+The GetCountriesResult contains the response data.
+
+| Field                | Type        | Description																											 	 |
+|:---------------------|:------------|:--------------------------------------------------------------------------------------------------------------------------|
+| Countries	       	   | Collection  | Contains a list of _Country_ results for the query.							                                             |
+| Country _entry_   		| Object	| The Country object that contains two and three character country codes as well as name of the country.  				 |
+| _Country_.CountryChar2ISO	| String    | Contains the two character ISO Country Code. Example: "US". 															 |
+| _Country_.CountryChar3ISO | String    | Contains the three character ISO Country Code, which can be used in the [CreateCustomer] operation. Example: "USA".    |
+| _Country_.CountryName 	| String    | Contains the full name of the country. Example: "United States". 														 |
 
 
 ###Workflow Example
