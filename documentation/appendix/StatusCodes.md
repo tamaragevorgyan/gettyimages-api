@@ -12,6 +12,7 @@ The Status codes are:
 | AUTH-014                      | Indicates that the requested operation does not allow a secure token with http.						|
 | DefaultLanguageUsed			| Indicates that the request specifies an unsupported or missing language. Using language 'en-us'. 		|
 | DateCreatedRangeNotApplicable	| Indicates that DateCreatedRange can only be used with the editorial or default image family.			|
+| DependentServiceDown          | Indicates that a dependent system is unreachable.                                                     |
 | DuplicateUsername				| Indicates that the username is already in use.														|
 | EventNotFound					| Indicates that one or more of the requested events could not be found.								|
 | ExpiredDownloadToken			| Indicates that the download token has expired.														|
@@ -19,6 +20,8 @@ The Status codes are:
 | FailedToGetDownloadUrl		| Indicates that a download URL could not be gotten for the asset, size, and agreement specified.		|
 | FailedToRenewToken			| Indicates that the system security token was unable to be renewed.									| 
 | ImageNotFound					| Indicates that the image does not exist; usually due to an incorrectly specified image id.			|
+| InternalError					| Indicates an internal error.																			|
+| InvalidAssets				    | Indicates that there are invalid asset id(s) in the request.											|
 | InvalidCollectionId			| Indicates that the collection id specified is not valid.												|
 | InvalidEditorialSegment		| Indicates that the editorial segment specified is not valid.											|
 | InvalidEditorialSourceId		| Indicates that the editorial source id specified is not valid.										|
@@ -56,13 +59,21 @@ The Status codes are:
 | InvalidLightboxName			| Indicates that the LightboxName cannot be null or empty.												|
 | LightboxIdDoesNotExist		| Indicates that the Lightbox Id specified does not exist.												|
 | LightboxesNotFound			| Indicates that no lightboxes were found.																|
-| AssetNotAvailable				| Indicates that one or more of the Assets specified is not available.									|
-| OperationValidOnlyForLightboxOwner | Indicates that the Operation is valid only for the Lightbox Owner.								|
-| InvalidItemCount				| Indicates the ItemCount stated must be greater than 0.												|
-| InvalidItemStartNumber		| Indicates the ItemStartNumber stated must be greater than 0.											|
-| FailedToCreateCustomer		| Indicates that the attempt to create a customer failed.												|
-| DuplicateUsername				| Indicates that the Username specified is a duplicate.													|
-| PasswordTooShort				| Indicates that the minimum password length is 3 characters.											|
-| UsernameEqualsPassword		| Indicates that the Username cannot be same as password.												|
-
-
+| LightboxIdDoesNotExist		| Indicates that the specified lightbox id does not exist.												|
+| MaxExceeded					| Indicates the specified item count exceeds the maximum allowed.										|
+| MissingEventIds				| Indicates	the request is missing an event id.															|
+| MissingImageId				| Indicates	the request is missing an image id.															|
+| MissingSizeKey				| Indicates the request is missing a size key.															|
+| NoAgreement					| Indicates that the user has no active agreement.														|
+| NoAuthorizations				| Indicates that no authorizations were found for one or more assets.									|
+| NoImages						| Indicates that no images were found that match the specified query and possibly filters.				|
+| NonExistingCollectionId		| Indicates that the requested collection id does not exist.											|
+| NoVideos						| Indicates that no videos were found that match the specified query.									|
+| OperationValidOnlyForLightboxOwner| Indicates that this operation is valid only for the lightbox owner.								|
+| PasswordTooShort				| Indicates that the password length is less than 3 characters.											|
+| StartPastTotal				| Indicates that the specified item start number is beyond the total available items.					|
+| SystemError					| Indicates an unknown error.																			|
+| TransactionIdDuplicate		| Indicates that a usage report with the provided transaction id has already been successfully recorded.|
+| UnauthorizedProductOffering	| Indicates that the active download agreement does not authorize the requested product offerings. 		|
+| UnauthorizedToReportUsage     | Indicates that the user is not authorized to report usage.											|
+| UsernameEqualsPassword		| Indicates that the password matches the username. Username and password can't be the same. 			|
