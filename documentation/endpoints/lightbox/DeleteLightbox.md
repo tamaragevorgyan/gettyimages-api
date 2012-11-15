@@ -63,10 +63,11 @@ The ResponseHeader contains metadata about the operation execution and response.
 | StatusList       | Collection  | Contains a _Status_ entry for each detailed processing status notification.                                                   |
 | Status _entry_   | Object      | Contains the details of a status notification                                                                                 |
 | _Status_.Type    | String      | Indicates the type, or severity, of the status notification. Possible values are: <br>• Information <br>• Warning <br>• Error |
-| _Status_.Code    | String      | Identifies the category of the status notification. See [Status Codes](#statuscodes) for an explanations of the codes.        |
+| _Status_.Code    | String      | Identifies the category of the status notification. See [StatusCodes][] for an explanations of the codes.        |
 | _Status_.Message | String      | Provides a human readable explanation of the status.                                                                          |
 | CoordinationId   | String      | Indicates the CoordinationId value provided in the triggering request.                                                        |
 
+[statuscodes]: ../../appendix/StatusCodes.md
 
 ###Workflow Example
 1. Call CreateSession to create an authentication token.
