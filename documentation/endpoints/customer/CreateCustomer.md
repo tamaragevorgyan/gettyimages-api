@@ -1,11 +1,13 @@
 CreateCustomer
 -------------
-The Create Customer call creates a new customer in the Getty Images system. Note that the new user created by the CreateCustomer operation is created with marketing email opt-out selected.
+The Create Customer call creates a new customer in the Getty Images system. 
+Note that the new user created by the CreateCustomer operation is created with marketing email opt-out selected. 
+Also, this operation supports being called with an anonymous system Token created by [CreateApplicationSession].
 
 ###Endpoint
 Use the following endpoint to access this operation:
 
-	https://connect.gettyimages.com/v1/CreateCustomer
+	https://connect.gettyimages.com/v1/account/CreateCustomer
 	
 Note that this call must be made with the HTTPS protocol.
 
@@ -47,7 +49,7 @@ The CreateCustomerRequestBody contains the request arguments.
 | FirstName     | String 	| Required 	| First name of the customer. 													|
 | LastName  	| String 	| Required 	| Last name of the customer.													|
 | MiddleName	| String 	| Optional 	| Middle name of the customer. Optional.										|
-| BillingCountryChar3Iso | String | Required	| Specifies the 3 character Country Code for Billing. Note that valid values for this field can be retrieved via the [GetCountries] operation. |
+| BillingCountryChar3Iso | String | Required | Specifies the 3 character Country Code for Billing. Note that valid values for this field can be retrieved via the [GetCountries] operation. |
 
 ###Response
 The CreateCustomer JSON response has this format:
@@ -81,7 +83,7 @@ The ResponseHeader contains metadata about the operation execution and response.
 
 
 ###Workflow Example
-1. Call either CreateSession or CreateApplicationSession to create an authentication token.
+1. Call either [CreateSession] or [CreateApplicationSession] to create an authentication token.
 2. Call CreateCustomer via HTTPS and using the authentication token to create a new Customer with provided values.
 
 

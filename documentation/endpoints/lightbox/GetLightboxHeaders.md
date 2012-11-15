@@ -1,6 +1,6 @@
 GetLightboxHeaders
 -------------
-The GetLightboxHeaders operation allows you to retrieve the Header data for multiple lightboxes.
+The GetLightboxHeaders operation allows you to retrieve the Header data for multiple lightboxes you own.
 
 ###Endpoint
 Use the following endpoint to access this operation:
@@ -37,9 +37,9 @@ The GetLightboxHeadersRequestBody contains the request arguments.
 
 | Field 							| Type		| Use 	 	| Description 																	|
 |:----------------------------------|:----------|:----------|:------------------------------------------------------------------------------|
-| ResultsViewOptions 				| Object	| Required 	| 										|
-| _ResultsViewOptions_.ItemCount 	| int 		| Required 	| 										|
-| _ResultsViewOptions_.ItemStartNumber | int	| Required	| 										|
+| ResultsViewOptions 				| Object	| Required 	| Contains the options for viewing the lightbox header results.					|
+| _ResultsViewOptions_.ItemCount 	| int 		| Required 	| Number of lightbox headers to return for this query, can be used for paging.	|
+| _ResultsViewOptions_.ItemStartNumber | int	| Required	| Number to start retrieval of lightboxes in the list, can be used for paging.	|
 
 
 ###Response
@@ -108,8 +108,8 @@ The GetLightboxHeadersResult contains the response data.
 
 
 ###Workflow Example
-1. Call either CreateSession or CreateApplicationSession to create an authentication token.
-2. Call CreateLightbox with the authentication token to create a new blank lightbox.
-2. Call GetLightboxHeaders 
+1. Call CreateSession to create an authentication token.
+2. If you do not own any lightboxes, call CreateLightbox with the authentication token to create a new blank lightbox.
+2. Call GetLightboxHeaders to retrieve all the lightboxes you own.
 
 

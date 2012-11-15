@@ -29,7 +29,7 @@ The RequestHeader specifies metadata about the request.
 
 | Field          | Type        | Use          | Description                                                                               |
 |:---------------|:------------|:-------------|:------------------------------------------------------------------------------------------|
-| Token          | String      | Required     | Specify the authentication token provided by CreateSession or CreateApplicationSession.   | 
+| Token          | String      | Required     | Specify the authentication token provided by CreateSession. 							  | 
 | CoordinationId | String      | Optional     | Specify a value to echo in the response to track requests and their associated responses. |
 
 ####CreateLightboxRequestBody Fields
@@ -80,13 +80,13 @@ The ResponseHeader contains metadata about the operation execution and response.
 ####CreateLightboxResult Fields
 The CreateLightboxResult contains the response data.
 
-| Field                | Type        | Description																											 	 |
-|:---------------------|:------------|:--------------------------------------------------------------------------------------------------------------------------|
-| LightboxId   	   | int         | The ID of the lightbox that was created by the request. This ID is required in order to perform other operations on the lightbox.	|
+| Field          | Type        | Description																											 	 		|
+|:---------------|:------------|:-----------------------------------------------------------------------------------------------------------------------------------|
+| LightboxId   	 | int         | The ID of the lightbox that was created by the request. This ID is required in order to perform other operations on the lightbox.	|
 
 
 ###Workflow Example
-1. Call either CreateSession to create an authentication token.
+1. Call CreateSession to create an authentication token.
 2. Call CreateLightbox with the authentication token to create a new blank lightbox.
 
 

@@ -1,6 +1,7 @@
 GetLightbox
 -------------
 The GetLightbox operation allows you to retrieve a single lightbox by ID along with specifying item view options.
+Note that while creating a lightbox requires a user authentication token, this call can be made with an anonymous token created by calling [CreateApplicationSession]
 
 ###Endpoint
 Use the following endpoint to access this operation:
@@ -38,10 +39,10 @@ The GetLightboxRequestBody contains the request arguments.
 
 | Field 							| Type			| Use 	 	| Description 																	|
 |:----------------------------------|:--------------|:----------|:------------------------------------------------------------------------------|
-| LightboxId						| int 			| Required 	| 										|
-| LightboxItemsViewOptions 			| Object		| Required 	| 										|
-| _LightboxItemsViewOptions_.ItemCount | int 		| Required 	| 										|
-| _LightboxItemsViewOptions_.ItemStartNumber | int 	| Required	| 										|
+| LightboxId						| int 			| Required 	| The unique ID of the lightbox to retrieve.									|
+| LightboxItemsViewOptions 			| Object		| Required 	| Contains the options the user has for viewing the return data for Items.		|
+| _LightboxItemsViewOptions_.ItemCount | int 		| Required 	| Number of Items to return for this query, can be used for paging. 			|
+| _LightboxItemsViewOptions_.ItemStartNumber | int 	| Required	| Number to start retrieval of Items in the lightbox, can be used for paging.	|
 
 
 ###Response
@@ -122,24 +123,24 @@ The GetLightboxResult contains the response data.
 | _LightboxHeader_.LightboxItemCount | string	| Count of items that the lightbox contains.											|
 | _LightboxHeader_.LightboxUrl	| string		| URL that will show the user interface for the lightbox.								|
 | _LightboxHeader_.Notes		| string		| Notes for further description of the lightbox and its contents.						|
-| LightboxItems 				| Collection 	|     	|
-| LightboxItem _entry_			| Object 		| 		|
-| _LightboxItem_.AssetId		| string 		| 		|
-| _LightboxItem_.Comment		| string 		| 		|
-| _LightboxItem_.DateCreated	| string 		| 		|
-| _LightboxItem_.DateModified	| string 		| 		|
-| _LightboxItem_.ItemPosition	| string 		| 		|
-| _LightboxItem_.LightboxItemId	| string 		| 		|
-| _LightboxItem_.Urls			| Object 		| 		|
-| _LightboxItem_._Urls_.Preview	| string 		| 		|
-| _LightboxItem_._Urls_.SmallThumb | string 	| 		|
-| _LightboxItem_._Urls_.Thumb 	| string 		| 		|
-| _LightboxItem_._Urls_.WatermarkPreview | string | 		|
+| LightboxItems 				| Collection 	| List of Items in the lightbox.    													|
+| LightboxItem _entry_			| Object 		| Object containing metadata about the lightbox Item.									|
+| _LightboxItem_.AssetId		| string 		| Original ID of the Item.																|
+| _LightboxItem_.Comment		| string 		| Contains any comments that have been made on the Item.								|
+| _LightboxItem_.DateCreated	| string 		| Date that the Item was added to the lightbox. 										|
+| _LightboxItem_.DateModified	| string 		| Date that the item was last modified in this lightbox.								|
+| _LightboxItem_.ItemPosition	| string 		| Position in the list of items in the lightbox.										|
+| _LightboxItem_.LightboxItemId	| string 		| ID of this object, the instance of this Item in the lightbox.							|
+| _LightboxItem_.Urls			| Object 		| Object containing the URLs related to the Item.										|
+| _LightboxItem_._Urls_.Preview	| string 		| URL for the preview of the item.														|
+| _LightboxItem_._Urls_.SmallThumb | string 	| URL for the small thumbnail image for the item.										|
+| _LightboxItem_._Urls_.Thumb 	| string 		| URL for the thumbnail image for the item.												|
+| _LightboxItem_._Urls_.WatermarkPreview | string | URL for the preview of the item with a watermark.									|
 
 
 ###Workflow Example
-1. Call either CreateSession or CreateApplicationSession to create an authentication token.
+1. Call CreateSession or CreateApplicationSession to create an authentication token.
 2. Call CreateLightbox with the authentication token to create a new blank lightbox.
-2. Call GetLightbox with the 
+3. Call GetLightbox with the ID of the lightbox created in Step 2.
 
 

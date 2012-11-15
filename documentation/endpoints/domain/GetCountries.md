@@ -1,6 +1,7 @@
 GetCountries
 -------------
 The GetCountries call retrieves a list of countries that are valid for the given language code.
+This operation supports being called with an anonymous system Token created by [CreateApplicationSession].
 
 ###Endpoint
 Use the following endpoint to access this operation:
