@@ -10,6 +10,8 @@ The Status codes are:
 | AUTH-002                      | Indicates that the request must be made over a secure transport (e.g. SSL). 							|
 | AUTH-023                      | Indicates that only a secure token can be used with the requested operation. 							|
 | AUTH-014                      | Indicates that the requested operation does not allow a secure token with http.						|
+| CollectionModeEmpty			| Indicates that the Collection Mode cannot be empty if Collections is specified.						|
+| CollectionIdsEmpty			| Indicates that Collection Ids cannot be empty if Collections is specified.							|
 | DefaultLanguageUsed			| Indicates that the request specifies an unsupported or missing language. Using language 'en-us'. 		|
 | DateCreatedRangeNotApplicable	| Indicates that DateCreatedRange can only be used with the editorial or default image family.			|
 | DependentServiceDown          | Indicates that a dependent system is unreachable.                                                     |
@@ -35,29 +37,9 @@ The Status codes are:
 | InvalidOrientation			| Indicates that the orientation specified is not valid. 												|
 | InvalidProductOffering		| Indicates that the specified product offering is not valid.     										|
 | InvalidRequest				| Indicates a problem with the request. See the message field for additional details about the problem.	|
-| SystemError					| Indicates an unknown error.																			|
+| InvalidSearchForVideoByAssetId | Indicates that the asset id cannot be combined with other query parameters, because they will be ignored and only AssetId will be used. |
 | InvalidSystemIdOrPassword		| Indicates that an invalid systemId or password was sent in.											|
 | InvalidUsernameOrPassword		| Indicates that an invalid username or password was sent in.											|
-| OperationRequiresHttps		| Indicates an error that the operation in use requires HTTPs.											|
-| OperationRequiresSecureToken	| Indicates an error stating that this operation requires using a secure token. 						|
-| SecureTokenPassedOverHttp		| Indicates an error stating that this operation does not allow a secure token with http.				|
-| FailedToRenewToken			| Indicates that this Token is unable to be Renewed. Please call CreateSession to get a new token.		|
-| DefaultLanguageUsed			| Indicates a warning for the user that the default language of 'en-us' was used because language was not specified. |
-| InvalidLanguageCode			| Indicates that the specified language is not recognized.												|
-| MaxExceeded					| Indicates the specified ItemCount exceeds the maximum allowed for the operation.						|
-| StartPastTotal				| Indicates the specified ItemStartNumber is beyond the total available items.							|
-| NoImages						| Indicates no images were found that match the specified Query and possibly Filters.					|
-| NoVideos						| Indicates that no videos were found that match the specified Query and possibly Filters.				|
-| ImageNotFound					| Indicates the image does not exist; usually due to an incorrectly specified ImageId.					|
-| MissingImageId				| Indicates that the request is missing required ImageId.												|
-| InvalidCollectionId			| Indicates that the CollectionId is not valid.															|																		
-| NonExistingCollectionId		| Indicates that the CollectionId does not exist.														|
-| InvalidSearchForVideoByAssetId | Indicates that the AssetId cannot be combined with other query parameters, because they will be ignored and only AssetId will be used. |
-| AssetIdListExceedsMaxAllowed  | Indicates that the quantity of asset ids specified exceeds the maximum allowed of 500.				|
-| CollectionModeEmpty			| Indicates that the Collection Mode cannot be empty if Collections is specified.						|
-| CollectionIdsEmpty			| Indicates that Collection Ids cannot be empty if Collections is specified.							|
-| InvalidLightboxName			| Indicates that the LightboxName cannot be null or empty.												|
-| LightboxIdDoesNotExist		| Indicates that the Lightbox Id specified does not exist.												|
 | LightboxesNotFound			| Indicates that no lightboxes were found.																|
 | LightboxIdDoesNotExist		| Indicates that the specified lightbox id does not exist.												|
 | MaxExceeded					| Indicates the specified item count exceeds the maximum allowed.										|
@@ -69,8 +51,11 @@ The Status codes are:
 | NoImages						| Indicates that no images were found that match the specified query and possibly filters.				|
 | NonExistingCollectionId		| Indicates that the requested collection id does not exist.											|
 | NoVideos						| Indicates that no videos were found that match the specified query.									|
+| OperationRequiresHttps		| Indicates an error that the operation in use requires HTTPs.											|
+| OperationRequiresSecureToken	| Indicates an error stating that this operation requires using a secure token. 						|
 | OperationValidOnlyForLightboxOwner| Indicates that this operation is valid only for the lightbox owner.								|
 | PasswordTooShort				| Indicates that the password length is less than the minimum required length. 							|
+| SecureTokenPassedOverHttp		| Indicates an error stating that this operation does not allow a secure token with http.				|
 | StartPastTotal				| Indicates that the specified item start number is beyond the total available items.					|
 | SystemError					| Indicates an unknown error.																			|
 | TransactionIdDuplicate		| Indicates that a usage report with the provided transaction id has already been successfully recorded.|
