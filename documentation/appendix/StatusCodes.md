@@ -10,6 +10,8 @@ The Status codes are:
 | AUTH-002                      | Indicates that the request must be made over a secure transport (e.g. SSL). 							|
 | AUTH-023                      | Indicates that only a secure token can be used with the requested operation. 							|
 | AUTH-014                      | Indicates that the requested operation does not allow a secure token with http.						|
+| CollectionModeEmpty			| Indicates that the Collection Mode cannot be empty if Collections is specified.						|
+| CollectionIdsEmpty			| Indicates that Collection Ids cannot be empty if Collections is specified.							|
 | DefaultLanguageUsed			| Indicates that the request specifies an unsupported or missing language. Using language 'en-us'. 		|
 | DateCreatedRangeNotApplicable	| Indicates that DateCreatedRange can only be used with the editorial or default image family.			|
 | DependentServiceDown          | Indicates that a dependent system is unreachable.                                                     |
@@ -35,11 +37,11 @@ The Status codes are:
 | InvalidOrientation			| Indicates that the orientation specified is not valid. 												|
 | InvalidProductOffering		| Indicates that the specified product offering is not valid.     										|
 | InvalidRequest				| Indicates a problem with the request. See the message field for additional details about the problem.	|
-| InvalidSearchForVideoByAssetIdRequest	| Indicates that the request cannot combine asset id with other query parameters 				|
 | InvalidSizeCode				| Indicates that the specified size code to download the asset for the agreements is invalid.			|
 | InvalidSizeKey				| Indicates that the specified size key is empty.														|
-| InvalidSystemIdOrPassword		| Indicates that either the system id or system password is invalid to grant access to the system.		|
-| InvalidUsernameOrPassword		| Indicates that either the user id or user password is invalid to grant access to the system.			|
+| InvalidSearchForVideoByAssetId | Indicates that the asset id cannot be combined with other query parameters, because they will be ignored and only AssetId will be used. |
+| InvalidSystemIdOrPassword		| Indicates that an invalid systemId or password was sent in.											|
+| InvalidUsernameOrPassword		| Indicates that an invalid username or password was sent in.											|
 | LightboxesNotFound			| Indicates that no lightboxes were found.																|
 | LightboxIdDoesNotExist		| Indicates that the specified lightbox id does not exist.												|
 | MaxExceeded					| Indicates the specified item count exceeds the maximum allowed.										|
@@ -51,8 +53,11 @@ The Status codes are:
 | NoImages						| Indicates that no images were found that match the specified query and possibly filters.				|
 | NonExistingCollectionId		| Indicates that the requested collection id does not exist.											|
 | NoVideos						| Indicates that no videos were found that match the specified query.									|
+| OperationRequiresHttps		| Indicates an error that the operation in use requires HTTPs.											|
+| OperationRequiresSecureToken	| Indicates an error stating that this operation requires using a secure token. 						|
 | OperationValidOnlyForLightboxOwner| Indicates that this operation is valid only for the lightbox owner.								|
 | PasswordTooShort				| Indicates that the password length is less than the minimum required length. 							|
+| SecureTokenPassedOverHttp		| Indicates an error stating that this operation does not allow a secure token with http.				|
 | StartPastTotal				| Indicates that the specified item start number is beyond the total available items.					|
 | SystemError					| Indicates an unknown error.																			|
 | TransactionIdDuplicate		| Indicates that a usage report with the provided transaction id has already been successfully recorded.|
