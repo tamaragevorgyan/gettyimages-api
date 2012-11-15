@@ -9,6 +9,7 @@ The Status codes are:
 | AssetNotAvailable				| Indicates that one or more of the assets specified is not available.									|
 | AUTH-002                      | Indicates that the request must be made over a secure transport (e.g. SSL). 							|
 | AUTH-023                      | Indicates that only a secure token can be used with the requested operation. 							|
+| AUTH-021                      | Indicates that the token is not fully authenticated; there is a problem with the token.				|
 | AUTH-014                      | Indicates that the requested operation does not allow a secure token with http.						|
 | CollectionModeEmpty			| Indicates that the Collection Mode cannot be empty if Collections is specified.						|
 | CollectionIdsEmpty			| Indicates that Collection Ids cannot be empty if Collections is specified.							|
