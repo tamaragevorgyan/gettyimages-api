@@ -37,6 +37,8 @@ The Status codes are:
 | InvalidOrientation			| Indicates that the orientation specified is not valid. 												|
 | InvalidProductOffering		| Indicates that the specified product offering is not valid.     										|
 | InvalidRequest				| Indicates a problem with the request. See the message field for additional details about the problem.	|
+| InvalidSizeCode				| Indicates that the specified size code to download the asset for the agreements is invalid.			|
+| InvalidSizeKey				| Indicates that the specified size key is empty.														|
 | InvalidSearchForVideoByAssetId | Indicates that the asset id cannot be combined with other query parameters, because they will be ignored and only AssetId will be used. |
 | InvalidSystemIdOrPassword		| Indicates that an invalid systemId or password was sent in.											|
 | InvalidUsernameOrPassword		| Indicates that an invalid username or password was sent in.											|
