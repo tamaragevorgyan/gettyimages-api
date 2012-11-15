@@ -12,6 +12,7 @@ The Status codes are:
 | AUTH-014                      | Indicates that the requested operation does not allow a secure token with http.						|
 | DefaultLanguageUsed			| Indicates that the request specifies an unsupported or missing language. Using language 'en-us'. 		|
 | DateCreatedRangeNotApplicable	| Indicates that DateCreatedRange can only be used with the editorial or default image family.			|
+| DependentServiceDown          | Indicates that a dependent system is unreachable.                                                     |
 | DuplicateUsername				| Indicates that the username is already in use.														|
 | EventNotFound					| Indicates that one or more of the requested events could not be found.								|
 | ExpiredDownloadToken			| Indicates that the download token has expired.														|
@@ -19,6 +20,8 @@ The Status codes are:
 | FailedToGetDownloadUrl		| Indicates that a download URL could not be gotten for the asset, size, and agreement specified.		|
 | FailedToRenewToken			| Indicates that the system security token was unable to be renewed.									| 
 | ImageNotFound					| Indicates that the image does not exist; usually due to an incorrectly specified image id.			|
+| InternalError					| Indicates an internal error.																			|
+| InvalidAssets				    | Indicates that there are invalid asset id(s) in the request.											|
 | InvalidCollectionId			| Indicates that the collection id specified is not valid.												|
 | InvalidEditorialSegment		| Indicates that the editorial segment specified is not valid.											|
 | InvalidEditorialSourceId		| Indicates that the editorial source id specified is not valid.										|
@@ -52,5 +55,7 @@ The Status codes are:
 | PasswordTooShort				| Indicates that the password length is less than 3 characters.											|
 | StartPastTotal				| Indicates that the specified item start number is beyond the total available items.					|
 | SystemError					| Indicates an unknown error.																			|
+| TransactionIdDuplicate		| Indicates that a usage report with the provided transaction id has already been successfully recorded.|
 | UnauthorizedProductOffering	| Indicates that the active download agreement does not authorize the requested product offerings. 		|
+| UnauthorizedToReportUsage     | Indicates that the user is not authorized to report usage.											|
 | UsernameEqualsPassword		| Indicates that the password matches the username. Username and password can't be the same. 			|
