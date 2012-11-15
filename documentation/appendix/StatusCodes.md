@@ -70,10 +70,10 @@ The Status codes are:
 | NonExistingCollectionId		| Indicates that the requested collection id does not exist.											|
 | NoVideos						| Indicates that no videos were found that match the specified query.									|
 | OperationValidOnlyForLightboxOwner| Indicates that this operation is valid only for the lightbox owner.								|
-| PasswordTooShort				| Indicates that the password length is less than 3 characters.											|
+| PasswordTooShort				| Indicates that the password length is less than the minimum required length. 							|
 | StartPastTotal				| Indicates that the specified item start number is beyond the total available items.					|
 | SystemError					| Indicates an unknown error.																			|
 | TransactionIdDuplicate		| Indicates that a usage report with the provided transaction id has already been successfully recorded.|
 | UnauthorizedProductOffering	| Indicates that the active download agreement does not authorize the requested product offerings. 		|
-| UnauthorizedToReportUsage     | Indicates that the user is not authorized to report usage.											|
+| UnauthorizedToReportUsage     | Indicates that the partner is not authorized to report usage.											|
 | UsernameEqualsPassword		| Indicates that the password matches the username. Username and password can't be the same. 			|
