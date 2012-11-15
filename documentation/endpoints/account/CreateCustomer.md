@@ -81,7 +81,7 @@ The ResponseHeader contains metadata about the operation execution and response.
 | _Status_.Message | String      | Provides a human readable explanation of the status.                                                                          |
 | CoordinationId   | String      | Indicates the CoordinationId value provided in the triggering request.                                                        |
 
-[statuscodes]: /connect/documentation/appendix/StatusCodes.md
+[statuscodes]: ../../appendix/StatusCodes.md
 
 ###Workflow Example
 1. Call either [CreateSession] or [CreateApplicationSession] to create an authentication token.
