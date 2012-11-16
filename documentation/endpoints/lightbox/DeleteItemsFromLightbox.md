@@ -78,7 +78,7 @@ The ResponseHeader contains metadata about the operation execution and response.
 1. Call CreateSession to create an authentication token.
 2. Call CreateLightbox to create a new blank lightbox.
 3. Search for items to add to the lightbox (Example: SearchForImages), note the Asset IDs of the items you want in your lightbox.
-4. Call AddItemsFromLightbox with the lightbox ID from step 2 and the Asset IDs from step 3 to populate your lightbox.
-5. Call GetLightbox and note Asset IDs within the LightboxItem collect for an item to remove from the lightbox.
+4. Call AddItemsToLightbox with the lightbox ID from step 2 and the Asset IDs from step 3 to populate your lightbox.
+5. Call GetLightbox and note Asset IDs within the LightboxItem collection for an item to remove from the lightbox.
 6. Call DeleteItemsFromLightbox with the lightbox ID from step 2 and the Asset IDs from step 5 to remove unwanted items from your lightbox.
 
