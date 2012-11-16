@@ -30,7 +30,7 @@ The RequestHeader specifies metadata about the request.
 
 | Field          | Type        | Use          | Description                                                                               |
 |:---------------|:------------|:-------------|:------------------------------------------------------------------------------------------|
-| Token          | String      | Required     | Specify the authentication token provided by CreateSession or CreateApplicationSession.   | 
+| Token          | String      | Required     | Specify the authentication token provided by CreateSession.   							  | 
 | CoordinationId | String      | Optional     | Specify a value to echo in the response to track requests and their associated responses. |
 
 ####UpdateLightboxHeaderRequestBody Fields
@@ -40,7 +40,7 @@ The UpdateLightboxHeaderRequestBody contains the request arguments.
 |:--------------|:----------|:----------|:----------------------------------------------------------------------------------------------|
 | LightboxId	| int 		| Required 	| ID of the lightbox to update.																	|
 | LightboxName	| String 	| Required 	| Name of the lightbox. Note that the name is not required to be unique.						|
-| ClientName	| String 	| Optional 	| Name of the client that the lightbox is created for. Optional.							|
+| ClientName	| String 	| Optional 	| Name of the client that the lightbox is created for. Optional.								|
 | ProjectName	| String 	| Optional 	| Name of the project the lightbox is for. Optional.											|
 | Notes			| String 	| Optional 	| Notes for further description of the lightbox and its contents. Optional.						|
 
