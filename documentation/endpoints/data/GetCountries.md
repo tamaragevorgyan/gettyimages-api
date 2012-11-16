@@ -80,7 +80,7 @@ The ResponseHeader contains metadata about the operation execution and response.
 [statuscodes]: ../../appendix/StatusCodes.md
 [createapplicationsession]: ../session/CreateApplicationSession.md
 [createsession]: ../session/CreateSession.md
-[createcustomer]: ../data/CreateCustomer.md
+[createcustomer]: ../account/CreateCustomer.md
 
 ####GetCountriesResult Fields
 The GetCountriesResult contains the response data.
