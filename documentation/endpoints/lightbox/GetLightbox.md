@@ -1,7 +1,7 @@
 GetLightbox
 -------------
 The GetLightbox operation allows you to retrieve a single lightbox by ID along with specifying item view options.
-Note that while creating a lightbox requires a user authentication token, this call can be made with an anonymous token created by calling [CreateApplicationSession]
+Note that while creating a lightbox requires a user authentication token, this call can be made with an anonymous token created by calling [CreateApplicationSession][]
 
 ###Endpoint
 Use the following endpoint to access this operation:
@@ -102,11 +102,13 @@ The ResponseHeader contains metadata about the operation execution and response.
 | StatusList       | Collection  | Contains a _Status_ entry for each detailed processing status notification.                                                   |
 | Status _entry_   | Object      | Contains the details of a status notification                                                                                 |
 | _Status_.Type    | String      | Indicates the type, or severity, of the status notification. Possible values are: <br>• Information <br>• Warning <br>• Error |
-| _Status_.Code    | String      | Identifies the category of the status notification. See [StatusCodes][] for an explanations of the codes.        |
+| _Status_.Code    | String      | Identifies the category of the status notification. See [StatusCodes][] for explanations of the codes.        |
 | _Status_.Message | String      | Provides a human readable explanation of the status.                                                                          |
 | CoordinationId   | String      | Indicates the CoordinationId value provided in the triggering request.                                                        |
 
 [statuscodes]: ../../appendix/StatusCodes.md
+[createapplicationsession]: ../session/CreateApplicationSession.md
+
 
 ####GetLightboxResult Fields
 The GetLightboxResult contains the response data.
