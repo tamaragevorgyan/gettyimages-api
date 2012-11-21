@@ -143,7 +143,7 @@ The GetLightboxResult contains the response data.
 
 ###Workflow Example
 1. Call CreateSession or CreateApplicationSession to create an authentication token.
-2. Call CreateLightbox with the authentication token to create a new blank lightbox.
-3. Call GetLightbox with the ID of the lightbox created in Step 2.
+2. Call CreateLightbox with the authentication token to create a new blank lightbox or call GetLightboxHeaders to find ID of existing lightbox.
+3. Call GetLightbox with the ID of the lightbox identified in Step 2.
 
 

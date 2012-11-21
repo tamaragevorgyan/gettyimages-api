@@ -71,7 +71,7 @@ The ResponseHeader contains metadata about the operation execution and response.
 
 ###Workflow Example
 1. Call CreateSession to create an authentication token.
-2. Call CreateLightbox to create a new lightbox. Note the ID that was returned in the response of this operation.
+2. Call CreateLightbox to create a new lightbox or call GetLightboxHeaders to find ID of existing lightbox. Note the ID that was returned in the response of this operation.
 3. Call DeleteLightbox with the lightbox ID that was returned in Step 2 to delete it.
 
 

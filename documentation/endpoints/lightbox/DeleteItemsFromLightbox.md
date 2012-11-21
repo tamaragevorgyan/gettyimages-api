@@ -1,7 +1,7 @@
 DeleteItemsFromLightbox
 -------------
 The DeleteItemsFromLightbox operation allows you to delete items from a specific lightbox. These items can be any of the supported types of assets; images, videos, etc. 
-Note that these items do not get deleted from the Getty Images system, just removed from the list of items in your lightbox.
+Note that these items do not get deleted from the Getty Images system, just removed from the list of items in your lightbox. This operation should only be called by the owner of the lightbox.
 
 ###Endpoint
 Use the following endpoint to access this operation:
@@ -76,7 +76,7 @@ The ResponseHeader contains metadata about the operation execution and response.
 
 ###Workflow Example
 1. Call CreateSession to create an authentication token.
-2. Call CreateLightbox to create a new blank lightbox.
+2. Call CreateLightbox to create a new blank lightbox or call GetLightboxHeaders to find ID of existing lightbox.
 3. Search for items to add to the lightbox (Example: SearchForImages), note the Asset IDs of the items you want in your lightbox.
 4. Call AddItemsToLightbox with the lightbox ID from step 2 and the Asset IDs from step 3 to populate your lightbox.
 5. Call GetLightbox and note Asset IDs within the LightboxItem collection for an item to remove from the lightbox.

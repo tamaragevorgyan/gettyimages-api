@@ -1,6 +1,6 @@
 UpdateLightboxHeader
 -------------
-The UpdateLightboxHeader operation allows you to update the lightbox header details that were specified when the lightbox was created.
+The UpdateLightboxHeader operation allows you to update the lightbox header details that were specified when the lightbox was created. This operation should only be called by the owner of the lightbox.
 
 ###Endpoint
 Use the following endpoint to access this operation:
@@ -79,7 +79,7 @@ The ResponseHeader contains metadata about the operation execution and response.
 
 ###Workflow Example
 1. Call CreateSession to create an authentication token.
-2. Call CreateLightbox with the authentication token to create a new blank lightbox. Note the Lightbox ID in the response.
-3. Call UpdateLightboxHeader with the lightbox ID in Step 2 with the new values for it's header.
+2. Call CreateLightbox with the authentication token to create a new blank lightbox or call GetLightboxHeaders to find ID of existing lightbox. Note the Lightbox ID in the response.
+3. Call UpdateLightboxHeader with the lightbox ID in Step 2 with the new values for the lightbox header.
 
 

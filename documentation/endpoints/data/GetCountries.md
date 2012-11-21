@@ -1,6 +1,6 @@
 GetCountries
 -------------
-The GetCountries call retrieves a list of countries that are valid for the given language code.
+The GetCountries call retrieves a list of countries localized for the given language code.
 This operation supports being called with an anonymous system Token created by [CreateApplicationSession][].
 
 ###Endpoint
@@ -96,7 +96,7 @@ The GetCountriesResult contains the response data.
 
 ###Workflow Example
 1. Call either [CreateSession][] or [CreateApplicationSession][] to create an authentication token.
-2. Call GetCountries to get the countries that are valid for the preferred language code.
+2. Call GetCountries to get a list of countries that are localized for the preferred language code (primarily as selection list for Billing Country).
 
 
 
