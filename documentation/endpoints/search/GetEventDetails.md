@@ -15,7 +15,7 @@ The GetEventDetails JSON request has this form:
 	    "Token": "",
 	    "CoordinationId": ""
 	  },
-	  "GetEventsDetailsRequestBody": {
+	  "GetEventDetailsRequestBody": {
 	    "EventIds": [
 	      int
 	    ],
@@ -53,7 +53,7 @@ The GetEventDetails JSON response has this form:
 	    ],
 	    "CoordinationId": ""
 	  },
-	  "GetEventsDetailsResult": {
+	  "GetEventDetailsResult": {
 	     "EventResult": [
 	        {
 	            "Event": {
