@@ -159,7 +159,6 @@ The GetImageDetailsResult contains these fields.
 | _Image_.ApplicableProductOfferings | Collection 	| Contains an ApplicableProductOffering entry for each of the customer’s product offerings that authorize access to the image. If empty, the customer is not authorized to access the image. <br>**Note:** Also check the AuthorizationConstraints collection for possible image specific limitations to the authorization. |
 | ApplicableProductOffering _entry_	| String | Indicates a customer’s product offering that authorizes access to the image. Possible values are: <br>• EasyAccess <br>• EditorialSubscription <br>• PremiumAccess <br>• RoyaltyFreeSubscription <br>• Imagepack |
 | _Image_.Artist |	String 	| Identifies the image creator. |
-| _Image_.ArtistTitle |	String 	| Indicates the image title given by the artist.|
 | _Image_.Caption |	String 	| Describes the image.|
 | _Image_.City |	String 	| Indicates the city where the image was created.|
 | _Image_.CollectionID | String 	| Identifies a collection to which the image belongs. |
@@ -192,6 +191,7 @@ The GetImageDetailsResult contains these fields.
 | Restriction _entry_ | String 	| Indicates a usage restriction. |
 | _Image_.SizesDownloadableImages | Collection 	| Contains an ImageSize entry for each downloadable image size. |
 | _Image_.SizesDownloadableImages | Collection 	| Contains an ImageSize entry for each downloadable image size. |
+| _Image_.Title |	String 	| Indicates the image title given by the artist.|
 | _ImageSize_.FileSizeInBytes | Integer | Indicates the image file size in bytes. |
 | _ImageSize_.InchesHeight | Double | Indicates the image height in inches when the image is rendered at the indicated ResolutionDpi. |
 | _ImageSize_.InchesWidth | Double | Indicates the image width in inches when the image is rendered at the indicated ResolutionDpi. |
