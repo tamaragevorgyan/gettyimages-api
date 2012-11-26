@@ -28,7 +28,7 @@ The RequestHeader specifies metadata about the request.
 
 | Field          | Type        | Use          | Description                                                                                                   |
 |:---------------|:------------|:-------------|:--------------------------------------------------------------------------------------------------------------|
-| Token          | String      | Nil          | Unused for this operation. CreateApplicationSession and CreateSession are the only operations that do not require an authentication token. | 
+| Token          | String      | Nil          | Unused for this operation. CreateApplicationSession and [CreateSession][] are the only operations that do not require an authentication token. | 
 | CoordinationId | String      | Optional     | Specify a value to echo in the response to track requests and their associated responses.                     |
 
 ####CreateApplicationSessionRequestBody Fields
@@ -63,7 +63,7 @@ The ResponseHeader contains metadata about the operation execution and response.
 | StatusList       | Collection  | Contains a _Status_ entry for each detailed processing status notification.                                                   |
 | Status _entry_   | Object      | Contains the details of a status notification                                                                                 |
 | _Status_.Type    | String      | Indicates the type, or severity, of the status notification. Possible values are: <br>• Information <br>• Warning <br>• Error |
-| _Status_.Code    | String      | Identifies the category of the status notification. See [Status Codes](#statuscodes) for an explanations of the codes.        |
+| _Status_.Code    | String      | Identifies the category of the status notification. See [StatusCodes][] for an explanations of the codes.        |
 | _Status_.Message | String      | Provides a human readable explanation of the status.                                                                          |
 | CoordinationId   | String      | Indicates the CoordinationId value provided in the triggering request.                                                        |
 
@@ -73,7 +73,30 @@ The CreateApplicationSessionResult contains these fields.
 | Field                | Type        | Description																														|
 |:---------------------|:------------|:---------------------------------------------------------------------------------------------------------------------------------|
 | Token                | String      | Provides a system authentication token for use with anonymous operations.														|
-| TokenDurationMinutes | int      	 | Indicates for how many minutes the token is valid. Use the endpoint, RenewSession operation, to extend the duration of a token.	|	
+| TokenDurationMinutes | int      	 | Indicates for how many minutes the token is valid. Use the endpoint, [RenewSession][] operation, to extend the duration of a token.	|	
 
 ###Workflow Example
 1. Call CreateApplicationSession with your system ID and password in order to receive a application token for use in operations allowing anonymous authentication.
+
+
+
+[StatusCodes]: ../../appendix/StatusCodes.md
+[CreateCustomer]: ../account/CreateCustomer.md
+[CreateSession]: ../session/CreateSession.md
+[RenewSession]: ../session/RenewSession.md
+[CreateApplicationSession]: ../session/CreateApplicationSession.md
+[GetCountries]: ../data/GetCountries.md
+[AddItemsToLightbox]: ../lightbox/AddItemsToLightbox.md
+[DeleteItemsFromLightbox]: ../lightbox/DeleteItemsFromLightbox.md
+[CreateLightbox]: ../lightbox/CreateLightbox.md
+[DeleteLightbox]: ../lightbox/DeleteLightbox.md
+[GetLightbox]: ../lightbox/GetLightbox.md
+[GetLightboxHeaders]: ../lightbox/GetLightboxHeaders.md
+[UpdateLightboxHeader]: ../lightbox/UpdateLightboxHeader.md
+[CreateDownloadRequest]: ../download/CreateDownloadRequest.md
+[GetImageDownloadAuthorizations]: ../download/GetImageDownloadAuthorizations.md
+[GetLargestImageDownloadAuthorizations]: ../download/GetLargestImageDownloadAuthorizations.md
+[GetEventDetails]: ../search/GetEventDetails.md
+[GetImageDetails]: ../search/GetImageDetails.md
+[SearchForImages]: ../search/SearchForImages.md
+[SearchForVideos]: ../search/SearchForVideos.md

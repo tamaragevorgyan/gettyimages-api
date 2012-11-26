@@ -1,6 +1,7 @@
 UpdateLightboxHeader
 -------------
-The UpdateLightboxHeader operation allows you to update the lightbox header details that were specified when the lightbox was created. This operation should only be called by the owner of the lightbox.
+The UpdateLightboxHeader operation allows you to update the lightbox header details that were specified when the lightbox was created. 
+This operation should only be called by the owner of the lightbox.
 
 ###Endpoint
 Use the following endpoint to access this operation:
@@ -30,7 +31,7 @@ The RequestHeader specifies metadata about the request.
 
 | Field          | Type        | Use          | Description                                                                               |
 |:---------------|:------------|:-------------|:------------------------------------------------------------------------------------------|
-| Token          | String      | Required     | Specify the authentication token provided by CreateSession.   							  | 
+| Token          | String      | Required     | Specify the authentication token provided by [CreateSession][].   							  | 
 | CoordinationId | String      | Optional     | Specify a value to echo in the response to track requests and their associated responses. |
 
 ####UpdateLightboxHeaderRequestBody Fields
@@ -75,11 +76,30 @@ The ResponseHeader contains metadata about the operation execution and response.
 | _Status_.Message | String      | Provides a human readable explanation of the status.                                                                          |
 | CoordinationId   | String      | Indicates the CoordinationId value provided in the triggering request.                                                        |
 
-[statuscodes]: ../../appendix/StatusCodes.md
 
 ###Workflow Example
-1. Call CreateSession to create an authentication token.
-2. Call CreateLightbox with the authentication token to create a new blank lightbox or call GetLightboxHeaders to find ID of existing lightbox. Note the Lightbox ID in the response.
+1. Call [CreateSession][] to create an authentication token.
+2. Call [CreateLightbox][] with the authentication token to create a new blank lightbox or call [GetLightboxHeaders][] to find ID of existing lightbox. Note the Lightbox ID in the response.
 3. Call UpdateLightboxHeader with the lightbox ID in Step 2 with the new values for the lightbox header.
 
+
+[StatusCodes]: ../../appendix/StatusCodes.md
+[CreateCustomer]: ../account/CreateCustomer.md
+[CreateSession]: ../session/CreateSession.md
+[CreateApplicationSession]: ../session/CreateApplicationSession.md
+[GetCountries]: ../data/GetCountries.md
+[AddItemsToLightbox]: ../lightbox/AddItemsToLightbox.md
+[DeleteItemsFromLightbox]: ../lightbox/DeleteItemsFromLightbox.md
+[CreateLightbox]: ../lightbox/CreateLightbox.md
+[DeleteLightbox]: ../lightbox/DeleteLightbox.md
+[GetLightbox]: ../lightbox/GetLightbox.md
+[GetLightboxHeaders]: ../lightbox/GetLightboxHeaders.md
+[UpdateLightboxHeader]: ../lightbox/UpdateLightboxHeader.md
+[CreateDownloadRequest]: ../download/CreateDownloadRequest.md
+[GetImageDownloadAuthorizations]: ../download/GetImageDownloadAuthorizations.md
+[GetLargestImageDownloadAuthorizations]: ../download/GetLargestImageDownloadAuthorizations.md
+[GetEventDetails]: ../search/GetEventDetails.md
+[GetImageDetails]: ../search/GetImageDetails.md
+[SearchForImages]: ../search/SearchForImages.md
+[SearchForVideos]: ../search/SearchForVideos.md
 

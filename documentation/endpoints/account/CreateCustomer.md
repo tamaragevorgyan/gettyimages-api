@@ -1,6 +1,6 @@
 CreateCustomer
 -------------
-The Create Customer call creates a new customer in the Getty Images system. 
+The CreateCustomer call creates a new customer in the Getty Images system. 
 Note that the new user created by the CreateCustomer operation is created with marketing email opt-out selected. 
 Also, this operation supports being called with an anonymous system Token created by [CreateApplicationSession][].
 
@@ -35,7 +35,7 @@ The RequestHeader specifies metadata about the request.
 
 | Field          | Type        | Use          | Description                                                                               |
 |:---------------|:------------|:-------------|:------------------------------------------------------------------------------------------|
-| Token          | String      | Required     | Specify the authentication token provided by CreateSession or CreateApplicationSession.   | 
+| Token          | String      | Required     | Specify the authentication token provided by [CreateSession][] or [CreateApplicationSession][].   | 
 | CoordinationId | String      | Optional     | Specify a value to echo in the response to track requests and their associated responses. |
 
 ####CreateCustomerRequestBody Fields
@@ -49,7 +49,7 @@ The CreateCustomerRequestBody contains the request arguments.
 | FirstName     | String 	| Required 	| First name of the customer. 													|
 | LastName  	| String 	| Required 	| Last name of the customer.													|
 | MiddleName	| String 	| Optional 	| Middle name of the customer. Optional.										|
-| BillingCountryChar3Iso | String | Required | Specifies the 3 character Country Code for Billing. Note that valid values for this field can be retrieved via the [GetCountries] operation. |
+| BillingCountryChar3Iso | String | Required | Specifies the 3 character Country Code for Billing. Note that valid values for this field can be retrieved via the [GetCountries][] operation. |
 
 ###Response
 The CreateCustomer JSON response has this format:
@@ -81,9 +81,6 @@ The ResponseHeader contains metadata about the operation execution and response.
 | _Status_.Message | String      | Provides a human readable explanation of the status.                                                                          |
 | CoordinationId   | String      | Indicates the CoordinationId value provided in the triggering request.                                                        |
 
-[statuscodes]: ../../appendix/StatusCodes.md
-[createapplicationsession]: ../session/CreateApplicationSession.md
-[createsession]: ../session/CreateSession.md
 
 ###Workflow Example
 1. Call either [CreateSession][] or [CreateApplicationSession][] to create an authentication token.
@@ -91,4 +88,23 @@ The ResponseHeader contains metadata about the operation execution and response.
 
 
 
+[StatusCodes]: ../../appendix/StatusCodes.md
+[CreateCustomer]: ../account/CreateCustomer.md
+[CreateSession]: ../session/CreateSession.md
+[CreateApplicationSession]: ../session/CreateApplicationSession.md
+[GetCountries]: ../data/GetCountries.md
+[AddItemsToLightbox]: ../lightbox/AddItemsToLightbox.md
+[DeleteItemsFromLightbox]: ../lightbox/DeleteItemsFromLightbox.md
+[CreateLightbox]: ../lightbox/CreateLightbox.md
+[DeleteLightbox]: ../lightbox/DeleteLightbox.md
+[GetLightbox]: ../lightbox/GetLightbox.md
+[GetLightboxHeaders]: ../lightbox/GetLightboxHeaders.md
+[UpdateLightboxHeader]: ../lightbox/UpdateLightboxHeader.md
+[CreateDownloadRequest]: ../download/CreateDownloadRequest.md
+[GetImageDownloadAuthorizations]: ../download/GetImageDownloadAuthorizations.md
+[GetLargestImageDownloadAuthorizations]: ../download/GetLargestImageDownloadAuthorizations.md
+[GetEventDetails]: ../search/GetEventDetails.md
+[GetImageDetails]: ../search/GetImageDetails.md
+[SearchForImages]: ../search/SearchForImages.md
+[SearchForVideos]: ../search/SearchForVideos.md
 

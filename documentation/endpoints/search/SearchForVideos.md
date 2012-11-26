@@ -3,10 +3,14 @@ SearchForVideos
 The SearchForVideos call returns video metadata for all videos matching a specified search query.
 
 ###Search Queries and Filters
-**SearchForVideos** partitions a search into a query and an optional set of filters. At least one query must be provided. All filters are optional. This partitioning supports the scenario where the client submits a query and the server responds with suggested possible modifications to that query, in addition to the initial results. The client can then resubmit the original query and provide any of the suggested modifications as filters. It enables clients to create workflows that allow users to interactively modify their search in response to suggestions that can improve the quality of matches.
+**SearchForVideos** partitions a search into a query and an optional set of filters. At least one query must be provided. All filters are optional. 
+This partitioning supports the scenario where the client submits a query and the server responds with suggested possible modifications to that query, in addition to the initial results. 
+The client can then resubmit the original query and provide any of the suggested modifications as filters. 
+It enables clients to create workflows that allow users to interactively modify their search in response to suggestions that can improve the quality of matches.
 
 ###Search Pagination
-Clients can control the subset of matching videos returned in a response. This feature supports pagination scenarios. The subset, or "page" of videos returned is specified by the client with an index: ItemStartNumber, and offset: ItemCount.
+Clients can control the subset of matching videos returned in a response. This feature supports pagination scenarios. The subset, or "page" of videos returned is specified by the client 
+with an index: ItemStartNumber, and offset: ItemCount.
 
 ###Search Hide/Block
 Hide/Block restricts the items returned in a search result set to conform to legal requirements and comply with video partner contracts based on the end user's billing country.
@@ -52,7 +56,7 @@ The RequestHeader specifies metadata about the request.
 
 | Field          | Type        | Use          | Description                                                                                                   |
 |:---------------|:------------|:-------------|:--------------------------------------------------------------------------------------------------------------|
-| Token          | String      | Nil          | Specify the standard authentication token provided by CreateSession | 
+| Token          | String      | Nil          | Specify the standard authentication token provided by [CreateSession][] | 
 | CoordinationId | String      | Optional     | Specify a value to echo in the response to track requests and their associated responses. |
 
 ####SearchForVideosRequestBody Fields
@@ -64,8 +68,8 @@ The SearchForVideosRequestBody contains the request arguments.
 | AssetFamily *entry*             | String      | Optional     | Specifies the asset family filter to apply to the query results. Possible values are:<br>? Creative<br>? Editorial |
 | Collections                     | Object      | Optional     | Contains details for filtering search results by specific CollectionIds. |
 | *Collections*.Ids               | Collection  | Optional     | Adds a CollectionId entry for each collection id filter to apply to the query results on either an include or exclude basis. |
-| Id *entry*                      | String      | Optional     | Specifies the collection Id filter to apply to the query results on either an include or exclude basis. |
-| *Collections*.Mode              | String      | Optional     | Specifies whether the Collection.Ids are being included or excluded from the search results possible values are:<br>? Include<br>? Exclude |
+| Id *entry*                      | String      | Optional     | Specifies the CollectionId filter to apply to the query results on either an include or exclude basis. |
+| *Collections*.Mode              | String      | Optional     | Specifies whether the CollectionIds are being included or excluded from the search results possible values are:<br>? Include<br>? Exclude |
 | Filter                          | Object      | Optional     | Specifies an instance to filter the query results. |
 | Formats                         | Collection  | Optional     | Adds a Format entry for each format filter to apply to the query results. A null field is equivalent to a Formats field with entries for all possible values. |
 | Format *entry*                  | String      | Optional     | Specifies the formats filter to apply to the query results. Possible values are:<br>? HD<br>? SD |
@@ -169,7 +173,7 @@ The ResponseHeader contains metadata about the operation execution and response.
 | StatusList       | Collection  | Contains a *Status* entry for each detailed processing status notification.                                                   |
 | Status *entry*   | Object      | Contains the details of a status notification                                                                                 |
 | *Status*.Type    | String      | Indicates the type, or severity, of the status notification. Possible values are: <br>? Information <br>? Warning <br>? Error |
-| *Status*.Code    | String      | Identifies the category of the status notification. See [Status Codes](#statuscodes) for an explanations of the codes.        |
+| *Status*.Code    | String      | Identifies the category of the status notification. See [StatusCodes][] for an explanations of the codes.        |
 | *Status*.Message | String      | Provides a human readable explanation of the status.                                                                          |
 | CoordinationId   | String      | Indicates the CoordinationId value provided in the triggering request.                                                        |
 
@@ -185,7 +189,7 @@ The SearchForVideosResult contains these fields.
 | *Video*.AssetFamily                               | String      | Identifies the asset family classification. Possible values are:<br> ? Creative<br> ? Editorial | 
 | *Video*.AssetId                                   | String      | Identifies the video. | 
 | *Video*.AuthorizationConstraints                  | Collection  | Contains an AuthorizationConstraint entry for each category of possible video-specific limitations to authorization. Authorization constraints occur when a video that would normally be authorized by a customer's agreement has additional limitations. |
-| AuthorizationConstraint *entry*                   | String      | Contains an authorization constraint describing video-specific limitations to authorization. |
+| AuthorizationConstraint *entry*                   | String      | Contains an AuthorizationConstraint describing video-specific limitations to authorization. |
 | *Video*.Caption                                   | String      | Describes the video. | 
 | *Video*.ClipLength                                | String      | The length of the video. | 
 | *Video*.CollectionId                              | String      | Identifies a collection to which the video belongs. | 
@@ -230,3 +234,25 @@ The SearchForVideosResult contains these fields.
 | ItemCount                                         | Integer     | Indicates the count of matching videos returned in the response. Use with ItemStartNumber to support pagination. | 
 | ItemStartNumber                                   | Integer     | Indicates the (1-based) index of the first video returned in response. Used with ItemCount to support pagination. | 
 | ItemTotalCount                                    | Integer     | Indicates the total number of videos matching the query, including those not returned with this response. | 
+
+
+[StatusCodes]: ../../appendix/StatusCodes.md
+[CreateCustomer]: ../account/CreateCustomer.md
+[CreateSession]: ../session/CreateSession.md
+[CreateApplicationSession]: ../session/CreateApplicationSession.md
+[GetCountries]: ../data/GetCountries.md
+[AddItemsToLightbox]: ../lightbox/AddItemsToLightbox.md
+[DeleteItemsFromLightbox]: ../lightbox/DeleteItemsFromLightbox.md
+[CreateLightbox]: ../lightbox/CreateLightbox.md
+[DeleteLightbox]: ../lightbox/DeleteLightbox.md
+[GetLightbox]: ../lightbox/GetLightbox.md
+[GetLightboxHeaders]: ../lightbox/GetLightboxHeaders.md
+[UpdateLightboxHeader]: ../lightbox/UpdateLightboxHeader.md
+[CreateDownloadRequest]: ../download/CreateDownloadRequest.md
+[GetImageDownloadAuthorizations]: ../download/GetImageDownloadAuthorizations.md
+[GetLargestImageDownloadAuthorizations]: ../download/GetLargestImageDownloadAuthorizations.md
+[GetEventDetails]: ../search/GetEventDetails.md
+[GetImageDetails]: ../search/GetImageDetails.md
+[SearchForImages]: ../search/SearchForImages.md
+[SearchForVideos]: ../search/SearchForVideos.md
+

@@ -103,7 +103,7 @@ The RequestHeader specifies metadata about the request.
 
 | Field          | Type        | Use          | Description                                                                                                   |
 |:---------------|:------------|:-------------|:--------------------------------------------------------------------------------------------------------------|
-| Token          | String      | Required     | Specify the standard authentication token provided by CreateSession.                                          |
+| Token          | String      | Required     | Specify the standard authentication token provided by [CreateSession][].                                          |
 | CoordinationId |String       |Optional      |Specify a value to echo in the response to track requests and their associated responses.                      |
 |Collections     |Object       |Optional      |Contains details for filtering search results by specific CollectionIds.                                       |
 |*Collections*.Ids|Collection  |Optional      |Specifies one or more CollectionIds by which to filter search results either on an include or exclude basis.   |
@@ -292,21 +292,37 @@ The SearchForImagesResult contains these fields.
 |*RefinementOption*.Text|String|Provides localized name of the refinement.|
 
 ####Workflow Example: Initial Search
-1. Call CreateSession with system and user credentials to create an authentication token.
-2. Call SearchForImages, providing the authentication token in the request header and
-specifying the query in the request body.
+1. Call [CreateSession][] with system and user credentials to create an authentication token.
+2. Call SearchForImages, providing the authentication token in the request header and specifying the query in the request body.
 3. For an initial search, populate the following fields: <br>• Query.SearchPhrase <br>• ResultOptions.ItemCount <br>• ResultOptions.ItemStartNumber <br>• Leave Filter undefined.
 4. Retrieve image metadata from the Images entries.
-5. Retrieve refinement filters from the RefinementOptions entries if a refined search will be
-supported.
+5. Retrieve refinement filters from the RefinementOptions entries if a refined search will be supported.
 
 ###Workflow Example: Refined Search
-Call SearchForImages, providing the same request as in the initial search, but with
-the following modification.
+Call SearchForImages, providing the same request as in the initial search, but with the following modification:
 
 1. Add an entry to Filter.Refinements for desired refinement options.
-2. Populate each Refinements entry's fields from the corresponding fields from the desired
-RefinementOptions entry.
+2. Populate each Refinements entry's fields from the corresponding fields from the desired RefinementOptions entry.
 3. Retrieve image metadata from the Images entries.
-4. Retrieve refinement filters from the RefinementOptions entries if an additional refined
-search is supported.
+4. Retrieve refinement filters from the RefinementOptions entries if an additional refined search is supported.
+
+
+[StatusCodes]: ../../appendix/StatusCodes.md
+[CreateCustomer]: ../account/CreateCustomer.md
+[CreateSession]: ../session/CreateSession.md
+[CreateApplicationSession]: ../session/CreateApplicationSession.md
+[GetCountries]: ../data/GetCountries.md
+[AddItemsToLightbox]: ../lightbox/AddItemsToLightbox.md
+[DeleteItemsFromLightbox]: ../lightbox/DeleteItemsFromLightbox.md
+[CreateLightbox]: ../lightbox/CreateLightbox.md
+[DeleteLightbox]: ../lightbox/DeleteLightbox.md
+[GetLightbox]: ../lightbox/GetLightbox.md
+[GetLightboxHeaders]: ../lightbox/GetLightboxHeaders.md
+[UpdateLightboxHeader]: ../lightbox/UpdateLightboxHeader.md
+[CreateDownloadRequest]: ../download/CreateDownloadRequest.md
+[GetImageDownloadAuthorizations]: ../download/GetImageDownloadAuthorizations.md
+[GetLargestImageDownloadAuthorizations]: ../download/GetLargestImageDownloadAuthorizations.md
+[GetEventDetails]: ../search/GetEventDetails.md
+[GetImageDetails]: ../search/GetImageDetails.md
+[SearchForImages]: ../search/SearchForImages.md
+[SearchForVideos]: ../search/SearchForVideos.md

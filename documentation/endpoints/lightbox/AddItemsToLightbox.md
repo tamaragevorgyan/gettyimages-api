@@ -1,6 +1,7 @@
 AddItemsToLightbox
 -------------
-The AddItemsToLightbox operation allows you to add items to a specific lightbox. These items can be any of the supported types of assets; images, videos, etc. This operation should only be called by the owner of the lightbox.
+The AddItemsToLightbox operation allows you to add items to a specific lightbox. These items can be any of the supported types of assets; images, videos, etc. 
+This operation should only be called by the owner of the lightbox.
 
 ###Endpoint
 Use the following endpoint to access this operation:
@@ -29,7 +30,7 @@ The RequestHeader specifies metadata about the request.
 
 | Field          | Type        | Use          | Description                                                                               |
 |:---------------|:------------|:-------------|:------------------------------------------------------------------------------------------|
-| Token          | String      | Required     | Specify the authentication token provided by CreateSession or CreateApplicationSession.   | 
+| Token          | String      | Required     | Specify the authentication token provided by [CreateSession][].   | 
 | CoordinationId | String      | Optional     | Specify a value to echo in the response to track requests and their associated responses. |
 
 ####AddItemsToLightboxRequestBody Fields
@@ -71,12 +72,30 @@ The ResponseHeader contains metadata about the operation execution and response.
 | _Status_.Message | String      | Provides a human readable explanation of the status.                                                                          |
 | CoordinationId   | String      | Indicates the CoordinationId value provided in the triggering request.                                                        |
 
-[statuscodes]: ../../appendix/StatusCodes.md
 
 ###Workflow Example
-1. Call [CreateSession] to create an authentication token.
-2. Call CreateLightbox to create a new blank lightbox or call GetLightboxHeaders to find ID of existing lightbox.
-3. Search for items to add to the lightbox (Example: SearchForImages), note the Asset IDs of the items you want in your lightbox.
+1. Call [CreateSession][] to create an authentication token.
+2. Call [CreateLightbox][] to create a new blank lightbox or call [GetLightboxHeaders][] to find ID of existing lightbox.
+3. Search for items to add to the lightbox (Example: [SearchForImages][]), note the Asset IDs of the items you want in your lightbox.
 4. Call AddItemsToLightbox with the lightbox ID from step 2 and the AssetIds from step 3 to populate your lightbox.
 
 
+[StatusCodes]: ../../appendix/StatusCodes.md
+[CreateCustomer]: ../account/CreateCustomer.md
+[CreateSession]: ../session/CreateSession.md
+[CreateApplicationSession]: ../session/CreateApplicationSession.md
+[GetCountries]: ../data/GetCountries.md
+[AddItemsToLightbox]: ../lightbox/AddItemsToLightbox.md
+[DeleteItemsFromLightbox]: ../lightbox/DeleteItemsFromLightbox.md
+[CreateLightbox]: ../lightbox/CreateLightbox.md
+[DeleteLightbox]: ../lightbox/DeleteLightbox.md
+[GetLightbox]: ../lightbox/GetLightbox.md
+[GetLightboxHeaders]: ../lightbox/GetLightboxHeaders.md
+[UpdateLightboxHeader]: ../lightbox/UpdateLightboxHeader.md
+[CreateDownloadRequest]: ../download/CreateDownloadRequest.md
+[GetImageDownloadAuthorizations]: ../download/GetImageDownloadAuthorizations.md
+[GetLargestImageDownloadAuthorizations]: ../download/GetLargestImageDownloadAuthorizations.md
+[GetEventDetails]: ../search/GetEventDetails.md
+[GetImageDetails]: ../search/GetImageDetails.md
+[SearchForImages]: ../search/SearchForImages.md
+[SearchForVideos]: ../search/SearchForVideos.md
