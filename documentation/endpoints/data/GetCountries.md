@@ -3,6 +3,8 @@ GetCountries
 The GetCountries call retrieves a list of countries localized for the given language code.
 This operation supports being called with an anonymous system Token created by [CreateApplicationSession][].
 
+This operation is not publicly available at this time. Please contact your Getty Images Account Manager if you need more information.
+
 ###Endpoint
 Use the following endpoint to access this operation:
 
@@ -69,10 +71,10 @@ The ResponseHeader contains metadata about the operation execution and response.
 
 | Field            | Type        | Description                                                                                                                   |
 |:-----------------|:------------|:------------------------------------------------------------------------------------------------------------------------------|
-| Status           | String      | Indicates the overall operation processing status notification. Possible values are: <br>• Success <br>• Error <br>• Warning  | 
+| Status           | String      | Indicates the overall operation processing status notification. Possible values are: <br>ï¿½ Success <br>ï¿½ Error <br>ï¿½ Warning  | 
 | StatusList       | Collection  | Contains a _Status_ entry for each detailed processing status notification.                                                   |
 | Status _entry_   | Object      | Contains the details of a status notification                                                                                 |
-| _Status_.Type    | String      | Indicates the type, or severity, of the status notification. Possible values are: <br>• Information <br>• Warning <br>• Error |
+| _Status_.Type    | String      | Indicates the type, or severity, of the status notification. Possible values are: <br>ï¿½ Information <br>ï¿½ Warning <br>ï¿½ Error |
 | _Status_.Code    | String      | Identifies the category of the status notification. See [StatusCodes][] for explanations of the codes.        				 |
 | _Status_.Message | String      | Provides a human readable explanation of the status.                                                                          |
 | CoordinationId   | String      | Indicates the CoordinationId value provided in the triggering request.                                                        |
