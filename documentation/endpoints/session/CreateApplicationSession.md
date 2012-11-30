@@ -86,8 +86,8 @@ The CreateApplicationSessionResult contains these fields.
 [RenewSession]: ../session/RenewSession.md
 [CreateApplicationSession]: ../session/CreateApplicationSession.md
 [GetCountries]: ../data/GetCountries.md
-[AddItemsToLightbox]: ../lightbox/AddItemsToLightbox.md
-[DeleteItemsFromLightbox]: ../lightbox/DeleteItemsFromLightbox.md
+[CreateLightboxItems]: ../lightbox/CreateLightboxItems.md
+[DeleteLightboxItems]: ../lightbox/DeleteLightboxItems.md
 [CreateLightbox]: ../lightbox/CreateLightbox.md
 [DeleteLightbox]: ../lightbox/DeleteLightbox.md
 [GetLightbox]: ../lightbox/GetLightbox.md

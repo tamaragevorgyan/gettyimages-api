@@ -33,8 +33,8 @@ download on Getty Images using an active download agreement.
 ###Lightbox operations
 - **[<code>POST</code> CreateLightbox] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/CreateLightbox.md)**
 - **[<code>POST</code> GetLightbox] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/GetLightbox.md)**
-- **[<code>POST</code> AddItemsToLightbox] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/AddItemsToLightbox.md)**
-- **[<code>POST</code> DeleteItemsFromLightbox] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/DeleteItemsFromLightbox.md)**
+- **[<code>POST</code> CreateLightboxItems] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/CreateLightboxItems.md)**
+- **[<code>POST</code> DeleteLightboxItems] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/DeleteLightboxItems.md)**
 - **[<code>POST</code> DeleteLightbox] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/DeleteLightbox.md)**
 - **[<code>POST</code> GetLightboxHeaders] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/GetLightboxHeaders.md)**
 - **[<code>POST</code> UpdateLightboxHeader] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/UpdateLightboxHeader.md)**
