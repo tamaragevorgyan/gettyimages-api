@@ -37,6 +37,7 @@ The **SearchForVideos** JSON request has this form:
 			"Ids": [""],
 			"Mode": ""
 		  },
+		  "ExcludeNudity": "",
 		  "Formats": [""]
 		},
 		"Language": "",
