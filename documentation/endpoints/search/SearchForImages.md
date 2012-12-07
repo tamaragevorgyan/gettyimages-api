@@ -48,7 +48,10 @@ The SearchForImages JSON request has this form:
 	      "EditorialSources": {
 	        "Ids": [""],
 	        "Mode": ""
-	      }
+	      },
+	      "ExcludeNudity": [
+	      	""
+	      ],
 	      "FileTypes": [
 	        ""
 	      ],
@@ -93,7 +96,7 @@ The SearchForImages JSON request has this form:
 	    "IncludeKeywords": boolean,
 	    "ItemCount": int,
 	    "ItemStartNumber": int,
-	    "RefinementOptionsSet": ""
+	    "RefinementOptionsSet": "",
 	    "EditorialSortOrder": ""
 	  }
 	}
