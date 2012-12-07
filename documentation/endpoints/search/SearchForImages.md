@@ -49,9 +49,7 @@ The SearchForImages JSON request has this form:
 	        "Ids": [""],
 	        "Mode": ""
 	      },
-	      "ExcludeNudity": [
-	      	""
-	      ],
+	      "ExcludeNudity": "",
 	      "FileTypes": [
 	        ""
 	      ],
