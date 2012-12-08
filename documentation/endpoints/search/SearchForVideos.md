@@ -73,6 +73,7 @@ The SearchForVideosRequestBody contains the request arguments.
 | *Collections*.Ids               | Collection  | Optional     | Adds a CollectionId entry for each collection id filter to apply to the query results on either an include or exclude basis. |
 | Id *entry*                      | String      | Optional     | Specifies the CollectionId filter to apply to the query results on either an include or exclude basis. |
 | *Collections*.Mode              | String      | Optional     | Specifies whether the CollectionIds are being included or excluded from the search results possible values are:<br>� Include<br>� Exclude |
+|ExcludeNudity|Boolean|Optional|To filter out images of nudity and related subjects, set to "true". To not filter these images, set to "false". Leaving the filter out of your request has the effect of "false".|
 | Filter                          | Object      | Optional     | Specifies an instance to filter the query results. |
 | Formats                         | Collection  | Optional     | Adds a Format entry for each format filter to apply to the query results. A null field is equivalent to a Formats field with entries for all possible values. |
 | Format *entry*                  | String      | Optional     | Specifies the formats filter to apply to the query results. Possible values are:<br>� HD<br>� SD |
