@@ -179,6 +179,7 @@ The GetImageDetailsResult contains these fields.
 | _Image_.EditorialSourceName | String 	| The source name of the image, if the image is in the editorial image family.|
 | _Image_.EventId | Integer 	| DEPRECATED: The primary EventId associated with the image. Please use EventIds instead. |
 |_Image_.EventIds|Collection|Contains an EventId entry for each event associated with the image. All editorial image family images have event Ids. Some creative image family images may have event Ids.|
+|EventID *entry*|String|Specifies the Id of an event associated with the image. All editorial image family images have EventIds. Some creative image family images have EventIds.|
 | _Image_.GraphicStyle | String 	| Indicates the graphic style of the image. Possible values are: <br>• Photograph <br>• Illustration|
 | _Image_.ImageFamily | String 	| Indicates the image family classification. Possible values are: <br>• Creative <br>• Editorial |
 | _Image_.ImageId | String 	| Identifies the image. |
