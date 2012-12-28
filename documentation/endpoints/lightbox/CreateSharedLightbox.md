@@ -91,9 +91,9 @@ The CreateSharedLightboxResult contains the response data.
 [CreateSession]: ../session/CreateSession.md
 [CreateApplicationSession]: ../session/CreateApplicationSession.md
 [GetCountries]: ../data/GetCountries.md
-[CreateSharedLightboxItems]: ../lightbox/CreateSharedLightboxItems.md
+[CreateLightboxItems]: ../lightbox/CreateLightboxItems.md
 [DeleteLightboxItems]: ../lightbox/DeleteLightboxItems.md
-[CreateSharedLightbox]: ../lightbox/CreateSharedLightbox.md
+[CreateLightbox]: ../lightbox/CreateLightbox.md
 [DeleteLightbox]: ../lightbox/DeleteLightbox.md
 [GetLightbox]: ../lightbox/GetLightbox.md
 [GetLightboxHeaders]: ../lightbox/GetLightboxHeaders.md
