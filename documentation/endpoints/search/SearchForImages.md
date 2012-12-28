@@ -48,7 +48,8 @@ The SearchForImages JSON request has this form:
 	      "EditorialSources": {
 	        "Ids": [""],
 	        "Mode": ""
-	      }
+	      },
+	      "ExcludeNudity": "",
 	      "FileTypes": [
 	        ""
 	      ],
@@ -93,7 +94,7 @@ The SearchForImages JSON request has this form:
 	    "IncludeKeywords": boolean,
 	    "ItemCount": int,
 	    "ItemStartNumber": int,
-	    "RefinementOptionsSet": ""
+	    "RefinementOptionsSet": "",
 	    "EditorialSortOrder": ""
 	  }
 	}
@@ -118,6 +119,7 @@ The RequestHeader specifies metadata about the request.
 |EndDate|String|Optional|Specifies a date that images created prior to that date are to be included in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-andjson.aspx.|
 |StartDate|String|Optional|Specifies a date that images created after that date are to be included in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-andjson.aspx.|
 |EventId|Integer|Optional|Specifies an eventId to include imagesonly for that event.|
+|ExcludeNudity|Boolean|Optional|To filter out images of nudity and related subjects, set to "true". To not filter these images, set to "false". Leaving the filter out of your request has the effect of "false".|
 |FileTypes|Collection|Optional|Adds a FileType entry for each file type. These entries are used to filter results.|
 |FileType *entry*|String|Optional|Specifies a file type. Possible values are: <br>• eps <br>• jpg|
 |GraphicStyles|Collection|Optional|Adds a GraphicStyle entry for each type of graphics file. These entries are used to filter results.|
@@ -312,8 +314,8 @@ Call SearchForImages, providing the same request as in the initial search, but w
 [CreateSession]: ../session/CreateSession.md
 [CreateApplicationSession]: ../session/CreateApplicationSession.md
 [GetCountries]: ../data/GetCountries.md
-[AddItemsToLightbox]: ../lightbox/AddItemsToLightbox.md
-[DeleteItemsFromLightbox]: ../lightbox/DeleteItemsFromLightbox.md
+[CreateLightboxItems]: ../lightbox/CreateLightboxItems.md
+[DeleteLightboxItems]: ../lightbox/DeleteLightboxItems.md
 [CreateLightbox]: ../lightbox/CreateLightbox.md
 [DeleteLightbox]: ../lightbox/DeleteLightbox.md
 [GetLightbox]: ../lightbox/GetLightbox.md

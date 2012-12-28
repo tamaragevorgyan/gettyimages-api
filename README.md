@@ -15,20 +15,29 @@ download on Getty Images using an active download agreement.
 
 ##Endpoints
 
-###Session Operations
+###Session operations
 - **[<code>POST</code> CreateSession](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/session/CreateSession.md)**
 - **[<code>POST</code> RenewSession](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/session/RenewSession.md)**
 
-###Search Operations
+###Search operations
 - **[<code>POST</code> SearchForImages](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/search/SearchForImages.md)**
 - **[<code>POST</code> GetImageDetails](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/search/GetImageDetails.md)**
 - **[<code>POST</code> GetEventDetails](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/search/GetEventDetails.md)**
 - **[<code>POST</code> SearchForVideos](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/search/SearchForVideos.md)**
 
-###Download Operations
+###Download operations
 - **[<code>POST</code> GetImageDownloadAuthorizations](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/download/GetImageDownloadAuthorizations.md)**
 - **[<code>POST</code> GetLargestImageDownloadAuthorizations](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/download/GetLargestImageDownloadAuthorizations.md)**
 - **[<code>POST</code> CreateDownloadRequest](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/download/CreateDownloadRequest.md)**
+
+###Lightbox operations
+- **[<code>POST</code> CreateLightbox] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/CreateLightbox.md)**
+- **[<code>POST</code> GetLightbox] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/GetLightbox.md)**
+- **[<code>POST</code> CreateLightboxItems] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/CreateLightboxItems.md)**
+- **[<code>POST</code> DeleteLightboxItems] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/DeleteLightboxItems.md)**
+- **[<code>POST</code> DeleteLightbox] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/DeleteLightbox.md)**
+- **[<code>POST</code> GetLightboxHeaders] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/GetLightboxHeaders.md)**
+- **[<code>POST</code> UpdateLightboxHeader] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/UpdateLightboxHeader.md)**
 
 ##Core Concepts
 

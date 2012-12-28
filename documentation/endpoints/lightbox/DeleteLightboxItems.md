@@ -1,23 +1,23 @@
-AddItemsToLightbox
+DeleteLightboxItems
 -------------
-The AddItemsToLightbox operation allows you to add items to a specific lightbox. These items can be any of the supported types of assets; images, videos, etc. 
-This operation should only be called by the owner of the lightbox.
+The DeleteLightboxItems operation allows you to delete items from a specific lightbox. These items can be any of the supported types of assets; images, videos, etc. 
+Note that these items do not get deleted from the Getty Images system, just removed from the list of items in your lightbox. This operation should only be called by the owner of the lightbox.
 
 ###Endpoint
 Use the following endpoint to access this operation:
 
-	http://connect.gettyimages.com/v1/lightbox/AddItemsToLightbox
+	http://connect.gettyimages.com/v1/lightbox/DeleteLightboxItems
 
 
 ###Request
-The AddItemsToLightbox JSON request has this format:
+The DeleteLightboxItems JSON request has this format:
 
 	{
 	  "RequestHeader": {
 	    "Token": "",
 	    "CoordinationId": ""
 	  },
-	  "AddItemsToLightboxRequestBody": {
+	  "DeleteLightboxItemsRequestBody": {
 		"LightboxId": int,
 		"AssetIds": [
 		  ""
@@ -33,17 +33,17 @@ The RequestHeader specifies metadata about the request.
 | Token          | String      | Required     | Specify the authentication token provided by [CreateSession][].   | 
 | CoordinationId | String      | Optional     | Specify a value to echo in the response to track requests and their associated responses. |
 
-####AddItemsToLightboxRequestBody Fields
-The AddItemsToLightboxRequestBody contains the request arguments.
+####DeleteLightboxItemsRequestBody Fields
+The DeleteLightboxItemsRequestBody contains the request arguments.
 
-| Field 		| Type		| Use 	 	| Description 																	|
-|:--------------|:----------|:----------|:------------------------------------------------------------------------------|
-| LightboxId	| int 		| Required 	| The ID of the Lightbox you wish to add items to.								|
-| AssetIds		| Collection | Required	| List of strings that contain Asset IDs of items to put in the lightbox.		|
+| Field 		| Type		| Use 	 	| Description 																		|
+|:--------------|:----------|:----------|:----------------------------------------------------------------------------------|
+| LightboxId	| int 		| Required 	| The ID of the Lightbox you wish to remove items from.								|
+| AssetIds		| Collection | Required	| List of strings that contain Asset IDs of items to remove from the lightbox.		|
 
 
 ###Response
-The AddItemsToLightbox JSON response has this format:
+The DeleteLightboxItems JSON response has this format:
 
 	{
 	  "ResponseHeader": {
@@ -77,16 +77,17 @@ The ResponseHeader contains metadata about the operation execution and response.
 1. Call [CreateSession][] to create an authentication token.
 2. Call [CreateLightbox][] to create a new blank lightbox or call [GetLightboxHeaders][] to find ID of existing lightbox.
 3. Search for items to add to the lightbox (Example: [SearchForImages][]), note the Asset IDs of the items you want in your lightbox.
-4. Call AddItemsToLightbox with the lightbox ID from step 2 and the AssetIds from step 3 to populate your lightbox.
-
+4. Call [CreateLightboxItems][] with the lightbox ID from step 2 and the Asset IDs from step 3 to populate your lightbox.
+5. Call [GetLightbox][] and note Asset IDs within the LightboxItem collection for an item to remove from the lightbox.
+6. Call DeleteLightboxItems with the lightbox ID from step 2 and the Asset IDs from step 5 to remove unwanted items from your lightbox.
 
 [StatusCodes]: ../../appendix/StatusCodes.md
 [CreateCustomer]: ../account/CreateCustomer.md
 [CreateSession]: ../session/CreateSession.md
 [CreateApplicationSession]: ../session/CreateApplicationSession.md
 [GetCountries]: ../data/GetCountries.md
-[AddItemsToLightbox]: ../lightbox/AddItemsToLightbox.md
-[DeleteItemsFromLightbox]: ../lightbox/DeleteItemsFromLightbox.md
+[CreateLightboxItems]: ../lightbox/CreateLightboxItems.md
+[DeleteLightboxItems]: ../lightbox/DeleteLightboxItems.md
 [CreateLightbox]: ../lightbox/CreateLightbox.md
 [DeleteLightbox]: ../lightbox/DeleteLightbox.md
 [GetLightbox]: ../lightbox/GetLightbox.md

@@ -92,6 +92,10 @@ The GetImageDetails JSON response has this form:
 	        ],
 	        "EditorialSourceId": "",
 	        "EditorialSourceName": "",
+	        "EventId": int,
+	        "EventIds": [
+	          int
+	        ],
 	        "GraphicStyle": "",
 	        "ImageFamily": "",
 	        "ImageId": "",
@@ -173,6 +177,9 @@ The GetImageDetailsResult contains these fields.
 | EditorialSegment_entry_ | String 	| Indicates the editorial category to which the image belongs, if the image is in the editorial image family. Possible values are: <br>• News <br>• Sport <br>• Entertainment <br>• Contour <br>• Travel <br>• Publicity <br>• Royalty <br>• Archival |
 | _Image_.EditorialSourceId | String 	| Identifies the source of the image, if the image is in the editorial image family.|
 | _Image_.EditorialSourceName | String 	| The source name of the image, if the image is in the editorial image family.|
+| _Image_.EventId | Integer 	| DEPRECATED: The primary EventId associated with the image. Please use EventIds instead. |
+|_Image_.EventIds|Collection|Contains an EventId entry for each event associated with the image. All editorial image family images have event Ids. Some creative image family images may have event Ids.|
+|EventID *entry*|String|Specifies the Id of an event associated with the image. All editorial image family images have EventIds. Some creative image family images have EventIds.|
 | _Image_.GraphicStyle | String 	| Indicates the graphic style of the image. Possible values are: <br>• Photograph <br>• Illustration|
 | _Image_.ImageFamily | String 	| Indicates the image family classification. Possible values are: <br>• Creative <br>• Editorial |
 | _Image_.ImageId | String 	| Identifies the image. |
@@ -218,8 +225,8 @@ The GetImageDetailsResult contains these fields.
 [CreateSession]: ../session/CreateSession.md
 [CreateApplicationSession]: ../session/CreateApplicationSession.md
 [GetCountries]: ../data/GetCountries.md
-[AddItemsToLightbox]: ../lightbox/AddItemsToLightbox.md
-[DeleteItemsFromLightbox]: ../lightbox/DeleteItemsFromLightbox.md
+[CreateLightboxItems]: ../lightbox/CreateLightboxItems.md
+[DeleteLightboxItems]: ../lightbox/DeleteLightboxItems.md
 [CreateLightbox]: ../lightbox/CreateLightbox.md
 [DeleteLightbox]: ../lightbox/DeleteLightbox.md
 [GetLightbox]: ../lightbox/GetLightbox.md
