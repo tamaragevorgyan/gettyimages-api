@@ -123,8 +123,7 @@ The **SearchForVideos** JSON response has this form:
 					"Description": "",
 					"Name": "",
 					"DownloadAuthorizations": [
-						{
-							"DownloadIsFree": bool
+						{						
 							"DownloadToken": ""
 							"ProductOfferingInstanceId": ""
 							"ProductOfferingType": ""
@@ -207,8 +206,7 @@ The SearchForVideosResult contains these fields.
 | *DownloadSize*.Name                               | String      | Identifies the name of the download size. | 
 | *DownloadSize*.DownloadAuthorizations             | Collection  | Contains a *DownloadAuthorization* entry for each download authorization available for the download size. | 
 | DownloadAuthorization *entry*                     | Object      | Contains authorization details specific to a product offering. | 
-| *DownloadAuthorization*.DownloadIsFree            | Bool        | Indicates the customer is authorized to download the video without incurring a debit against the number of allowed downloads for the associated product offering. | 
-| *DownloadAuthorization*.DownloadToken             | String      | Provides the token needed to authorize the creation of a download request against the associated product offering. The token expires after 24 hours. Use when calling CreateDownloadRequest. | 
+| *DownloadAuthorization*.DownloadToken             | String      | Provides the token needed to authorize the creation of a download request against the associated product offering. Use when calling CreateDownloadRequest. | 
 | *DownloadAuthorization*.ProductOfferingInstanceId | String      | Identifies the product offering instance that authorizes the customer to download the video. Some products cannot have multiple instances, in which case this field has no value. | 
 | *DownloadAuthorization*.ProductOfferingType       | String      | Identifies the category to which the product offering belongs. | 
 | *Video*.Era                                       | String      | Identifies the era of the video. Possible values are:<br> � Archival<br> � Contemporary | 
