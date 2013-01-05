@@ -1,7 +1,7 @@
 CreateDownloadRequest
 ---------------------
 The CreateDownloadRequest call returns download URLs and related data for 
-images the customer is authorized to download. It can only be called via HTTPS.
+images or videos the customer is authorized to download. It can only be called via HTTPS.
 
 ###Download Limits
 Most product offerings have enforced periodic download limits such as monthly, 
@@ -48,9 +48,9 @@ The CreateDownloadRequestBodyRequest contains the request arguments.
 
 | Field          				| Type 		| Use          | Description 																	|
 |:------------------------------|:----------|:-------------|:-------------------------------------------------------------------------------|
-| DownloadItems 				| Collection| Required     | Adds a DownloadItem entry for each image for which a download is requested. 	| 
+| DownloadItems 				| Collection| Required     | Adds a DownloadItem entry for each image or video for which a download is requested. 	| 
 | DownloadItem _entry_			| Object	| Required     | Contains download arguments. 													|
-| _DownloadItem_.DownloadToken	| String	| Required     | Specifies the token authorizing the customer to download the image. Use the DownloadToken value provided by [GetLargestImageDownloadAuthorizations][] or [GetImageDownloadAuthorizations][]. |
+| _DownloadItem_.DownloadToken	| String	| Required     | Specifies the token authorizing the customer to download the image or video. Use the DownloadToken value provided by [GetLargestImageDownloadAuthorizations][] or [GetImageDownloadAuthorizations][] for image. Use the DownloadToken value provided by [SearchForVideos][] for video.|
 
 ###Response
 The CreateDownloadRequest JSON response has this form:
@@ -97,17 +97,23 @@ The CreateDownloadRequestResult contains these fields
 
 | Field 						| Type 			| Description 																							|
 |:------------------------------|:--------------|:------------------------------------------------------------------------------------------------------|
-| DownloadUrls 					| Collection	| Contains a DownloadUrl entry for each image for which a download is requested.						|
-| DownloadUrl _entry_ 			| Object		| Contains the details for downloading an image.														|
-| _DownloadUrl_.ImageId 		| String		| Identifies the image.																					|
-| _DownloadUrl_.SizeName 		| String		| Identifies size of the image that will be downloaded. Currently Null and will be renamed to SizeKey.	|
-| _DownloadUrl_.Status 			| String		| Indicates the download availability of the image. Possible values are: <br>• NoAccess <br>• Success <br>• Unavailable <br>• ExpiredToken <br>• InvalidToken|
-| _DownloadUrl_.UrlAttachment 	| String		| Identifies the URL the client uses to download the image. The HTTP response to a GET of this URL specifies a MIMETYPE, causing a browser to popup a save dialog.	|
+| DownloadUrls 					| Collection	| Contains a DownloadUrl entry for each image or video for which a download is requested.						|
+| DownloadUrl _entry_ 			| Object		| Contains the details for downloading an image or video.														|
+| _DownloadUrl_.ImageId 		| String		| Identifies the image or video.																					|
+| _DownloadUrl_.SizeName 		| String		| Identifies size of the image or video that will be downloaded. Currently Null and will be renamed to SizeKey.	|
+| _DownloadUrl_.Status 			| String		| Indicates the download availability of the image or video. Possible values are: <br>• NoAccess <br>• Success <br>• Unavailable <br>• ExpiredToken <br>• InvalidToken|
+| _DownloadUrl_.UrlAttachment 	| String		| Identifies the URL the client uses to download the image or video. The HTTP response to a GET of this URL specifies a MIMETYPE, causing a browser to popup a save dialog.	|
 
-###Workflow Example
+###Image Workflow Example
 1. Call [CreateSession][] with system and user credentials to create an authentication token.
 2. Call [SearchForImages][] to find images that are available for download by checking the ApplicableProductOfferings.
 3. Call [GetLargestImageDownloadAuthorizations][] to get the DownloadTokens that authorize download access to the desired images.
+4. Call CreateDownloadRequest, providing the DownloadTokens in the request.
+5. The collection of DownloadUrls is returned. The UrlAttachment field has a value if the Status is "Available" and the customer is authorized to download the image.
+
+###Video Workflow Example
+1. Call [CreateSession][] with system and user credentials to create an authentication token.
+2. Call [SearchForVideos][] to find videos that are available for download by checking the ApplicableProductOfferings.
 4. Call CreateDownloadRequest, providing the DownloadTokens in the request.
 5. The collection of DownloadUrls is returned. The UrlAttachment field has a value if the Status is "Available" and the customer is authorized to download the image.
 
