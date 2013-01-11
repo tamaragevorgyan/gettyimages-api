@@ -23,7 +23,7 @@ The CreateDownloadRequest JSON request has this form:
 
 	{
 	  "RequestHeader": {
-	    "Token": "",
+	    "SecureToken": "",
 	    "CoordinationId": ""
 	  },
 	  "CreateDownloadRequestBody": {
