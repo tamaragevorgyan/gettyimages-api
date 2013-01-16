@@ -40,7 +40,7 @@ The RequestHeader specifies metadata about the request..
 
 | Field          | Type        | Use          | Description                                                                               |
 |:---------------|:------------|:-------------|:------------------------------------------------------------------------------------------|
-| Token          | String      | Required     | Specify the secure authentication token provided by [CreateSession][].                        | 
+| SecureToken          | String      | Required     | Specify the secure authentication token provided by [CreateSession][].                        | 
 | CoordinationId | String      | Optional     | Specify a value to echo in the response to track requests and their associated responses. |
 
 ####CreateDownloadRequestBodyRequest Fields
