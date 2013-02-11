@@ -13,6 +13,8 @@ may be requested for that product offering until the next download period.
 The download limit for a given download period is covered in your product 
 agreement established with Getty Images.
 
+At this time, video download is only enabled for the "EasyAccess" ProductOffering.
+
 ###Endpoint
 Use the following endpoint (HTTPS only) to access this operation:
 
