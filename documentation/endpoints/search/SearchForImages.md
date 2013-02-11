@@ -3,7 +3,7 @@ SearchForImages
 The SearchForImages call returns image metadata for all images matching a
 specified search query.
 
-###Search Queries and Filters
+###Search queries and filters
 SearchForImages partitions a search into a query and an optional set of filters. At
 least one query must be provided. All filters are optional. This partitioning supports
 the scenario where the client submits a query and the server responds with
@@ -13,15 +13,18 @@ modifications as filters. It enables clients to create workflows that allow user
 interactively modify their search in response to suggestions that can improve the
 quality of matches.
 
-###Search Pagination
+###Search pagination
 Clients can control the subset of matching images returned in a response. This
 feature supports pagination scenarios. The subset, or "page" of images returned is
 specified by the client with an index: ItemStartNumber, and offset: ItemCount.
 
-###Search Hide/Block
-Hide/Block restricts the items returned in a search result set to conform to legal
+###Search hide/block
+Hide/block restricts the items returned in a search result set to conform to legal
 requirements and comply with image partner contracts based on the end user's
 billing country.
+
+###Reducing response times
+To significantly reduce the size of the JSON response payload for the SearchForImages operation, and thus improve the speed of the response, specify a value of “AssetFamily” for the “RefinementOptionsSet” parameter. RefinementOptions is a set of image attributes applicable to the result set returned by SearchForImages. These attributes can be passed into subsequent SearchForImages requests to reduce the size of the request. If you do not plan on using this data, using “AssetFamily” will return the minimum amount of RefinementOptions data.
 
 ###Endpoint
 Use the following endpoint to access this operation
@@ -99,7 +102,7 @@ The SearchForImages JSON request has this form:
 	  }
 	}
 
-###RequestHeader Fields
+###RequestHeader fields
 The RequestHeader specifies metadata about the request.
 
 | Field          | Type        | Use          | Description                                                                                                   |
@@ -225,7 +228,7 @@ The SearchForImages JSON response has this form:
 	        "Id": "",
 	        "ImageCount": int,
 
-###ResponseHeader Fields
+###ResponseHeader fields
 The ResponseHeader contains metadata about the operation execution and response.
 
 | Field          | Type        | Description                                                                                                   |
@@ -238,7 +241,7 @@ The ResponseHeader contains metadata about the operation execution and response.
 |*Status*.Message|String|Provides a human readable explanation of the status.|
 |CoordinationId|String|Indicates the CoordinationId value provided in the triggering request.|
 
-###SearchForImagesResult Fields
+###SearchForImagesResult fields
 The SearchForImagesResult contains these fields.
 
 | Field          | Type        | Description                                                                                                   |
@@ -293,14 +296,14 @@ The SearchForImagesResult contains these fields.
 |*RefinementOption*.ImageCount|Integer|Indicates the count of images to return if the query is filtered with this refinement.|
 |*RefinementOption*.Text|String|Provides localized name of the refinement.|
 
-####Workflow Example: Initial Search
+####Workflow example: initial search
 1. Call [CreateSession][] with system and user credentials to create an authentication token.
 2. Call SearchForImages, providing the authentication token in the request header and specifying the query in the request body.
 3. For an initial search, populate the following fields: <br>• Query.SearchPhrase <br>• ResultOptions.ItemCount <br>• ResultOptions.ItemStartNumber <br>• Leave Filter undefined.
 4. Retrieve image metadata from the Images entries.
 5. Retrieve refinement filters from the RefinementOptions entries if a refined search will be supported.
 
-###Workflow Example: Refined Search
+###Workflow example: refined search
 Call SearchForImages, providing the same request as in the initial search, but with the following modification:
 
 1. Add an entry to Filter.Refinements for desired refinement options.
