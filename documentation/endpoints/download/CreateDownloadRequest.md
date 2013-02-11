@@ -99,7 +99,7 @@ The CreateDownloadRequestResult contains these fields
 |:------------------------------|:--------------|:------------------------------------------------------------------------------------------------------|
 | DownloadUrls 					| Collection	| Contains a DownloadUrl entry for each image or video for which a download is requested.						|
 | DownloadUrl _entry_ 			| Object		| Contains the details for downloading an image or video.														|
-| _DownloadUrl_.ImageId 		| String		| Identifies the image or video.																					|
+| _DownloadUrl_.ImageId 		| String		| Identifies the image or video. Note that video files will reference AssetId instead of ImageId.																					|
 | _DownloadUrl_.SizeName 		| String		| Identifies size of the image or video that will be downloaded. Currently Null and will be renamed to SizeKey.	|
 | _DownloadUrl_.Status 			| String		| Indicates the download availability of the image or video. Possible values are: <br>• NoAccess <br>• Success <br>• Unavailable <br>• ExpiredToken <br>• InvalidToken|
 | _DownloadUrl_.UrlAttachment 	| String		| Identifies the URL the client uses to download the image or video. The HTTP response to a GET of this URL specifies a MIMETYPE, causing a browser to popup a save dialog.	|
