@@ -55,7 +55,7 @@ The GetImageDownloadAuthorizationsRequestBody contains the request arguments.
 | Field                | Type        | Use          | Description                                                                                             |
 |:---------------------|:------------|:-------------|:--------------------------------------------------------------------------------------------------------|
 | ImageSizes           | Collection  | Required     | Add an ImageSize entry for each image-size combination for which download authorizations are requested. | 
-| _ImageSize_ _entry_  | Object      | Optional     | Contains image and size arguments.                                                                      |
+| _ImageSize_ _entry_  | Object      | Required     | Contains image and size arguments.                                                                      |
 | _ImageSize_.ImageId  | String      | Required     | Specifies the ID of an image for which download authorizations are requested.                           |
 | _ImageSize_.SizeKey  | String      | Required     | Specifies the size of an image for which download authorizations are requested.                         |
 
