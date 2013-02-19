@@ -39,9 +39,6 @@ download on Getty Images using an active download agreement.
 - **[<code>POST</code> GetLightboxHeaders] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/GetLightboxHeaders.md)**
 - **[<code>POST</code> UpdateLightboxHeader] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/UpdateLightboxHeader.md)**
 
-###Report operations
-- **[<code>POST</code> ReportUsage] **
-
 ##Core Concepts
 
 ###Authentication
