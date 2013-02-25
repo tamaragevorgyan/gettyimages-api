@@ -34,16 +34,16 @@ The **SearchForVideos** JSON request has this form:
 		"Filter": {
 		  "AssetFamilies": [""],
 		  "Collections": {
-			"Ids": [""],
+			"Ids": [],
 			"Mode": ""
 		  },
 		  "ExcludeNudity": "",
-		  "Formats": [""]
+		  "Formats": []
 		},
 		"Language": "",
 		"Query": {
-		  "AssetIds": [""],
-		  "KeywordIds": [""],
+		  "AssetIds": [],
+		  "KeywordIds": [],
 		  "SearchPhrase": ""
 		},
 		"ResultOptions": {
