@@ -98,7 +98,8 @@ The SearchForImages JSON request has this form:
 	    "ItemCount": int,
 	    "ItemStartNumber": int,
 	    "RefinementOptionsSet": "",
-	    "EditorialSortOrder": ""
+	    "EditorialSortOrder": "",
+	    "CreativeSortOrder": ""
 	  }
 	}
 
@@ -119,6 +120,7 @@ The RequestHeader specifies metadata about the request.
 |Filter|Object|Optional|Specifies an instance to filter the query results.|
 |DateCreatedRange|Object|Optional|Specifies an instance to query on the images creation date. This query only applies to images when the ImageFamilies filter is null or has an “editorial” ImageFamily entry.|
 |EditorialSortOrder|String|Optional|Specifies a sort order for the results of an editorial image search. Note that an entry of "editorial" for the "ImageFamilies" filter must be used for the sort order to take effect. Possible values are: <br>• Null (order by DateCreated, Date-submitted, ImageId descending) <br>• MostRecent (order by DateSubmitted descending) <br>• MostPopular (order by relevancy as determined from data gathered from customer interactions on Getty Images websites) <br>•  Trending (similar to MostPopular, but with the most recent images first)|
+|CreativeSortOrder|String|Optional|Specifies a sort order for the results of a creative image search. Note that an entry of "creative" for the "ImageFamilies" filter must be used for the sort order to take effect. Possible values are: <br>• Null (order by MostPopular by default) <br>• MostRecent (order by DateSubmitted descending) <br>• MostPopular (order by relevancy as determined from data gathered from customer interactions on Getty Images websites)|
 |EndDate|String|Optional|Specifies a date that images created prior to that date are to be included in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-andjson.aspx.|
 |StartDate|String|Optional|Specifies a date that images created after that date are to be included in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-andjson.aspx.|
 |EventId|Integer|Optional|Specifies an eventId to include imagesonly for that event.|
@@ -219,6 +221,7 @@ The SearchForImages JSON response has this form:
 	      }
 	    ],
 	    "EditorialSortOrder": "",
+	    "CreativeSortOrder": "",
 	    "ItemCount": int,
 	    "ItemStartNumber": int,
 	    "ItemTotalCount": int,
@@ -262,6 +265,7 @@ The SearchForImagesResult contains these fields.
 |*Image*.EditorialSegments|Collection|Contains an EditorialSegment entry for each editorial category to which the image belongs, if the image is in the editorial image family.|
 |EditorialSegment *entry*|String|Indicates the editorial category to which the image belongs, if the image is in the editorial image family. Possible values are: <br>• News <br>• Sport <br>• Entertainment <br>• Contour <br>• Travel <br>• Publicity <br>• Royalty <br>• Archival|
 |EditorialSortOrder|String|Identifies the sort order applied to an editorial search in the SearchForImages request. Possible values are: <br>• Default <br>• MostRecent <br>• Trending (not available at this time) <br>• MostPopular|
+|CreativeSortOrder|String|Identifies the sort order applied to a creative search in the SearchForImages request. Possible values are: <br>• MostRecent <br>• MostPopular|
 |*Image*.editorialSourceId|String|Identifies the source of the image, if the image is in the editorial image family.|
 |*Image*.EditorialSource-Name|String|The source name of the image, if the image is in the editorial image family. **Note**: This field is not yet being populated.|
 |*Image*.EventIds|Collection|Contains an EventId entry for each event associated with the image. All editorial image family images have event Ids. Some creative image family images may have event Ids.|
