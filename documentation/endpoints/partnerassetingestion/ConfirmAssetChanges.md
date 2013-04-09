@@ -1,6 +1,6 @@
 ConfirmAssetChanges
 -------------
-The ConfirmAssetChanges call acknowledges receipt of asset changes contained in a GetAssetChanges response. Until a GetAssetChanges response is confirmed, the response will continue to return the same batch of asset changes for the given ChannelId.
+The ConfirmAssetChanges call acknowledges receipt of asset changes contained in a [GetAssetChanges][] response. Until a GetAssetChanges response is confirmed, the response will continue to return the same batch of asset changes for the given ChannelId.
 
 This operation is not publicly available at this time. Please contact your Getty Images Account Manager if you need more information.
 
@@ -36,7 +36,7 @@ The ConfirmAssetChangesRequestBody contains the request arguments.
 
 | Field 		    | Type		| Use     | Description 																						                                               |
 |:--------------|:--------|:--------|:-------------------------------------------------------------------------------------------------------|
-| TransactionId	| String 	| Required| Specify the TransactionId associated with a GetAssetChanges response whose receipt you want to confirm.|
+| TransactionId	| String 	| Required| Specify the TransactionId associated with a [GetAssetChanges][] response whose receipt you want to confirm.|
 
 
 ###Response
@@ -77,8 +77,8 @@ The ConfirmAssetChangesResponseBody contains no response data.
 
 ###Workflow Example
 1. Call either [CreateSession][] to create an authentication token.
-2. Call ConfirmAssetChanges to get a list of changed assets for a channel to which you are subscribed.
-3. Call [ConfirmAssetChanges][] with the resulting TransactionId to confirm you have received and processed the asset changes.
+2. Call [GetAssetChanges][] to get a list of changed assets for a channel to which you are subscribed.
+3. Call ConfirmAssetChanges with the resulting TransactionId to confirm you have received and processed the asset changes.
 4. Repeat steps 2 and 3 until all asset changes for the channel are received.
 
 
