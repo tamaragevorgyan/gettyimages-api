@@ -69,6 +69,7 @@ The GetLightbox JSON response has this format:
 			"ProjectName": "",
 			"DateCreated": "",
 			"DateModified": "",
+			"IsShared": "",
 			"LightboxItemCount": "",
 			"LightboxUrl": "",
 			"Notes": ""
@@ -120,6 +121,7 @@ The GetLightboxResult contains the response data.
 | _LightboxHeader_.ProjectName	| string		| Name of the project the lightbox is for.												|
 | _LightboxHeader_.DateCreated	| string		| Date that the lightbox was created.													|
 | _LightboxHeader_.DateModified	| string		| Date that the lightbox was last modified.												|
+| _LightboxHeader_.IsShared	| boolean		| Indicates whether the lightbox is a shared lightbox.												|
 | _LightboxHeader_.LightboxItemCount | string	| Count of items that the lightbox contains.											|
 | _LightboxHeader_.LightboxUrl	| string		| URL that will show the user interface for the lightbox.								|
 | _LightboxHeader_.Notes		| string		| Notes for further description of the lightbox and its contents.						|
