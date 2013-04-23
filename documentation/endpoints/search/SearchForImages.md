@@ -77,6 +77,7 @@ The SearchForImages JSON request has this form:
 	          "Id": ""
 	        }
 	      ]
+	      "WhiteBackgroundOnly": boolean
 	    },
 	  "Language": "",
 	  "Query": {
@@ -151,6 +152,7 @@ The RequestHeader specifies metadata about the request.
 |ResultOptions|Object|Required|Specifies an instance to control paging, sorting or other result options.|
 |SearchPhrase|String|Optional|Specifies the search phrase.|
 |SpecificPersons|Collection|Optional|Specifies the personalities to query the images that match all the specified personalities. It is the logical AND of all specified personalities.|
+|WhiteBackgroundOnly|Boolean|Optional|Filter search results to include images with white backgrounds only.|
 
 ###Response
 The SearchForImages JSON response has this form:
