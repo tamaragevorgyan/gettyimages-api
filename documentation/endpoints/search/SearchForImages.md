@@ -291,7 +291,8 @@ The SearchForImagesResult contains these fields.
 |*Image*.UrlComp|String|Identifies the URL of the image, sized for layout composition. Comp images are larger than preview and thumbnail, but not full sized.|
 |*Image*.UrlPreview|String|Identifies the URL of the image, sized for popup previews. Preview images are larger than thumbnail but smaller than comp, and have a dimension of 340 px on the longest side.|
 |*Image*.UrlThumb|String|Identifies the URL of the image, sized for a results grid. Thumbnail images are smaller than preview and comp, and have a dimension of 170 pixels on the longest side.|
-|*Image*.UrlWatermarkComp|String|Identifies the URL of the image, sized for layout composition, with a Getty Images watermark. Preview images are larger than thumbnail, but smaller than comp.|
+|*Image*.UrlWatermarkComp|String|Identifies the URL of the image, sized for layout composition, with a Getty Images watermark. Comp images are larger than preview and thumbnail, but not full sized.|
+|*Image*.UrlWatermarkPreview|String|Identifies the URL of the image, sized for popup previews, with a Getty Images watermark. Preview images are larger than thumbnail but smaller than comp, and have a dimension of 340 px on the longest side.|
 |ItemCount|Integer|Indicates the count of matching images returned in the response. Use with ItemStartNumber to support pagination.|
 |ItemStartNumber|Integer|Indicates the (1-based) index of the first image returned in response. Used with ItemCount to support pagination.|
 |ItemTotalCount|Integer|Indicates the total number of images matching the query, including those not returned with this response.|
