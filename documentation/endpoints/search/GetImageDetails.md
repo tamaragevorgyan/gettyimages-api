@@ -27,6 +27,7 @@ The GetImageDetails JSON request has this form:
 	{
 	  "RequestHeader": {
 	    "Token": "",
+	    "Detail": "",
 	    "CoordinationId": ""
 	  },
 	  "GetImageDetailsRequestBody": {
@@ -43,6 +44,7 @@ The RequestHeader specifies metadata about the request.
 | Field          | Type        | Use          | Description                                                                               |
 |:---------------|:------------|:-------------|:------------------------------------------------------------------------------------------|
 | Token          | String      | Required     | Specify the secure authentication token provided by [CreateSession][].                        | 
+| Detail         | String      | Optional     | Specify the detail level for the GetImageDetails response.                        | 
 | CoordinationId | String      | Optional     | Specify a value to echo in the response to track requests and their associated responses. |
 
 ####GetImageDetailsRequestBody Fields
@@ -125,7 +127,8 @@ The GetImageDetails JSON response has this form:
 	            "PixelHeight": int,
 	            "PixelWidth": int,
 	            "ResolutionDpi": int,
-	            "SizeKey": ""
+	            "SizeKey": "",
+	            "SizeName": ""
 	          }
 	        ],
 	        "StateProvince": "",
@@ -206,6 +209,7 @@ The GetImageDetailsResult contains these fields.
 | _ImageSize_.PixelWidth | Integer | Indicates the image pixel width. |
 | _ImageSize_.ResolutionDpi | Integer | Indicates the image DPI for the assumed target presentation format such as print vs. web. |
 | _ImageSize_..SizeKey | String | Provides the key values to specify the image size to authorize for download. Used when calling GetImageDownloadAuthorizations.|
+| _ImageSize_..SizeName | String | Provides the human-readable name for an RF Creative image size. Only for price-per-image customers requesting the "IncludeSizeName" detail level.|
 | _Image_.StateProvince | String 	| Indicates the state or province where the image was created. |
 | _Image_.Title | String 	| Indicates the image title. |
 | _Image_.UrlComp | String 	| Identifies the URL of the image, sized for layout composition. Comp images are larger than preview and thumbnail but not full sized. |
