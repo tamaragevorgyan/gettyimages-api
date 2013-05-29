@@ -28,6 +28,7 @@ The CreateCustomer JSON request has this format:
 		"FirstName": "",
 		"LastName": "",
 		"MiddleName": "",
+		"PhoneNumber": "",
 		"BillingCountryChar3Iso": ""
 	  }
 	}
@@ -51,6 +52,7 @@ The CreateCustomerRequestBody contains the request arguments.
 | FirstName     | String 	| Required 	| First name of the customer. 													|
 | LastName  	| String 	| Required 	| Last name of the customer.													|
 | MiddleName	| String 	| Optional 	| Middle name of the customer. Optional.										|
+| PhoneNumber	| String 	| Optional 	| Phone number for the customer. Optional.										|
 | BillingCountryChar3Iso | String | Required | Specifies the 3 character Country Code for Billing. Note that valid values for this field can be retrieved via the [GetCountries][] operation. |
 
 ###Response
