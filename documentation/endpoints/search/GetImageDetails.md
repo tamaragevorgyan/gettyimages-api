@@ -177,12 +177,12 @@ The GetImageDetailsResult contains these fields.
 | _Image_.DateCreated | String 	| Identifies the date the image was created. Date is in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-and-json.aspx. |
 | _Image_.DateSubmitted | String 	| Identifies the date the image was created. Date is in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-and-json.aspx.|
 | _Image_.EditorialSegments | Collection 	| Contains an EditorialSegment entry for each editorial category to which the image belongs, if the image is in the editorial image family. |
-| EditorialSegment_entry_ | String 	| Indicates the editorial category to which the image belongs, if the image is in the editorial image family. Possible values are: <br>• News <br>• Sport <br>• Entertainment <br>• Contour <br>• Travel <br>• Publicity <br>• Royalty <br>• Archival |
+| EditorialSegment _entry_ | String 	| Indicates the editorial category to which the image belongs, if the image is in the editorial image family. Possible values are: <br>• News <br>• Sport <br>• Entertainment <br>• Contour <br>• Travel <br>• Publicity <br>• Royalty <br>• Archival |
 | _Image_.EditorialSourceId | String 	| Identifies the source of the image, if the image is in the editorial image family.|
 | _Image_.EditorialSourceName | String 	| The source name of the image, if the image is in the editorial image family.|
 | _Image_.EventId | Integer 	| DEPRECATED: The primary EventId associated with the image. Please use EventIds instead. |
 |_Image_.EventIds|Collection|Contains an EventId entry for each event associated with the image. All editorial image family images have event Ids. Some creative image family images may have event Ids.|
-|EventID *entry*|String|Specifies the Id of an event associated with the image. All editorial image family images have EventIds. Some creative image family images have EventIds.|
+|EventID _entry_|String|Specifies the Id of an event associated with the image. All editorial image family images have EventIds. Some creative image family images have EventIds.|
 | _Image_.GraphicStyle | String 	| Indicates the graphic style of the image. Possible values are: <br>• Photograph <br>• Illustration|
 | _Image_.ImageFamily | String 	| Indicates the image family classification. Possible values are: <br>• Creative <br>• Editorial |
 | _Image_.ImageId | String 	| Identifies the image. |
@@ -208,8 +208,8 @@ The GetImageDetailsResult contains these fields.
 | _ImageSize_.PixelHeight | Integer | Indicates the image pixel height. |
 | _ImageSize_.PixelWidth | Integer | Indicates the image pixel width. |
 | _ImageSize_.ResolutionDpi | Integer | Indicates the image DPI for the assumed target presentation format such as print vs. web. |
-| _ImageSize_..SizeKey | String | Provides the key values to specify the image size to authorize for download. Used when calling GetImageDownloadAuthorizations.|
-| _ImageSize_..SizeName | String | Provides the human-readable name for an RF Creative image size. Only for price-per-image customers requesting the "IncludeSizeName" detail level.|
+| _ImageSize_.SizeKey | String | Provides the key values to specify the image size to authorize for download. Used when calling GetImageDownloadAuthorizations.|
+| _ImageSize_.SizeName | String | Provides the human-readable name for an RF Creative image size. Only for price-per-image customers requesting the "IncludeSizeName" detail level.|
 | _Image_.StateProvince | String 	| Indicates the state or province where the image was created. |
 | _Image_.Title | String 	| Indicates the image title. |
 | _Image_.UrlComp | String 	| Identifies the URL of the image, sized for layout composition. Comp images are larger than preview and thumbnail but not full sized. |
