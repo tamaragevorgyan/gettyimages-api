@@ -1,8 +1,6 @@
 SearchForVideos
 ---------------
-The SearchForVideos call returns video metadata for all videos matching a specified search query.
-
-Download functionality, allowing access to all files sizes for each video asset, is in development and is scheduled for release in Q1 2013.
+The SearchForVideos call returns video metadata for all videos matching a specified search query or set of asset IDs.
 
 ###Search Queries and Filters
 **SearchForVideos** partitions a search into a query and an optional set of filters. At least one query must be provided. All filters are optional. 
