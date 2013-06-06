@@ -298,7 +298,7 @@ The SearchForImagesResult contains these fields.
 |ItemTotalCount|Integer|Indicates the total number of images matching the query, including those not returned with this response.|
 |RefinementOptions|Collection|Contains a RefinementOption entry for each refinement that can be applied to the query to filter results on a subsequent search.|
 |RefinementOption *entry*|Object|Contains details about a refinement.|
-|*RefinementOption*.Category|String|Identifies the category of refinement. See Available Refinements for descriptions of each restriction category.|
+|*RefinementOption*.Category|String|Identifies the category of refinement. See [Available Refinements][] for descriptions of each restriction category.|
 |*RefinementOption*.Id|String|Identifies a refinement.|
 |*RefinementOption*.ImageCount|Integer|Indicates the count of images to return if the query is filtered with this refinement.|
 |*RefinementOption*.Text|String|Provides localized name of the refinement.|
@@ -320,6 +320,7 @@ Call SearchForImages, providing the same request as in the initial search, but w
 
 
 [StatusCodes]: ../../appendix/StatusCodes.md
+[Available Refinements]: ../../appendix/AvailableRefinements.md
 [CreateCustomer]: ../account/CreateCustomer.md
 [CreateSession]: ../session/CreateSession.md
 [CreateApplicationSession]: ../session/CreateApplicationSession.md
