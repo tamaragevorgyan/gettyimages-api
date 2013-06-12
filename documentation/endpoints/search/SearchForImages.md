@@ -29,7 +29,7 @@ To significantly reduce the size of the JSON response payload for the SearchForI
 ###Endpoint
 Use the following endpoint to access this operation
 
-	http://connect.gettyimages.com/v1/search/SearchForImages
+	http://connect.gettyimages.com/v2/search/SearchForImages
 
 ###Request
 The SearchForImages JSON request has this form:
@@ -148,7 +148,7 @@ The RequestHeader specifies metadata about the request.
 |Refinement *entry*|Object|Optional|Contains the details for specific refinement filter.|
 |Refinement.Category|String|Conditional|Required when providing a Refinement entry. Specifies the category of the refinement filter. Use the RefinementOption.Category value for the desired refinement option in the response.|
 |Refinement.Id|String|Conditional|Required when providing a Refinement entry. Specifies the identifier of the refinement filter. Use the Refinement Option.Id value from the desire refinement option in the response.|
-|RefinementOptionsSet|String|Optional|Specifies a profile that activates a custom set of available refinement options. If no value is provided, defaults to Getty Images standard refinement options. Possible values are client specific and are communicated by our product owner after analysis.|
+|RefinementOptionsSet|String|Optional|Specifies a profile that activates a custom set of available refinement options. If no value is specified, refinement options will not be provided. Note specifying a value will increase the size the response payload, leading to slower response times. Possible values are: <br>• RefinementSet1 - provides 15 refinement options for each Category <br>• RefinementSet2 - provides 25 refinement options for each Category <br>• RefinementSet3 - provides 5 refinement options for each Category|
 |ResultOptions|Object|Required|Specifies an instance to control paging, sorting or other result options.|
 |SearchPhrase|String|Optional|Specifies the search phrase.|
 |SpecificPersons|Collection|Optional|Specifies the personalities to query the images that match all the specified personalities. It is the logical AND of all specified personalities.|
