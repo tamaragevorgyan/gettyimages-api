@@ -23,9 +23,6 @@ Hide/block restricts the items returned in a search result set to conform to leg
 requirements and comply with image partner contracts based on the end user's
 billing country.
 
-###Reducing response times
-To significantly reduce the size of the JSON response payload for the SearchForImages operation, and thus improve the speed of the response, specify a value of “AssetFamily” for the “RefinementOptionsSet” parameter. RefinementOptions is a set of image attributes applicable to the result set returned by SearchForImages. These attributes can be passed into subsequent SearchForImages requests to reduce the size of the request. If you do not plan on using this data, using “AssetFamily” will return the minimum amount of RefinementOptions data.
-
 ###Endpoint
 Use the following endpoint to access this operation
 
