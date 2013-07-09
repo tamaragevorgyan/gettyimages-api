@@ -56,6 +56,7 @@ The CreateCustomerRequestBody contains the request arguments.
 | MarketingEmailOptIn | Boolean | Optional 	| Specifies the marketing opt-in preference for the customer. |
 | PhoneNumber	| String 	| Optional 	| Phone number for the customer. Optional.										|
 | BillingCountryChar3Iso | String | Required | Specifies the 3 character Country Code for Billing. Note that valid values for this field can be retrieved via the [GetCountries][] operation. |
+| MarketingEmailOptIn | Boolean | Optional | Specifies whether or not the customer is opting into marketing communications from Getty Images. |
 
 ###Response
 The CreateCustomer JSON response has this format:
