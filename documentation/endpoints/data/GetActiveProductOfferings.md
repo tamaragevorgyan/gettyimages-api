@@ -61,7 +61,7 @@ The GetActiveProductOfferingsResult contains the response data.
 
 | Field                		| Type        | Description																		  |
 |:--------------------------|:------------|:----------------------------------------------------------------------------------|
-| ActiveProductOfferings 	| Collection  | Contains a list of product offerings for the user specified in [CreateSession][]. |
+| ActiveProductOfferings 	| Collection  | Contains a list of product offerings for the user specified in [CreateSession][]. Possible values are: <br>• PremiumAccess <br>• EasyAccess <br>• EditorialSubscription|
 
 
 ###Workflow Example
