@@ -26,6 +26,25 @@ Request
 --------
 Populate and submit the following JSON representation of the ReportUsage request. Fields are explained below. 
 
+        {
+            "RequestHeader": {
+                "Token": token,
+                "Detail": "",
+                "CoordinationId": ""
+            },
+            "ReportUsageRequestBody": {
+             "TransactionId": "string",
+	            "AssetUsages": [
+		            {
+        		    "AssetId": "1234567890",
+        		    "Quantity": 2,
+        		    "UsageDate": "\/Date(1338174800000-0700)\/"
+        		    }
+                ]
+            }
+        }
+
+
 ###RequestHeader Fields
 The RequestHeader specifies metadata about the request. Required fields are indicated; all others are optional.
 
