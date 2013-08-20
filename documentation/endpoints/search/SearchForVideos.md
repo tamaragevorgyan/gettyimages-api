@@ -31,6 +31,7 @@ The **SearchForVideos** JSON request has this form:
 	  "SearchForVideosRequestBody": {
 		"Filter": {
 		  "AssetFamilies": [""],
+		  "ClipType": "",
 		  "Collections": {
 			"Ids": [],
 			"Mode": ""
@@ -67,6 +68,7 @@ The SearchForVideosRequestBody contains the request arguments.
 |:--------------------------------|:------------|:-------------|:---------------------------------------------------------------------------------------------|
 | AssetFamilies                   | Collection  | Optional     | Adds an AssetFamily entry for each asset family filter to apply to the query results. A null field is equivalent to an AssetFamilies field with entries for all possible values. |
 | AssetFamily *entry*             | String      | Optional     | Specifies the asset family filter to apply to the query results. Possible values are:<br>• Creative<br>• Editorial |
+| ClipType *entry*                | String      | Optional     | Specifies the clip type filter to apply to the query results for the Editorial AssetFamily only. Possible values are:<br>• Produced<br>• Raw |
 | Collections                     | Object      | Optional     | Contains details for filtering search results by specific CollectionIds. |
 | *Collections*.Ids               | Collection  | Optional     | Adds a CollectionId entry for each collection id filter to apply to the query results on either an include or exclude basis. |
 | Id *entry*                      | String      | Optional     | Specifies the CollectionId filter to apply to the query results on either an include or exclude basis. |
