@@ -51,8 +51,8 @@ The RequestHeader specifies metadata about the request..
 | Token          | String      | Required     | Specify the secure authentication token provided by [CreateSession][].                        | 
 | CoordinationId | String      | Optional     | Specify a value to echo in the response to track requests and their associated responses. |
 
-####GetImageDownloadAuthorizationsRequestBody Fields
-The GetImageDownloadAuthorizationsRequestBody contains the request arguments.
+####GetLargestImageDownloadAuthorizationsRequestBody Fields
+The GetLargestImageDownloadAuthorizationsRequestBody contains the request arguments.
 
 | Field 				| Type 		| Use 		| Description 																		|
 |:----------------------|:----------|:----------|:----------------------------------------------------------------------------------|
