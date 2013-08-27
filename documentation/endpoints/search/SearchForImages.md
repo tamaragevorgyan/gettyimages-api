@@ -262,7 +262,7 @@ The SearchForImagesResult contains these fields.
 |*Image*.DateCreated|String|Identifies the date the image was created. Date is in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-and-json.aspx.|
 |*Image*.DateSubmitted|String|Identifies the date the image was added to the Getty Images catalogs. Date is in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-and-json.aspx.|
 |*Image*.EditorialSegments|Collection|Contains an EditorialSegment entry for each editorial category to which the image belongs, if the image is in the editorial image family.|
-|EditorialSegment *entry*|String|Indicates the editorial category to which the image belongs, if the image is in the editorial image family. Possible values are: <br>• News <br>• Sport <br>• Entertainment <br>• Contour <br>• Travel <br>• Publicity <br>• Royalty <br>• Archival|
+|EditorialSegment *entry*|String|Indicates the editorial category to which the image belongs, if the image is in the editorial image family. Possible values are: <br>• News <br>• Sport <br>• Entertainment <br>• Contour <br>• Travel <br>• Publicity <br>• Royalty <br>• Archival <br>• Invalid|
 |EditorialSortOrder|String|Identifies the sort order applied to an editorial search in the SearchForImages request. Possible values are: <br>• Default <br>• MostRecent <br>• Trending (not available at this time) <br>• MostPopular|
 |CreativeSortOrder|String|Identifies the sort order applied to a creative search in the SearchForImages request. Possible values are: <br>• MostRecent <br>• MostPopular|
 |*Image*.editorialSourceId|String|Identifies the source of the image, if the image is in the editorial image family.|
@@ -276,7 +276,7 @@ The SearchForImagesResult contains these fields.
 |Keyword entry|Object|Contains keyword details.|
 |Keyword.Id|String|Identifies the keyword.|
 |Keyword.Text|String|Provides localized text of the keyword.|
-|Keyword.Type|String|Identifies the type of keyword. Possible values are: <br>• Unknown <br>• Specific people <br>• Ethnicity <br>• Age <br>• Gender <br>• Number of People <br>• Concept <br>• Location <br>• Viewpoint <br>• Image technique <br>• Composition <br>• Color <br>• Additional Info <br>• Candidate Term <br>• Fashion Phrases <br>• Entertainment|
+|Keyword.Type|String|Identifies the type of keyword. Possible values are: <br>• Unknown <br>• Specific people <br>• Ethnicity <br>• Age <br>• Gender <br>• Number of People <br>• Concept <br>• Location <br>• Viewpoint <br>• Image technique <br>• Composition <br>• Color <br>• Additional Info <br>• Candidate Term <br>• FashionPhrase <br>• Entertainment|
 |Keyword.VisualProminence|String|In "Specific people" keywords, identifies the visual prominence of that person in the image. Possible values are: <br>• Unknown <br>• Medium <br>• High <br>• VeryHigh|
 |Image.Licensing Model|String|Identifies a licensing model for the image. Possible values are: <br>• RoyaltyFree <br>• RightsManaged|
 |Image.Orientations|Collection|Contains an Orientation entry for each of the available orientations of the image. Orientation entry String Indicates available orientations of the image. Possible values are: <br>• Horizontal <br>• Vertical <br>• Square <br>• Panoramic|
