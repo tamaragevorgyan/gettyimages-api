@@ -137,7 +137,7 @@ The RequestHeader specifies metadata about the request.
 |LicensingModels|Collection|Optional|Adds a LicensingModel entry for each type of license. Use to filter results.|
 |LicensingModel *entry*|String|Optional|Specifies the type of license to filter results by. Possible values are: <br>• RoyaltyFree <br>• RightsManaged|
 |Orientations|Collection|Optional|Adds an orientation entry for each type of orientation. These entries are used to filter results.|
-|Orientations *entry*|String|Optional|Specifies image orientations to be included in search results. Possible values are: <br>• Horizontal <br>• Vertical <br>• Panoramichorizontal <br>• Panoramicvertical <br>• Square|
+|Orientations *entry*|String|Optional|Specifies image orientations to be included in search results. Possible values are: <br>• Horizontal <br>• Vertical <br>• PanoramicHorizontal <br>• PanoramicVertical <br>• Square|
 |Product Offerings|Collection|Optional|Adds a ProductOfferings entry for each type of product offering. Use to filter results.|
 |Product Offerings *entry*|String|Optional|Specifies product offerings to be included in search results. Possible values are: <br>• PremiumAccess <br>• EditorialSubscription <br>• EasyAccess|
 |Query|Object|Required|Specifies an instance to provide the search query.|
