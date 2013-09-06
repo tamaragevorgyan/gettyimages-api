@@ -228,7 +228,7 @@ The SearchForVideosResult contains these fields.
 | *Video*.Urls                                      | Object      | Contains URLs for the video. | 
 | *Urls*.Thumb                                      | String      | Identifies the URL of the video, sized for a results grid. Thumbnail videos are smaller than preview and comp. | 
 | *Urls*.FlashPreview                               | String      | Identifies the URL of the video in Flash format, sized for pop-up previews. Preview videos are larger than thumbnail but smaller than comp. | 
-| *Urls*.Comp                                       | String      | Identifies the URL of the video, sized for layout composition. Comp videos are larger than preview and thumbnail, but not full-sized. | 
+| *Urls*.Comp                                       | String      | Identifies the URL of the video, sized for layout composition. Comp videos are larger than preview and thumbnail, but not full-sized. Comp videos are also watermarked. We do not have non-watermarked comp videos at this time. | 
 | *Urls*.StoryBoard                                 | Collection  | Contains a *StoryBoardItem* entry for each story board image available for the video. | 
 | StoryBoardItem *entry*                            | Object      | Contains StoryBoardItem details for the story board image. | 
 | *StoryBoardItem*.ImageUrl                         | String      | Identifies the image URL of the story board image item. | 
