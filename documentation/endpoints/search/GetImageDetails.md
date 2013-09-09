@@ -52,7 +52,7 @@ The GetImageDetailsRequestBody contains the request arguments.
 
 | Field 		| Type		| Use 	 	| Description 																	|
 |:--------------|:----------|:----------|:------------------------------------------------------------------------------|
-| ImageId 		| Collection| Required 	| Specifies the Id entry of an event for which you want details in the result. 	|
+| ImageId 		| Collection| Required 	| Specifies the Id entry of an event for which you want details in the result. Limited to 90 ImageId entries.	|
 | ImageId entry | String 	| Required 	| Adds an ImageId entry for each image for which details are in the results.	|
 | Language 		| String 	| Optional 	| Specifies an IETF RFC 5646 compliant language tag to determine the language used for localizable strings returned in the response. Defaults to “en-US” if no value provided.|
 
