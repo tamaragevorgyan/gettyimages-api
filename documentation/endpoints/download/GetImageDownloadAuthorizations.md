@@ -82,7 +82,8 @@ The GetImageDownloadAuthorizations JSON response has this form:
 	            "DownloadIsFree": boolean,
 	            "DownloadToken": "",
 	            "ProductOfferingInstanceId": "",
-	            "ProductOfferingType": ""
+	            "ProductOfferingType": "",
+	            "DownloadsRemaining": int
 	          }
 	        ],
 	        "ImageId": "",
@@ -117,8 +118,9 @@ The GetImageDownloadAuthorizationsResult contains these fields.
 | Authorization _entry_          		| Object 	| Contains authorization details specific to a product offering.										|
 | _Authorization_.DownloadIsFree 		| Boolean  	| Indicates the customer is authorized to download the image without incurring a debit against the number of allowed downloads for the associated product offering.|
 | _Authorization_.DownloadToken 		| String  	| Provides the token needed to authorize the creation of a download request against the associated product offering. The token expires after 24 hours. Used when calling [CreateDownloadRequest][].|
-| _Authorization_.InstanceId 			| Collection| Identifies the product offering instance that authorizes the customer to download the image. Some products cannot have multiple instances, in which case this field has no value.|
-| _Authorization_.ProductOfferingType 	| Collection| Identifies the category to which the product offering belongs.										|
+| _Authorization_.InstanceId 			| String| Identifies the product offering instance that authorizes the customer to download the image. Some products cannot have multiple instances, in which case this field has no value.|
+| _Authorization_.ProductOfferingType 	| String| Identifies the category to which the product offering belongs.										|
+| _Authorization_.DownloadsRemaining 	| Integer| Identifies the remaining downloads for the product offering.										|
 | ImageId 								| String    | Identifies the image.																					|
 | SizeKey 								| String    | Identifies the size of the image being authorized for download. This size, based on imageId and Getty size value, is unique.|
 | Status           | String      | Indicates the image-size status notification. Possible values are: <br>• Available <br>• InvalidSizeKey <br>• ImageNotFound <br>• NoAuthorizations | 
