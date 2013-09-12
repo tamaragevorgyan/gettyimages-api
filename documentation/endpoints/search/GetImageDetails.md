@@ -199,8 +199,7 @@ The GetImageDetailsResult contains these fields.
 | _Image_.ReleaseMessage | String 	| Provides a localized message indicating the release or commercial use status of the image.|
 | _Image_.Restrictions | Collection 	| Contains a Restriction entry for each image usage restriction, if any.|
 | Restriction _entry_ | String 	| Indicates a usage restriction. |
-| _Image_.SizesDownloadableImages | Collection 	| Contains an ImageSize entry for each downloadable image size. |
-| _Image_.SizesDownloadableImages | Collection 	| Contains an ImageSize entry for each downloadable image size. |
+| _Image_.SizesDownloadableImages | Collection | Contains an ImageSize entry for each downloadable image size. This collection is empty if there are no associated product offerings for the current user.|
 | _Image_.Title |	String 	| Indicates the image title given by the artist.|
 | _ImageSize_.FileSizeInBytes | Integer | Indicates the image file size in bytes. |
 | _ImageSize_.InchesHeight | Double | Indicates the image height in inches when the image is rendered at the indicated ResolutionDpi. |
