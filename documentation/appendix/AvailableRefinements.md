@@ -4,12 +4,12 @@ The Available refinement categories are:
 
 | Refinement 	| Description																			|
 |:--------------|:--------------------------------------------------------------------------------------|
-| Age | Allows for refinement by age. Examples include adult, 30-39 Years, Elementary Age, Newborn, etc. |
-| AssetFamily 	| For blended searches of both Creative and Editorial image families, a way to filter results by creative or editorial.	|
-| Color | Allows for refinement by color. Examples include white background, pink, orange color, etc.|
-| Composition | Allows for refinement by image style. Examples include headshot, close-up, copy space, square, etc.|
-| Concept 		| Allows for refinement by keywords associated with assets in the search result set. Examples of concepts include happiness, adventure, south, on the move, etc. |
-| Ethnicity | Allows for refinement by ethnicity. Examples include african ethnicity, caucasian ethnicity, multi-ethnic group, mixed race person, etc.|
+| Age | Allows for refinement by age. Examples include but are not limited to: <br>• adult <br>• 30-39 Years <br>• Elementary Age <br>•  Newborn |
+| AssetFamily 	| Allows for filtering between Creative and Editorial images. It is highly recommended that you filter searches by asset family to improve both the quantity and quality of search results.	|
+| Color | Allows for refinement by color. Examples include but are not limited to: <br>• white background <br>• pink <br>• orange color|
+| Composition | Allows for refinement by image style. Examples include but are not limited to: <br>• headshot <br>• close-up <br>• copy space <br>• square|
+| Concept 		| Allows for refinement by keywords associated with assets in the search result set. Examples include but are not limited to: <br>• happiness <br>• adventure <br>• south <br>• on the move|
+| Ethnicity | Allows for refinement by ethnicity. Examples include but are not limited to: <br>• african ethnicity <br>• caucasian ethnicity <br>• multi-ethnic group <br>• mixed race person|
 | Events 		| Applies only to the Editorial image family. Event IDs are returned and passed into the GetEvent operation for displayable event metadata. Search result sets are also refineable by EventID.	|
 | Gender | Allows for refinement by gender. Examples include males, females, girls, boys, etc.|
 | ImageTechnique | Allows for refinement by technique. Examples include color image, focus on foreground, silhouette, back lit, etc.|
