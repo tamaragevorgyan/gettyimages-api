@@ -1,6 +1,6 @@
 Authentication in Getty Connect Using OAuth 2.0
 ===============================================
-The Getty Connect API uses OAuth 2.0 to authenticate and authorize client applications. An application must supply a valid access token in order to request any resource in the Connect API. This access token is generated when your end user grants access to Connect API resources to your application on behalf of their Getty Images user account. Access tokens are valid for 30 minutes, after which time they need to be refreshed.
+The Getty Connect API uses OAuth 2.0 to authenticate Getty users and authorize client applications. An application must supply a valid access token in order to request any resource in the Connect API. This access token is generated when your app's end user grants access to Connect API resources to your application on behalf of their Getty Images user account. Access tokens are valid for 30 minutes, after which time they need to be refreshed.
 
 Getting Access Tokens for Single-User Integrations
 --------------------------------------------------
