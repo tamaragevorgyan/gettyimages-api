@@ -8,7 +8,12 @@ If your application uses a single user account for all requests, you won't need 
 
 Getting Access Tokens for Multi-User Integrations
 -------------------------------------------------
-Getty Connect supports two OAuth2-based authentication flows: Server (authorization code) and Client (implicit grant). Server flow is best for web applications when an access token will be stored server-side. Client flow is best for desktop and mobile applications, when user info will be stored on the end user's device.
+Getty Connect supports four OAuth2-based authentication flows: 
+
+* Server flow (authentication code flow) is best for web applications when an access token will be stored server-side and your API secret can be kept secure. 
+* Client flow (implicit grant flow) is best for desktop and mobile applications, when user info will be stored on the end user's device and your API secret's cannot be kept secure.
+* Resource owner flow is best for applications where the access token being requested will always be for the same user.
+* Client credentials flow is best for applications that do not require an access token for a particular user and simply need to authenticate their client application. This is also the only supported authentication flow for applications still in Sandbox mode.
 
 ### Assumptions
 These instructions assume that your Connect client application has already been registered by Getty Images Connect and has an assigned API key and API secret. Check the Getty Connect developer portal for your application credentials.
