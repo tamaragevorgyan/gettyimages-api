@@ -22,8 +22,7 @@ $createSessionArray = array(
 		"SystemId" => $systemId,
 		"SystemPassword" => $systemPassword,
 		"UserName" => $userName,
-		"UserPassword" => $userPassword,
-		"RememberedUser" => "false"
+		"UserPassword" => $userPassword
 	)
 );
 
