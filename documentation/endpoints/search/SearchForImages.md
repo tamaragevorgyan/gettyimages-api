@@ -4,24 +4,12 @@ The SearchForImages call returns image metadata for all images matching a
 specified search query.
 
 ###Search queries and filters
-SearchForImages partitions a search into a query and an optional set of filters. At
-least one query must be provided. All filters are optional. This partitioning supports
-the scenario where the client submits a query and the server responds with
-suggested possible modifications to that query, in addition to the initial results. The
-client can then resubmit the original query and provide any of the suggested
-modifications as filters. It enables clients to create workflows that allow users to
-interactively modify their search in response to suggestions that can improve the
-quality of matches.
+SearchForImages partitions a search into a query and an optional set of filters. At least one query parameter must be provided. All filters are optional, though <b>we strongly recommend that you use the ImageFamilies filter</b>. When this filter is left blank, the search executes what we call a “combined” query—one that searches across both editorial and creative images. These combined searches are currently sent to our older search engine, which produces slower and less reliable results. In addition, you cannot sort combined search results based on relevancy. Simply specifying “Creative” or “Editorial” in the ImageFamilies filter will produce much better results.
 
 ###Search pagination
 Clients can control the subset of matching images returned in a response. This
 feature supports pagination scenarios. The subset, or "page" of images returned is
 specified by the client with an index: ItemStartNumber, and offset: ItemCount.
-
-###Search hide/block
-Hide/block restricts the items returned in a search result set to conform to legal
-requirements and comply with image partner contracts based on the end user's
-billing country.
 
 ###Endpoint
 Use the following endpoint to access this operation
