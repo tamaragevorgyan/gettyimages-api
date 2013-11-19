@@ -31,23 +31,28 @@ Before we dive into the details of the OAuth 2.0 authorization workflows, let’
 
 Authorization Grant Flows
 --------------------------
-Summarized below are the four authorization grant flows in OAuth 2.0. Connect will initially support the Implicit flow, adding in other flows over time. 
+Summarized below are the four authorization grant flows in OAuth 2.0. 
 
 | Authorization Grant | Client Environment | Entities Required |
 |:--------------------|:-------------------|:------------------|
-| Authorization Code  | Hosted web application, where client credentials are stored on the web server | API key and secret, User ID and password | 
 | Implicit Grant | Client-side application, where the application cannot secure the API secret | API key, User ID and password | 
 | Resource Owner Password Credentials | Resource owner has high degree of trust with the client application. | API key and secret, User ID and password |
 | Client Credentials | Client application is also the resource owner. | API key and secret | 
+| Authorization Code\*  | Hosted web application, where client credentials are stored on the web server | API key and secret, User ID and password | 
+\* Connect currently supports Implicit Grant, Resource Owner Password Credentials, and Client Credentials flows.  Authorization Code flow support may be added at a later time.
 
 ### Implicit Grant Flow ###
 #### Summary ####
 Getty Images requires this flow for 3rd party client applications that are unable to secure their client credentials (for example, on a secure server). In this flow, the user authorizes the application to access their protected resources using the Getty Images authorization server. Developers follow these steps to get an access token for their application:
 
-1. Client application calls the Auth endpoint (e.g., https://connect.gettyimages.com/oauth2/auth/) and passes in their API key.
+1. Client application calls the Auth endpoint (e.g., https://connect.gettyimages.com/oauth2/auth/) and passes in:
+  * their API key / client id;
+  * a redirect uri that has been registered with Connect (parameters may be added that are not registered);
+  * a response type of "token"; and
+  * a state (optional).
 2. Client application redirects to our sign-in page whose location is provided in the response to step 1.
 3. End user signs in with their Getty Images or Thinkstock credentials and clicks Authorize.
-4. Connect verifies the client and user credentials and redirects to the client application with an access token.
+4. Connect verifies the client and user credentials and redirects to the client application with a long-lived access token.
 
 #### Token Expiration and Revocation ####
 Some resources accept longer-lived access tokens, depending on the sensitivity of the resource. For instance, search functionality accepts long-lived tokens (e.g., one year), whereas download functionality is protected by a shorter access token lifetime (e.g., one week). 
