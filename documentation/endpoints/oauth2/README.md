@@ -27,7 +27,7 @@ Before we dive into the details of the OAuth 2.0 authorization workflows, let’
 | Client Credentials | API key and secret for the client application. | | 
 | Access Token | Token provided by the authorization server to the client application to authorize access to resources.||
 | Token Revocation | Means of revoking an access token. Getty Images or a user can revoke an access token if suspicious activity is detected. | |
-| Client Type | A client type is assigned to a client application based on their ability to authenticate securely with the authorization server. | Public or confidential (see OAuth2 rfc for more info) |
+| Client Type | A client type is assigned to a client application based on their ability to authenticate securely with the authorization server. | Public or confidential (see <a href="http://tools.ietf.org/html/rfc6749#section-2.1">OAuth2 RFC</a> for more info) |
 
 Authorization Grant Flows
 --------------------------
@@ -43,6 +43,7 @@ Summarized below are the four authorization grant flows in OAuth 2.0.
 
 ### Implicit Grant Flow ###
 #### Summary ####
+http://tools.ietf.org/html/rfc6749#section-4.2  
 Getty Images requires this flow for 3rd party client applications. In this flow, the user authorizes the application to access their protected resources using the Getty Images authorization server. Developers follow these steps to get an access token for their application:
 
 1. Client application calls the Auth endpoint (e.g., https://connect.gettyimages.com/oauth2/auth/) and passes in:
@@ -70,8 +71,9 @@ Once an access token is no longer valid (has expired) for a given resource, a ne
 
 Access tokens can also be revoked when the user changes their password. Revoked tokens cannot be used for any API access.
 
-### Implicit Grant Flow ###
+### Resource Owner Flow ###
 #### Summary ####
+http://tools.ietf.org/html/rfc6749#section-4.3  
 The resource owner flow is only for Getty Images and Getty Images partner applications. This grant type is suitable for clients capable of obtaining the resource owner's credentials. It is also used to migrate existing clients using direct authentication schemes such as HTTP Basic or Digest authentication to OAuth by converting the stored credentials to an access token.
 
 1. Client application call token end point with the following request:
@@ -127,6 +129,7 @@ Refresh tokens can be revoked when the user changes their password. Revoked toke
 
 ### Client Credentials Flow  ###
 #### Summary ####
+http://tools.ietf.org/html/rfc6749#section-4.4  
 Client Credentials flow is for client applications that will not have individual users.  An application token is created and limits the client application to operations that do not need user credentials.  A Sandbox application (one trialing development, without an agreement) can only use Client Credential flow.
 
 1. Client application call token end point with the following request:
