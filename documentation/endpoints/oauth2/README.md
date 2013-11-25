@@ -27,34 +27,145 @@ Before we dive into the details of the OAuth 2.0 authorization workflows, let’
 | Client Credentials | API key and secret for the client application. | | 
 | Access Token | Token provided by the authorization server to the client application to authorize access to resources.||
 | Token Revocation | Means of revoking an access token. Getty Images or a user can revoke an access token if suspicious activity is detected. | |
-
+| Client Type | A client type is assigned to a client application based on their ability to authenticate securely with the authorization server. | Public or confidential (see <a href="http://tools.ietf.org/html/rfc6749#section-2.1">OAuth2 RFC</a> for more info) |
 
 Authorization Grant Flows
 --------------------------
-Summarized below are the four authorization grant flows in OAuth 2.0. Connect will initially support the Implicit flow, adding in other flows over time. 
+Summarized below are the four authorization grant flows in OAuth 2.0. 
 
 | Authorization Grant | Client Environment | Entities Required |
 |:--------------------|:-------------------|:------------------|
-| Authorization Code  | Hosted web application, where client credentials are stored on the web server | API key and secret, User ID and password | 
 | Implicit Grant | Client-side application, where the application cannot secure the API secret | API key, User ID and password | 
 | Resource Owner Password Credentials | Resource owner has high degree of trust with the client application. | API key and secret, User ID and password |
 | Client Credentials | Client application is also the resource owner. | API key and secret | 
+| Authorization Code\*  | Hosted web application, where client credentials are stored on the web server | API key and secret, User ID and password | 
+\* Connect currently supports Implicit Grant, Resource Owner Password Credentials, and Client Credentials flows.  Authorization Code flow support may be added at a later time.
 
 ### Implicit Grant Flow ###
 #### Summary ####
-Getty Images requires this flow for 3rd party client applications that are unable to secure their client credentials (for example, on a secure server). In this flow, the user authorizes the application to access their protected resources using the Getty Images authorization server. Developers follow these steps to get an access token for their application:
+http://tools.ietf.org/html/rfc6749#section-4.2  
+Getty Images requires this flow for 3rd party client applications. In this flow, the user authorizes the application to access their protected resources using the Getty Images authorization server. Developers follow these steps to get an access token for their application:
 
-1. Client application calls the Auth endpoint (e.g., https://connect.gettyimages.com/oauth2/auth/) and passes in their API key.
+1. Client application calls the Auth endpoint (e.g., https://connect.gettyimages.com/oauth2/auth/) and passes in:
+  * their API key / client id;
+  * a redirect uri that has been registered with Connect (parameters may be added that are not registered);
+  * a response type of "token"; and
+  * a state (optional).
 2. Client application redirects to our sign-in page whose location is provided in the response to step 1.
 3. End user signs in with their Getty Images or Thinkstock credentials and clicks Authorize.
-4. Connect verifies the client and user credentials and redirects to the client application with an access token.
+4. Connect verifies the client and user credentials and redirects to the client application with a long-lived access token.
+
+#####Example request:
+
+        GET https://connect.gettyimages.com/oauth2/auth/?response_type=token&client_id=s6BhdRkqt3&state=xyz&redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb HTTP/1.1
+
+#####Example response:
+
+        HTTP/1.1 302 Found
+        Location: https://client.example.com/cb#access_token=2YotnFZFEjr1zCsicMWpAA&state=xyz&token_type=bearer
 
 #### Token Expiration and Revocation ####
-Some resources accept longer-lived access tokens, depending on the sensitivity of the resource. For instance, search functionality accepts long-lived tokens (e.g., one year), whereas download functionality is protected by a shorter access token lifetime (e.g., one week). 
+Some resources accept longer-lived access tokens, depending on the sensitivity of the resource. For instance, search functionality accepts long-lived tokens (i.e., one year), whereas download functionality is protected by a shorter access token lifetime (i.e., one week). 
 
 Once an access token is no longer valid (has expired) for a given resource, a new access token must be retrieved to access that resource. The implicit grant flow does not support access token refresh. New access tokens must be retrieved via the implicit grant flow.
 
-Access tokens can be also be revoked when the user changes their password. Revoked tokens cannot be used for any API access.
+Access tokens can also be revoked when the user changes their password. Revoked tokens cannot be used for any API access.
+
+### Resource Owner Flow ###
+#### Summary ####
+http://tools.ietf.org/html/rfc6749#section-4.3  
+The resource owner flow is only for Getty Images and Getty Images partner applications. This grant type is suitable for clients capable of obtaining the resource owner's credentials. It is also used to migrate existing clients using direct authentication schemes such as HTTP Basic or Digest authentication to OAuth by converting the stored credentials to an access token.
+
+1. Client application call token end point with the following request:
+  * grant type of ‘password’
+  * username
+  * password
+  * client id / API key
+  * client secret
+2. Client receives as a result
+  * an access token
+  * refresh token
+  * an expiration in seconds
+  * token type of "bearer"
+3. The access token is good for 30 minutes
+4. The refresh token is good for one year and can be used to retrieve another 30 minute access token by calling the token endpoint with a grant type of 'refresh_token'
+
+#####Example request:
+        
+        POST /token HTTPS/1.1
+        Host: connect.gettyimages.com/oauth2/token/
+        Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+        Content-Type: application/x-www-form-urlencoded
+
+        client_id=TestClientId&client_secret=TestSecret&grant_type=password&username=johndoe&password=A3ddj3w
+
+#####Example response:
+
+        HTTPS/1.1 200 OK
+        Content-Type: application/json;charset=UTF-8
+        Cache-Control: no-store
+        Pragma: no-cache
+
+        {
+                "access_token":"2YotnFZFEjr1zCsicMWpAA",
+                "token_type":"Bearer",
+                "expires_in":1800,
+                "refresh_token":"tGzv3JOkF0XG5Qx2TlKWIA"
+        }
+
+#####Example refresh request:
+
+        POST /token HTTPS/1.1
+        Host: connect.gettyimages.com/oauth2/token/
+        Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+        Content-Type: application/x-www-form-urlencoded
+        
+        grant_type=token_refresh&client_id=TestClientId&client_secret=TestSecret&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA
+
+#### Token Expiration and Revocation ####
+The resource owner flow grants a 30 minute access token.  If the client application needs to access content for the user beyond that point, it can use the refresh token to get a new access token that will also be valid for 30 minutes.  The refresh token is valid for one year and can be used as many times as needed within that one year to get a new access token.  The refresh token cannot be used for API access. 
+
+Refresh tokens can be revoked when the user changes their password. Revoked tokens cannot be used for any API access.
+
+### Client Credentials Flow  ###
+#### Summary ####
+http://tools.ietf.org/html/rfc6749#section-4.4  
+Client Credentials flow is for client applications that will not have individual users.  An application token is created and limits the client application to operations that do not need user credentials.  A Sandbox application (one trialing development, without an agreement) can only use Client Credential flow.
+
+1. Client application call token end point with the following request:
+  * grant type of 'client_credentials'
+  * client id/API key
+  * client secret
+2. Client receives as a response:
+  * an access token
+  * an expiration in seconds
+  * token type of 'bearer'
+3. The access token is good for 30 minutes
+
+#####Example request:
+        
+        POST /token HTTPS/1.1
+        Host: connect.gettyimages.com/oauth2/token/
+        Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+        Content-Type: application/x-www-form-urlencoded
+
+        client_id=TestClientId&client_secret=TestSecret&grant_type=client_credential
+
+#####Example response:
+
+        HTTPS/1.1 200 OK
+        Content-Type: application/json;charset=UTF-8
+        Cache-Control: no-store
+        Pragma: no-cache
+
+        {
+                "access_token":"2YotnFZFEjr1zCsicMWpAA",
+                "token_type":"Bearer",
+                "expires_in":1800,
+        }
+
+#### Token Expiration and Revocation ####
+The client credential flow grants a 30 minute access token.  Once the token has expired, a call for a new access token is required.
 
 References
 ----------
