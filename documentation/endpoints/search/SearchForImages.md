@@ -61,7 +61,7 @@ The SearchForImages JSON request has this form:
 	          "Category": "",
 	          "Id": ""
 	        }
-	      ]
+	      ],
 	      "WhiteBackgroundOnly": boolean
 	    },
 	  "Language": "",
@@ -87,6 +87,7 @@ The SearchForImages JSON request has this form:
 	    "EditorialSortOrder": "",
 	    "CreativeSortOrder": ""
 	  }
+	}
 	}
 
 ###RequestHeader fields
