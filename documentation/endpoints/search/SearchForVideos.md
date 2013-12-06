@@ -260,6 +260,4 @@ The SearchForVideosResult contains these fields.
 [GetImageDetails]: ../search/GetImageDetails.md
 [SearchForImages]: ../search/SearchForImages.md
 [SearchForVideos]: ../search/SearchForVideos.md
-rImages.md
-[SearchForVideos]: ../search/SearchForVideos.md
 
