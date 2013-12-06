@@ -44,7 +44,7 @@ The **SearchForVideos** JSON request has this form:
 		  "AssetIds": [],
 		  "KeywordIds": [],
 		  "SearchPhrase": "",
-                  "EntityUris": []
+		  "EntityUris": []
 
 		},
 		"ResultOptions": {
