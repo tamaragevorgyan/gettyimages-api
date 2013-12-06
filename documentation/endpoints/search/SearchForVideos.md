@@ -43,7 +43,9 @@ The **SearchForVideos** JSON request has this form:
 		"Query": {
 		  "AssetIds": [],
 		  "KeywordIds": [],
-		  "SearchPhrase": ""
+		  "SearchPhrase": "",
+                  "EntityUris": []
+
 		},
 		"ResultOptions": {
 		  "ItemCount": int,
@@ -84,6 +86,7 @@ The SearchForVideosRequestBody contains the request arguments.
 | *Query*.KeywordIds              | Collection  | Optional     | Adds a KeywordId entry for each keyword id to query the videos that match all the specified KeywordIds. It is the logical "AND" of all the specified KeywordIds.  |
 | KeywordId  *entry*              | String      | Optional     | Specifies a KeywordId to query the videos by. |
 | *Query*.SearchPhrase            | String      | Optional     | Specifies the search phrase. |
+|*Query*.EntityUris|Collection|Optional|Contains a list of linked data entity uris. Supported providers are: <br>• Freebase<br>• Dbpedia<br>• Musicbrainz|
 | ResultOptions                   | Object      | Required     | Specifies an instance to control paging, sorting, or other result options. |
 | *ResultOptions*.ItemCount       | Integer     | Required     | Specifies the count of matching videos to return in the response. Use with the item start number to support pagination. Valid values are: 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 25, 30, 50, 60, 75, 90 |
 | *ResultOptions*.ItemStartNumber | Integer     | Required     | Specifies the (1-based) index of the first video to return the response. Use with item count to support pagination. ItemsStartNumber should be the index of the first result to return, based on the specified ItemCount. For example, assuming a specified ItemCount of 25, the following values of ItemStartNumber would be used: 1 (1st page), 26 (2nd page), 51 (3rd page), and so forth. |
@@ -256,5 +259,7 @@ The SearchForVideosResult contains these fields.
 [GetEventDetails]: ../search/GetEventDetails.md
 [GetImageDetails]: ../search/GetImageDetails.md
 [SearchForImages]: ../search/SearchForImages.md
+[SearchForVideos]: ../search/SearchForVideos.md
+rImages.md
 [SearchForVideos]: ../search/SearchForVideos.md
 
