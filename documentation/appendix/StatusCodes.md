@@ -17,17 +17,24 @@ The Status codes are:
 | DateCreatedRangeNotApplicable	| Indicates that DateCreatedRange can only be used with the editorial or default image family.			|
 | DependentServiceDown          | Indicates that a dependent system is unreachable.                                                     |
 | DuplicateUsername				| Indicates that the username is already in use.														|
+| EntitySearchFailure | Indicates there was an internal failure while resolving one or more entity URIs. |
 | EventNotFound					| Indicates that one or more of the requested events could not be found.								|
 | ExpiredDownloadToken			| Indicates that the download token has expired.														|
+| FailedUri | Unable to resolve the specified entity URI. |
 | FailedToCreateCustomer		| Indicates that the customer was not created. 															|
 | FailedToGetDownloadUrl		| Indicates that a download URL could not be gotten for the asset, size, and agreement specified.		|
 | FailedToRenewToken			| Indicates that the system security token was unable to be renewed.									| 
 | ImageNotFound					| Indicates that the image does not exist; usually due to an incorrectly specified image id.			|
+| IncorrectlyFormedDbpediaURI | Indicates the Dbpedia URI was not correctly formed. |
+| IncorrectlyFormedFreebaseURI | Indicates the Freebase URI was not correctly formed. |
+| IncorrectlyFormedMusicbrainzURI | Indicates the Musicbrainz URI was not correctly formed. |
+| IncorrectlyFormedURI | Indicates the entity uri is malformed. |
 | InternalError					| Indicates an internal error.																			|
 | InvalidAssets				    | Indicates that there are invalid asset id(s) in the request.											|
 | InvalidCollectionId			| Indicates that the collection id specified is not valid.												|
 | InvalidEditorialSegment		| Indicates that the editorial segment specified is not valid.											|
 | InvalidEditorialSourceId		| Indicates that the editorial source id specified is not valid.										|
+| InvalidEntityUri | Indicates one or more of the entity URIs could not be validated. |
 | InvalidEventSortType			| Indicates that the event sort type is not available.													|
 | InvalidDownloadToken			| Indicates that the download token is not in a valid format.                             				|
 | InvalidIncludeExcludeMode		| Indicates that the IncludeExcludeMode specified is not valid. 										|
@@ -62,4 +69,6 @@ The Status codes are:
 | TransactionIdDuplicate		| Indicates that a usage report with the provided transaction id has already been successfully recorded.|
 | UnauthorizedProductOffering	| Indicates that the active download agreement does not authorize the requested product offerings. 		|
 | UnauthorizedToReportUsage     | Indicates that the partner is not authorized to report usage.											|
+| UnknownProviderURI | Indicates an entity URI from an unsupported provider was specified. |
+| UriResolutionFailed | Indicates URI resolution failed for one or more entity URIs. |
 | UsernameEqualsPassword		| Indicates that the password matches the username. Username and password can't be the same. 			|
