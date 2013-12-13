@@ -27,23 +27,22 @@ If you aren't already mapping to a linked data source and referencing linked dat
 
 Frequently Asked Questions
 --------------------------
-<strong>What if the entity URI I'm searching for isn't among the 60,000 people you've mapped?</strong>
+<b>What if the entity URI I'm searching for isn't among the 60,000 people you've mapped?</b>
 The API will return zero results. In this case, try a free text keyword search (with the SearchPhrase query parameter). Be sure to also set the EditorialSortOrder to "MostPopular" or "Trending" to get the most relevant images first in your results.
 
-<strong>What if the entity is not a person, such as a sports team, band, movie or event?</strong>
+<b>What if the entity is not a person, such as a sports team, band, movie or event?</b>
 We plan to expand this service and link to different types of entities over time, so be sure to let us know what you'd like to see next!
 
-<strong>Why am I getting the error URI resolution failed?</strong>
+<b>Why am I getting the error URI resolution failed?</b>
 Connect will return the UriResolutionFailed status code with the message "Indicates URI resolution failed for one or more entity URIs" when the URI is malformed. Refer to the table in the "Tell Me How" section for how to properly format each URI.
 
-<strong>Why am I getting the error unknown provider URI?</strong>
+<b>Why am I getting the error unknown provider URI?</b>
 Connect will return the status code, UnknownProviderUri, with the message, "Indicates an entity URI from an unsupported provider was specified," if the entity URI is from a data source other than those we have linked to. If you rely on a particular data source for your business, be sure to let us know so that we can review our policies and consider it for the future.
 
-<strong>How do I get images of just that person or otherwise refine the results?</strong>
+<b>How do I get images of just that person or otherwise refine the results?</b>
 You have a few options to work with:
 
 * Set the EditorialSortOrder parameter to MostPopular or Trending.
 * Add "one person" in the SearchPhrase query parameter to get results for just that person.
 * Add keywords such as "headshot," "head and shoulders," or "waist up."
-
 
