@@ -1,3 +1,0 @@
-Connect offers several ways to find assets for specific people or other entities. You can include keywords (such as the person's name or "headshot") in a free text search. You can also use various search parameters (such as specifying MostPopular in the EditorialSortOrder parameter when querying for editorial assets).
-
-Beginning in December 2013, Connect released a beta for a new query parameter to automatically retrieve accurate, targeted and unambiguous search results by searching with exact entity IDs rather than keywords. This functionality ties in to the expanding <a href="http://lod-cloud.net/">Linked Open Data community</a> of metadata using the common language of Uniform Resource Identifiers (URIs).
