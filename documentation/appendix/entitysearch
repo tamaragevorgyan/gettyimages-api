@@ -40,7 +40,7 @@ Connect will return the UriResolutionFailed status code with the message "Indica
 Connect will return the status code, UnknownProviderUri, with the message, "Indicates an entity URI from an unsupported provider was specified," if the entity URI is from a data source other than those we have linked to. If you rely on a particular data source for your business, be sure to let us know so that we can review our policies and consider it for the future.
 
 <b>How do I get images of just that person or otherwise refine the results?</b>
-You have a few options to work with:
+You have a few options to work with. We recommend using a combination of EditorialSortOrder and SearchPhrase query parameter. For example:
 
 * Set the EditorialSortOrder parameter to MostPopular or Trending.
 * Add "one person" in the SearchPhrase query parameter to get results for just that person.
