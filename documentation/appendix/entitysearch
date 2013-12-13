@@ -4,8 +4,7 @@ Connect offers several ways to find specific entities -- people, sports teams an
 
 Beginning in December 2013, Connect released a beta for a new query parameter to automatically retrieve accurate, targeted and unambiguous search results by searching with exact entity IDs rather than keywords. This functionality ties in to the expanding <a href="http://lod-cloud.net/">Linked Open Data community</a> of metadata using the common language of Uniform Resource Identifiers (URIs).
 
-Linked Data Sources
--------------------
+###Linked Data Sources
 We've linked more than 60,000 individuals to the metadata in the following external data sources:
 *	DBPedia
 *	Freebase
@@ -13,8 +12,7 @@ We've linked more than 60,000 individuals to the metadata in the following exter
 
 We continually review search trends and add names to our named persons list as people become well-known or frequently searched for.
 
-Tell Me How
------------
+###Tell Me How
 You can specify the Linked Data URI in the EntityUris query parameter of our Search operations, SearchForImages or SearchForVideos.
 
 If you aren't already mapping to a linked data source and referencing linked data URIs, you can obtain the URI by searching in one of the following sources:
@@ -25,8 +23,7 @@ If you aren't already mapping to a linked data source and referencing linked dat
 | Freebase | Search for the entity at <a href="http://www.freebase.com/">http://www.freebase.com/</a>. | <a href="http://rdf.freebase.com/ns/m.01tp5bj">http://rdf.freebase.com/ns/m.01tp5bj</a> <br/> <a href="http://rdf.freebase.com/ns/m.01mpq7s">http://rdf.freebase.com/ns/m.01mpq7s</a> |
 | MusicBrainz | Search for the entity at <a href="http://musicbrainz.org/">http://musicbrainz.org/</a>. | <a href="http://musicbrainz.org/artist/7d1a1624-784b-4f89-8ff9-b9b493cd059d ">http://musicbrainz.org/artist/7d1a1624-784b-4f89-8ff9-b9b493cd059d </a> <br/> <a href="http://musicbrainz.org/artist/859d0860-d480-4efd-970c-c05d5f1776b8">http://musicbrainz.org/artist/859d0860-d480-4efd-970c-c05d5f1776b8</a> |
 
-Frequently Asked Questions
---------------------------
+###Frequently Asked Questions
 <b>What if the entity URI I'm searching for isn't among the 60,000 people you've mapped?</b>
 The API will return zero results. In this case, try a free text keyword search (with the SearchPhrase query parameter). Be sure to also set the EditorialSortOrder to "MostPopular" or "Trending" to get the most relevant images first in your results.
 
