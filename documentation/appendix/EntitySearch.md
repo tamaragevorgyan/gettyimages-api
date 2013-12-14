@@ -41,7 +41,7 @@ Connect will return the InvalidEntityUri status code when one or more of the URI
 Refer to the table in the "Tell Me How" section for how to properly format each URI.
 
 <b>What should I do when I get the error entity search failure?</b>
-Connect will return the EntitySearchFail status code if there's a failure with our internal entity mapping systems. You can try your request in a few minutes. If you continue to receive this error, please contact our <a href="http://api.gettyimages.com/forum/read/161199">Network Operations Center and note that you're experiencing issues with our Taxonomy Service on Connect.
+Connect will return the EntitySearchFail status code if there's a failure with our internal entity mapping systems. You can try your request in a few minutes. If you continue to receive this error, please contact our <a href="http://api.gettyimages.com/forum/read/161199">Network Operations Center</a> and note that you're experiencing issues with our Taxonomy Service on Connect.
 
 <b>Why am I getting the error unknown provider URI?</b>
 Connect will return the UnknownProviderUri status code if the entity URI is from a data source other than those we have linked to. If you rely on a particular data source for your business, be sure to let us know so that we can review our providers and consider it for the future.
