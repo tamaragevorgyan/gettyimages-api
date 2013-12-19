@@ -1,6 +1,6 @@
 GetAssetChanges
 -------------
-The GetAssetChanges call returns a list of changed assets relative to a local store of Getty Images assets. It is called in conjunction with the [ConfirmAssetChanges][] operation.
+The GetAssetChanges call returns a list of changed assets relative to a local store of Getty Images assets. <b>Note that you must call [ConfirmAssetChanges][] operation</b> after every GetAssetChanges request. Doing so will clear the most recent set of images from our database, enabling you to call for the next set. If you do not call ConfirmAssetChanges, you will get the same list of images in every GetAssetChanges request.
 
 This operation is not publicly available at this time. Please contact your Getty Images Account Manager if you need more information.
 
