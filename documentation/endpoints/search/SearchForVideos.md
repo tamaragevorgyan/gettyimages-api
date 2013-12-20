@@ -37,7 +37,8 @@ The **SearchForVideos** JSON request has this form:
 			"Mode": ""
 		  },
 		  "ExcludeNudity": "",
-		  "Formats": []
+		  "Formats": [],
+		  "LicensingModels": [""],
 		},
 		"Language": "",
 		"Query": {
@@ -80,6 +81,8 @@ The SearchForVideosRequestBody contains the request arguments.
 | Formats                         | Collection  | Optional     | Adds a Format entry for each format filter to apply to the query results. A null field is equivalent to a Formats field with entries for all possible values. |
 | Format *entry*                  | String      | Optional     | Specifies the formats filter to apply to the query results. Possible values are:<br>• HD<br>• SD |
 | Language                        | String      | Optional     | Specifies an IETF RFC 5646 compliant language tag to determine the language used for localizable strings returned in the response. Defaults to "en-US" if no value is provided. |
+|LicensingModels|Collection|Optional|Adds a LicensingModel entry for each type of license. Use to filter results.|
+|LicensingModel *entry*|String|Optional|Specifies the type of license to filter results by. Possible values are: <br>• RoyaltyFree <br>• RightsManaged|
 | Query                           | Object      | Required     | Specifies an instance to provide the search query. |
 | *Query*.AssetIds                | Collection  | Optional     | Adds an AssetId entry of each video for which you want metadata in the results. Specifying AssetIds overrides all Filter settings and all other Query settings. AssetIds supports a maximum of 500 entries.  |
 | AssetId *entry*                 | Object      | Optional     | Specifies the ID entry of a video for which you want metadata in the results. |
@@ -151,6 +154,7 @@ The **SearchForVideos** JSON response has this form:
 			"Restrictions": [""],
 			"ShotSpeed": "",
 			"Source": "",
+			"Title": "",
 			"Urls": {
 			  "Comp": "",
 			  "FlashPreview": "",
@@ -228,6 +232,7 @@ The SearchForVideosResult contains these fields.
 | Restriction *entry*                               | String      | Indicates a usage restriction. | 
 | *Video*.ShotSpeed                                 | String      | Identifies the shot speed of the video. Possible values are:<br> • RealTime<br> • SlowMotion<br> • TimeLapse | 
 | *Video*.Source                                    | String      | Identifies the source of the video. Source is only provided for Editorial videos. | 
+| *Video*.Title					    | String 	| Identifies the title of the video. |
 | *Video*.Urls                                      | Object      | Contains URLs for the video. | 
 | *Urls*.Thumb                                      | String      | Identifies the URL of the video, sized for a results grid. Thumbnail videos are smaller than preview and comp. | 
 | *Urls*.FlashPreview                               | String      | Identifies the URL of the video in Flash format, sized for pop-up previews. Preview videos are larger than thumbnail but smaller than comp. | 
