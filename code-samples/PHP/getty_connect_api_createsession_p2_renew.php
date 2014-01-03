@@ -17,7 +17,7 @@ $renewSessionArray = array(
 		"Token" => $oldToken,
 		"CoordinationId" => ""
 	),
-	"RenewTokenRequestBody" => array(
+	"RenewSessionRequestBody" => array(
 		"SystemId" => $systemId,
 		"SystemPassword" => $systemPassword
 	)
