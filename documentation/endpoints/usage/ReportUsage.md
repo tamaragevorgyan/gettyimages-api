@@ -62,7 +62,7 @@ The ReportUsageRequestBody contains the request arguments. Required fields are i
 | AssetUsages _entry_ | Object      | Required     | Object containing the asset usages being reported.  |
 | AssetUsages._AssetId_ | String      | Required     | Specify the GettyImages asset/image ID used.  |
 | AssetUsages._Quantity_ | Integer      | Required     | Number of usages of the asset/image ID being reported.  |
-| AssetUsages._UsageDate_ | String      | Required     | Identifies the date the asset/image was used. Date is in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-and-json.aspx. |
+| AssetUsages._UsageDate_ | String      | Required     | Identifies the date the asset/image was used. Date is in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-and-json.aspx. Please note that dates must be submitted in milliseconds, not seconds. Dates submitted in seconds translate to a day in the year 1970.|
 
 Response
 ---------
