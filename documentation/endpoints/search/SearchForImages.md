@@ -67,8 +67,8 @@ The SearchForImages JSON request has this form:
 	  "Language": "",
 	  "Query": {
 	    "DateCreatedRange": {
-	      "EndDate": "\/Date(1315586894349-0700)\/",
-	      "StartDate": "\/Date(1315586894349-0700)\/"
+	      "EndDate": "2014-01-08",
+	      "StartDate": "2013-12-30"
 	    },
 	    "EventId": 1,
 	    "SearchPhrase": "",
@@ -111,8 +111,8 @@ The RequestHeader specifies metadata about the request.
 |DateCreatedRange|Object|Optional|Specifies an instance to query on the images creation date. This query only applies to images when the ImageFamilies filter is null or has an “editorial” ImageFamily entry.|
 |EditorialSortOrder|String|Optional|Specifies a sort order for the results of an editorial image search. Note that an entry of "editorial" for the "ImageFamilies" filter must be used for the sort order to take effect. Possible values are: <br>• Null (order by DateCreated, Date-submitted, ImageId descending) <br>• MostRecent (order by DateSubmitted descending) <br>• MostPopular (order by relevancy as determined from data gathered from customer interactions on Getty Images websites) <br>•  Trending (similar to MostPopular, but with the most recent images first)|
 |CreativeSortOrder|String|Optional|Specifies a sort order for the results of a creative image search. Note that an entry of "creative" for the "ImageFamilies" filter must be used for the sort order to take effect. Possible values are: <br>• Null (order by MostPopular by default) <br>• MostRecent (order by DateSubmitted descending) <br>• MostPopular (order by relevancy as determined from data gathered from customer interactions on Getty Images websites)|
-|EndDate|String|Optional|Specifies a date that images created prior to that date are to be included in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-and-json.aspx.|
-|StartDate|String|Optional|Specifies a date that images created after that date are to be included in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-and-json.aspx.|
+|EndDate|String|Optional|Specifies a date that images created prior to that date are to be included in the search results. Dates should be submitted in <a href="http://www.w3.org/TR/NOTE-datetime">ISO 8601 format</a> (i.e., YYYY-MM-DD). Note that the date format in the response will be in Epoch time.|
+|StartDate|String|Optional|Specifies a date that images created after that date are to be included in the search results. Dates should be submitted in <a href="http://www.w3.org/TR/NOTE-datetime">ISO 8601 format</a> (i.e., YYYY-MM-DD). Note that the date format in the response will be in Epoch time.|
 |EntityUris|Collection|Optional|Contains a list of linked data entity uris. Supported providers are: <br>• Freebase<br>• Dbpedia<br>• Musicbrainz<br> For more information about contructing the URIs and searching for people and other entities, <a href="https://github.com/gettyimages/connect/blob/master/documentation/appendix/EntitySearch.md">read the appendix</a>.|
 |EventId|Integer|Optional|Specifies an eventId to include imagesonly for that event.|
 |ExcludeNudity|Boolean|Optional|To filter out images of nudity and related subjects, set to "true". To not filter these images, set to "false". Leaving the filter out of your request has the effect of "false".|
