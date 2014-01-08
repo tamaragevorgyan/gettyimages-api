@@ -38,7 +38,7 @@ Populate and submit the following JSON representation of the ReportUsage request
 		            {
         		    "AssetId": "1234567890",
         		    "Quantity": 2,
-        		    "UsageDate": "\/Date(1338174800000-0700)\/"
+        		    "UsageDate": "2014-01-14"
         		    }
                 ]
             }
@@ -62,7 +62,7 @@ The ReportUsageRequestBody contains the request arguments. Required fields are i
 | AssetUsages _entry_ | Object      | Required     | Object containing the asset usages being reported.  |
 | AssetUsages._AssetId_ | String      | Required     | Specify the GettyImages asset/image ID used.  |
 | AssetUsages._Quantity_ | Integer      | Required     | Number of usages of the asset/image ID being reported.  |
-| AssetUsages._UsageDate_ | String      | Required     | Identifies the date the asset/image was used. Date is in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-and-json.aspx. Please note that dates must be submitted in milliseconds, not seconds. Dates submitted in seconds translate to a day in the year 1970.|
+| AssetUsages._UsageDate_ | String      | Required     | Identifies the date the asset/image was used. Dates should be submitted in <a href="http://www.w3.org/TR/NOTE-datetime">ISO 8601 format</a> (i.e., YYYY-MM-DD).|
 
 Response
 ---------
