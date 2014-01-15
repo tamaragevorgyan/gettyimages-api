@@ -97,7 +97,7 @@ The GetAssetChangesResponseBody contains the response data.
 | _ChangedAssets_.AssetId 					| String	| Contains the AssetId for the asset change.    													|
 | _ChangedAssets_.AssetLifecycle 			| String	| Contains the type of change this asset change is. (i.e. "New," "Updated" or "Deleted")			|
 | _ChangedAssets_.AssetType 				| String    | Contains the type of asset this asset change is (i.e. "Image"). 									|
-| _ChangedAssets_.ChangedProperties			| Collection| Contains a list of the metadata fields updated for assets with an AssetLifecycle of "Updated." 	|
+| _ChangedAssets_.ChangedProperties			| Collection| This field is not being used at this time. 	|
 | ChangedProperties._entry_					| String	| Contains the name of an updated metadata field for the changed asset.							 	|
 | _ChangedAssets_.Url						| String	| Contains the asset download URL for assets with an AssetLifecycle of "New."					 	|
 | TransactionId								| String	| Contains the identifier for the GetAssetChanges request/response. Passed into [ConfirmAssetChanges][] requests to confirm receipt of the asset changes in the response.|
