@@ -1,6 +1,6 @@
 GetLightboxHeaders
 -------------
-The GetLightboxHeaders operation allows you to retrieve the Header data for multiple lightboxes you own.
+The GetLightboxHeaders operation allows you to retrieve the Header data for multiple lightboxes you own. Please note that these are lightboxes created in your application. Contact us if you'd like to retrieve lightboxes created on our sites.
 
 ###Endpoint
 Use the following endpoint to access this operation:
