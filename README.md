@@ -16,6 +16,7 @@ download on Getty Images using an active download agreement.
 ##Endpoints
 
 ###Session operations
+- **[<code>POST</code> OAuth 2.0] (https://github.com/gettyimages/connect/tree/master/documentation/endpoints/oauth2)**
 - **[<code>POST</code> CreateSession](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/session/CreateSession.md)**
 - **[<code>POST</code> RenewSession](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/session/RenewSession.md)**
 
