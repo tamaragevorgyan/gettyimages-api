@@ -8,10 +8,11 @@ The Connect API uses JSON over HTTP POST to allow you to build applications capa
 download on Getty Images using an active download agreement.
 
 ##Steps to Get Started
-* [Register for API credentials](https://api.gettyimages.com/member/register) via our portal.
-* Familiarize yourself with the core concepts and the API operations.
-* Begin developing your application, using the [Client Credentials flow] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/oauth2/README.md#client-credentials-flow) on the OAuth 2 endpoint.
-* We will reach out to you concerning commercialization of your application.
+1. [Register for API credentials](https://api.gettyimages.com/member/register) via our portal.
+2. Familiarize yourself with the core concepts and the API operations.
+3. Begin developing your application, using the [Client Credentials flow] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/oauth2/README.md#client-credentials-flow) on the OAuth 2 endpoint.
+
+We will reach out to you concerning commercialization of your application.
 
 ##Endpoints
 
