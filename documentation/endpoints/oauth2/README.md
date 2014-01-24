@@ -99,7 +99,6 @@ Notes:
         
         POST /token HTTPS/1.1
         Host: connect.gettyimages.com/oauth2/token/
-        Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
         Content-Type: application/x-www-form-urlencoded
 
         client_id=TestClientId&client_secret=TestSecret&grant_type=password&username=johndoe&password=A3ddj3w
@@ -122,10 +121,9 @@ Notes:
 
         POST /token HTTPS/1.1
         Host: connect.gettyimages.com/oauth2/token/
-        Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
         Content-Type: application/x-www-form-urlencoded
         
-        grant_type=token_refresh&client_id=TestClientId&client_secret=TestSecret&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA
+        grant_type=refresh_token&client_id=TestClientId&client_secret=TestSecret&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA
 
 #### Token Expiration and Revocation ####
 The resource owner flow grants a 30-minute access token. If the client application needs to access content for the user longer that 30 minjutes, it can use the refresh token to get a new access token that will also be valid for 30 minutes. The refresh token is valid for one year and can be used as many times as needed within that one year to get a new access token. The refresh token cannot be used for API access. 
@@ -153,7 +151,6 @@ Note: The access token is good for 30 minutes
         
         POST /token HTTPS/1.1
         Host: connect.gettyimages.com/oauth2/token/
-        Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
         Content-Type: application/x-www-form-urlencoded
 
         client_id=TestClientId&client_secret=TestSecret&grant_type=client_credential
