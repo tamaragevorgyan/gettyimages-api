@@ -7,7 +7,7 @@ OAuth is an open security protocol designed to protect system and user credentia
 
 Do I Need Getty Images User Credentials?
 ----------------------------------------
-If you have been working with one of our account managers on a business-to-business application, you are more than likely using the [Resource Owner and Password flow] (https://github.com/gettyimages/connect/tree/master/documentation/endpoints/oauth2#resource-owner-flow). Note that you must specify GettyImages.com or Thinkstock.com user credentials in the call to retrieve access tokens. If you are unsure about these credentials, please contact your account manager.
+If you have been working with one of our account managers on a business-to-business licensing agreement, you are more than likely using the [Resource Owner and Password flow] (https://github.com/gettyimages/connect/tree/master/documentation/endpoints/oauth2#resource-owner-flow). Note that you must specify GettyImages.com or Thinkstock.com user credentials in the call to retrieve access tokens. If you are unsure about these credentials, please contact your account manager.
 
 Did You Get Your Key via Online Registration?
 ---------------------------------------------
@@ -126,7 +126,7 @@ Notes:
         grant_type=refresh_token&client_id=TestClientId&client_secret=TestSecret&refresh_token=tGzv3JOkF0XG5Qx2TlKWIA
 
 #### Token Expiration and Revocation ####
-The resource owner flow grants a 30-minute access token. If the client application needs to access content for the user longer that 30 minjutes, it can use the refresh token to get a new access token that will also be valid for 30 minutes. The refresh token is valid for one year and can be used as many times as needed within that one year to get a new access token. The refresh token cannot be used for API access. 
+The resource owner flow grants a 30-minute access token. If the client application needs to access content for the user longer that 30 minutes, it can use the refresh token to get a new access token that will also be valid for 30 minutes. The refresh token is valid for one year and can be used as many times as needed within that one year to get a new access token. The refresh token cannot be used for API access. 
 
 Refresh tokens can be revoked when the user changes their password. Revoked tokens cannot be used for any API access.
 
