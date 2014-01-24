@@ -153,7 +153,7 @@ Note: The access token is good for 30 minutes
         Host: connect.gettyimages.com/oauth2/token/
         Content-Type: application/x-www-form-urlencoded
 
-        client_id=TestClientId&client_secret=TestSecret&grant_type=client_credential
+        client_id=TestClientId&client_secret=TestSecret&grant_type=client_credentials
 
 #####Example response:
 
