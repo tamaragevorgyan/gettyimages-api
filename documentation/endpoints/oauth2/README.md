@@ -1,5 +1,5 @@
-Authentication in Getty Connect Using OAuth 2.0
-===============================================
+Authentication Using OAuth 2.0
+==============================
 
 What is OAuth?
 --------------
