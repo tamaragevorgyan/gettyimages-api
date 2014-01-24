@@ -3,16 +3,15 @@ Authentication in Getty Connect Using OAuth 2.0
 
 What is OAuth?
 --------------
-OAuth is an open security protocol designed to protect system and user credentials in client applications. Think of all those apps on your phone that ask you to sync with your Twitter or Facebook account to pull in your contacts or other data specific to you. That’s OAuth in action! 
+OAuth is an open security protocol designed to protect system and user credentials in client applications. Prior to implementing OAuth, the Connect API required client applications to provide both client and user credentials. Connect authenticated the credentials and then granted access to the API and user functionality such as search, download, and lightbox management. OAuth allows users to authorize a client application to access user functionality without requiring the client application to directly handle the user’s credentials. Thus OAuth improves security by reducing the exposure of end user credentials.
 
-Prior to implementing OAuth, the Connect API required client applications to provide both client and user credentials. Connect authenticated the credentials and then granted access to the API and user functionality such as search, download, and lightbox management.
+Do I Need Getty Images User Credentials?
+----------------------------------------
+If you have been working with one of our account managers on a business-to-business application, you are more than likely using the [Resource Owner and Password flow] (https://github.com/gettyimages/connect/tree/master/documentation/endpoints/oauth2#resource-owner-flow). Note that you must specify GettyImages.com or Thinkstock.com user credentials in the call to retrieve access tokens. If you are unsure about these credentials, please contact your account manager.
 
-OAuth allows users to authorize a client application to access user functionality without requiring the client application to directly handle the user’s credentials. Thus OAuth improves security by reducing the exposure of end user credentials. 
-
-What Changes?
--------------
-Most existing client applications will continue to authenticate as they do currently. However, client applications that allow users to sign in with their Getty Images or Thinkstock credentials must use one of the authorization workflows defined in OAuth 2.0.
-
+Did You Get Your Key via Online Registration?
+---------------------------------------------
+If you registered to get your key on our [portal] (https://api.gettyimages.com/member/register), note that your key is automatically configured to use the Client Credentials flow. To get an access token to establish your session, follow the steps in the [Client Credentials flow] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/oauth2/README.md#client-credentials-flow) section below. Once you are ready to commercialize your application, we will work with you to determine which OAuth2 flow is most appropriate for your application's use cases.
 
 Important Terminology
 ---------------------
