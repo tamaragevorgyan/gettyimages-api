@@ -91,7 +91,7 @@ The ResponseHeader contains metadata about the operation execution and response.
 | CoordinationId   | String      | Indicates the CoordinationId value provided in the triggering request.                                                        |
 
 ###ReportUsageResponseBody Fields
-The ReportUsageResponseBody contains no response payload in a successful response. In the event of an error due to usage reports being submitted for invalid image IDs, those invalid IDs are returned. 
+The ReportUsageResponseBody will not be returned in a successful response. In the event of an error due to usage reports being submitted for invalid image IDs, ReportUsageResponseBody will be included, containing the invalid IDs. 
 
 | Field            | Type        | Description                                                     |
 |:-----------------|:------------|:----------------------------------------------------------------|
