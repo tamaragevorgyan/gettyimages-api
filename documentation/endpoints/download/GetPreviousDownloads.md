@@ -95,7 +95,7 @@ The GetPreviousDownloadsResultBody contains these fields
 | _PreviousDownload_.AssetId | String | Identifies the download. |
 | _PreviousDownload_.DateDownloaded | String | Identifies the date of the download. Dates are in the <a href="http://www.w3.org/TR/NOTE-datetime">ISO 8601 format</a> (i.e. YYYY-MM-DDThh:mm:ssTZD where TZD is the time zone designation).
 | _PreviousDownload_.UrlThumb | String |Identifies the URL of the image downloaded, sized for a results grid. |
-| _PreviousDownloads_.ProductOffering | String | Indicates a customer's product offering that authorized access to the asset. Possible values are: <br>• All <br>• EditorialSubscription <br>• EasyAccess <br>• LegacyRfSubscription <br>• PremiumAccess <br>• RoyaltyFreeSubscription <br>• ImagePack |
+| _PreviousDownloads_.ProductOffering | String | Indicates a customer's product offering that authorized access to the asset. Possible values are: <br>• EditorialSubscription <br>• EasyAccess <br>• LegacyRfSubscription <br>• PremiumAccess <br>• RoyaltyFreeSubscription <br>• ImagePack |
 | ItemCount | Integer | Indicates the count of matching images returned in the response. Used with ItemStartNumber to support pagination. |
 | ItemStartNumber | Integer | Indicates the (1-based) index of the first image returned in response. Used with ItemCount to support pagination. |
 | ItemTotalCount | Integer | Indicates the total number of images matching the query, including those not returned with this response. |
