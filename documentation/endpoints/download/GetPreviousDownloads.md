@@ -10,23 +10,24 @@ Use the following endpoint to access this operation:
 
 ###Request
 The GetPreviousDownloads JSON request has this form:
-{
-  "RequestHeader": {
-    "Token": "",
-    "CoordinationId": ""
-  },
-  "GetPreviousDownloadsRequestBody": {
-    "ItemCount": 10,
-    "ItemStartNumber": 1,
-    "FilterOptions": {
-      "ProductOffering": "All",
-      "DateRangeFilter": {
-        "Start": "1900-01-01T00:00:00Z",
-        "End": "2020-01-01T00:00:00Z"
-      }
-    }
-  }
-}
+
+	{
+  		"RequestHeader": {
+    	  		"Token": "",
+    	  		"CoordinationId": ""
+  		},
+  		"GetPreviousDownloadsRequestBody": {
+			"ItemCount": int,
+			"ItemStartNumber": int,
+			"FilterOptions": {
+				"ProductOffering": "",
+				"DateRangeFilter": {
+					"Start": "",
+					"End": ""
+				}
+			}
+		}
+	}
 ####RequestHeader Fields
 The RequestHeader specifies metadata about the request..
 
@@ -40,8 +41,13 @@ The GetPreviousDownloadsRequestBody contains the request arguments.
 
 | Field          				| Type 		| Use          | Description 																	|
 |:------------------------------|:----------|:-------------|:-------------------------------------------------------------------------------|
-| ItemCount 				| Int | Required     | Specify the count of previous downloads to receive per page. 	| 
-| ItemStartNumber			| Int	| Required     | Specify the first previous download to show. 													|
+| ItemCount| Integer | Required | Specify the count of previous downloads to return in the response. | 
+| ItemStartNumber | Integer | Required | Specify the (1-based) index of the first previous download to return in the response. Use with ItemCount to support pagination. ItemStartNumber should be the index of the first result to return, based on the specified ItemCount. For example, assuming a specified ItemCount of 25, the following values for ItemStartNumber would be used: 1 (1st page), 26 (2nd page), 51 (3rd page), and so forth. |
+| FilterOptions | Object | Optional | Specifies an instance to filter the response. |
+| DateRangeFilter | Object | Optional | Specifies an instance to filter on the download date. |
+| StartDate | String | Optional | Specifies a date and time so that images downloaded after that date are to be included in the response. Dates should be submited in the <a href="http://www.w3.org/TR/NOTE-datetime">ISO 8601 format</a> (i.e. YYYY-MM-DDThh:mm:ssTZD where TZD is the time zone designation). Note that specifying a StartDate requires that an EndDate is specified as well. |
+| EndDate | String | Optional | Specifies a date and time so that images downloaded up to that date are to be included in the response. Dates should be submited in the <a href="http://www.w3.org/TR/NOTE-datetime">ISO 8601 format</a> (i.e. YYYY-MM-DDThh:mm:ssTZD where TZD is the time zone designation). Note that specifying an EndDate requires that a StartDate is specified as well. |
+| ProductOffering | String | Optional | Specifies product offerings to be included in the previous download results. Possible values are: <br>• All <br>• EditorialSubscription <br>• EasyAccess <br>• LegacyRfSubscription <br>• PremiumAccess <br>• RoyaltyFreeSubscription <br>• ImagePack |
 
 ###Response
 The CreateDownloadRequest JSON response has this form:
