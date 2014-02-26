@@ -10,7 +10,7 @@ Use the following endpoint to access this operation:
 
 ###Request
 The GetPreviousDownloads JSON request has this form:
-
+{
   "RequestHeader": {
     "Token": "",
     "CoordinationId": ""
@@ -26,7 +26,7 @@ The GetPreviousDownloads JSON request has this form:
       }
     }
   }
-
+}
 ####RequestHeader Fields
 The RequestHeader specifies metadata about the request..
 
