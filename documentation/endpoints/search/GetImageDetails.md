@@ -124,6 +124,7 @@ The GetImageDetails JSON response has this form:
 	            "FileSizeInBytes": int,
 	            "InchesHeight": double,
 	            "InchesWidth": double,
+	            "MimeType": "",
 	            "PixelHeight": int,
 	            "PixelWidth": int,
 	            "ResolutionDpi": int,
@@ -203,6 +204,7 @@ The GetImageDetailsResult contains these fields.
 | _Image_.Title |	String 	| Indicates the image title given by the artist.|
 | _ImageSize_.FileSizeInBytes | Integer | Indicates the image file size in bytes. |
 | _ImageSize_.InchesHeight | Double | Indicates the image height in inches when the image is rendered at the indicated ResolutionDpi. |
+| _ImageSize_.MimeType | String | Indicates the mime-type of the image. |
 | _ImageSize_.InchesWidth | Double | Indicates the image width in inches when the image is rendered at the indicated ResolutionDpi. |
 | _ImageSize_.PixelHeight | Integer | Indicates the image pixel height. |
 | _ImageSize_.PixelWidth | Integer | Indicates the image pixel width. |
