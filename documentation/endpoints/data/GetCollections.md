@@ -1,7 +1,6 @@
 GetCollections
 -------------
 The GetCollections call retrieves a list of collections that are specific to your user name.
-This operation supports being called with an anonymous system Token created by [CreateApplicationSession][].
 
 ###Endpoint
 Use the following endpoint to access this operation:
@@ -84,7 +83,7 @@ The GetCollectionsResult contains the response data.
 
 
 ###Workflow Example
-1. Call either [CreateSession][] to create an authentication token.
+1. Call [CreateSession][] to create an authentication token.
 2. Call GetCollections to get a list of collections that are specific to your user name.
 
 [StatusCodes]: ../../appendix/StatusCodes.md
