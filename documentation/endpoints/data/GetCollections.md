@@ -47,8 +47,8 @@ The GetCollections JSON response has this format:
 		    "Name": "",
 		    "ImageFamily": "",
 		    "LicenseType": "",
-			"Id": ,
-			"ProductOfferings": [""]
+		    "Id": int,
+		    "ProductOfferings": [""]
 		  }
 	    ]
 	  }
