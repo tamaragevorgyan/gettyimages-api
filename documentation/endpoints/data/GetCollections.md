@@ -79,7 +79,7 @@ The GetCollectionsResult contains the response data.
 | _Collection_.ImageFamily | String    | Contains the image family of the collection. Example: "Creative".    |
 | _Collection_.LicenseType 	| String    | Contains the abbreviation of the license type for the collection. Example: "RF". 														 |
 | _Collection_.Id 	| Int    | Contains id of the collection. Example: 100. 														 |
-| _Collection_.ProductOfferings 	| Array[String]    | Contains an array of the production offering(s) to which the collection belongs. Example: ["EasyAccess", "PremiumAccess"]. |
+| _Collection_.ProductOfferings 	| Collection    | Contains a list of product offerings to which the collection belongs. Possible values are: <br>• PremiumAccess <br>• EasyAccess <br>• EditorialSubscription <br>• RoyaltyFreeSubscription <br>• ImagePack|
 
 
 ###Workflow Example
