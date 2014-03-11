@@ -1,6 +1,6 @@
 GetCollections
 -------------
-The GetCollections call retrieves a list of collections that are specific to your user name.
+The GetCollections call retrieves a list of collections that are available to download for the authenticated user and application.
 
 ###Endpoint
 Use the following endpoint to access this operation:
@@ -84,7 +84,7 @@ The GetCollectionsResult contains the response data.
 
 ###Workflow Example
 1. Call [CreateSession][] to create an authentication token.
-2. Call GetCollections to get a list of collections that are specific to your user name.
+2. Call GetCollections to retrieve a list of collections that are available to download for the authenticated user and application.
 
 [StatusCodes]: ../../appendix/StatusCodes.md
 [CreateCustomer]: ../account/CreateCustomer.md
