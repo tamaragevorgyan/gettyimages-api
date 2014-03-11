@@ -23,7 +23,7 @@ The RequestHeader specifies metadata about the request.
 
 | Field          | Type        | Use          | Description                                                                               |
 |:---------------|:------------|:-------------|:------------------------------------------------------------------------------------------|
-| Token          | String      | Required     | Specify the authentication token provided by [OAuth2][] or [CreateSession][].   | 
+| Token          | String      | Required     | Specify the authentication token provided by [OAuth](../oauth2) or [CreateSession][].   | 
 | CoordinationId | String      | Optional     | Specify a value to echo in the response to track requests and their associated responses. |
 
 ###Response
@@ -83,7 +83,7 @@ The GetCollectionsResult contains the response data.
 
 
 ###Workflow Example
-1. Call [OAuth2][] or [CreateSession][] to create an authentication token.
+1. Call [OAuth](../oauth2) or [CreateSession][] to create an authentication token.
 2. Call GetCollections to returns a list of collections that are configured for the authenticated user or application.
 
 [StatusCodes]: ../../appendix/StatusCodes.md
