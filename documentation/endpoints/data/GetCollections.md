@@ -44,7 +44,7 @@ The GetCollections JSON response has this format:
 	  "GetCollectionsResult": {
 	    "Collections": [
 		  {
-		    "Name": "",
+		    "CollectionName": "",
 		    "ImageFamily": "",
 		    "LicenseModel": "",
 		    "CollectionId": int,
@@ -75,7 +75,7 @@ The GetCollectionsResult contains the response data.
 |:---------------------|:------------|:--------------------------------------------------------------------------------------------------------------------------|
 | Collections	       	   | Collection  | Contains a list of _Collection_ results for the query.							                                             |
 | Collection _entry_   		| Object	| The Collection object that contains the name, image family, licence type, id, and product offerings of the collection.  				 |
-| _Collection_.Name	| String    | Contains the name of the collection. 															 |
+| _Collection_.CollectionName	| String    | Contains the name of the collection. 															 |
 | _Collection_.ImageFamily | String    | Contains the image family of the collection. Example: "Creative".    |
 | _Collection_.LicenseModel 	| String    | Contains the abbreviation of the license model for the collection. Example: "RF". 														 |
 | _Collection_.CollectionId 	| Int    | Contains id of the collection. Example: 100. 														 |
