@@ -1,6 +1,6 @@
 GetCollections
 -------------
-The GetCollections call retrieves a list of collections that are available to download for the authenticated user and application.
+At Getty Images, collections contain a set of images. The GetCollections request returns a list of collections that are configured for the authenticated user or application.
 
 ###Endpoint
 Use the following endpoint to access this operation:
@@ -46,9 +46,9 @@ The GetCollections JSON response has this format:
 		  {
 		    "Name": "",
 		    "ImageFamily": "",
-		    "LicenseType": "",
-		    "Id": int,
-		    "ProductOfferings": [""]
+		    "LicenseModel": "",
+		    "CollectionId": int,
+		    "ApplicableProductOfferings": [""]
 		  }
 	    ]
 	  }
@@ -77,14 +77,14 @@ The GetCollectionsResult contains the response data.
 | Collection _entry_   		| Object	| The Collection object that contains the name, image family, licence type, id, and product offerings of the collection.  				 |
 | _Collection_.Name	| String    | Contains the name of the collection. 															 |
 | _Collection_.ImageFamily | String    | Contains the image family of the collection. Example: "Creative".    |
-| _Collection_.LicenseType 	| String    | Contains the abbreviation of the license type for the collection. Example: "RF". 														 |
-| _Collection_.Id 	| Int    | Contains id of the collection. Example: 100. 														 |
-| _Collection_.ProductOfferings 	| Collection    | Contains a list of product offerings to which the collection belongs. Possible values are: <br>• PremiumAccess <br>• EasyAccess <br>• EditorialSubscription <br>• RoyaltyFreeSubscription <br>• ImagePack|
+| _Collection_.LicenseModel 	| String    | Contains the abbreviation of the license model for the collection. Example: "RF". 														 |
+| _Collection_.CollectionId 	| Int    | Contains id of the collection. Example: 100. 														 |
+| _Collection_.ApplicableProductOfferings 	| Collection    | Contains a list of product offerings to which the collection belongs. Possible values are: <br>• PremiumAccess <br>• EasyAccess <br>• EditorialSubscription <br>• RoyaltyFreeSubscription <br>• ImagePack|
 
 
 ###Workflow Example
 1. Call [CreateSession][] to create an authentication token.
-2. Call GetCollections to retrieve a list of collections that are available to download for the authenticated user and application.
+2. Call GetCollections to returns a list of collections that are configured for the authenticated user or application.
 
 [StatusCodes]: ../../appendix/StatusCodes.md
 [CreateCustomer]: ../account/CreateCustomer.md
