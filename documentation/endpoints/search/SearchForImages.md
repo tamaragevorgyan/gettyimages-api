@@ -103,7 +103,7 @@ The RequestHeader specifies metadata about the request.
 |Collections     |Object       |Optional      |Contains details for filtering search results by specific CollectionIds.                                       |
 |*Collections*.Ids|Collection  |Optional      |Specifies one or more CollectionIds by which to filter search results either on an include or exclude basis.   |
 |*Collections*.Mode|String|Optional|Specifies whether the Collection.Ids are being included or excluded from the search results possible values are: <br>• include <br>• exclude|
-|EditorialSegments|Collection|Optional|Specifies a segment of Editorial Image search results being filtered on. Possible values are: <br>• News <br>• Sports <br>• Entertainment<br>• Publicity <br>• Royalty <br>• Archival|
+|EditorialSegments|Collection|Optional|Each element of the collection specifies a single segment of Editorial Image search results being filtered on. Possible values are: <br>• News <br>• Sports <br>• Entertainment<br>• Publicity <br>• Royalty <br>• Archival|
 |EditorialSources|Object|Optional|Specifies editorial source Ids to exclude or include from search results.|
 |*EditorialSources*.Ids|Collection|Optional|List of editorial source IDs by which to filter.|
 |*EditorialSources*.Mode|String|Optional|Specifies whether the EditorialSources are being included or excluded from the search result. Possible values are: <br>• include<br>• exclude|
