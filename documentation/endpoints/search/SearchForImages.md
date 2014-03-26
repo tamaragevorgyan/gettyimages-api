@@ -62,7 +62,8 @@ The SearchForImages JSON request has this form:
 	          "Id": ""
 	        }
 	      ],
-	      "WhiteBackgroundOnly": boolean
+	      "WhiteBackgroundOnly": boolean,
+		  "EmbedContentOnly": boolean
 	    },
 	  "Language": "",
 	  "Query": {
