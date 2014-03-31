@@ -41,6 +41,9 @@ We will reach out to you concerning commercialization of your application.
 - **[<code>POST</code> GetLightboxHeaders] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/GetLightboxHeaders.md)**
 - **[<code>POST</code> UpdateLightboxHeader] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/UpdateLightboxHeader.md)**
 
+###oEmbed operations
+- **[<code>GET</code> oEmbed] (https://github.com/gettyimages/connect/tree/master/documentation/endpoints/oembed/oEmbed.md)**
+
 ##Core Concepts
 
 ###Authentication
