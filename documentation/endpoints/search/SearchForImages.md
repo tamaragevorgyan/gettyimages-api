@@ -144,6 +144,7 @@ The RequestHeader specifies metadata about the request.
 |SearchPhrase|String|Optional|Specifies the search phrase.|
 |SpecificPersons|Collection|Optional|Specifies the personalities to query the images that match all the specified personalities. It is the logical AND of all specified personalities.|
 |WhiteBackgroundOnly|Boolean|Optional|Filter search results to include images with white backgrounds only.|
+|EmbedContentOnly|Boolean|Optional|Filter search results to include images that are embeddable.|
 
 ###Response
 The SearchForImages JSON response has this form:
