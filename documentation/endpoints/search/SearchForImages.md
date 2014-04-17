@@ -282,7 +282,7 @@ The SearchForImagesResult contains these fields.
 |Url *entry*|String|Indicates the specific URL for the page on which the images can be found.|
 |*Image*.Title|String|Indicates the image title.|
 |*Image*.UrlComp|String|Identifies the URL of the image, sized for layout composition. Comp images are larger than preview and thumbnail, but not full sized.|
-|*Image*.UrlEmbed|String|Identifies a URL that can be used to get oEmbed data for the image. See our [oEmbed documentation](https://github.com/gettyimages/connect/blob/master/documentation/endpoints/oembed/oEmbed.md) for more information.|
+|*Image*.UrlEmbed|String|Identifies a URL that can be used to get oEmbed data for the image. Please note that this will only be populated for embeddable assets. See our [oEmbed documentation](https://github.com/gettyimages/connect/blob/master/documentation/endpoints/oembed/oEmbed.md) for more information.|
 |*Image*.UrlPreview|String|Identifies the URL of the image, sized for popup previews. Preview images are larger than thumbnail but smaller than comp, and have a dimension of 340 px on the longest side.|
 |*Image*.UrlThumb|String|Identifies the URL of the image, sized for a results grid. Thumbnail images are smaller than preview and comp, and have a dimension of 170 pixels on the longest side.|
 |*Image*.UrlWatermarkComp|String|Identifies the URL of the image, sized for layout composition, with a Getty Images watermark. Comp images are larger than preview and thumbnail, but not full sized.|
