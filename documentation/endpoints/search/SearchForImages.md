@@ -38,6 +38,7 @@ The SearchForImages JSON request has this form:
 	        "Mode": ""
 	      },
 	      "EmbedContentOnly": "",
+	      "ExcludeNudity": "",
 	      "FileTypes": [
 	        ""
 	      ],
@@ -62,8 +63,7 @@ The SearchForImages JSON request has this form:
 	          "Id": ""
 	        }
 	      ],
-	      "WhiteBackgroundOnly": boolean,
-		  "EmbedContentOnly": boolean
+	      "WhiteBackgroundOnly": boolean
 	    },
 	  "Language": "",
 	  "Query": {
@@ -116,7 +116,8 @@ The RequestHeader specifies metadata about the request.
 |StartDate|String|Optional|Specifies a date that images created after that date are to be included in the search results. Dates should be submitted in <a href="http://www.w3.org/TR/NOTE-datetime">ISO 8601 format</a> (i.e., YYYY-MM-DD). Note that the date format in the response will be in Epoch time.|
 |EntityUris|Collection|Optional|Contains a list of linked data entity uris. Supported providers are: <br>• Freebase<br>• Dbpedia<br>• Musicbrainz<br> For more information about contructing the URIs and searching for people and other entities, <a href="https://github.com/gettyimages/connect/blob/master/documentation/appendix/EntitySearch.md">read the appendix</a>.|
 |EventId|Integer|Optional|Specifies an eventId to include imagesonly for that event.|
-|ExcludeNudity|Boolean|Optional|To filter out images of nudity and related subjects, set to "true". To not filter these images, set to "false". Leaving the filter out of your request has the effect of "false".|
+|EmbedContentOnly|Boolean|Optional|To filter out images that are not embeddable, set to "true". To not filter these images, set to "false". Leaving the filter out of your request has the effect of "false".|
+|ExcludeNudity|Boolean|Optional|To filter out images of nudity and related subjects, set to "true". To not filter these images, set to "false". Leaving the filter out of your request has the effect of "false". See our [oEmbed documentation](https://github.com/gettyimages/connect/blob/master/documentation/endpoints/oembed/oEmbed.md) for more information.|
 |FileTypes|Collection|Optional|Adds a FileType entry for each file type. These entries are used to filter results.|
 |FileType *entry*|String|Optional|Specifies a file type. Possible values are: <br>• eps <br>• jpg|
 |GraphicStyles|Collection|Optional|Adds a GraphicStyle entry for each type of graphics file. These entries are used to filter results.|
