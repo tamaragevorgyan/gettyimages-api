@@ -37,6 +37,7 @@ The SearchForImages JSON request has this form:
 	        "Ids": [""],
 	        "Mode": ""
 	      },
+	      "EmbedContentOnly": "",
 	      "ExcludeNudity": "",
 	      "FileTypes": [
 	        ""
@@ -62,8 +63,7 @@ The SearchForImages JSON request has this form:
 	          "Id": ""
 	        }
 	      ],
-	      "WhiteBackgroundOnly": boolean,
-		  "EmbedContentOnly": boolean
+	      "WhiteBackgroundOnly": boolean
 	    },
 	  "Language": "",
 	  "Query": {
@@ -116,6 +116,7 @@ The RequestHeader specifies metadata about the request.
 |StartDate|String|Optional|Specifies a date that images created after that date are to be included in the search results. Dates should be submitted in <a href="http://www.w3.org/TR/NOTE-datetime">ISO 8601 format</a> (i.e., YYYY-MM-DD). Note that the date format in the response will be in Epoch time.|
 |EntityUris|Collection|Optional|Contains a list of linked data entity uris. Supported providers are: <br>• Freebase<br>• Dbpedia<br>• Musicbrainz<br> For more information about contructing the URIs and searching for people and other entities, <a href="https://github.com/gettyimages/connect/blob/master/documentation/appendix/EntitySearch.md">read the appendix</a>.|
 |EventId|Integer|Optional|Specifies an eventId to include imagesonly for that event.|
+|EmbedContentOnly|Boolean|Optional|To filter out images that are not embeddable, set to "true". To not filter these images, set to "false". Leaving the filter out of your request has the effect of "false". See our [oEmbed documentation](https://github.com/gettyimages/connect/blob/master/documentation/endpoints/oembed/oEmbed.md) for more information.|
 |ExcludeNudity|Boolean|Optional|To filter out images of nudity and related subjects, set to "true". To not filter these images, set to "false". Leaving the filter out of your request has the effect of "false".|
 |FileTypes|Collection|Optional|Adds a FileType entry for each file type. These entries are used to filter results.|
 |FileType *entry*|String|Optional|Specifies a file type. Possible values are: <br>• eps <br>• jpg|
@@ -208,6 +209,7 @@ The SearchForImages JSON response has this form:
 	        ],
 	        "Title": "",
 	        "UrlComp": "",
+	        "UrlEmbed": "",
 	        "UrlPreview": "",
 	        "UrlThumb": "",
 	        "UrlWatermarkComp": "",
@@ -281,6 +283,7 @@ The SearchForImagesResult contains these fields.
 |Url *entry*|String|Indicates the specific URL for the page on which the images can be found.|
 |*Image*.Title|String|Indicates the image title.|
 |*Image*.UrlComp|String|Identifies the URL of the image, sized for layout composition. Comp images are larger than preview and thumbnail, but not full sized.|
+|*Image*.UrlEmbed|String|Identifies a URL that can be used to get oEmbed data for the image. Please note that this will only be populated for embeddable assets. See our [oEmbed documentation](https://github.com/gettyimages/connect/blob/master/documentation/endpoints/oembed/oEmbed.md) for more information.|
 |*Image*.UrlPreview|String|Identifies the URL of the image, sized for popup previews. Preview images are larger than thumbnail but smaller than comp, and have a dimension of 340 px on the longest side.|
 |*Image*.UrlThumb|String|Identifies the URL of the image, sized for a results grid. Thumbnail images are smaller than preview and comp, and have a dimension of 170 pixels on the longest side.|
 |*Image*.UrlWatermarkComp|String|Identifies the URL of the image, sized for layout composition, with a Getty Images watermark. Comp images are larger than preview and thumbnail, but not full sized.|
