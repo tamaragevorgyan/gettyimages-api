@@ -21,7 +21,8 @@ The GetLightbox JSON request has this format:
 		"LightboxId": int,
 		"LightboxItemsViewOptions": {
 		  "ItemCount": int,
-		  "ItemStartNumber": int
+		  "ItemStartNumber": int,
+		  "IncludeMaxSizePerLightboxItem": boolean
 		}
 	  }
 	}
@@ -43,6 +44,7 @@ The GetLightboxRequestBody contains the request arguments.
 | LightboxItemsViewOptions 			| Object		| Required 	| Contains the options the user has for viewing the return data for Items.		|
 | _LightboxItemsViewOptions_.ItemCount | int 		| Required 	| Number of Items to return for this query, can be used for paging. 			|
 | _LightboxItemsViewOptions_.ItemStartNumber | int 	| Required	| Number to start retrieval of Items in the lightbox, can be used for paging.	|
+| _LightboxItemsViewOptions_.IncludeMaxSizePerLightboxItem | Boolean 	| Optional	| To retrieve the maximum available image width and height of the lightbox item, set this field to "true". If this information is not required set it to "false". Leaving the field out fo the request has the effect of "false".	|
 
 
 ###Response
@@ -88,6 +90,8 @@ The GetLightbox JSON response has this format:
 				"Thumb": "",
 				"WatermarkPreview": ""
 			  }
+			  "MaxWidthAvailable": int,
+			  "MaxHeightAvailable": int
 		    }
 		  ]
 		}
@@ -138,11 +142,13 @@ The GetLightboxResult contains the response data.
 | _LightboxItem_._Urls_.SmallThumb | string 	| URL for the small thumbnail image for the item.										|
 | _LightboxItem_._Urls_.Thumb 	| string 		| URL for the thumbnail image for the item.												|
 | _LightboxItem_._Urls_.WatermarkPreview | string | URL for the preview of the item with a watermark.									|
+| _LightboxItem_.MaxWidthAvailable	| int 		| Width in pixels of the maximum available size for this item. This field is only served when the IncludeMaxSizePerLightboxItem field is set to "true" in the request.							|
+| _LightboxItem_.MaxHeightAvailable	| int 		| Height in pixels of the maximum available size for this item. This field is only served when the IncludeMaxSizePerLightboxItem field is set to "true" in the request.							|
 
 
 ###Workflow Example
 1. Call [CreateSession][] or [CreateApplicationSession][] to create an authentication token.
-2. Call [CreateLightbox][] with the authentication token to create a new blank lightbox or call [GetLightboxHeaders][] to find ID of existing lightbox.
+2. Call [CreateLightbox][] with the authentication token to create a new blank lightbox or call [GetLightboxHeaders][] to find the ID of an existing lightbox.
 3. Call GetLightbox with the ID of the lightbox identified in Step 2.
 
 
