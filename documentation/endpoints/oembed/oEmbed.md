@@ -60,10 +60,11 @@ Example response:
 2. Call oEmbed using the asset id of the embeddable image that you wish to use.
 
 ####Workflow example: Connect client using oEmbed
-1. Call [CreateSession][] with system and user credentials to create an authentication token.
+1. Call [CreateSession][] or [OAuth][] with system/key and user credentials to create an authentication token.
 2. Call [SearchForImages][] to find images specifying the search is for embeddable images only, by adding the Filter property EmbedContentOnly (boolean) within the SearchForImagesRequestBody.
 3. Call oEmbed with each of the asset ids of the embeddable images that you wish to use.
 
 [CreateSession]: ../session/CreateSession.md
 [CreateApplicationSession]: ../session/CreateApplicationSession.md
 [SearchForImages]: ../search/SearchForImages.md
+[OAuth]: ../oauth2/README.md
