@@ -91,7 +91,9 @@ The GetLightbox JSON response has this format:
 				"WatermarkPreview": ""
 			  }
 			  "MaxWidthAvailable": int,
-			  "MaxHeightAvailable": int
+			  "MaxHeightAvailable": int,
+			  "Title": "",
+			  "Caption": "",
 		    }
 		  ]
 		}
@@ -144,6 +146,8 @@ The GetLightboxResult contains the response data.
 | _LightboxItem_._Urls_.WatermarkPreview | string | URL for the preview of the item with a watermark.									|
 | _LightboxItem_.MaxWidthAvailable	| int 		| Width in pixels of the maximum available size for this item. This field is only served when the IncludeMaxSizePerLightboxItem field is set to "true" in the request.							|
 | _LightboxItem_.MaxHeightAvailable	| int 		| Height in pixels of the maximum available size for this item. This field is only served when the IncludeMaxSizePerLightboxItem field is set to "true" in the request.							|
+| _LightboxItem_.Title | string | Title for this item |
+| _LightboxItem_.Caption | string | Caption for this item |
 
 
 ###Workflow Example
