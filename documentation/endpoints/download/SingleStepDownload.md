@@ -1,15 +1,15 @@
 Single Step Download
 -------------------------------------
 The single step download call returns a redirect to download the largest image available. 
-This end point currently does not support image pack or royalty free subscriptions.
+This endpoint currently does not support ImagePack or RoyaltyFreeSubscription ProductOfferings.
 
 ###Download Limits
-Most product offerings have enforced periodic download limits such as monthly, 
+Most ProductOfferings have enforced periodic download limits such as monthly, 
 weekly, and daily. When this operation executes, the count of allowed downloads is 
 decremented by one. Once the download limit is reached, no further downloads 
 may be requested until the next download period.
 
-The download limit for a given download period is covered in your product 
+The download limit for a given download period is covered in your license 
 agreement established with Getty Images.
 
 
