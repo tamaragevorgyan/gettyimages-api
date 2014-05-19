@@ -1,7 +1,7 @@
 Single Step Download
 -------------------------------------
 The single step download call returns a redirect to download the largest image available. 
-This endpoint currently does not support ImagePack or RoyaltyFreeSubscription ProductOfferings.
+This endpoint currently does not support ImagePack or RoyaltyFreeSubscription ProductOfferings and only supports downloading images at this time. Single step download encapsulates the functionality of [GetLargestImageDownloadAuthorizations](GetLargestImageDownloadAuthorizations.md), [CreateDownloadRequest](CreateDownloadRequest.md) and the call to download an image into a single request.  
 
 ###Download Limits
 Most ProductOfferings have enforced periodic download limits such as monthly, 
@@ -49,3 +49,8 @@ Use the following endpoint (HTTPS only) to access this operation:
 
 ####Notes
 A 403 "No product offering found" will also be returned if your ProductOffering has a quota, and has been exhausted. 
+
+###Workflow Example
+1. Call [OAuth2](../oauth2) to get an access token.
+2. Call [SearchForImages](../search/SearchForImages.md) to find images.
+3. Call Download to download the image.
