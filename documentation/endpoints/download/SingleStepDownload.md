@@ -1,6 +1,6 @@
 Single Step Download
 -------------------------------------
-The single step download call returns a redirect to download the largest image available. 
+The single step download call returns a redirect to download the largest file available for the specified image (ImageId). 
 This endpoint currently does not support ImagePack or RoyaltyFreeSubscription ProductOfferings and only supports downloading images at this time. Single step download encapsulates the functionality of [GetLargestImageDownloadAuthorizations](GetLargestImageDownloadAuthorizations.md), [CreateDownloadRequest](CreateDownloadRequest.md) and the call to download an image into a single request.  
 
 ###Download Limits
@@ -10,7 +10,7 @@ decremented by one. Once the download limit is reached, no further downloads
 may be requested until the next download period.
 
 The download limit for a given download period is covered in your license 
-agreement established with Getty Images.
+agreement established with Getty Images. Please contact your Getty Images account manager for more information.
 
 
 ###Endpoint
