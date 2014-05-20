@@ -46,11 +46,34 @@ Use the following endpoint (HTTPS only) to access this operation:
 | Location           | download URI       |
 | GI-Coordination-Id | CoordinationId     |
 
+####Sample Request
+    POST https://connect.gettyimages.com/v2/download/177670965 HTTP/1.1
+    Host: connect.gettyimages.com
+    Authorization: Bearer {access_token}
+    Api-Key: {api_key}
+    
+####Sample Response
+    HTTP/1.1 302 Found
+    Location: {Redirect URI}
 
-####Notes
-A 403 "No product offering found" will also be returned if your ProductOffering has a quota, and has been exhausted. 
+####Sample Response for Redirect
+    HTTP/1.1 200 OK
+    Date: Tue, 20 May 2014 20:55:32 GMT
+    Server: Microsoft-IIS/6.0
+    X-Powered-By: ASP.NET
+    X-AspNet-Version: 2.0.50727
+    Content-Disposition: attachment; filename=177670965.jpg
+    Content-Length: 16214107
+    Accept-Ranges: bytes
+    Cache-Control: private
+    Last-Modified: Sat, 24 Aug 2013 00:26:39 GMT
+    Content-Type: application/x-download
+
 
 ###Workflow Example
 1. Call [OAuth2](../oauth2) to get an access token.
 2. Call [SearchForImages](../search/SearchForImages.md) to find images.
 3. Call Download to download the image.
+
+####Notes
+A 403 "No product offering found" will also be returned if your ProductOffering has a quota, and has been exhausted.
