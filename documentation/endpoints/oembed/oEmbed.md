@@ -19,11 +19,15 @@ The oEmbed request is a GET with the following required parameter. Note: URL enc
 
 	url: http://gty.im/[asset-id]
 
+In addition, you should use the optional caller parameter, providing descriptive value identifying your application.
+
+	caller: example.com
+
 The oEmbed request returns JSON. If the following *optional* parameter is used it must contain the value "json". Other formats are not supported and using another value will result in a 501 (Not Implemented) error.
 
 Example request:
 
-	http://embed.gettyimages.com/oembed?url=http%3a%2f%2fgty.im%2f74917285
+	http://embed.gettyimages.com/oembed?url=http%3a%2f%2fgty.im%2f74917285&caller=example.com
 
 
 ###Response
