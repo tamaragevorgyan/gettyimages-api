@@ -23,7 +23,7 @@ In addition, you should use the optional caller parameter, providing descriptive
 
 	caller: example.com
 
-The oEmbed request returns JSON. If the following *optional* parameter is used it must contain the value "json". Other formats are not supported and using another value will result in a 501 (Not Implemented) error.
+The oEmbed request returns JSON. If the *optional* "format" parameter is used it must contain the value "json". Other formats are not supported and using another value such as "xml" will result in a 501 (Not Implemented) error.
 
 Example request:
 
