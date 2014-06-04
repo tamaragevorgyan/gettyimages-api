@@ -71,7 +71,7 @@ The SearchForImages JSON request has this form:
 	      "EndDate": "2014-01-08",
 	      "StartDate": "2013-12-30"
 	    },
-	    "EventId": 1,
+	    "EventId": int,
 	    "SearchPhrase": "",
 	    "KeywordIds": [
 	      ""
