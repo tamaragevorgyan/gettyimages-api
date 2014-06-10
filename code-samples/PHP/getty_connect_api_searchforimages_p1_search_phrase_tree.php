@@ -4,7 +4,6 @@
 
 	// search string, let's look up "tree"
 	$searchPhrase = "tree";
-	$token = ""
 
 	// build array to query api for images
 	$searchImagesArray = array (
