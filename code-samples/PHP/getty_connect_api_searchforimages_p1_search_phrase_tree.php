@@ -1,50 +1,49 @@
 <?php
 
-// search string, let's look up "tree"
-$searchPhrase = "tree";
+	$url = "http://connect.gettyimages.com/v1/search/SearchForImages";
 
-// build array to query api for images
-$searchImagesArray = array (
-	"RequestHeader" => array (
-		"Token" => $token // Token received from a CreateSession/RenewSession API call
-	),
-	"SearchForImages2RequestBody" => array (
- 		"Query" => array (
-			"SearchPhrase" => $searchPhrase
- 		),
- 		"ResultOptions" => array (
-			"IncludeKeywords" => "false",
- 			"ItemCount" => 25, // return 25 items
- 			"ItemStartNumber" => 1 // 1-based int, start at the first page
- 		)
-	)
-);
+	// search string, let's look up "tree"
+	$searchPhrase = "tree";
+	$token = ""
 
-// encode to json
-$json = json_encode($searchImagesArray);
+	// build array to query api for images
+	$searchImagesArray = array (
+	  "RequestHeader" => array (
+	    "Token" => $token // Token received from a CreateSession/RenewSession API call
+	  ),
+	  "SearchForImages2RequestBody" => array (
+	     "Query" => array (
+	      "SearchPhrase" => $searchPhrase
+	     ),
+	     "ResultOptions" => array (
+	      "IncludeKeywords" => "false",
+	       "ItemCount" => 25, // return 25 items
+	       "ItemStartNumber" => 1 // 1-based int, start at the first page
+	     )
+	  )
+	);
 
-$endpoint = "http://connect.gettyimages.com/v1/search/SearchForImages";
 
-// create client and set json data and datatype
-$httpClient = new Zend_Http_Client($endpoint);
-$httpClient->setRawData($json, 'application/json');
-$httpClient->setMethod(Zend_Http_Client::POST); // all getty api requests are POST
+	$content = json_encode($searchImagesArray);
 
-// returns Zend_Http_Response
-$response = $httpClient->request();
+	$curl = curl_init($url);
+	curl_setopt($curl, CURLOPT_HEADER, false);
+	curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($curl, CURLOPT_HTTPHEADER,
+	        array("Content-type: application/json"));
+	curl_setopt($curl, CURLOPT_POST, true);
+	curl_setopt($curl, CURLOPT_POSTFIELDS, $content);
 
-$body = null;
+	$json_response = curl_exec($curl);
 
-// evaluate for success response
-if ($response->isSuccessful()) {
-	$body = json_decode($response->getBody()); // returns stdObject
-} else {
-	// report error
-}
+	$status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
-// retrieves the image array of stdObjects
-$images = $body->SearchForImagesResult->Images;
+	if ( $status != 201 ) {
+	    die("Error: call to URL $url failed with status $status, response $json_response, curl_error " . curl_error($curl) . ", curl_errno " . curl_errno($curl));
+	}
 
-// total count of items matching this search in the API
-$itemTotalCount = $body->SearchForImagesResult->ItemTotalCount;
+
+	curl_close($curl);
+
+	$response = json_decode($json_response, true);
 ?>
