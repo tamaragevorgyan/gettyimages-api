@@ -39,6 +39,7 @@ The Status codes are:
 | InvalidDownloadToken			| Indicates that the download token is not in a valid format.                             				|
 | InvalidIncludeExcludeMode		| Indicates that the IncludeExcludeMode specified is not valid. 										|
 | InvalidItemCount				| Indicates that the item count must be greater than zero. 												|
+| InvalidItemSortType | Indicates the sort type specified is not valid. |
 | InvalidItemStartNumber		| Indicates that the item start number must be greater than zero.										|
 | InvalidLanguageCode			| Indicates that the specified language is unrecognized.												|
 | InvalidLightboxName			| Indicates that the LightboxName cannot be null or empty.												|
@@ -47,6 +48,7 @@ The Status codes are:
 | InvalidRequest				| Indicates a problem with the request. See the message field for additional details about the problem.	|
 | InvalidSizeCode				| Indicates that the specified size code to download the asset for the agreements is invalid.			|
 | InvalidSizeKey				| Indicates that the specified size key is invalid.														|
+| InvalidSearchCriteriaType | Indicates the search criteria type specified is not valid. |
 | InvalidSearchForVideoByAssetId | Indicates that the asset id cannot be combined with other query parameters, because they will be ignored and only AssetId will be used. |
 | InvalidSystemIdOrPassword		| Indicates that an invalid systemId or password was sent in.											|
 | InvalidUsernameOrPassword		| Indicates that an invalid username or password was sent in.											|
@@ -63,6 +65,7 @@ The Status codes are:
 | OperationRequiresSecureToken	| Indicates an error stating that this operation requires using a secure token. 						|
 | OperationValidOnlyForLightboxOwner| Indicates that this operation is valid only for the lightbox owner.								|
 | PasswordTooShort				| Indicates that the password length is less than the minimum required length. 							|
+| SearchCriteriaRequestMismatch | Indicates only one of search criteria or search criteria type were specified. Must specify both or neither. |
 | SecureTokenPassedOverHttp		| Indicates an error stating that this operation does not allow a secure token with http.				|
 | StartPastTotal				| Indicates that the specified item start number is beyond the total available items.					|
 | SystemError					| Indicates an unknown error.																			|
