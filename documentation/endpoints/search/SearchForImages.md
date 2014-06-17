@@ -176,6 +176,7 @@ The SearchForImages JSON response has this form:
 	        "CollectionId": "",
 	        "CollectionName": "",
 	        "ColorType": "",
+	        "Copyright": "",
 	        "DateCreated": "\/Date(1294868991374-0800)\/",
 	        "DateSubmitted": "\/Date(1294868991390-0800)\/",
 	        "EditorialSegments": [
@@ -207,6 +208,8 @@ The SearchForImages JSON response has this form:
 		        "Url": ""
 	          }
 	        ],
+	        "ReleaseMessage": "",
+	        "Restrictions":["Contact your local office"],
 	        "Title": "",
 	        "UrlComp": "",
 	        "UrlEmbed": "",
@@ -256,6 +259,7 @@ The SearchForImagesResult contains these fields.
 |*Image*.CollectionId|String|Identifies a collection to which the image belongs.|
 |*Image*.CollectionName|String|Identifies the name of the collection to which the image belongs.|
 |*Image*.ColorType|String|Indicates where the image is color or black and white. Possible values are: <br>• Color <br>• BlackAndWhite <br>• Unknown|
+|Image.Copyright|String|Identifies the copyright.|
 |*Image*.DateCreated|String|Identifies the date the image was created. Date is in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-and-json.aspx.|
 |*Image*.DateSubmitted|String|Identifies the date the image was added to the Getty Images catalogs. Date is in the format described at http://weblogs.asp.net/bleroy/archive/2008/01/18/dates-and-json.aspx.|
 |*Image*.EditorialSegments|Collection|Contains an EditorialSegment entry for each editorial category to which the image belongs, if the image is in the editorial image family.|
@@ -279,6 +283,8 @@ The SearchForImagesResult contains these fields.
 |Image.Orientations|Collection|Contains an Orientation entry for each of the available orientations of the image. Orientation entry String Indicates available orientations of the image. Possible values are: <br>• Horizontal <br>• Vertical <br>• PanoramicHorizontal <br>• PanoramicVertical <br>• Square <br>• Unknown|
 |Image.QualityRank|Integer|Assigned to editorial images to rank their relevance to the event they belong to. This number has no relevance for creative images eventhough it does appear in the metadata. Possible values are: <br>• 1 most relevant <br>• 2 tells story from a wider perspective <br>• 3 stock/repeats/less important|
 |Image.ReferralDestinations|Collection|Contains a ReferralDestination entry for each of the sites on which the image can be found.|
+|Image.ReleaseMessage|String|Contains model or property release information.|
+|Image.Restrictions|Collection|Contain image restrictions.|
 |SiteName *entry*|String|Indicates the name of the website(s) on which the image can be found. Possible values are: <br>• gettyimages <br>• thinkstock <br>• jupiterimages <br>• photos|
 |Url *entry*|String|Indicates the specific URL for the page on which the images can be found.|
 |*Image*.Title|String|Indicates the image title.|
