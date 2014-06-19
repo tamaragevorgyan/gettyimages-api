@@ -76,7 +76,7 @@ The operation returns the following JSON representation of the response. Fields 
             },
             "ReportUsageResponseBody":  {
     		"TotalAssetUsagesProcessed": 2
-  	    }
+		}
         }
 
 ###ResponseHeader Fields
