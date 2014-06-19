@@ -11,7 +11,7 @@ Much like the rest of the Connect API, ReportUsage requests are supported via HT
 Each ReportUsage request must contain a TransactionId value that is unique per request within the scope of your application's SystemID. Using a UUID or GUID is a best practice for ensuring unique IDs. Any ReportUsage requests submitted with a previously submitted TransactionId will result in a warning and usage report will not be recorded.
 
 ### Batching of ReportUsage Data
-The ReportUsage operation will accept up to 1000 AssetUsage items in a single submission. Each AssetUsage item should contain a valid ImageId, a number of usages, and the date of those usages. ImageIds within a ReportUsage request need not be unique. Given the atomic nature of the operation, all ImageIds included in a request must be valid for the ReportUsage request to succeed and be recorded. ReportUsage requests containing an invalid ImageId will cause the operation to fail and return an error response, which means none of the reported usages have been recorded. In order to successfully record the report usages, the failed request must be resubmitted (minus the invalid ImageIds or after correcting them) with a new TransactionId.
+The ReportUsage operation will accept up to 1000 AssetUsage items in a single submission. Each AssetUsage item should contain a valid ImageId, a number of usages, and the date of those usages. ImageIds within a ReportUsage request need not be unique. Given the atomic nature of the operation, all ImageIds included in a request must be valid for the ReportUsage request to succeed and be recorded. ReportUsage requests containing an invalid ImageId will cause the operation to fail and return an error response, which means none of the reported usages have been recorded. In order to successfully record the reported usages, the failed request must be resubmitted (minus the invalid ImageIds or after correcting them) with a new TransactionId.
 
 ### Tokens
 All ReportUsage operation calls require a valid authentication token (generated using the Connect API's CreateSession operation) to be included in the RequestHeader. Tokens expire after 30 minutes, so new tokens should regularly be requested via CreateSession to prevent ReportUsage requests from failing due to expired tokens. For more details on how to call CreateSession, please review the Connect API documentation found at http://api.gettyimages.com.
@@ -74,7 +74,9 @@ The operation returns the following JSON representation of the response. Fields 
                 "StatusList": [],
                 "CoordinationId": ""
             },
-            "ReportUsageResponseBody": null
+            "ReportUsageResponseBody":  {
+    		"TotalAssetUsagesProcessed": 2
+  	    }
         }
 
 ###ResponseHeader Fields
@@ -91,9 +93,10 @@ The ResponseHeader contains metadata about the operation execution and response.
 | CoordinationId   | String      | Indicates the CoordinationId value provided in the triggering request.                                                        |
 
 ###ReportUsageResponseBody Fields
-The ReportUsageResponseBody will not be returned in most responses. In the event of an error specifically due to usage reports being submitted for invalid image IDs, ReportUsageResponseBody will be included, containing the invalid IDs. 
+The ReportUsageResponseBody contains the response data.
 
 | Field            | Type        | Description                                                     |
 |:-----------------|:------------|:----------------------------------------------------------------|
-| InvalidAssets	   | Collection  | List of invalid ImageIds submitted in the ReportUsage request.  |                         
+| TotalAssetUsagesProcessed	   | Int  | Quantity of successfully recorded usages.  |  
+| InvalidAssets	   | Collection  | List of invalid ImageIds submitted in the ReportUsage request.  |                        
 
