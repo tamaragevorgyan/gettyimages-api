@@ -82,7 +82,7 @@ The SearchForVideosRequestBody contains the request arguments.
 | Format *entry*                  | String      | Optional     | Specifies the formats filter to apply to the query results. Possible values are:<br>• HD<br>• SD |
 | Language                        | String      | Optional     | Specifies an IETF RFC 5646 compliant language tag to determine the language used for localizable strings returned in the response. Defaults to "en-US" if no value is provided. |
 |LicensingModels|Collection|Optional|Adds a LicensingModel entry for each type of license. Use to filter results.|
-|LicensingModel *entry*|String|Optional|Specifies the type of license to filter results by. Possible values are: <br>• RoyaltyFree <br>• RightsManaged|
+|LicensingModel *entry*|String|Optional|Specifies the type of license to filter results by. Possible values are: <br>• RoyaltyFree <br>• RightsReady|
 | Query                           | Object      | Required     | Specifies an instance to provide the search query. |
 | *Query*.AssetIds                | Collection  | Optional     | Adds an AssetId entry of each video for which you want metadata in the results. Specifying AssetIds overrides all Filter settings and all other Query settings. AssetIds supports a maximum of 500 entries.  |
 | AssetId *entry*                 | Object      | Optional     | Specifies the ID entry of a video for which you want metadata in the results. |
