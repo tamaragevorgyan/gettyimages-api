@@ -42,7 +42,10 @@ The oEmbed JSON response has this form, per the oEmbed specification:
 	  "collection": string,
 	  "html": string,
 	  "width": int,
-	  "height": int
+	  "height": int,
+	  "thumbnail_url": string,
+	  "thumbnail_height": int,
+	  "thumbnail_width": int
 	}
 
 Example response:
@@ -50,13 +53,16 @@ Example response:
 	{
 		"type": "rich",
 		"version": "1.0",
-		"height": 671,
+		"height": 643,
 		"width": 395,
-		"html": "\u003ciframe src=\"//embed.gettyimages.com/embed/74917285?et=Sy31TwnCsUidwFt4lNEpsg\u0026sig=kTSM-y0tMHIhx5WddhODZxKSHZtb7M7ApI0fOBx9nkA=\" width=\"400\" height=\"671\" frameborder=\"0\" scrolling=\"no\"\u003e\u003c/iframe\u003e",
+		"html": "\u003cdiv style=\"background-color:#fff;display:inline-block;font-family:'Helvetica Neue',Arial,sans-serif;color:#a7a7a7;font-size:11px;width:100%;max-width:395px;min-width:300px;\"\u003e\u003cdiv style=\"overflow:hidden;position:relative;height:0;padding:150.379747% 0 49px 0;width:100%;\"\u003e\u003ciframe src=\"//localhost:3000/embed/74917285?et=GCDFoeg3T3xB1L6jmY5dDQ\u0026sig=mXFz-gxQc_lIp2nmITlHtjjKIvYL1UD6e5yjuPDQ9FU=\" width=\"395\" height=\"643\" scrolling=\"no\" frameborder=\"0\" style=\"display:inline-block;position:absolute;top:0;left:0;width:100%;height:100%;\"\u003e\u003c/iframe\u003e\u003c/div\u003e\u003cp style=\"margin:0;\"\u003e\u003c/p\u003e\u003cdiv style=\"padding:0;margin:4px 0 0 10px;text-align:left;\"\u003e\u003ca href=\"http://www.gettyimages.com/detail/74917285\" target=\"_blank\" style=\"color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;\"\u003e#74917285\u003c/a\u003e / \u003ca href=\"http://www.gettyimages.com\" target=\"_blank\" style=\"color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;\"\u003egettyimages.com\u003c/a\u003e\u003c/div\u003e\u003c/div\u003e",
 		"title": "Model Released Basketball",
 		"caption": "Model Released: Two young men outdoors, one man holding basketball, portrait (Photo by Black 100/Getty Images)",
 		"photographer": "Black 100",
-		"collection": "Allsport Concepts"
+		"collection": "Allsport Concepts",
+		"thumbnail_url": "http://delivery.candidate-gettyimages.com/xt/74917285.jpg?v=1\u0026g=fs2|0|editorial3|17|285\u0026s=1",
+		"thumbnail_height": "170",
+		"thumbnail_width": "113"
 	}
 
 ####Workflow example: oEmbed
