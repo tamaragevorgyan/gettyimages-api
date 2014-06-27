@@ -45,7 +45,8 @@ The oEmbed JSON response has this form, per the oEmbed specification:
 	  "height": int,
 	  "thumbnail_url": string,
 	  "thumbnail_height": int,
-	  "thumbnail_width": int
+	  "thumbnail_width": int,
+	  "terms_of_use_url": string
 	}
 
 Example response:
@@ -62,7 +63,8 @@ Example response:
 		"collection": "Allsport Concepts",
 		"thumbnail_url": "http://delivery.candidate-gettyimages.com/xt/74917285.jpg?v=1\u0026g=fs2|0|editorial3|17|285\u0026s=1",
 		"thumbnail_height": "170",
-		"thumbnail_width": "113"
+		"thumbnail_width": "113",
+		"terms_of_use_url": "http://www.gettyimages.com/Corporate/Terms.aspx"
 	}
 
 ####Workflow example: oEmbed
