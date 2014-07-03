@@ -139,6 +139,8 @@ The GetImageDetails JSON response has this form:
 	        "UrlThumb": "",
 	        "UrlWatermarkComp": "",
 	        "UrlWatermarkPreview": ""
+	        "UrlHiResComp": ""
+	        "UrlWatermarkHiResComp": ""
 	      }
 	    ]
 	  }
@@ -218,6 +220,9 @@ The GetImageDetailsResult contains these fields.
 | _Image_.UrlThumb | String 	| Identifies the URL of the image, sized for a results grid. Thumbnail images are smaller than preview and comp. |
 | _Image_.UrlWatermarkComp | String 	| Identifies the URL of the image, sized for layout composition, with a Getty Images watermark. Comp images are larger than preview and thumbnail, but not full-sized.|
 | _Image_.UrlWatermarkPreview | String 	| Identifies the URL of the image, sized for pop-up previews, with a Getty Images watermark.  Preview images are larger than thumbnail, but smaller than comp.|
+| _Image_.UrlHiResComp | String 	| Identifies the URL of the image, sized for layout composition.  Hi res comp images are full-sized.|
+| _Image_.UrlWatermarkHiResComp | String 	| Identifies the URL of the image, sized for layout composition, with a Getty Images watermark.  Hi res comp images are full-sized.|
+
 
 ###Workflow Example
 1. Call [CreateSession][] with system and user credentials to create an authentication token.
