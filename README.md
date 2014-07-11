@@ -112,12 +112,12 @@ Click the **"View Report"** link on your key to get the current status of your r
 There are two rate limits and each limit has its own error message.
 
 - Calls per second
-<pre>   Returns a 403 - Over Queries Per Second Limit HTTP Response Code 
+<pre>Returns a 403 - Over Queries Per Second Limit HTTP Response Code 
    X-Error-Detail Header: "Account Over Queries Per Second Limit"
    HTTP Response Body: {"message":"Account Over Rate Limit"}   
 </pre>
 - Calls per day
-<pre>   Returns a 403 - Over Rate Limit HTTP Response Code 
+<pre>Returns a 403 - Over Rate Limit HTTP Response Code 
    X-Error-Detail Header: "Account Over Rate Limit"
    HTTP Response Body: {"message":"Account Over Rate Limit"}
 </pre>
