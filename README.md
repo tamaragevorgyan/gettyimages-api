@@ -4,7 +4,7 @@ Our set of APIs enable seamless integration of Getty Images' expansive content, 
 
 # Overview #
 
-1. [Current Version](https://github.com/nskirov/connect#Current-Version)
+1. [Current Version](https://github.com/nskirov/connect#current-version)
 
 ### Current Version ###
 
