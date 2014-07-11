@@ -5,13 +5,18 @@ Our set of APIs enable seamless integration of Getty Images' expansive content, 
 # Overview #
 
 1. [Current Version](https://github.com/nskirov/connect#current-version)
-2. [Swagger](https://github.com/nskirov/connect#swagger)
-3. [Parameters](https://github.com/nskirov/connect#parameters)
-4. [Client Errors](https://github.com/nskirov/connect#client-errors)
-5. [Http Verbs](https://github.com/nskirov/connect#http-verbs)
-6. [Authentication](https://github.com/nskirov/connect#authentication)
-7. [Pagination](https://github.com/nskirov/connect#pagination)
-8. [Rate Limiting](https://github.com/nskirov/connect#rate-limiting)
+2. [Schema](https://github.com/nskirov/connect#schema)
+3. [Swagger](https://github.com/nskirov/connect#swagger)
+4. [Parameters](https://github.com/nskirov/connect#parameters)
+5. [Errors](https://github.com/nskirov/connect#errors)
+6. [Http Verbs](https://github.com/nskirov/connect#http-verbs)
+7. [Http Redirects](https://github.com/nskirov/connect#http-redirects)
+8. [Authentication](https://github.com/nskirov/connect#authentication)
+9. [Hypermedia](https://github.com/nskirov/connect#hypermedia)
+10. [Pagination](https://github.com/nskirov/connect#pagination)
+11. [Rate Limiting](https://github.com/nskirov/connect#rate-limiting)
+12. [Cross Origin Resource Sharing](https://github.com/nskirov/connect#cross-origin-resource-sharing)
+13. [Timezones](https://github.com/nskirov/connect#timezones)
 
 ### Current Version ###
 
@@ -36,17 +41,13 @@ Swagger is a neat tool to familiarize yourself with our API:
 
     https://connect.gettyimages.com/swagger
 
-## Parameters and Representations ##
+## Parameters ##
 
 ***TODO: Discuss fields and multi-value lists (e.g. filters)***
 
 ## Errors ##
 
 ***todo: describe getty error cases (4xx vs 5xx), mimetype, and special cases (e.g. non-mimetype).  Use specific examples!***
-
-### HTTP Redirects ###
-
-API v3 uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirection is not an error and clients should follow that redirect. Redirect responses will have a Location header field which contains the URI of the resource to which the client should repeat the requests.
 
 ### Http Verbs ###
 
@@ -57,6 +58,10 @@ GET	Used for retrieving resources.
 POST	Used for creating resources, or performing custom actions (such as merging a pull request).
 PUT	Used for replacing resources or collections. For PUT requests with no body attribute, be sure to set the Content-Length header to zero.
 DELETE	Used for deleting resources.
+
+### HTTP Redirects ###
+
+API v3 uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirection is not an error and clients should follow that redirect. Redirect responses will have a Location header field which contains the URI of the resource to which the client should repeat the requests.
 
 ### Authentication ###
 
@@ -77,7 +82,7 @@ Note that it is possible for a token to become revoked without warning; this wil
 ### Pagination ###
 ***Todo: describe our pagination***
 
-### Rate Limiting - Bryce ###
+### Rate Limiting ###
 *** TODO: Describe Mashery rate limiting (make distinction between sandbox and registered clients).  Maybe describe what Mashery does if limit is exceeded?***
 
 ### Cross Origin Resource Sharing ###
@@ -88,7 +93,6 @@ Note that it is possible for a token to become revoked without warning; this wil
 
 ## Images and Sizes ##
 If explicitly specified (by asking for 'sizes' in the 'fields' parameter) when querying image metadata, sizes will be included, indicating height and width by pixels.  Size tokens from previous API versions are no longer honored.
-
 
 ## Display vs Download ##
 When retrieving images via search or asset metadata operations, you have the option of retrieving various URLs for image display (e.g. uri-preview, uri-comp, etc).  These are for displaying within the context of your application and are not licensed for re-use outside the context of your application.  Depending on various rules (client application permissions, user type, image type image size) the images may be watermarked.
