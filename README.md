@@ -5,6 +5,13 @@ Our set of APIs enable seamless integration of Getty Images' expansive content, 
 # Overview #
 
 1. [Current Version](https://github.com/nskirov/connect#current-version)
+2. [Swagger](https://github.com/nskirov/connect#swagger)
+3. [Parameters](https://github.com/nskirov/connect#parameters)
+4. [Client Errors](https://github.com/nskirov/connect#client-errors)
+5. [Http Verbs](https://github.com/nskirov/connect#http-verbs)
+6. [Authentication](https://github.com/nskirov/connect#authentication)
+7. [Pagination](https://github.com/nskirov/connect#pagination)
+8. [Rate Limiting](https://github.com/nskirov/connect#rate-limiting)
 
 ### Current Version ###
 
