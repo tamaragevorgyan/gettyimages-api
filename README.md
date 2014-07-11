@@ -19,6 +19,9 @@ The Connect API is currently on v3:
 
     https://connect.gettyimages.com/v3/{resource_name}
 
+### Schema ###
+Mention Mime Types
+
 ### Swagger ###
 
 Swagger is a neat tool to familiarize yourself with our API:
@@ -27,14 +30,20 @@ Swagger is a neat tool to familiarize yourself with our API:
 
 ### Parameters ###
 
-
-
 ### Client Errors ###
+
+### HTTP Redirects ###
 
 ### Http Verbs ###
 
 ### Authentication ###
 
+### Hypermedia ###
+
 ### Pagination ###
 
-### Rate Limiting ###
+### Rate Limiting - Bryce ###
+
+### Cross Origin Resource Sharing ###
+
+### Timezones ###
