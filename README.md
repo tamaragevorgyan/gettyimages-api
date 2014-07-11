@@ -39,7 +39,7 @@ All timestamps are returned in ISO 8601 format:
 
 Swagger is a neat tool to familiarize yourself with our API:
 
-    https://connect.gettyimages.com/swagger
+[https://connect.gettyimages.com/swagger](https://connect.gettyimages.com/swagger)
 
 ## Parameters ##
 
