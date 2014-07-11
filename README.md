@@ -83,7 +83,27 @@ Note that it is possible for a token to become revoked without warning; this wil
 ***Todo: describe our pagination***
 
 ### Rate Limiting ###
-*** TODO: Describe Mashery rate limiting (make distinction between sandbox and registered clients).  Maybe describe what Mashery does if limit is exceeded?***
+Self serve customers will have a limited rate compared to registered clients.  Rate Limits can be found on your Mashery account page found here:  [Mashery Account Information](https://gettyimages.mashery.com/apps/mykeys)
+
+Click the **"View Report"** link on your key to get the current status of your rate limit.
+
+There are two rate limits and each limit has its own error message.
+
+- Calls per second
+
+	> Returns a 403 - Over Queries Per Second Limit HTTP Response Code 
+ 
+	> X-Error-Detail Header: "Account Over Queries Per Second Limit"
+ 
+	> HTTP Response Body: {"message":"Account Over Rate Limit"}
+ 
+- Calls per day
+ 	
+	> Returns a 403 - Over Rate Limit HTTP Response Code 
+ 
+	> X-Error-Detail Header: "Account Over Rate Limit"
+ 
+	> HTTP Response Body: {"message":"Account Over Rate Limit"}
 
 ### Cross Origin Resource Sharing ###
 
