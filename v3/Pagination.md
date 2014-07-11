@@ -4,8 +4,9 @@ The Connect API provides an abundance of information about the images found that
 
 - The Connect API will return your results in groups called ***pages***.
 - The number of items in a page is its ***page size***.
-- By default, Search uses a page size of 30 items per page.
+- By default, Search uses a page size of 30 items per page.  The maximum number of items per page is 100.
+- You specify the 
 - The ***last*** page returned to you may be as few as one item or as many ***page size*** items.    You will never receive more than *page size* items in any page.
-- You may specify how many items you receive in a page 
+- You may specify how many items you receive in a page using the ***pagesize*** query parameter
 
  
