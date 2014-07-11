@@ -15,12 +15,20 @@ Our set of APIs enable seamless integration of Getty Images' expansive content, 
 
 ### Current Version ###
 
-The Connect API is currently on v3:
+The Connect API is currently on v3 as indicated by the URI
 
     https://connect.gettyimages.com/v3/{resource_name}
 
 ### Schema ###
-Mention Mime Types
+All operations in this version of the API require HTTPS.
+
+Blank fields are included as null instead of being omitted.
+
+All timestamps are returned in ISO 8601 format:
+
+    YYYY-MM-DDTHH:MM:SSZ
+
+***TODO: Mention Mime Types***
 
 ### Swagger ###
 
@@ -28,22 +36,64 @@ Swagger is a neat tool to familiarize yourself with our API:
 
     https://connect.gettyimages.com/swagger
 
-### Parameters ###
+## Parameters and Representations ##
 
-### Client Errors ###
+***TODO: Discuss fields and multi-value lists (e.g. filters)***
+
+## Errors ##
+
+***todo: describe getty error cases (4xx vs 5xx), mimetype, and special cases (e.g. non-mimetype).  Use specific examples!***
 
 ### HTTP Redirects ###
 
+API v3 uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirection is not an error and clients should follow that redirect. Redirect responses will have a Location header field which contains the URI of the resource to which the client should repeat the requests.
+
 ### Http Verbs ###
 
+Where possible, API v3 strives to use appropriate HTTP verbs for each action.
+
+Verb	Description
+GET	Used for retrieving resources.
+POST	Used for creating resources, or performing custom actions (such as merging a pull request).
+PUT	Used for replacing resources or collections. For PUT requests with no body attribute, be sure to set the Content-Length header to zero.
+DELETE	Used for deleting resources.
+
 ### Authentication ###
+
+***Cases to discuss: Authorization/Bearer, ApiKey***
+
+All requests to connect.gettyimages.com require the use of an ApiKey for purposes of identifying the client.
+
+**curl example here**
+
+Many operations require an individual user (e.g. a Getty Images customer) to be identified.  Credentials must be acquired from our OAuth (**link here**) endpoint.  These credentials must be passed via the Authorization Bearer HTTP header.
+
+**curl example here**
+
+Note that it is possible for a token to become revoked without warning; this will occur, for example, if the user updates his/her credentials through the website.  In this case the service will respond with a **??????** response, and the client should re-enter the OAuth workflow.
 
 ### Hypermedia ###
 
 ### Pagination ###
+***Todo: describe our pagination***
 
 ### Rate Limiting - Bryce ###
+*** TODO: Describe Mashery rate limiting (make distinction between sandbox and registered clients).  Maybe describe what Mashery does if limit is exceeded?***
 
 ### Cross Origin Resource Sharing ###
 
 ### Timezones ###
+
+# Getty Images Concepts #
+
+## Images and Sizes ##
+If explicitly specified (by asking for 'sizes' in the 'fields' parameter) when querying image metadata, sizes will be included, indicating height and width by pixels.  Size tokens from previous API versions are no longer honored.
+
+
+## Display vs Download ##
+When retrieving images via search or asset metadata operations, you have the option of retrieving various URLs for image display (e.g. uri-preview, uri-comp, etc).  These are for displaying within the context of your application and are not licensed for re-use outside the context of your application.  Depending on various rules (client application permissions, user type, image type image size) the images may be watermarked.
+
+Downloads (available through 'downloads' and 'largestdownloads' fields) allow non-watermarked images to be licensed and downloaded for re-consumption by the end user (consistent with all licensing permissions and restrictions as if the user had downloaded the image through the [gettyimages.com](http://gettyimages.com) or [thinkstockphotos.com](http://thinkstockphotos.com) websites.   
+
+## Agreements, Authorizations, and Downloads ##
+**TODO: Explain the basic concepts of agreements (GI types you only have one applicable agreement, TS types you may have multiples and so need to choose).  And how they affect image authorization and downloading.**
