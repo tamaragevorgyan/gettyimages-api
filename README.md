@@ -43,6 +43,21 @@ Swagger is a neat tool to familiarize yourself with our API:
 
 ## Parameters ##
 
+Some API methods take parameters specified as a segment in the path:
+
+    curl -i "https://connect.gettyimages.com/images/<image_id>
+
+Additional options can be specified as HTTP query string parameters:
+
+    curl -i "https://connect.gettyimages.com/images?phrase=animals
+
+Some resources allow filtering on their representations:
+
+    curl -i "https://connect.gettyimages.com/images/<image_id>?fields=id,title
+
+In the last example, the fields query string parameter will limit the response information down to the id and title of the image requested.
+
+
 ***TODO: Discuss fields and multi-value lists (e.g. filters)***
 
 ## Errors ##
