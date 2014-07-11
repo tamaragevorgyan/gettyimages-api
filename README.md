@@ -80,15 +80,22 @@ API v3 uses HTTP redirection where appropriate. Clients should assume that any r
 
 ### Authentication ###
 
-***Cases to discuss: Authorization/Bearer, ApiKey***
+All requests to connect.gettyimages.com require the use of an ApiKey for purposes of identifying the client. 
+
+    -H "Api-Key:{Your API Key}"
+
+Authorization header is required to perform download operations, as well as getting certain user specific fields in searches. The input after **Bearer** is the token received from the oauth2/token call. 
+
+    url -d 'grant_type=client_credentials&client_id={apikey}&client_secret={apisecret}' https://connect.gettyimages.com/oauth2/token
 
 All requests to connect.gettyimages.com require the use of an ApiKey for purposes of identifying the client.
 
-**curl example here**
+	curl -H "Api-Key:{mashery_apikey}" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o 83454811.jpg
 
 Many operations require an individual user (e.g. a Getty Images customer) to be identified.  Credentials must be acquired from our OAuth (**link here**) endpoint.  These credentials must be passed via the Authorization Bearer HTTP header.
 
-**curl example here**
+	curl -H "Api-Key:{mashery_apikey}" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o 83454811.jpg
+
 
 Note that it is possible for a token to become revoked without warning; this will occur, for example, if the user updates his/her credentials through the website.  In this case the service will respond with a **??????** response, and the client should re-enter the OAuth workflow.
 
