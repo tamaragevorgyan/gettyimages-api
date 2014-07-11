@@ -14,7 +14,7 @@ Our set of APIs enable seamless integration of Getty Images' expansive content, 
 8. [Authentication](https://github.com/nskirov/connect#authentication)
 9. [Hypermedia](https://github.com/nskirov/connect#hypermedia)
 10. [Pagination](https://github.com/nskirov/connect#pagination)
-11. [Rate Limiting](https://github.com/nskirov/connect#rate-limiting)
+11. [Rate Limiting](https://github.com/nskirov/connect#throttling)
 12. [Cross Origin Resource Sharing](https://github.com/nskirov/connect#cross-origin-resource-sharing)
 13. [Timezones](https://github.com/nskirov/connect#timezones)
 
@@ -27,8 +27,6 @@ The Connect API is currently on v3 as indicated by the URI
 ### Schema ###
 All operations in this version of the API require HTTPS.
 
-Blank fields are included as null instead of being omitted.
-
 All timestamps are returned in ISO 8601 format:
 
     YYYY-MM-DDTHH:MM:SSZ
@@ -37,7 +35,7 @@ All timestamps are returned in ISO 8601 format:
 
 ### Swagger ###
 
-Swagger is a neat tool to familiarize yourself with our API:
+We use Swagger as our main tool for exploring our API. You can start interacting with the API immediately after acquiring an API key.
 
 [https://connect.gettyimages.com/swagger](https://connect.gettyimages.com/swagger)
 
@@ -78,6 +76,8 @@ DELETE	Used for deleting resources.
 
 API v3 uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirection is not an error and clients should follow that redirect. Redirect responses will have a Location header field which contains the URI of the resource to which the client should repeat the requests.
 
+***TODO: Provide oauth or download examples of redirecting***
+
 ### Authentication ###
 
 All requests to connect.gettyimages.com require the use of an ApiKey for purposes of identifying the client. 
@@ -88,24 +88,24 @@ Authorization header is required to perform download operations, as well as gett
 
     url -d 'grant_type=client_credentials&client_id={apikey}&client_secret={apisecret}' https://connect.gettyimages.com/oauth2/token
 
-All requests to connect.gettyimages.com require the use of an ApiKey for purposes of identifying the client.
+All requests to connect.gettyimages.com require the use of an API key for purposes of identifying the client.
 
 	curl -H "Api-Key:{mashery_apikey}" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o 83454811.jpg
 
-Many operations require an individual user (e.g. a Getty Images customer) to be identified.  Credentials must be acquired from our OAuth (**link here**) endpoint.  These credentials must be passed via the Authorization Bearer HTTP header.
+Many operations require an individual user (e.g. a Getty Images customer) to be identified. Credentials (API key and secret) must be acquired from our API portal (**link here**). Authorization (token) can then be requested via our OAuth endpoint (**link here**). These credentials must be passed via the Authorization Bearer HTTP header.
 
 	curl -H "Api-Key:{mashery_apikey}" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o 83454811.jpg
 
 
-Note that it is possible for a token to become revoked without warning; this will occur, for example, if the user updates his/her credentials through the website.  In this case the service will respond with a **??????** response, and the client should re-enter the OAuth workflow.
+Note that we reserve the right to revoke a token without warning; this will occur, for example, if the user updates his/her credentials through the website.  In this case the service will respond with a **??????** response, and the client should re-enter the OAuth workflow.
 
 ### Hypermedia ###
 
 ### Pagination ###
 ***Todo: describe our pagination***
 
-### Rate Limiting ###
-Self serve customers will have a limited rate compared to registered clients.  Rate Limits can be found on your Mashery account page found here:  [Mashery Account Information](https://gettyimages.mashery.com/apps/mykeys)
+### Throttling ###
+Self serve clients will have a limited rate compared to registered clients.  Rate Limits can be found on your Mashery account page found here:  [Mashery Account Information](https://gettyimages.mashery.com/apps/mykeys)
 
 Click the **"View Report"** link on your key to get the current status of your rate limit.
 
