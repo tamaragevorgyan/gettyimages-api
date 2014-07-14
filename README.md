@@ -94,9 +94,18 @@ DELETE	Used for deleting resources.
 
 ### HTTP Redirects ###
 
-API v3 uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirection is not an error and clients should follow that redirect. Redirect responses will have a Location header field which contains the URI of the resource to which the client should repeat the requests.
+API v3 uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirection is not an error and clients should follow that redirect. Redirect responses will have a Location header field which contains the URI of the resource to which the client should repeat the requests.  We use 302 and 303 HTTP response status codes for redirects.
 
-***TODO: Provide oauth or download examples of redirecting***
+Here's an example:
+
+	Call to oauth2/token
+	https://connect.gettyimages.com/oauth2/auth?response_type=token&client_id={api-key}
+	
+	Response
+	HTTP/1.1 302 Found
+	Date: Mon, 14 Jul 2014 18:34:51 GMT
+	Expires: -1
+	Location: https://secure.gettyimages.com/sign-in/oauth?app_name=v3Search-test&resume_params=redirect_uri%3dhttps%253a%252f%252fconnect.gettyimages.com%252fSwaggerUI%252fimplicit_grant.html%26client_id%3d{api-key}
 
 ### Authentication ###
 
