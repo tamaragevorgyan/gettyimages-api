@@ -1,6 +1,14 @@
 # Getty Images Connect API v3 #
+Our API allows developers to:
+  * [Search](https://connect.gettyimages.com/swagger/ui/index.html#!/Search) for images
+  * Get [image metadata](https://connect.gettyimages.com/swagger/ui/index.html#!/Images)
+  * [Download](https://connect.gettyimages.com/swagger/ui/index.html#!/Downloads) images
 
-Our set of APIs enable seamless integration of Getty Images' expansive content, powerful search and rich metadata directly into your products. With Connect's API solutions, you can fully control, customize and scale as you grow.
+## Steps to get started
+  1. [Swagger Interactive Documentation](https://connect.gettyimages.com/swagger)
+  1. [Quick Start](#)
+  1. [Code Samples](#)
+  1. [Release Notes](#) 
 
 # Overview #
 
