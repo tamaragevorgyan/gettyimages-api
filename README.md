@@ -25,7 +25,27 @@ The Connect API is currently on v3 as indicated by the URI
     https://connect.gettyimages.com/v3/{resource_name}
 
 ### Schema ###
-All operations in this version of the API require HTTPS.
+All API access is over HTTPS and accessed from the [https://connect.gettyimages.com/v3/](https://connect.gettyimages.com/v3/) domain. All data is sent and received as JSON.
+
+    curl -H Api-Key:mzqtmcrk8bpsx9jfr9c9y47x -i https://connect.gettyimages.com/v3/search/images?phrase=cheese
+    
+    HTTP/1.1 200 OK
+    Access-Control-Allow-Headers: origin, accept, content-type
+    Access-Control-Allow-Methods: options, post
+    Access-Control-Allow-Origin: *
+    Access-Control-Max-Age: 1728000
+    Cache-Control: no-cache,no-cache
+    Content-Language: en-US
+    Content-Type: application/json; charset=utf-8
+    Date: Mon, 14 Jul 2014 18:43:44 GMT
+    Expires: -1
+    Pragma: no-cache
+    Server: Mashery Proxy
+    X-Mashery-Responder: prod-j-worker-us-west-1c-13.mashery.com
+    Content-Length: 23292
+    Connection: keep-alive
+    
+    {"sample response": "in json format"}
 
 All timestamps are returned in ISO 8601 format:
 
