@@ -6,7 +6,7 @@ Our API allows developers to:
 
 ## Steps to get started
   1. [Swagger Interactive Documentation](https://connect.gettyimages.com/swagger)
-  1. [Quick Start](#)
+  1. [Quick Start](quick-start.md)
   1. [Register](https://api.gettyimages.com/member/register) for an API Key.
   1. [Code Samples](code-samples)
   1. [Release Notes](release-notes.md) 
