@@ -25,6 +25,7 @@
 ### Search
 ##### Images
     echo "**********Search For Images**********\n\n";
+	$rootEndpoint = "https://connect.gettyimages.com";
     $endpoint = $rootEndpoint."/v3/search/images";
     $queryParams = array("phrase" => "kitties");
     $endpoint = $endpoint. (strpos($endpoint, '?') === FALSE ? '?' : ''). http_build_query($queryParams);
@@ -37,6 +38,7 @@
     echo "Images returned ". json_encode($response["images"]) . "\n\n\n";
 ##### Images Creative
     echo "**********Search For Images Creative**********\n\n";
+	$rootEndpoint = "https://connect.gettyimages.com";
     $endpoint = $rootEndpoint."/v3/search/images/creative";
     $queryParams = array("phrase" => "kitties");
     $endpoint = $endpoint. (strpos($endpoint, '?') === FALSE ? '?' : ''). http_build_query($queryParams);
@@ -49,6 +51,7 @@
     echo "Images returned ". json_encode($response["images"]) . "\n\n\n";
 ##### Images Editorial
     echo "**********Search For Images Editorial**********\n\n";
+	$rootEndpoint = "https://connect.gettyimages.com";
     $endpoint = $rootEndpoint."/v3/search/images/editorial";
     $queryParams = array("phrase" => "kitties");
     $endpoint = $endpoint. (strpos($endpoint, '?') === FALSE ? '?' : ''). http_build_query($queryParams);
@@ -61,6 +64,7 @@
     echo "Images returned ". json_encode($response["images"]) . "\n\n\n";
 ### Image Metadata
     echo "**********Search For Images Editorial**********\n\n";
+	$rootEndpoint = "https://connect.gettyimages.com";
     $endpoint = $rootEndpoint."/v3/search/images/images/83454811,186239980";
     
     $curl = getCurl($endpoint);
@@ -71,6 +75,7 @@
     echo "Images returned ". json_encode($response["images"]) . "\n\n\n";
 ### Downloads
     echo "**********Download Image**********\n\n";
+	$rootEndpoint = "https://connect.gettyimages.com";
     $imageIdToGet = 83454811;
     $endpoint = $rootEndpoint."/v3/downloads/".$imageIdToGet;
 
