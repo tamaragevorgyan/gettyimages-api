@@ -100,7 +100,23 @@ Many operations require an individual user (e.g. a Getty Images customer) to be 
 Note that we reserve the right to revoke a token without warning; this will occur, for example, if the user updates his/her credentials through the website.  In this case the service will respond with a **??????** response, and the client should re-enter the OAuth workflow.
 
 ### Hypermedia ###
+All resources may have one or more url properties linking to other resources. These are meant to provide explicit URLs so that proper API clients don’t need to construct URLs on their own. It is highly recommended that API clients use these. Doing so will make future upgrades of the API easier for developers. All URLs are expected to be proper [RFC 6570 URI](http://tools.ietf.org/html/rfc6570) templates.
 
+Here's an example of an image search asking for largest-downloads :
+
+    "images": [
+	    {
+	      "id": "3231670",
+	      "largestDownloads": [
+		    {
+		      "product-type": "premiumaccess",
+		      "uri": "https://connect.gettyimages.com/Public/3.0/downloads/3231670"
+		    }
+	      ]
+    	}
+	]
+
+This URL "https://connect.gettyimages.com/Public/3.0/downloads/3231670" can now be used to get the image when a POST is made to it with your api-key and authorization token.
 ### Pagination ###
 
 <!--
