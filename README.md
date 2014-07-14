@@ -94,14 +94,12 @@ DELETE	Used for deleting resources.
 
 ### HTTP Redirects ###
 
-API v3 uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirection is not an error and clients should follow that redirect. Redirect responses will have a Location header field which contains the URI of the resource to which the client should repeat the requests.  We use 302 and 303 HTTP response status codes for redirects.
+Connect API v3 uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirect is not an error and clients should follow that redirect. Redirect responses will have a Location header field which contains the URI of the resource to which the client should repeat the requests.  We use 302 and 303 HTTP response status codes for redirects.
 
-Here's an example:
+Here's an example of a call to oatuh2/token:
 
-	Call to oauth2/token
 	https://connect.gettyimages.com/oauth2/auth?response_type=token&client_id={api-key}
 	
-	Response
 	HTTP/1.1 302 Found
 	Date: Mon, 14 Jul 2014 18:34:51 GMT
 	Expires: -1
@@ -187,7 +185,7 @@ There are two rate limits and each limit has its own error message.
 ### Cross Origin Resource Sharing ###
 
 ### Timezones ###
-
+We use UTC as the timezone for our date fields.
 # Getty Images Concepts #
 
 ## Images and Sizes ##
