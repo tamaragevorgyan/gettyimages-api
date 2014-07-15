@@ -113,7 +113,7 @@ Some resources allow filtering on their representations:
 
     curl -i "https://connect.gettyimages.com/images/{id}?fields=id,title
 
-In the last example, the `fields` querystring parameter will limit the response information down to the id and title of the image requested.
+In the last example, the `fields` querystring parameter will limit the response fields to `id` and `title`.
 
 ### Errors
 
