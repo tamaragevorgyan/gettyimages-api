@@ -67,7 +67,7 @@ The Connect API is currently on version 3, as indicated by the base URI:
 
 All API access is over HTTPS. All data is sent and received as JSON.
 
-    curl -H Api-Key:mzqtmcrk8bpsx9jfr9c9y47x -i https://connect.gettyimages.com/v3/search/images?phrase=cheese
+    curl -H Api-Key:{Your Api Key} -i https://connect.gettyimages.com/v3/search/images?phrase=cheese
     
     HTTP/1.1 200 OK
     Access-Control-Allow-Headers: origin, accept, content-type
