@@ -1,21 +1,23 @@
 
 #cURL
 ---
-### Authentication 
 
-    client_id = Mashery API Key
-    client_secret = Mashery API Secret
-    
-    curl -d 'grant_type=client_credentials&client_id={apikey}&client_secret={apisecret}' https://connect.gettyimages.com/oauth2/token
+### Authentication
 
-#### Operation Header Definitions
-Api-Key header is needed to go through Mashery and will allow you to do read only type operations. The following header is required for all operations:
+An Api-Key header is needed authenticate to the API and will allow you access to read only operations. The curl option for setting the Api-Key header is:
 
     -H "Api-Key:{Your API Key}"
 
-Authorization header is required to perform download operations, as well as getting certain user specific fields in searches. The input after **Bearer** is the token received from the oauth2/token call. 
+### Authorization 
 
-    -H "Authorization: Bearer {Your Token}"
+An Authorization header is required to perform download operations. The format of the header is the word **Bearer** followed by the token received from a call to oauth2/token as follows:
+	
+	curl -d 'grant_type=client_credentials&client_id={ApiKey}&client_secret={ApiSecret}' https://connect.gettyimages.com/oauth2/token
+
+The curl option for setting the Authorization header is:
+    
+	-H "Authorization: Bearer {Your Token}"
+
 ### Search
 ##### Images
     curl {headers} https://connect.gettyimages.com/v3/search/images?phrase=kitties
