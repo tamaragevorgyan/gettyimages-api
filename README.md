@@ -382,7 +382,7 @@ All requests to connect.gettyimages.com require the use of an API key for purpos
 
 	curl -H "Api-Key:{mashery_apikey}" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o 83454811.jpg
 
-Many operations require an individual user (e.g. a Getty Images customer) to be identified. Credentials (API key and secret) must be acquired from our API portal (**link here**). Authorization (token) can then be requested via our OAuth endpoint (**link here**). These credentials must be passed via the Authorization Bearer HTTP header.
+Many operations require an individual user (e.g. a Getty Images customer) to be identified. Credentials (API key and secret) must be acquired from our [Api Portal](http://api.gettyimages.com/). An authorization token can then be requested via our [OAuth2 endpoint](https://connect.gettyimages.com/oauth2/token). These credentials must be passed via the Authorization Bearer HTTP header.
 
 	curl -H "Api-Key:{mashery_apikey}" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o 83454811.jpg
 
@@ -419,7 +419,7 @@ The Connect API provides an abundance of information about the images found that
 
 The following example shows how to add a page and page-size query parameter to your search request using curl:
 
-    C:\>curl -I "https://connect.gettyimages.com/v3/search/images?phrase=vampire0cows&page=1&page-size=20"   -H "Api-Key:x2xx9xx74x69xxxxx6xxx3xx"   -H "Authorization:Bearer XXX.....XXX"
+    curl -I "https://connect.gettyimages.com/v3/search/images?phrase=vampire0cows&page=1&page-size=20" -H "Api-Key:{Your Api Key}" -H "Authorization: Bearer {Your Token}"
 
 Please note: the authorization token has been reduced in size.
 
