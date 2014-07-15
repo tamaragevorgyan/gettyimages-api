@@ -1,9 +1,9 @@
 # Getty Images Connect API
 
 The Getty Images Connect API allows developers to:
-* [Search](https://connect.gettyimages.com/swagger/ui/index.html#!/Search) for images from our extensive catalog.
-* Get [image metadata](https://connect.gettyimages.com/swagger/ui/index.html#!/Images).
-* [Download](https://connect.gettyimages.com/swagger/ui/index.html#!/Downloads) images using standard Getty Images product types (e.g. Premium Access, Image Packs, Thinkstock Subscriptions).
+- [Search](https://connect.gettyimages.com/swagger/ui/index.html#!/Search) for images from our extensive catalog.
+- Get [image metadata](https://connect.gettyimages.com/swagger/ui/index.html#!/Images).
+- [Download](https://connect.gettyimages.com/swagger/ui/index.html#!/Downloads) images using standard Getty Images product types (e.g. Premium Access, Image Packs, Thinkstock Subscriptions).
 
 ## Getting started
 
@@ -11,8 +11,8 @@ The Getty Images Connect API allows developers to:
 
 1. [Sign in](https://api.gettyimages.com/login/login) with your Mashery Member credentials.
 2. Click the **My Account** link near the top right of the page.
-3. Click **Get API keys** button.
-4. Register your application and select your desired type of API key. Two options are available:
+3. Click the **Get API keys** button.
+4. Register your application and select your desired type of Api-Key. Two options are available:
     -  **Issue a new key for Getty Test**
         - Use to test Getty Images Connect functionality including: image search and metadata, download, and account management.
     - **Issue a new key for Connect Embed**
@@ -21,7 +21,7 @@ The Getty Images Connect API allows developers to:
 ### If you do not have a Mashery Member account
 
 1. [Register](https://api.gettyimages.com/member/register) a new Mashery Member account and your application.
-2. Select your desired type of API key. Two options are available:
+2. Select your desired type of Api-Key. Two options are available:
     -  **Issue a new key for Getty Test**
         - Use to test Getty Images Connect functionality including: image search and metadata, download, and account management.
     - **Issue a new key for Connect Embed**
@@ -29,7 +29,7 @@ The Getty Images Connect API allows developers to:
 3. Click **Register**. You will receive an email presently with a confirmation link. Click the link.
 4. Sign in with your Mashery Member credentials.
 
-### After registering an application and receiving an api key
+### After registering an application and receiving an Api-Key
 
 1. Finish reading this overview.
 2. Play with and learn more about the technical details using our interactive [endpoint documentation](https://connect.gettyimages.com/swagger/ui/index.html).
@@ -223,27 +223,27 @@ Here's an example of a call to oauth2/token:
 
 ### Authentication ###
 
-All requests to connect.gettyimages.com require the use of an ApiKey for purposes of identifying the client. 
+All requests to connect.gettyimages.com require the use of an Api-Key for purposes of identifying the client. 
 
-    -H "Api-Key:{Your API Key}"
+    -H "Api-Key:{Your Api-Key}"
 
 An authorization header is required to perform download operations, as well as getting certain user specific fields in searches. The input after **Bearer** is the token received from the oauth2/token call. 
 
-    url -d 'grant_type=client_credentials&client_id={apikey}&client_secret={apisecret}' https://connect.gettyimages.com/oauth2/token
+    url -d 'grant_type=client_credentials&client_id={api_key}&client_secret={api_secret}' https://connect.gettyimages.com/oauth2/token
 
-All requests to connect.gettyimages.com require the use of an API key for purposes of identifying the client.
+All requests to connect.gettyimages.com require the use of an Api-Key for purposes of identifying the client.
 
-	curl -H "Api-Key:{mashery_apikey}" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o 83454811.jpg
+	curl -H "Api-Key:{Your Api-Key}" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o 83454811.jpg
 
 Many operations require an individual user (e.g. a Getty Images customer) to be identified. Credentials (API key and secret) must be acquired from our [Api Portal](http://api.gettyimages.com/). An authorization token can then be requested via our [OAuth2 endpoint](https://connect.gettyimages.com/oauth2/token). These credentials must be passed via the Authorization Bearer HTTP header.
 
-	curl -H "Api-Key:{mashery_apikey}" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o 83454811.jpg
+	curl -H "Api-Key:{Your Api-Key}" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o 83454811.jpg
 
 
 Note that we reserve the right to revoke a token without warning; this will occur, for example, if the user updates his/her credentials through the website.  In this case the service will respond with a **??????** response, and the client should re-enter the OAuth workflow.
 
 ### Hypermedia ###
-All resources may have one or more `uri` properties linking to other resources. These provide explicit URIs, saving Connect clients from the need to construct URIs on their own. It is highly recommended that API clients use these. Doing so will make future upgrades of the API easier for developers. All URIs are expected to be proper [RFC 6570 URI](http://tools.ietf.org/html/rfc6570) templates.
+All resources may have one or more `uri` properties linking to other resources. These provide explicit URIs, saving Connect clients from the need to construct URIs on their own. It is highly recommended that Connect clients use these provided URIs. Doing so will make future upgrades of Connect easier for developers. All URIs are expected to be proper [RFC 6570 URI](http://tools.ietf.org/html/rfc6570) templates.
 
 Here's an example of an image search asking for largest-downloads :
 
@@ -259,12 +259,13 @@ Here's an example of an image search asking for largest-downloads :
     	}
 	]
 
-This URL "https://connect.gettyimages.com/Public/3.0/downloads/3231670" can now be used to get the image when a POST is made to it with your api-key and authorization token.
+This URL "https://connect.gettyimages.com/Public/3.0/downloads/3231670" can now be used to get the image when a POST is made to it with your Api-Key and access token.
+
 ### Pagination ###
 
-The Connect API provides an abundance of information about the images found that match your search.  Sometimes, even most of the time, you will find you are asking for *too much* information, and to keep our servers (and your applications) happy, the Connect API will automatically paginate your search results.  
+Connect provides an abundance of information about the images found that match your search.  Sometimes, even most of the time, you will find you are asking for *too much* information, and to keep our servers (and your applications) happy, Connect will automatically paginate your search results.  
 
-- The Connect API will return your results in groups called ***pages***.
+- Connect will return your results in groups called ***pages***.
 - The number of items in a page is its ***page size***.
 - You may specify how many items you receive in a page using the ***page-size*** query parameter.  By default, Search uses a page size of 30 items per page.  The maximum number of items per page is 100.
 - You should specify the desired page number on each search.  If omitted, page will default to 1, returning the same  ***page-size*** results on each call.
@@ -272,7 +273,7 @@ The Connect API provides an abundance of information about the images found that
 
 The following example shows how to add a page and page-size query parameter to your search request using curl:
 
-    curl -I "https://connect.gettyimages.com/v3/search/images?phrase=vampire0cows&page=1&page-size=20" -H "Api-Key:{Your Api Key}" -H "Authorization: Bearer {Your Token}"
+    curl -I "https://connect.gettyimages.com/v3/search/images?phrase=vampire0cows&page=1&page-size=20" -H "Api-Key:{Your Api-Key}" -H "Authorization: Bearer {Your Token}"
 
 Please note: the authorization token has been reduced in size.
 
@@ -295,18 +296,20 @@ There are two rate limits and each limit has its own error message.
 </pre>
 
 ### Cross Origin Resource Sharing ###
-We support cross origin resource sharing. All endpoints return the header:
-    
+
+We support cross origin resource sharing. All endpoints will return the header:
+
     Access-Control-Allow-Origin: *
 
 ### Timezones ###
+
 We use UTC as the timezone for our date fields.
 
 
 ## Getty Images Concepts
 
 ### Images sizes
-If explicitly specified (by asking for 'sizes' in the 'fields' parameter) when querying image metadata, sizes will be included, indicating height and width by pixels.  Size tokens from previous API versions are no longer honored.
+If explicitly specified (by asking for 'sizes' in the 'fields' parameter) when querying image metadata, sizes will be included, indicating height and width by pixels.  Size tokens from previous Connect versions are no longer honored.
 
 ### Display vs Download
 When retrieving images via search or asset metadata operations, you have the option of retrieving various URLs for image display (e.g. uri-preview, uri-comp, etc).  These are for displaying within the context of your application and are not licensed for re-use outside the context of your application.  Depending on various rules (client application permissions, user type, image type image size) the images may be watermarked.
