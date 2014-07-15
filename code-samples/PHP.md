@@ -5,14 +5,14 @@
 Please note the sample code assumes the following properties are set:
 
     $rootEndpoint = "https://connect.gettyimages.com";
-    $client_key = "{Your API Key}";
-    $client_secret = "{Your API Secret}";
+    $client_key = "{Your Api Key}";
+    $client_secret = "{Your Api Secret}";
 
 The code also utilizes the [helper functions](#helper-functions) at the bottom of this file.  
 
 ### Authentication
 
-An API-Key header is needed to authenticate to the API and will allow you access to read-only operations. The helper function to set the Api-Key header is:
+An Api-Key header is needed to authenticate to the Api and will allow you access to read-only operations. The helper function to set the Api-Key header is:
 
     curl_setopt($curl,CURLOPT_HTTPHEADER,array("Api-Key:".$client_key));
 

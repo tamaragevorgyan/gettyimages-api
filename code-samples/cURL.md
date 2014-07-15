@@ -4,9 +4,9 @@
 
 ### Authentication
 
-An Api-Key header is needed authenticate to the API and will allow you access to read-only operations. The curl option for setting the Api-Key header is:
+An Api-Key header is needed authenticate to the Api and will allow you access to read-only operations. The curl option for setting the Api-Key header is:
 
-    -H "Api-Key:{Your API Key}"
+    -H "Api-Key:{Your Api Key}"
 
 ### Authorization 
 
