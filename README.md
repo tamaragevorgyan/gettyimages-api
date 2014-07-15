@@ -13,7 +13,7 @@ Our API allows developers to:
 
 # Overview #
 
-1. [Current Version](https://github.com/nskirov/connect#current-version)
+1. [Current Version](#current-version)
 2. [Schema](https://github.com/nskirov/connect#schema)
 3. [Swagger](https://github.com/nskirov/connect#swagger)
 4. [Parameters](https://github.com/nskirov/connect#parameters)
