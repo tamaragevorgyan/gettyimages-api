@@ -113,9 +113,6 @@ Some resources allow filtering on their representations:
 
 In the last example, the fields query string parameter will limit the response information down to the id and title of the image requested.
 
-
-***TODO: Discuss fields and multi-value lists (e.g. filters)***
-
 ### Errors
 
 ***todo: describe getty error cases (4xx vs 5xx), mimetype, and special cases (e.g. non-mimetype).  Use specific examples!***
