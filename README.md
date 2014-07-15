@@ -101,7 +101,7 @@ We use [Swagger (https://connect.gettyimages.com/swagger)](https://connect.getty
 
 Some Connect endpoints take parameters specified as a segment in the path:
 
-    curl -i "https://connect.gettyimages.com/images/<image_id>
+    curl -i "https://connect.gettyimages.com/images/{id}
 
 Additional options can be specified as HTTP query string parameters:
 
@@ -109,9 +109,9 @@ Additional options can be specified as HTTP query string parameters:
 
 Some resources allow filtering on their representations:
 
-    curl -i "https://connect.gettyimages.com/images/<image_id>?fields=id,title
+    curl -i "https://connect.gettyimages.com/images/{id}?fields=id,title
 
-In the last example, the fields query string parameter will limit the response information down to the id and title of the image requested.
+In the last example, the `fields` querystring parameter will limit the response information down to the id and title of the image requested.
 
 ### Errors
 
@@ -285,15 +285,18 @@ Click the **"View Report"** link on your key to get the current status of your r
 There are two rate limits and each limit has its own error message.
 
 - Calls per second
-<pre>HTTP/1.1 403 Forbidden 
-   X-Error-Detail:  Account Over Queries Per Second Limit
-   {"message":"Account Over Queries Per Second Limit"}   
-</pre>
+
+    HTTP/1.1 403 Forbidden 
+    X-Error-Detail:  Account Over Queries Per Second Limit
+
+    {"message":"Account Over Queries Per Second Limit"}   
+
 - Calls per day
-<pre>HTTP/1.1 403 Forbidden 
-   X-Error-Detail:  Account Over Rate Limit
-   {"message":"Account Over Rate Limit"}
-</pre>
+
+    HTTP/1.1 403 Forbidden 
+    X-Error-Detail:  Account Over Rate Limit
+
+    {"message":"Account Over Rate Limit"}
 
 ### Cross Origin Resource Sharing ###
 
