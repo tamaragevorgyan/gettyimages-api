@@ -1,4 +1,3 @@
-
 ## Errors ##
 
 ***todo: describe getty error cases (4xx vs 5xx), mimetype, and special cases (e.g. non-mimetype).  Use specific examples!***
@@ -16,7 +15,9 @@ This section documents the standard HTTP status codes returned by API Connect V3
 A numerically sorted list of status codes returned by Connect V3 is found in the 
 section HTTP/1.1 Status Codes, below.
 
-#### /v3/downloads/{id} ####
+#### Endpoint /v3/downloads/{id} ####
+The Connect V3 endpoint is used to download an image identified by its asset number
+returned by one of the three /v3/search endpoints documented below.
 
 The Connect V3 downloads endpoint returns these success and error status codes:
 
@@ -94,57 +95,105 @@ or unknown host name.
 	-- connectx is an invalid host name (at this writing):
 	https://connectx.gettyimages.com/v3/downloads/123533904
 
-#### /v3/images/ ####
-##### /v3/downloads/{id} #####
-##### /v3/images/ #####
-##### /v3/images/{id} #####
-##### /V3/search/images #####
-##### /search/images/creative #####
-##### /search/images/editorial #####
-
-***TODO***
-
-#### /v3/images/{id} ####
-##### /v3/downloads/{id} #####
-##### /v3/images/ #####
-##### /v3/images/{id} #####
-##### /V3/search/images #####
-##### /search/images/creative #####
-##### /search/images/editorial #####
-
-***TODO***
-
-#### /V3/search/images ####
-##### /v3/downloads/{id} #####
-##### /v3/images/ #####
-##### /v3/images/{id} #####
-##### /V3/search/images #####
-##### /search/images/creative #####
-##### /search/images/editorial #####
-
-***TODO***
-
-#### /search/images/creative ####
-##### /v3/downloads/{id} #####
-##### /v3/images/ #####
-##### /v3/images/{id} #####
-##### /V3/search/images #####
-##### /search/images/creative #####
-##### /search/images/editorial #####
 
 
-***TODO***
+#### Endpoint /v3/images/{id} ####
+The /v3/images/{id} endpoint is used to return the metadata about the specified, 
+comma separated list of images (*{id}*).
 
-#### /search/images/editorial ####
-##### /v3/downloads/{id} #####
-##### /v3/images/ #####
-##### /v3/images/{id} #####
-##### /V3/search/images #####
-##### /search/images/creative #####
-##### /search/images/editorial #####
+	https://connect.gettyimages.com/v3/images/451681062
+	https://connect.gettyimages.com/v3/images/451681062,500381311
+
+Optional query parameters are used to refine the metadata returned:
+
+	https://connect.gettyimages.com/v3/search/images?phrase=kittens&fields=summary-set%2Cartist
+
+The optional page and page-size query parameters tells the Connect V3 API how to 
+paginate the request:
+
+	https://connect.gettyimages.com/v3/search/images?phrase=kittens&fields=summary-set%2Cartist
+
+##### 200 OK #####
+Connect V3 returns 200 OK for all successful calls to the /v3/download/{id} 
+endpoint. 
+
+##### 303 See Other #####
+The Connect V3 API does not use status code 303 for /v3/download/{id}
+
+##### 400 Bad Request #####
+
+##### 303 See Other #####
+Connect V3 does not use status code 303 for /v3/download/{id}
+##### 400 Bad Request #####
+##### 401 Unauthorized #####
+##### 403 Forbidden #####
+##### 404 Image Not Found #####
+##### 500 Internal Server Error #####
+##### 502 Bad Gateway #####
+##### 596 #####
+The Connect V3 /v3/images/{id} endpoint returns status code 596 
 
 
-***TODO***
+
+#### /v3/search/images ####
+#### /v3/search/images/creative ####
+#### /v3/search/images/editorial ####
+
+The three search/images exhibit similar behavior in responding to errors and 
+reporting http status codes and will be documented together;.
+
+Optional query parameters are used to refine the metadata returned:
+
+	https://connect.gettyimages.com/v3/search/images?phrase=kittens&fields=summary-set%2Cartist
+
+The optional page and page-size query parameters tells the Connect V3 API how to 
+paginate the request:
+
+	https://connect.gettyimages.com/v3/search/images?phrase=kittens&fields=summary-set%2Cartist
+
+##### 200 OK #####
+##### 200 OK #####
+Connect V3 returns 200 OK for all successful calls to the xxx/v3/download/{id} 
+endpoint. 
+
+##### 303 See Other #####
+Connect V3 does not use status code 303 for xxx/v3/download/{id}
+##### 400 Bad Request #####
+##### 401 Unauthorized #####
+##### 403 Forbidden #####
+##### 404 Image Not Found #####
+##### 500 Internal Server Error #####
+##### 502 Bad Gateway #####
+
+
+
+##### 200 OK #####
+Connect V3 returns 200 OK for all successful calls to the xxx/v3/download/{id} 
+endpoint. 
+##### 401 Unauthorized #####
+##### 403 Forbidden #####
+##### 404 Image Not Found #####
+##### 500 Internal Server Error #####
+##### 502 Bad Gateway #####
+
+
+
+##### 200 OK #####
+Connect V3 returns 200 OK for all successful calls to the xxx/v3/download/{id} 
+endpoint. 
+
+##### 303 See Other #####
+Connect V3 does not use status code 303 for xxx/v3/download/{id}
+##### 400 Bad Request #####
+##### 401 Unauthorized #####
+##### 403 Forbidden #####
+##### 404 Image Not Found #####
+##### 500 Internal Server Error #####
+##### 502 Bad Gateway #####
+
+
+
+
 
 ### HTTP 1.1 Status Codes Summary ###
 
