@@ -14,7 +14,7 @@ The Getty Images Connect API allows developers to:
 3. Click **Get API keys** button.
 4. Register your application and select your desired type of API key. Two options are available:
     -  **Issue a new key for Getty Test**
-        - Use to test Getty Images Connect API functionality including: image search and metadata, download, and account management.
+        - Use to test Getty Images Connect functionality including: image search and metadata, download, and account management.
     - **Issue a new key for Connect Embed**
         - Use to search for and embed from over 40 million embedable images.
 
@@ -23,7 +23,7 @@ The Getty Images Connect API allows developers to:
 1. [Register](https://api.gettyimages.com/member/register) a new Mashery Member account and your application.
 2. Select your desired type of API key. Two options are available:
     -  **Issue a new key for Getty Test**
-        - Use to test Getty Images Connect API functionality including: image search and metadata, download, and account management.
+        - Use to test Getty Images Connect functionality including: image search and metadata, download, and account management.
     - **Issue a new key for Connect Embed**
         - Use to search for and embed from over 40 million embedable images.
 3. Click **Register**. You will receive an email presently with a confirmation link. Click the link.
@@ -40,10 +40,10 @@ The Getty Images Connect API allows developers to:
 - [Interactive Documentation](https://connect.gettyimages.com/swagger)
 - [Code Samples](code-samples)
 - [Release Notes](release-notes.md)
-- [API Overview (below)](#API-Overview)
+- [Connect Overview (below)](#Connect-Overview)
 - [Getty Images Concepts (below)](#Getty-Images-Concepts)
 
-## API Overview
+## Connect Overview
 
 - [Current Version](#current-version)
 - [Schema](#schema)
@@ -61,13 +61,13 @@ The Getty Images Connect API allows developers to:
 
 ### Current Version
 
-The Connect API is currently on version 3, as indicated by the base URI:
+Connect is currently on version 3, as indicated by the base URI:
 
     https://connect.gettyimages.com/v3/
 
 ### Schema
 
-All API access is over HTTPS. All data is sent and received as JSON.
+All Connect access is over HTTPS. All data is sent and received as JSON.
 
     curl -H Api-Key:mzqtmcrk8bpsx9jfr9c9y47x -i https://connect.gettyimages.com/v3/search/images?phrase=cheese
     
@@ -95,13 +95,11 @@ All timestamps are returned in ISO 8601 format:
 
 ### Swagger
 
-We use Swagger as our main tool for exploring our API. You can start interacting with the API immediately after acquiring an API key.
-
-[https://connect.gettyimages.com/swagger](https://connect.gettyimages.com/swagger)
+We use [Swagger (https://connect.gettyimages.com/swagger)](https://connect.gettyimages.com/swagger) to document Connect endpoints. You can interact directly with Connect via Swagger after acquiring an Api-Key.
 
 ### Parameters
 
-Some API methods take parameters specified as a segment in the path:
+Some Connect endpoints take parameters specified as a segment in the path:
 
     curl -i "https://connect.gettyimages.com/images/<image_id>
 
@@ -359,7 +357,7 @@ DELETE	Used for deleting resources.
 
 Connect uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirect is not an error and clients should follow that redirect. Redirect responses will have a Location header field which contains the URI of the resource to which the client should repeat the requests.  We use 302 and 303 HTTP response status codes for redirects.
 
-Here's an example of a call to oatuh2/token:
+Here's an example of a call to oauth2/token:
 
 	https://connect.gettyimages.com/oauth2/auth?response_type=token&client_id={api-key}
 	
@@ -390,7 +388,7 @@ Many operations require an individual user (e.g. a Getty Images customer) to be 
 Note that we reserve the right to revoke a token without warning; this will occur, for example, if the user updates his/her credentials through the website.  In this case the service will respond with a **??????** response, and the client should re-enter the OAuth workflow.
 
 ### Hypermedia ###
-All resources may have one or more url properties linking to other resources. These are meant to provide explicit URLs so that proper API clients don’t need to construct URLs on their own. It is highly recommended that API clients use these. Doing so will make future upgrades of the API easier for developers. All URLs are expected to be proper [RFC 6570 URI](http://tools.ietf.org/html/rfc6570) templates.
+All resources may have one or more `uri` properties linking to other resources. These provide explicit URIs, saving Connect clients from the need to construct URIs on their own. It is highly recommended that API clients use these. Doing so will make future upgrades of the API easier for developers. All URIs are expected to be proper [RFC 6570 URI](http://tools.ietf.org/html/rfc6570) templates.
 
 Here's an example of an image search asking for largest-downloads :
 
