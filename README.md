@@ -115,20 +115,12 @@ In the last example, the fields query string parameter will limit the response i
 
 ### Errors
 
-***todo: describe getty error cases (4xx vs 5xx), mimetype, and special cases (e.g. non-mimetype).  Use specific examples!***
-
-This section documents the HTTP status codes returned by the Connect API and 
-provides the most likely cause and resolution for the cause.
-
-Errors is grouped into two sections:  Endpoint Errors documents the status codes returned by each of the V3 endpoints
-
-#### Endpoint Errors
-
 This section documents the standard HTTP status codes returned by API Connect V3
 for each endpoint.  Where appropriate, endpoint/request specific usage is called
 out.  Examples are provided where needed to clarify how a request coding error 
 results in the error status code being returned to your application.
-##### Endpoint /v3/downloads/{id}
+
+#### Endpoint /v3/downloads/{id} ####
 
 
 The Connect V3 API returns these HTTP status codes:
@@ -141,50 +133,33 @@ The Connect V3 API returns these HTTP status codes:
 *  404 Image Not Found
 *  500 Internal System Error
 *  502 Bad Gateway
+*  596 Service Not Found
 
-##### 200 OK #####
+#### 200 OK ####
 All  Connect V3 API requests return 200 OK for all successful calls to the V3 
 RESTful web service.  Please note, however, a successful search (request status 
 code 200) may return no results as encoded in the JSON response body. 
 
-##### 303 See Other #####
+#### 303 See Other ####
 Response code 303 is reserved to indicate the one-step download request 
 /v3/downloads/{id} is redirecting the session to 
 The Connect /v3/downloads/{id} request returns 302 to indicate to the client applications that their request 
 is being redirected to a different.
 
 The image download will not display in the Swagger tools.
-
-###### Example ######
-
-	https://connect.gettyimages.com/v3/search/images?phrase=kittens  
-	https://connect.gettyimages.com:443/v3/downloads/451681062
-		 --  the preceeding call to downloads returns 303 
-	http://delivery.gettyimages.com/xa/451681062.jpg?v=1&c=IWSAsset&k=1&d=[SECURITY TOKEN]
-		 --  the preceeding call to //delivery returns 303
-	
-
-##### 400 Bad Request #####
+#### 400 Bad Request ####
 
 The Connect V3 API returns 400 Bad Request when it cannot parse the request.  
 Sources for parse errors include missing separators between request elements, 
-misspelled query or header parameters and incorrectly speclified image parameters.
+misspelled query or header parameters and incorrectly specified image parameters.
 Examples of these errors include
 
-
-Connect V3 /v3/search/images endpoints returns 400 Bad Request whenver the initial 
+Connect V3 /v3/search/images endpoints returns 400 Bad Request whenever the initial 
 search specifies a **page** query parameter with a value other than 1 (**page=1**),
 a **page-size=** query parameter whose value is greater than 100, less than 1 or 
-a non-numeric value
+a non-numeric value.
 
-###### Example ######
-
-	https://connect.gettyimages.com/v3/search/images?phrase=kiddens&fields=detail-set&page=1&page-size=500
-	https://connect.gettyimages.com/v3/search/images?phrase=kiddens&fields=detail-set&page=one&page-size=500
-	https://connect.gettyimages.com/v3/search/images?phrase=mystery%20kiddens&fields=detail-set&page=5&page-size=100
-
-
-##### 401 Unauthorized #####
+#### 401 Unauthorized ####
 The Connect /v3/downloads/{id} request returns a 401 Unauthorized status code
  when the client access token specified in the request is
 
@@ -192,13 +167,7 @@ The Connect /v3/downloads/{id} request returns a 401 Unauthorized status code
 2.	Expired --  Too much time has expired between creating the token with OAuth2 and this use.
 3.	Omitted --	The token was omitted from the request.
 
-###### Example 1 - An Invalid Token ######
-
-	https://connect.gettyimages.com/v3/search/images?phrase=kittens&fields=detail-set&page=1&page-size=30
-	Api-Key: x6x7x8x9x9gvc6hgn3hr
-	Authorization: Bearer My Homemade Token
-
-##### 403 Forbidden #####
+#### 403 Forbidden ####
 The Connect /v3/downloads/{id} request returns 403 Forbidden when
 
 1.	the request header Api-Key: key-value pair is omited,
@@ -206,48 +175,14 @@ The Connect /v3/downloads/{id} request returns 403 Forbidden when
 3.	the Api-key value is invalid or
 4.	the Api-Key is omitted.
 
-###### Example 1 - API Key is invalid ######
-	https://connect.gettyimages.com/v3/downloads/123533904
-	Api-Key: thisIsMyHomeMadeKey
-	Authorization: Bearer CaiBWhB0eGaJzF9a7CzSzbGCzkHAdlQCfEAX6Qcm4IJyqA0Jjef8Zru8b9CqhOJFNyl19mMQTMODfVldREQOsIVIxKWsq5Le8coRunVlcS9EQSgNcC3RpMnfRrWzCUElyO8Y1h+7mXbMCOlKMmK2l3Sde2KXOZDsUFlfdweoZV8=|77u/WGVETUgrd3VZcGM5bUtpNGNDamUKMTE3MzEKOTE4ODQ0MAphdWVsQmc9PQpjdTZsQmc9PQoxCnQyZ3c5cWs3NHE2OWdoZ3ZjNmhnbjNocgoxMjcuMC4wLjEKMAoxMTczMQphdWVsQmc9PQoxMTczMQowCgo=|4
-
-###### Example 1 - API Key is Missing ######
-	https://connect.gettyimages.com/v3/downloads/123533904
-	Authorization: Bearer CaiBWhB0eGaJzF9a7CzSzbGCzkHAdlQCfEAX6Qcm4IJyqA0Jjef8Zru8b9CqhOJFNyl19mMQTMODfVldREQOsIVIxKWsq5Le8coRunVlcS9EQSgNcC3RpMnfRrWzCUElyO8Y1h+7mXbMCOlKMmK2l3Sde2KXOZDsUFlfdweoZV8=|77u/WGVETUgrd3VZcGM5bUtpNGNDamUKMTE3MzEKOTE4ODQ0MAphdWVsQmc9PQpjdTZsQmc9PQoxCnQyZ3c5cWs3NHE2OWdoZ3ZjNmhnbjNocgoxMjcuMC4wLjEKMAoxMTczMQphdWVsQmc9PQoxMTczMQowCgo=|4
-
-##### 404 Image Not Found #####
+#### 404 Image Not Found ####
 The Connect /v3/downloads/{id} and /v3/image/{id} requests return status code 404 Not Found 
 when provided an image Id that cannot be found.
 
 The Connect V3 image search requests, /v3/search/images, /v3/search/image/creative and
-/v3/search/image/editorial do not return status code 404.
+/v3/search/image/editorial do not return 404.
 
-###### Example ######
-Assuming 123533904 is a valid image ID, changing the zero 0 to the letter O will 
-generate a 404 Not Found.  For example, changing the leading 1 to a 9 in this example
-will produce the same 404 result.
-
-	-- invalid ID - contains the letter 'o':
-	https://connect.gettyimages.com/v3/downloads/1235339o4
-
-	-- invalid ID - image does not exist
-	https://connect.gettyimages.com/v3/downloads/923533904
-
-##### 500 Internal Server Error #####
-Connect V3 or its host platform will return 500 Internal Server Error when an 
-unexpected condition was encountered and no more specific message is available.  
-We encourage you to report this error to Getty Images for resolution.
-
-##### 502 Bad Gateway #####
-Connect V3 returns status code 502 Bad Gateway when the URL points to an invalid 
-or unknown host name.
-
-###### Example ######
-	-- connectx is an invalid host name (at this writing):
-	https://connectx.gettyimages.com/v3/downloads/123533904
-
-
-##### 500 Internal Server Error #####
+#### 500 Internal Server Error ####
 
 Connect V3 or its host platform will return 500 Internal Server Error when an 
 unexpected condition was encountered and no more specific message is available.  
@@ -255,21 +190,13 @@ We encourage you to report this error to Getty Images for resolution.
 
 Additionally, the Connect /v3/images/{id} request returns status code 500 when the access token is
 missing.
-
-	https://connect.gettyimages.com/v3/images/451681062?fields=artist-title
-	 -H Authorization: Bearer 			/* token deleted in this example */
-
-
-##### 502 Bad Gateway #####
+#### 502 Bad Gateway ####
 the Connect /v3/images/{id} request returns status code 502 Bad Gateway when the URL points to an invalid 
 or unknown host name.
 
-##### 596 Service Not Found #####
+#### 596 Service Not Found ####
 The Connect /v3/images/{id} endpoint returns status code 596 when the image Id is
-missing:
-
-	https://connect.gettyimages.com/v3/images/?fields=artist-title
-
+missing:.
 
 ### Http Verbs
 
