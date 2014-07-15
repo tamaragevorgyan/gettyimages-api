@@ -22,7 +22,7 @@
 3. Click **Register**. You will receive an email presently with a confirmation link. Click the link.
 4. Sign in with your Mashery Member credentials.
 
-### Once your have registered an application and received an api key
+### After registering an application and receiving an api key
 
 1. Finish reading this overview.
 2. Play with and learn more about the technical details using our interactive [endpoint documentation](https://connect.gettyimages.com/swagger/ui/index.html).
