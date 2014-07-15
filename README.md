@@ -295,7 +295,7 @@ There are two rate limits and each limit has its own error message.
 </pre>
 
 ### Cross Origin Resource Sharing ###
-We support cross origin resource sharing. All endpoints will return the header:
+We support cross origin resource sharing. All endpoints return the header:
     
     Access-Control-Allow-Origin: *
 
