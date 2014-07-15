@@ -342,7 +342,7 @@ All requests to connect.gettyimages.com require the use of an ApiKey for purpose
 
     -H "Api-Key:{Your API Key}"
 
-Authorization header is required to perform download operations, as well as getting certain user specific fields in searches. The input after **Bearer** is the token received from the oauth2/token call. 
+An authorization header is required to perform download operations, as well as getting certain user specific fields in searches. The input after **Bearer** is the token received from the oauth2/token call. 
 
     url -d 'grant_type=client_credentials&client_id={apikey}&client_secret={apisecret}' https://connect.gettyimages.com/oauth2/token
 
@@ -376,10 +376,6 @@ Here's an example of an image search asking for largest-downloads :
 
 This URL "https://connect.gettyimages.com/Public/3.0/downloads/3231670" can now be used to get the image when a POST is made to it with your api-key and authorization token.
 ### Pagination ###
-
-<!--
-copied from <<[./v3/Pagination.md] which doesn't seem to be including correctly.
--->
 
 The Connect API provides an abundance of information about the images found that match your search.  Sometimes, even most of the time, you will find you are asking for *too much* information, and to keep our servers (and your applications) happy, the Connect API will automatically paginate your search results.  
 
