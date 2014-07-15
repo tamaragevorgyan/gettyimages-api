@@ -245,9 +245,9 @@ Many operations require an individual user (e.g. a Getty Images customer) to be 
 Note that we reserve the right to revoke a token without warning; this will occur, for example, if the user updates his/her credentials through the website.  In this case the service will respond with a **??????** response, and the client should re-enter the OAuth workflow.
 
 ### Hypermedia ###
-All resources may have one or more `uri` properties linking to other resources. These provide explicit URIs, saving Connect clients from the need to construct URIs on their own. It is highly recommended that Connect clients use these provided URIs. Doing so will make future upgrades of Connect easier for developers. All URIs are expected to be proper [RFC 6570 URI](http://tools.ietf.org/html/rfc6570) templates.
+All resources may have one or more URI properties linking to other resources. These provide explicit URIs, saving Connect clients from the need to construct URIs on their own.
 
-Here's an example of an image search asking for largest-downloads :
+Here's an example of an image search providing a URI for the image's largest download:
 
     "images": [
 	    {
@@ -261,7 +261,7 @@ Here's an example of an image search asking for largest-downloads :
     	}
 	]
 
-This URI "https://connect.gettyimages.com/Public/3.0/downloads/3231670" can now be used to get the image when a POST is made to it with your Api-Key and access token.
+A POST to the provided URI with the Api-Key and Authorization headers will download the image.
 
 ### Pagination ###
 
