@@ -374,16 +374,3 @@ There are two rate limits and each limit has its own error message.
 
 ### Timezones ###
 We use UTC as the timezone for our date fields.
-
-## Getty Images Concepts
-
-### Images sizes
-If explicitly specified (by asking for 'sizes' in the 'fields' parameter) when querying image metadata, sizes will be included, indicating height and width by pixels.  Size tokens from previous API versions are no longer honored.
-
-### Display vs Download
-When retrieving images via search or asset metadata operations, you have the option of retrieving various URLs for image display (e.g. uri-preview, uri-comp, etc).  These are for displaying within the context of your application and are not licensed for re-use outside the context of your application.  Depending on various rules (client application permissions, user type, image type image size) the images may be watermarked.
-
-Downloads (available through 'downloads' and 'largestdownloads' fields) allow non-watermarked images to be licensed and downloaded for re-consumption by the end user (consistent with all licensing permissions and restrictions as if the user had downloaded the image through the [gettyimages.com](http://gettyimages.com) or [thinkstockphotos.com](http://thinkstockphotos.com) websites.   
-
-### Product Types, Authorizations, and Downloads
-**TODO: Explain the basic concepts of product types (GI types you only have one applicable agreement, TS types you may have multiples and so need to choose).  And how they affect image authorization and downloading.**
