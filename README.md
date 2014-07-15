@@ -1,17 +1,47 @@
-# Getty Images Connect API v3 #
-Our API allows developers to:
-  * [Search](https://connect.gettyimages.com/swagger/ui/index.html#!/Search) for images
-  * Get [image metadata](https://connect.gettyimages.com/swagger/ui/index.html#!/Images)
-  * [Download](https://connect.gettyimages.com/swagger/ui/index.html#!/Downloads) images
+# Getty Images Connect API
 
-## Steps to get started
-  1. [Swagger Interactive Documentation](https://connect.gettyimages.com/swagger)
-  1. [Quick Start](quick-start.md)
-  1. [Register](https://api.gettyimages.com/member/register) for an API Key.
-  1. [Code Samples](code-samples)
-  1. [Release Notes](release-notes.md) 
+The Getty Images Connect API allows developers to:
+* [Search](https://connect.gettyimages.com/swagger/ui/index.html#!/Search) for images from our extensive catalog.
+* Get [image metadata](https://connect.gettyimages.com/swagger/ui/index.html#!/Images).
+* [Download](https://connect.gettyimages.com/swagger/ui/index.html#!/Downloads) images using standard Getty Images product types (e.g. Premium Access, Image Packs, Thinkstock Subscriptions).
 
-# Overview #
+## Getting started
+
+### If you already have a Mashery Member account
+
+1. [Sign in](https://api.gettyimages.com/login/login) with your Mashery Member credentials.
+2. Click the **My Account** link near the top right of the page.
+3. Click **Get API keys** button.
+4. Register your application and select your desired type of API key. Two options are available:
+    -  **Issue a new key for Getty Test**
+        - Use to test Getty Images Connect API functionality including: image search and metadata, download, and account management.
+    - **Issue a new key for Connect Embed**
+        - Use to search for and embed from over 40 million embedable images.
+
+### If you do not have a Mashery Member account
+
+1. [Register](https://api.gettyimages.com/member/register) a new Mashery Member account and your application.
+2. Select your desired type of API key. Two options are available:
+    -  **Issue a new key for Getty Test**
+        - Use to test Getty Images Connect API functionality including: image search and metadata, download, and account management.
+    - **Issue a new key for Connect Embed**
+        - Use to search for and embed from over 40 million embedable images.
+3. Click **Register**. You will receive an email presently with a confirmation link. Click the link.
+4. Sign in with your Mashery Member credentials.
+
+### After registering an application and receiving an api key
+
+1. Finish reading this overview.
+2. Play with and learn more about the technical details using our interactive [endpoint documentation](https://connect.gettyimages.com/swagger/ui/index.html).
+3. Begin developing your application using the [OAuth 2 Client Credentials Flow](https://github.com/gettyimages/connect/blob/master/documentation/endpoints/oauth2/README.md#client-credentials-flow)
+
+## Quick links
+
+1. [Interactive Documentation](https://connect.gettyimages.com/swagger)
+1. [Code Samples](code-samples)
+1. [Release Notes](release-notes.md) 
+
+## API Overview
 
   1. [Current Version](#current-version)
   1. [Schema](#schema)
@@ -27,14 +57,15 @@ Our API allows developers to:
   1. [Cross Origin Resource Sharing](#cross-origin-resource-sharing)
   1. [Timezones](#timezones)
 
-### Current Version ###
+### Current Version
 
-The Connect API is currently on v3 as indicated by the URI
+The Connect API is currently on version 3, as indicated by the base URI:
 
-    https://connect.gettyimages.com/v3/{resource_name}
+    https://connect.gettyimages.com/v3/
 
-### Schema ###
-All API access is over HTTPS and accessed from the [https://connect.gettyimages.com/v3/](https://connect.gettyimages.com/v3/) domain. All data is sent and received as JSON.
+### Schema
+
+All API access is over HTTPS. All data is sent and received as JSON.
 
     curl -H Api-Key:mzqtmcrk8bpsx9jfr9c9y47x -i https://connect.gettyimages.com/v3/search/images?phrase=cheese
     
@@ -60,15 +91,13 @@ All timestamps are returned in ISO 8601 format:
 
     YYYY-MM-DDTHH:MM:SSZ
 
-***TODO: Mention Mime Types***
-
-### Swagger ###
+### Swagger
 
 We use Swagger as our main tool for exploring our API. You can start interacting with the API immediately after acquiring an API key.
 
 [https://connect.gettyimages.com/swagger](https://connect.gettyimages.com/swagger)
 
-## Parameters ##
+### Parameters
 
 Some API methods take parameters specified as a segment in the path:
 
@@ -87,7 +116,7 @@ In the last example, the fields query string parameter will limit the response i
 
 ***TODO: Discuss fields and multi-value lists (e.g. filters)***
 
-## Errors ##
+### Errors
 
 ***todo: describe getty error cases (4xx vs 5xx), mimetype, and special cases (e.g. non-mimetype).  Use specific examples!***
 
@@ -96,7 +125,7 @@ provides the most likely cause and resolution for the cause.
 
 Errors is grouped into two sections:  Endpoint Errors documents the status codes returned by each of the V3 endpoints
 
-### Endpoint Errors ###
+#### Endpoint Errors
 
 This section documents the standard HTTP status codes returned by API Connect V3 for each endpoint.  Each entry below describes the end point and lists the possible error codes and the meaning of the status code with in the context of the endpoint.
 
@@ -104,7 +133,8 @@ This section documents the standard HTTP status codes returned by API Connect V3
 A numerically sorted list of status codes returned by Connect V3 is found in the 
 section HTTP/1.1 Status Codes, below.
 
-#### Endpoint /v3/downloads/{id} ####
+##### Endpoint /v3/downloads/{id}
+
 The Connect V3 endpoint is used to download an image identified by its asset number
 returned by one of the three /v3/search endpoints documented below.
 
