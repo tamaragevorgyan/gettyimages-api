@@ -61,7 +61,7 @@ The Getty Images Connect API allows developers to:
 
 ### Current Version
 
-Connect is currently on version 3, as indicated by the base URI:
+Connect is currently on version 3, as indicated by the base URI
 
     https://connect.gettyimages.com/v3/
 
@@ -91,7 +91,7 @@ All Connect access is over HTTPS. All data is sent and received as JSON.
     
     {"sample response": "in json format"}
 
-All timestamps are returned in ISO 8601 format:
+All timestamps are returned in [ISO 8601](http://www.w3.org/TR/NOTE-datetime) format
 
     YYYY-MM-DDTHH:MM:SSZ
 
