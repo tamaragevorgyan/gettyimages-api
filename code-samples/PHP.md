@@ -1,13 +1,29 @@
 #PHP
 ---
-### Authentication
+### Note on this sample code
+
+Please note the sample code assumes the following properties are set:
+
     $rootEndpoint = "https://connect.gettyimages.com";
-    $client_key = "{mashery_apikey}";
-    $client_secret = "{mashery_apisecret}";
+    $client_key = "{Your API Key}";
+    $client_secret = "{Your API Secret}";
+
+The code also utilizes the [helper functions](#helper-functions) at the bottom of this file.  
+
+### Authentication
+
+An API-Key header is needed to authenticate to the API and will allow you access to read-only operations. The helper function to set the Api-Key header is:
+
+    curl_setopt($curl,CURLOPT_HTTPHEADER,array("Api-Key:".$client_key));
+
+### Authorization
+
+An Authorization header is required to perform download operations. The format of the header is the word **Bearer** followed by the token received from a call to oauth2/token as follows:
 
     /**
-     * Authenticate with client credentials
-     */ 
+     * Authenticate with the OAuth2 client credentials flow
+     */
+
     echo "**********Authenticate Client Credentials**********\n\n";
     $endpoint = $rootEndpoint."/oauth2/token";
     $curl = getCurlForFormPost($endpoint);
@@ -22,8 +38,13 @@
     $tokenType = $response["token_type"];
 
     echo "Token Response: $token\n";
+
 ### Search
+
+Use the authentication/authorization header option in the operations below depending on the operation used:
+
 ##### Images
+
     echo "**********Search For Images**********\n\n";
 	$rootEndpoint = "https://connect.gettyimages.com";
     $endpoint = $rootEndpoint."/v3/search/images";
@@ -36,7 +57,9 @@
     $response = json_decode(executeCurl($curl)['body'],true);
 
     echo "Images returned ". json_encode($response["images"]) . "\n\n\n";
+
 ##### Images Creative
+
     echo "**********Search For Images Creative**********\n\n";
 	$rootEndpoint = "https://connect.gettyimages.com";
     $endpoint = $rootEndpoint."/v3/search/images/creative";
@@ -49,7 +72,9 @@
     $response = json_decode(executeCurl($curl)['body'],true);
 
     echo "Images returned ". json_encode($response["images"]) . "\n\n\n";
+
 ##### Images Editorial
+
     echo "**********Search For Images Editorial**********\n\n";
 	$rootEndpoint = "https://connect.gettyimages.com";
     $endpoint = $rootEndpoint."/v3/search/images/editorial";
@@ -62,7 +87,9 @@
     $response = json_decode(executeCurl($curl)['body'],true);
 
     echo "Images returned ". json_encode($response["images"]) . "\n\n\n";
+
 ### Image Metadata
+
     echo "**********Search For Images Editorial**********\n\n";
 	$rootEndpoint = "https://connect.gettyimages.com";
     $endpoint = $rootEndpoint."/v3/search/images/images/83454811,186239980";
@@ -73,7 +100,9 @@
     $response = json_decode(executeCurl($curl)['body'],true);
 
     echo "Images returned ". json_encode($response["images"]) . "\n\n\n";
+
 ### Downloads
+
     echo "**********Download Image**********\n\n";
 	$rootEndpoint = "https://connect.gettyimages.com";
     $imageIdToGet = 83454811;
@@ -89,8 +118,11 @@
 
     echo "Download Code: ".$response["http_code"] . "\n";
     echo "Download Headers: ".$response['header'] . "\n";
+
 ### Helper Functions
+
 ##### executeCurl
+
 	function executeCurl($curl) {
 	    $response = curl_exec($curl);
 	
@@ -114,7 +146,9 @@
 	    curl_close($curl);
 	    return $result;
 	}
+
 ##### getCurl
+
     function getCurl($url, array $options = null) {
 	    $defaults = array(
 	      CURLOPT_RETURNTRANSFER => 1,
@@ -134,7 +168,9 @@
 	
 	    return $curl;
 	}
-##### getCurlForFormPost	
+
+##### getCurlForFormPost
+	
     function getCurlForFormPost($url) {
 	
 	    $curlOptions = array(CURLOPT_HTTPHEADER => array("Content-Type: application/x-www-form-urlencoded")); 
@@ -142,7 +178,9 @@
 	
 	    return $curl;
 	}
+
 ##### getCurlForPost	
+
     function getCurlForPost($url,array $options = null) {
 	    $defaults = array(
 	        CURLOPT_POST => 1
@@ -151,7 +189,9 @@
 	    $curlOptions = mergeCurlOptions($defaults,$options);
 	    return getCurl($url, $curlOptions);
 	  }
-##### setFormData	
+
+##### setFormData
+
     function setFormData($curl,$params) {
 	    $params = http_build_query($params);
 	    curl_setopt($curl, CURLOPT_POSTFIELDS, $params);
@@ -159,6 +199,7 @@
     }
 	
 ##### mergeCurlOptions
+
 	function mergeCurlOptions(array $defaults, array $optionsToAdd) {
 	    if(!$optionsToAdd) {
 	      return $defaults;
