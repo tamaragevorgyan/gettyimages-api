@@ -284,14 +284,14 @@ Click the **"View Report"** link on your key to get the current status of your r
 
 There are two rate limits and each limit has its own error message.
 
-- Calls per second
+**Calls per second**
 
     HTTP/1.1 403 Forbidden 
     X-Error-Detail:  Account Over Queries Per Second Limit
 
     {"message":"Account Over Queries Per Second Limit"}   
 
-- Calls per day
+**Calls per day**
 
     HTTP/1.1 403 Forbidden 
     X-Error-Detail:  Account Over Rate Limit
