@@ -67,8 +67,6 @@ Connect is currently on version 3, as indicated by the base URI
 
 ### Schema
 
-**[RAE: add content-type parameter to curl command]**
-
 All Connect access is over HTTPS. All data is sent and received as JSON.
 
     curl -H Api-Key:mzqtmcrk8bpsx9jfr9c9y47x -i https://connect.gettyimages.com/v3/search/images?phrase=cheese
