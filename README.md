@@ -13,19 +13,19 @@ Our API allows developers to:
 
 # Overview #
 
-1. [Current Version](#current-version)
-2. [Schema](https://github.com/nskirov/connect#schema)
-3. [Swagger](https://github.com/nskirov/connect#swagger)
-4. [Parameters](https://github.com/nskirov/connect#parameters)
-5. [Errors](https://github.com/nskirov/connect#errors)
-6. [Http Verbs](https://github.com/nskirov/connect#http-verbs)
-7. [Http Redirects](https://github.com/nskirov/connect#http-redirects)
-8. [Authentication](https://github.com/nskirov/connect#authentication)
-9. [Hypermedia](https://github.com/nskirov/connect#hypermedia)
-10. [Pagination](https://github.com/nskirov/connect#pagination)
-11. [Rate Limiting](https://github.com/nskirov/connect#throttling)
-12. [Cross Origin Resource Sharing](https://github.com/nskirov/connect#cross-origin-resource-sharing)
-13. [Timezones](https://github.com/nskirov/connect#timezones)
+  1. [Current Version](#current-version)
+  1. [Schema](#schema)
+  1. [Swagger](#swagger)
+  1. [Parameters](#parameters)
+  1. [Errors](#errors)
+  1. [Http Verbs](#http-verbs)
+  1. [Http Redirects](#http-redirects)
+  1. [Authentication](#authentication)
+  1. [Hypermedia](#hypermedia)
+  1. [Pagination](#pagination)
+  1. [Rate Limiting](#throttling)
+  1. [Cross Origin Resource Sharing](#cross-origin-resource-sharing)
+  1. [Timezones](#timezones)
 
 ### Current Version ###
 
