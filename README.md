@@ -277,10 +277,11 @@ The following example shows how to add a page and page-size query parameter to y
 
 Please note: the authorization token has been reduced in size.
 
-### Throttling ###
-Self serve clients will have a limited rate compared to registered clients.  Rate Limits can be found on your Mashery account page found here:  [Mashery Account Information](https://gettyimages.mashery.com/apps/mykeys)
+### Throttling
 
-Click the **"View Report"** link on your key to get the current status of your rate limit.
+Api-Keys have associated rate limits. These limits can be found on your [Mashery account](https://gettyimages.mashery.com/apps/mykeys) page.
+
+Click the **View Report** link on your key to get the current status of your rate limit.
 
 There are two rate limits and each limit has its own error message.
 
@@ -298,13 +299,13 @@ There are two rate limits and each limit has its own error message.
 
     {"message":"Account Over Rate Limit"}
 
-### Cross Origin Resource Sharing ###
+### Cross Origin Resource Sharing
 
 We support cross origin resource sharing. All endpoints will return the header:
 
     Access-Control-Allow-Origin: *
 
-### Timezones ###
+### Timezones
 
 We use UTC as the timezone for our date fields.
 
