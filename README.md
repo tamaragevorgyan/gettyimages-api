@@ -7,8 +7,8 @@ The Getty Images Connect API allows developers to:
 
 ## Quick links
 
-- [Getting Started](#Getting-started)
-- [Connect Overview (below)](#Connect-Overview)
+- [Getting Started](#getting-started)
+- [Connect Overview (below)](#connect-overview)
 - [OAuth2 Access Tokens](oauth2.md)
 - [Interactive Documentation](https://connect.gettyimages.com/swagger)
 - [Code Samples](code-samples)
