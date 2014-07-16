@@ -46,9 +46,9 @@ The Getty Images Connect API allows developers to
 
 ## Connect Overview
 
+- [Endpoint Documentation](#endpoint-documentation)
 - [Current Version](#current-version)
 - [Schema](#schema)
-- [Swagger](#swagger)
 - [Parameters](#parameters)
 - [Errors](#errors)
 - [Http Verbs](#http-verbs)
@@ -59,6 +59,11 @@ The Getty Images Connect API allows developers to
 - [Rate Limiting](#throttling)
 - [Cross Origin Resource Sharing](#cross-origin-resource-sharing)
 - [Timezones](#timezones)
+
+
+### Endpoint Documentation
+
+We use [Swagger](https://helloreverb.com/developers/swagger) to document Connect endpoints. You can interact directly with Connect via our [Swagger page (https://connect.gettyimages.com/swagger)](https://connect.gettyimages.com/swagger) after acquiring an Api-Key.
 
 ### Current Version
 
@@ -93,10 +98,6 @@ All Connect access is over HTTPS. All data is sent and received as JSON.
 All timestamps are returned in [ISO 8601](http://www.w3.org/TR/NOTE-datetime) format
 
     YYYY-MM-DDTHH:MM:SSZ
-
-### Swagger
-
-We use [Swagger (https://connect.gettyimages.com/swagger)](https://connect.gettyimages.com/swagger) to document Connect endpoints. You can interact directly with Connect via Swagger after acquiring an Api-Key.
 
 ### Parameters
 
