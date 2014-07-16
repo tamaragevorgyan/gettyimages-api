@@ -110,11 +110,11 @@ Some fields are computationally expensive for Connect to provide, or require add
 
 Alternately, clients can pass a comma delimited list of the specific fields they are interested in.
 
-[example]
+    curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426?fields=id,title"
 
 Some fields are in neither `summary_set` nor `detail_set` and must be explicitly specified.
 
-[example]
+    curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426?fields=download_sizes"
 
 ##### Downloadable Sizes
 
@@ -237,7 +237,7 @@ All requests to connect.gettyimages.com require the use of an Api-Key for purpos
 
 ### Authorization
 
-Certain Connect endpoints require authorization via an access token. An access token can be acquired using a Connect [OAuth2](/oauth2.md) flow. Authorization is passed in through an Authorization header with the following format
+Certain Connect endpoints require authorization via an access token. An access token can be acquired using a Connect [OAuth2 flow](/oauth2.md#authorization-grant-flows). Authorization is passed in through an Authorization header with the following format
 
     Authorization: Bearer {access_token}
 
