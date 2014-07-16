@@ -25,7 +25,7 @@ The Getty Images Connect API allows developers to
     -  **Issue a new key for Getty Test**
         - Use to test Getty Images Connect functionality including: image search and metadata, download, and account management.
     - **Issue a new key for Connect Embed**
-        - Use to search for and embed from over 40 million embedable images.
+        - Use to search for and embed from over 40 million embeddable images.
 
 ### If you do not have a Mashery Member account
 
@@ -34,7 +34,7 @@ The Getty Images Connect API allows developers to
     -  **Issue a new key for Getty Test**
         - Use to test Getty Images Connect functionality including: image search and metadata, download, and account management.
     - **Issue a new key for Connect Embed**
-        - Use to search for and embed from over 40 million embedable images.
+        - Use to search for and embed from over 40 million embeddable images.
 3. Click **Register**. You will receive an email presently with a confirmation link. Click the link.
 4. Sign in with your Mashery Member credentials.
 
@@ -76,7 +76,7 @@ Connect is currently at version 3. Use the following base URI to access version 
 All Connect access is over HTTPS. All data is sent and received as JSON.
 
     curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/search/images?phrase=books"
-    
+
     HTTP/1.1 200 OK
     Access-Control-Allow-Headers: origin, accept, content-type
     Access-Control-Allow-Methods: options, post
@@ -92,7 +92,7 @@ All Connect access is over HTTPS. All data is sent and received as JSON.
     X-Mashery-Responder: prod-j-worker-us-west-1b-19.mashery.com
     Content-Length: 29728
     Connection: keep-alive
-    
+
     {"result_count":867845,"images":[ /* snipped */ ]}
 
 All timestamps are returned in [ISO 8601](http://www.w3.org/TR/NOTE-datetime) format
@@ -149,22 +149,22 @@ There are the most common errors a client may receive when calling Connect.
     ```
 1. Exceeding your Api-Key's [call per second throttle limit](#throttling) will result in a `403 Forbidden: Account Over Queries Per Second Limit` response.
     ```http
-    HTTP/1.1 403 Forbidden 
+    HTTP/1.1 403 Forbidden
     X-Error-Detail:  Account Over Queries Per Second Limit
     Content-Type: application/json; charset=utf-8
 
     {
-        "message":"Account Over Queries Per Second Limit"
+        "message": "Account Over Queries Per Second Limit"
     }
     ```
 1. Exceeding your Api-Key's [call per day throttle limit](#throttling) will result in a `403 Forbidden: Account Over Rate Limit` response.
     ```http
-    HTTP/1.1 403 Forbidden 
+    HTTP/1.1 403 Forbidden
     X-Error-Detail:  Account Over Rate Limit
     Content-Type: application/json; charset=utf-8
 
     {
-        "message":"Account Over Rate Limit"
+        "message": "Account Over Rate Limit"
     }
     ```
 
@@ -185,11 +185,11 @@ Connect uses HTTP redirection where appropriate. Clients should assume that any 
 
 ### Authentication
 
-All requests to connect.gettyimages.com require the use of an Api-Key for purposes of identifying the client. 
+All requests to connect.gettyimages.com require the use of an Api-Key for purposes of identifying the client.
 
     -H "Api-Key:{Your Api-Key}"
 
-An authorization header is required to perform download operations, as well as getting certain user specific fields in searches. The input after **Bearer** is the token received from the oauth2/token call. 
+An authorization header is required to perform download operations, as well as getting certain user specific fields in searches. The input after **Bearer** is the token received from the oauth2/token call.
 
     curl -d 'grant_type=client_credentials&client_id={api_key}&client_secret={api_secret}' https://connect.gettyimages.com/oauth2/token
 
@@ -244,19 +244,19 @@ There are two throttling limits and each has its own error message.
 
 - Calls per second
     ```
-    HTTP/1.1 403 Forbidden 
+    HTTP/1.1 403 Forbidden
     X-Error-Detail:  Account Over Queries Per Second Limit
 
-    {"message":"Account Over Queries Per Second Limit"}   
+    {"message":"Account Over Queries Per Second Limit"}
     ```
 - Calls per day
     ```
-    HTTP/1.1 403 Forbidden 
+    HTTP/1.1 403 Forbidden
     X-Error-Detail:  Account Over Rate Limit
 
     {"message":"Account Over Rate Limit"}
     ```
-    
+
 ### Cross Origin Resource Sharing
 
 We support cross origin resource sharing. All endpoints will return the header:
@@ -276,7 +276,7 @@ If explicitly specified (by asking for 'sizes' in the 'fields' parameter) when q
 ### Display vs Download
 When retrieving images via search or asset metadata operations, you have the option of retrieving various URIs for image display (e.g. uri-preview, uri-comp, etc).  These are for displaying within the context of your application and are not licensed for re-use outside the context of your application.  Depending on various rules (client application permissions, user type, image type image size) the images may be watermarked.
 
-Downloads (available through 'downloads' and 'largestdownloads' fields) allow non-watermarked images to be licensed and downloaded for re-consumption by the end user (consistent with all licensing permissions and restrictions as if the user had downloaded the image through the [gettyimages.com](http://gettyimages.com) or [thinkstockphotos.com](http://thinkstockphotos.com) websites.   
+Downloads (available through 'downloads' and 'largestdownloads' fields) allow non-watermarked images to be licensed and downloaded for re-consumption by the end user (consistent with all licensing permissions and restrictions as if the user had downloaded the image through the [gettyimages.com](http://gettyimages.com) or [thinkstockphotos.com](http://thinkstockphotos.com) websites.
 
 ### Product Types, Authorizations, and Downloads
 **TODO: Explain the basic concepts of product types (GI types you only have one applicable agreement, TS types you may have multiples and so need to choose).  And how they affect image authorization and downloading.**
