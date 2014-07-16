@@ -119,62 +119,53 @@ In the last example, the `fields` querystring parameter will limit the response 
 There are the most common errors a client may receive when calling Connect.
 
 1. Sending misspelled or improperly formatted request bodies or querystring parameters will result in a `400 Bad Request` response.
+    ```http
+    HTTP/1.1 400 Bad Request
+    Content-Type: application/json; charset=utf-8
 
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json; charset=utf-8
-
-{
-    "message": "Invalid Request. Possible required parameter missing."
-}
-```
-
+    {
+        "message": "Invalid Request. Possible required parameter missing."
+    }
+    ```
 1. Omitting, misspelling or sending invalid Api-Key will result in a `403 Forbidden: Account Inactive` response.
+    ```http
+    HTTP/1.1 403 Forbidden
+    Content-Type: application/json; charset=utf-8
 
-```http
-HTTP/1.1 403 Forbidden
-Content-Type: application/json; charset=utf-8
-
-{
-    "message": "Account Inactive"
-}
-```
-
+    {
+        "message": "Account Inactive"
+    }
+    ```
 1. Submitting invalid image `id`'s will result in a `404 Not Found` response.
+    ```http
+    HTTP/1.1 404 Not Found
+    Content-Type: application/json; charset=utf-8
 
-```http
-HTTP/1.1 404 Not Found
-Content-Type: application/json; charset=utf-8
-
-{
-    "code": "ImageNotFound",
-    "message": "Image not found: 452O76944"
-}
-```
-
+    {
+        "code": "ImageNotFound",
+        "message": "Image not found: 452O76944"
+    }
+    ```
 1. Exceeding your Api-Key's [call per second limit](#throttling) will result in a `403 Forbidden: Account Over Queries Per Second Limit` response.
+    ```http
+    HTTP/1.1 403 Forbidden 
+    X-Error-Detail:  Account Over Queries Per Second Limit
+    Content-Type: application/json; charset=utf-8
 
-```http
-HTTP/1.1 403 Forbidden 
-X-Error-Detail:  Account Over Queries Per Second Limit
-Content-Type: application/json; charset=utf-8
-
-{
-    "message":"Account Over Queries Per Second Limit"
-}
-```
-
+    {
+        "message":"Account Over Queries Per Second Limit"
+    }
+    ```
 1. Exceeding your Api-Key's [call per day limit](#throttling) will result in a `403 Forbidden: Account Over Rate Limit` response.
+    ```http
+    HTTP/1.1 403 Forbidden 
+    X-Error-Detail:  Account Over Rate Limit
+    Content-Type: application/json; charset=utf-8
 
-```http
-HTTP/1.1 403 Forbidden 
-X-Error-Detail:  Account Over Rate Limit
-Content-Type: application/json; charset=utf-8
-
-{
-    "message":"Account Over Rate Limit"
-}
-```
+    {
+        "message":"Account Over Rate Limit"
+    }
+    ```
 
 ### Http Verbs
 
