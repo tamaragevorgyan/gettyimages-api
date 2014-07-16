@@ -70,7 +70,7 @@ Connect is currently on version 3, as indicated by the base URI
 
 All Connect access is over HTTPS. All data is sent and received as JSON.
 
-    curl -H Api-Key:mzqtmcrk8bpsx9jfr9c9y47x -i https://connect.gettyimages.com/v3/search/images?phrase=cheese
+    curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/search/images?phrase=books"
     
     HTTP/1.1 200 OK
     Access-Control-Allow-Headers: origin, accept, content-type
@@ -80,15 +80,15 @@ All Connect access is over HTTPS. All data is sent and received as JSON.
     Cache-Control: no-cache,no-cache
     Content-Language: en-US
     Content-Type: application/json; charset=utf-8
-    Date: Mon, 14 Jul 2014 18:43:44 GMT
+    Date: Wed, 16 Jul 2014 17:43:01 GMT
     Expires: -1
     Pragma: no-cache
     Server: Mashery Proxy
-    X-Mashery-Responder: prod-j-worker-us-west-1c-13.mashery.com
-    Content-Length: 23292
+    X-Mashery-Responder: prod-j-worker-us-west-1b-19.mashery.com
+    Content-Length: 29728
     Connection: keep-alive
     
-    {"sample response": "in json format"}
+    {"sample response": "in json"}
 
 All timestamps are returned in [ISO 8601](http://www.w3.org/TR/NOTE-datetime) format
 
@@ -102,15 +102,15 @@ We use [Swagger (https://connect.gettyimages.com/swagger)](https://connect.getty
 
 Some Connect endpoints take parameters specified as a segment in the path:
 
-    curl -i "https://connect.gettyimages.com/images/{id}
+    curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426"
 
 Additional options can be specified as HTTP query string parameters:
 
-    curl -i "https://connect.gettyimages.com/images?phrase=animals
+    curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/search/images?phrase=books"
 
 Some resources allow filtering on their representations:
 
-    curl -i "https://connect.gettyimages.com/images/{id}?fields=id,title
+    curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426?fields=id,title"
 
 In the last example, the `fields` querystring parameter will limit the response fields to `id` and `title`.
 
