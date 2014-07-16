@@ -123,10 +123,9 @@ There are the most common errors a client may receive when calling Connect.
 ```http
 HTTP/1.1 400 Bad Request
 Content-Type: application/json; charset=utf-8
-Content-Length: 67
 
 {
-    "Message":"Invalid Request. Possible required parameter missing."
+    "message": "Invalid Request. Possible required parameter missing."
 }
 ```
 
@@ -134,23 +133,22 @@ Content-Length: 67
 
 ```http
 HTTP/1.1 403 Forbidden
-Content-Length: 31
-Content-Type: application/json
+Content-Type: application/json; charset=utf-8
 
 {
-    message=Account Inactive
+    "message": "Account Inactive"
 }
 ```
 
-1. Submitting invalid image `id`'s will result in a `404 Image Not Found` response.
+1. Submitting invalid image `id`'s will result in a `404 Not Found` response.
 
 ```http
 HTTP/1.1 404 Not Found
-Content-Length: 73
+Content-Type: application/json; charset=utf-8
 
 {
-    ErrorCode=ImageNotFound,
-    ErrorMessage=Image not found: 452O76944
+    "code": "ImageNotFound",
+    "message": "Image not found: 452O76944"
 }
 ```
 
@@ -159,6 +157,7 @@ Content-Length: 73
 ```http
 HTTP/1.1 403 Forbidden 
 X-Error-Detail:  Account Over Queries Per Second Limit
+Content-Type: application/json; charset=utf-8
 
 {
     "message":"Account Over Queries Per Second Limit"
@@ -170,6 +169,7 @@ X-Error-Detail:  Account Over Queries Per Second Limit
 ```http
 HTTP/1.1 403 Forbidden 
 X-Error-Detail:  Account Over Rate Limit
+Content-Type: application/json; charset=utf-8
 
 {
     "message":"Account Over Rate Limit"
