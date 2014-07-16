@@ -118,7 +118,9 @@ Some fields are in neither `summary_set` nor `detail_set` and must be explicitly
 
 ##### Downloadable Sizes
 
-Calculating download authorizations for the various available sizes of an image is computationally expensive. Therefore, clients must explicitly specify that they want this information via the `fields` querystring parameter. The following tables explain the available arguments and show the allowed `fields` arguments for the endpoints that can return sizes and downloads.
+Calculating download authorizations for the various available sizes of an image is computationally expensive. Therefore, clients must explicitly specify that they want this information via the `fields` querystring parameter. Clients must also provide an [access token](#authorizations) to retrieve downloadable sizes.
+
+The following tables explain the available arguments and show the allowed `fields` arguments for the endpoints that can return sizes and downloads.
 
 | argument          | description                                                             |
 |-------------------|-------------------------------------------------------------------------|
