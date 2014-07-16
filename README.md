@@ -182,18 +182,6 @@ DELETE	| Used for deleting resources.
 
 Connect uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirection is not an error and clients should follow that redirect. Redirect responses will have a `Location` header field which contains the URI of the resource to which the client should repeat the requests. Connect currently uses [`302 Found`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.3) and [`303 See Other`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.4) for redirects.
 
------
-**[RAE: This example needs fixed. Which grant type is it? why does it say /token but is actually /auth?]**
-Here's an example of a call to oauth2/token:
-
-	https://connect.gettyimages.com/oauth2/auth?response_type=token&client_id={api-key}
-	
-	HTTP/1.1 302 Found
-	Date: Mon, 14 Jul 2014 18:34:51 GMT
-	Expires: -1
-	Location: https://secure.gettyimages.com/sign-in/oauth?app_name=v3Search-test&resume_params=redirect_uri%3dhttps%253a%252f%252fconnect.gettyimages.com%252fSwaggerUI%252fimplicit_grant.html%26client_id%3d{api-key}
------
-
 ### Authentication
 
 All requests to connect.gettyimages.com require the use of an Api-Key for purposes of identifying the client. 
