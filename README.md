@@ -231,7 +231,7 @@ Connect uses HTTP redirection where appropriate. Clients should assume that any 
 
 ### Authentication
 
-All requests to connect.gettyimages.com require the use of an Api-Key for purposes of authenticating the client. 
+All requests to Connect require an Api-Key to authenticate the client.
 
     curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426"
 
