@@ -183,25 +183,28 @@ DELETE	| Used for deleting resources.
 
 Connect uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirection is not an error and clients should follow that redirect. Redirect responses will have a `Location` header field which contains the URI of the resource to which the client should repeat the requests. Connect currently uses [`302 Found`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.3) and [`303 See Other`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.4) for redirects.
 
-### Authentication
+#### Authentication
 
-All requests to connect.gettyimages.com require the use of an Api-Key for purposes of identifying the client.
+All requests to connect.gettyimages.com require the use of an Api-Key for purposes of authenticating the client. 
 
-    -H "Api-Key:{Your Api-Key}"
+    curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426"
 
-An authorization header is required to perform download operations, as well as getting certain user specific fields in searches. The input after **Bearer** is the token received from the oauth2/token call.
+### Authorization
+An authorization header is required to perform download operations, as well as to get certain user specific fields in searches. 
+The format of the Authorization header is the word **Bearer** followed by the `access_token` you received from the oauth2/token call, as shown below
 
-    curl -d 'grant_type=client_credentials&client_id={api_key}&client_secret={api_secret}' https://connect.gettyimages.com/oauth2/token
+    curl -d 'grant_type=client_credentials&client_id=j878g39yx378pa77djthzzpn&client_secret=hZJS5A3GJpJvcGhaXwev3kwmq3DgtfcQmEuGbGruQBfsz' https://connect.gettyimages.com/oauth2/token
 
-All requests to connect.gettyimages.com require the use of an Api-Key for purposes of identifying the client.
+This curl operation responds with
 
-    curl -H "Api-Key:{Your Api-Key}" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o 83454811.jpg
+    {"access_token":"token_string","token_type":"Bearer","expires_in":"1800"}
 
-Many operations require an individual user (e.g. a Getty Images customer) to be identified. Credentials (API key and secret) must be acquired from our [Api Portal](http://api.gettyimages.com/). An authorization token can then be requested via our [OAuth2 endpoint](https://connect.gettyimages.com/oauth2/token). These credentials must be passed via the Authorization Bearer HTTP header.
+where the actual access token has been replaced with "token_string".  This is  just a sample of the OAuth2 credential flow.
+For other authorization methods, please see our OAuth2 [documentation](/oauth2.md).
 
-    curl -H "Api-Key:{Your Api-Key}" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o 83454811.jpg
+The example below demonstrates using the Authorization header to initiate a download
 
-Note that we reserve the right to revoke a token without warning; this will occur, for example, if the user updates his/her credentials through the website.  In this case the service will respond with a **??????** response, and the client should re-enter the OAuth workflow.
+    curl -H "Api-Key:j878g39yx378pa77djthzzpn" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o 83454811.jpg
 
 ### Hypermedia
 
