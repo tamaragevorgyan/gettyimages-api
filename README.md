@@ -238,10 +238,10 @@ A POST to the provided URI with the Api-Key and Authorization headers will downl
 
 ### Pagination
 
-Connect automatically provides support for pagination of your search results. Pagination can be controlled by using ***page*** and ***page_size*** query parameters on the search request.
+Connect automatically provides support for pagination of your search results. Pagination can be controlled by using the `page` and `page_size` query string parameters.
 
-- By default, search results uses a **page_size** of *30* items per **page**.  The maximum number of items per **page** is *100*.
-- You should specify the desired page number on each search.  If omitted, **page** will default to *1*, returning the same **page_size** results on each call.
+- `page` parameter defaults at 1.
+- Search results have a default `page_size` of 30 items per `page`.  The maximum number of items per `page` is 100.
 
 This example demonstrates requesting the first page, containing 20 items, of the search results.
 
