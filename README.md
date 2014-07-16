@@ -180,7 +180,6 @@ DELETE	| Used for deleting resources.
 
 ### HTTP Redirects
 
-
 Connect uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirection is not an error and clients should follow that redirect. Redirect responses will have a `Location` header field which contains the URI of the resource to which the client should repeat the requests. Connect currently uses [`302 Found`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.3) and [`303 See Other`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.4) for redirects.
 
 -----
@@ -195,7 +194,7 @@ Here's an example of a call to oauth2/token:
 	Location: https://secure.gettyimages.com/sign-in/oauth?app_name=v3Search-test&resume_params=redirect_uri%3dhttps%253a%252f%252fconnect.gettyimages.com%252fSwaggerUI%252fimplicit_grant.html%26client_id%3d{api-key}
 -----
 
-### Authentication ###
+### Authentication
 
 All requests to connect.gettyimages.com require the use of an Api-Key for purposes of identifying the client. 
 
@@ -213,10 +212,10 @@ Many operations require an individual user (e.g. a Getty Images customer) to be 
 
     curl -H "Api-Key:{Your Api-Key}" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o 83454811.jpg
 
-
 Note that we reserve the right to revoke a token without warning; this will occur, for example, if the user updates his/her credentials through the website.  In this case the service will respond with a **??????** response, and the client should re-enter the OAuth workflow.
 
-### Hypermedia ###
+### Hypermedia
+
 All resources may have one or more URI properties linking to other resources. These provide explicit URIs, saving Connect clients from the need to construct URIs on their own.
 
 Here's an example of an image search providing a URI for downloading the image's largest size.
@@ -237,7 +236,7 @@ Here's an example of an image search providing a URI for downloading the image's
 
 A POST to the provided URI with the Api-Key and Authorization headers will download the image.
 
-### Pagination ###
+### Pagination
 
 Connect automatically provides support for pagination of your search results. Pagination can be controlled by using ***page*** and ***page_size*** query parameters on the search request.
 
