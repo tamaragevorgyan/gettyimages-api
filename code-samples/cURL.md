@@ -29,7 +29,7 @@ Use the authentication/authorization header option in the operations below depen
 ##### Images Editorial
     curl {headers} https://connect.gettyimages.com/v3/search/images/editorial?phrase=kitties
 ##### Paging Results
-    curl {headers} https://connect.gettyimages.com/v3/search/images?phrase=kitties&page=1&page-size=10
+    curl {headers} https://connect.gettyimages.com/v3/search/images?phrase=kitties&page=1&page_size=10
 ### Image Metadata
 NOTE: Some command line tools may require you to quote the url
 
