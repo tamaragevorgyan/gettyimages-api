@@ -146,7 +146,7 @@ There are the most common errors a client may receive when calling Connect.
         "message": "Image not found: 452O76944"
     }
     ```
-1. Exceeding your Api-Key's [call per second limit](#throttling) will result in a `403 Forbidden: Account Over Queries Per Second Limit` response.
+1. Exceeding your Api-Key's [call per second throttle limit](#throttling) will result in a `403 Forbidden: Account Over Queries Per Second Limit` response.
     ```http
     HTTP/1.1 403 Forbidden 
     X-Error-Detail:  Account Over Queries Per Second Limit
@@ -156,7 +156,7 @@ There are the most common errors a client may receive when calling Connect.
         "message":"Account Over Queries Per Second Limit"
     }
     ```
-1. Exceeding your Api-Key's [call per day limit](#throttling) will result in a `403 Forbidden: Account Over Rate Limit` response.
+1. Exceeding your Api-Key's [call per day throttle limit](#throttling) will result in a `403 Forbidden: Account Over Rate Limit` response.
     ```http
     HTTP/1.1 403 Forbidden 
     X-Error-Detail:  Account Over Rate Limit
@@ -249,24 +249,25 @@ This example demonstrates requesting the first page, containing 20 items, of the
 
 ### Throttling
 
-Api-Keys have associated rate limits. These limits can be found on your [Mashery account](https://gettyimages.mashery.com/apps/mykeys) page. Click the **View Report** link on your key to get the current status of your rate limit.
+Api-Keys have associated throttle limits. These limits can be found on your [account page](https://api.gettyimages.com/apps/mykeys). Click the **View Report** link on your key to get the current status of your limits.
 
-There are two rate limits and each limit has its own error message.
+There are two throttling limits and each has its own error message.
 
-**Calls per second**
-
+- Calls per second
+    ```
     HTTP/1.1 403 Forbidden 
     X-Error-Detail:  Account Over Queries Per Second Limit
 
     {"message":"Account Over Queries Per Second Limit"}   
-
-**Calls per day**
-
+    ```
+- Calls per day
+    ```
     HTTP/1.1 403 Forbidden 
     X-Error-Detail:  Account Over Rate Limit
 
     {"message":"Account Over Rate Limit"}
-
+    ```
+    
 ### Cross Origin Resource Sharing
 
 We support cross origin resource sharing. All endpoints will return the header:
