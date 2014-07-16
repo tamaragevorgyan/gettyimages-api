@@ -5,7 +5,16 @@ The Getty Images Connect API allows developers to:
 - Get [metadata](https://connect.gettyimages.com/swagger/ui/index.html#!/Images), such as the photographer's name, associated with images.
 - [Download](https://connect.gettyimages.com/swagger/ui/index.html#!/Downloads) images at various sizes using standard Getty Images product types (e.g. Premium Access, Image Packs, Thinkstock Subscriptions).
 
-## Getting started
+## Quick links
+
+- [Getting Started](#Getting-started)
+- [Connect Overview (below)](#Connect-Overview)
+- [OAuth2 Access Tokens](oauth2.md)
+- [Interactive Documentation](https://connect.gettyimages.com/swagger)
+- [Code Samples](code-samples)
+- [Release Notes](release-notes.md)
+
+## Getting Started
 
 ### If you already have a Mashery Member account
 
@@ -34,15 +43,6 @@ The Getty Images Connect API allows developers to:
 1. Finish reading this overview.
 2. Play with and learn more about the technical details using our interactive [endpoint documentation](https://connect.gettyimages.com/swagger/ui/index.html).
 3. Begin developing your application using the [OAuth 2 Client Credentials Flow](https://github.com/gettyimages/connect/blob/master/documentation/endpoints/oauth2/README.md#client-credentials-flow)
-
-## Quick links
-
-- [Interactive Documentation](https://connect.gettyimages.com/swagger)
-- [Code Samples](code-samples)
-- [Release Notes](release-notes.md)
-- [Connect Overview (below)](#Connect-Overview)
-- [OAuth2 Access Tokes](oauth2.md)
-- [Getty Images Concepts (below)](#Getty-Images-Concepts)
 
 ## Connect Overview
 
