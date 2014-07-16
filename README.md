@@ -227,11 +227,9 @@ Connect automatically provides support for pagination of your search results.
 - You will never receive more than the items as defined by the **page_size** query parameter.
 - The last page returned to you may be as few as one item or as many **page_size** items.
 
-The following example shows how to add a ***page*** and ***page_size*** query parameter to your search request using cURL:
+Example of the ***page*** and ***page_size*** query parameters to your search request using cURL:
 
     curl -H "Api-Key: {Your Api-Key}" "https://connect.gettyimages.com/v3/search/images?phrase=dogs&page=1&page_size=20"
-
-Please note: the authorization token has been reduced in size.
 
 ### Throttling
 
