@@ -206,7 +206,7 @@ Where possible, Connect strives to use appropriate HTTP verbs for each action.
 Verb	| Description
 ------ | -----------------------------------------------
 GET	| Used for retrieving resources.
-POST	| Used for creating resources, or performing custom actions (such as merging a pull request).
+POST	| Used for creating resources, or performing custom actions.
 PUT	| Used for replacing resources or collections. For PUT requests with no body attribute, be sure to set the Content-Length header to zero.
 DELETE	| Used for deleting resources.
 
