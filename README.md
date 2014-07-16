@@ -62,7 +62,7 @@ The Getty Images Connect API allows developers to:
 
 ### Current Version
 
-Connect is currently on version 3, as indicated by the base URI
+Connect is currently at version 3. Use the following base URI to access version 3 endpoints.
 
     https://connect.gettyimages.com/v3/
 
@@ -243,7 +243,7 @@ Connect automatically provides support for pagination of your search results. Pa
 
 Example of the ***page*** and ***page_size*** query parameters to your search request using cURL:
 
-    curl -H "Api-Key: {Your Api-Key}" "https://connect.gettyimages.com/v3/search/images?phrase=dogs&page=1&page_size=20"
+    curl -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/search/images?phrase=dogs&page=1&page_size=20"
 
 ### Throttling
 
