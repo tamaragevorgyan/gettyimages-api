@@ -237,26 +237,27 @@ All requests to Connect require an Api-Key to authenticate the client.
 
 ### Authorization
 
-Certain Connect endpoints require authorization via an access token. An access token can be acquired using a Connect [OAuth2 flow](/oauth2.md#authorization-grant-flows). Authorization is passed in through an Authorization header with the following format
+Some Connect endpoints require or optionally accept authorization via an access token. An access token can be acquired using a Connect [OAuth2 flow](/oauth2.md#authorization-grant-flows). The access token is passed via the HTTP `Authorization` header.
 
     Authorization: Bearer {access_token}
 
-The example below calls the OAuth2 [client credentials flow](oauth2.md#client-credentials-flow)
+This example calls the OAuth2 [client credentials flow](oauth2.md#client-credentials-flow) to get an `access_token` (where the actual access token has been replaced with "token_string").
 
-    curl -d 'grant_type=client_credentials&client_id=j878g39yx378pa77djthzzpn&client_secret=hZJS5A3GJpJvcGhaXwev3kwmq3DgtfcQmEuGbGruQBfsz' https://connect.gettyimages.com/oauth2/token
-
-to get an `access_token`
-
+    curl -d 'grant_type=client_credentials&client_id=j878g39yx378pa77djthzzpn&client_secret=hZJS5A3GJpJvcGhaXwev3kwmq3DgtfcQmEuGbGruQBfsz' "https://connect.gettyimages.com/oauth2/token"
+    
+    HTTP/1.1 200 OK
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 10870
+    
     {"access_token":"token_string","token_type":"Bearer","expires_in":"1800"}
 
-where the actual access token has been replaced with "token_string".
-
-We can now plug in the `access_token` to download the image `sample.jpg` to the  current directory.
+We can use the access token to download the image `sample.jpg` to the  current directory.
 
     curl -H "Api-Key:j878g39yx378pa77djthzzpn" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o sample.jpg
 
-If authorization is missing, the client is presented with an authorization challenge in the response headers
+If authorization is required but missing, the client recieves an authorization challenge in the response.
 
+    HTTP/1.1 401 Unauthorized
     WWW-Authenticate: Bearer realm="Download",error="invalid_token",error_description="The access token is missing"
 
 ### Hypermedia
