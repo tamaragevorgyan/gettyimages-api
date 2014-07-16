@@ -41,6 +41,7 @@ The Getty Images Connect API allows developers to:
 - [Code Samples](code-samples)
 - [Release Notes](release-notes.md)
 - [Connect Overview (below)](#Connect-Overview)
+- [OAuth2 Access Tokes](oauth2.md)
 - [Getty Images Concepts (below)](#Getty-Images-Concepts)
 
 ## Connect Overview
