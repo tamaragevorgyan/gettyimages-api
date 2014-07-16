@@ -42,7 +42,7 @@ The Getty Images Connect API allows developers to:
 
 1. Finish reading this overview.
 2. Play with and learn more about the technical details using our interactive [endpoint documentation](https://connect.gettyimages.com/swagger/ui/index.html).
-3. Begin developing your application! All calls must be [authenticated](#authentication) with your Api-Key. To [authorize](#authorization) access to protected resources, get an access token using the [OAuth 2 Client Credentials Flow](oauth2.md#client-credentials-flow).
+3. Begin developing your application! All calls must be [authenticated](#authentication) with your Api-Key. To [authorize](#authorization) access to protected resources (e.g. `https://connect.gettyimages.com/v3/downloads/{id}`), get an access token using the [OAuth 2 Client Credentials Flow](oauth2.md#client-credentials-flow).
 
 ## Connect Overview
 
