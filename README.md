@@ -205,9 +205,9 @@ Note that we reserve the right to revoke a token without warning; this will occu
 
 ### Hypermedia
 
-All resources may have one or more URI properties linking to other resources. These provide explicit URIs, saving Connect clients from the need to construct URIs on their own.
+All resources may have one or more URI properties linking to other resources. These provide explicit URIs to additional resources, saving Connect clients from the need to construct the URIs on their own.
 
-Here's an example of an image search providing a URI for downloading the image's largest size.
+Here's an example of a search result providing a URI for downloading the image's largest size.
 
 ```json
 "images": [
@@ -223,7 +223,7 @@ Here's an example of an image search providing a URI for downloading the image's
 ]
 ```
 
-A POST to the provided URI with the Api-Key and Authorization headers will download the image.
+A POST to the provided URI with a valid Api-Key and access token will download the image.
 
 ### Pagination
 
