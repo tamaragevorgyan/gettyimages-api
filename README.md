@@ -242,9 +242,6 @@ Connect automatically provides support for pagination of your search results. Pa
 
 - By default, search results uses a **page_size** of *30* items per **page**.  The maximum number of items per **page** is *100*.
 - You should specify the desired page number on each search.  If omitted, **page** will default to *1*, returning the same **page_size** results on each call.
-- You may specify how many items you receive in a **page** using the **page_size** query parameter.
-- You will never receive more than the items as defined by the **page_size** query parameter.
-- The last page returned to you may be as few as one item or as many **page_size** items.
 
 Example of the ***page*** and ***page_size*** query parameters to your search request using cURL:
 
