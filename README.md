@@ -215,19 +215,21 @@ Note that we reserve the right to revoke a token without warning; this will occu
 ### Hypermedia ###
 All resources may have one or more URI properties linking to other resources. These provide explicit URIs, saving Connect clients from the need to construct URIs on their own.
 
-Here's an example of an image search providing a URI for the image's largest download:
+Here's an example of an image search providing a URI for downloading the image's largest size.
 
-    "images": [
-	    {
-	      "id": "3231670",
-	      "largestDownloads": [
-		    {
-		      "product-type": "premiumaccess",
-		      "uri": "https://connect.gettyimages.com/Public/3.0/downloads/3231670"
-		    }
-	      ]
-    	}
-	]
+```json
+"images": [
+    {
+        "id": "3231670",
+         "largestDownloads": [
+            {
+                "product-type": "premiumaccess",
+                "uri": "https://connect.gettyimages.com/Public/3.0/downloads/3231670"
+            }
+        ]
+    }
+]
+```
 
 A POST to the provided URI with the Api-Key and Authorization headers will download the image.
 
