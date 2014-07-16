@@ -243,7 +243,7 @@ Connect automatically provides support for pagination of your search results. Pa
 - By default, search results uses a **page_size** of *30* items per **page**.  The maximum number of items per **page** is *100*.
 - You should specify the desired page number on each search.  If omitted, **page** will default to *1*, returning the same **page_size** results on each call.
 
-Example of the ***page*** and ***page_size*** query parameters to your search request using cURL:
+This example demonstrates requesting the first page, containing 20 items, of the search results.
 
     curl -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/search/images?phrase=dogs&page=1&page_size=20"
 
