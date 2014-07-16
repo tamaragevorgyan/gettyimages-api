@@ -88,7 +88,7 @@ All Connect access is over HTTPS. All data is sent and received as JSON.
     Content-Length: 29728
     Connection: keep-alive
     
-    {"sample response": "in json"}
+    {"result_count":867845,"images":[ /* snipped */ ]}
 
 All timestamps are returned in [ISO 8601](http://www.w3.org/TR/NOTE-datetime) format
 
