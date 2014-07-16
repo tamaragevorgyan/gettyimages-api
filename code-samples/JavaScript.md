@@ -5,7 +5,7 @@
 An Api-Key header is needed to authenticate to the Api and will allow you to access read-only operations. The following javascript defines a function that sets the Api-Key header for the current request:
 
     var appendApiKeyHeader = function( xhr ) {
-      xhr.setRequestHeader('Api-Key', 'Your Api Key')
+      xhr.setRequestHeader('Api-Key', 'your-api-key')
     }
 
 ### Authorization

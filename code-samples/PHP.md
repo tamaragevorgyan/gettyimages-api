@@ -4,9 +4,8 @@
 
 Please note the sample code assumes the following properties are set:
 
-    $rootEndpoint = "https://connect.gettyimages.com";
-    $client_key = "{Your Api Key}";
-    $client_secret = "{Your Api Secret}";
+    $client_key = "{your-api-key}";
+    $client_secret = "{your-api-secret}";
 
 The code also utilizes the [helper functions](#helper-functions) at the bottom of this file.  
 
@@ -25,7 +24,7 @@ An Authorization header is required to perform download operations. The format o
      */
 
     echo "**********Authenticate Client Credentials**********\n\n";
-    $endpoint = $rootEndpoint."/oauth2/token";
+    $endpoint = "https://connect.gettyimages.com/oauth2/token";
     $curl = getCurlForFormPost($endpoint);
     setFormData($curl, array("grant_type" => "client_credentials",
                              "client_id" => $client_key,
@@ -46,8 +45,7 @@ Use the authentication/authorization header option in the operations below depen
 ##### Images
 
     echo "**********Search For Images**********\n\n";
-	$rootEndpoint = "https://connect.gettyimages.com";
-    $endpoint = $rootEndpoint."/v3/search/images";
+    $endpoint = "https://connect.gettyimages.com/v3/search/images";
     $queryParams = array("phrase" => "kitties");
     $endpoint = $endpoint. (strpos($endpoint, '?') === FALSE ? '?' : ''). http_build_query($queryParams);
 
@@ -61,8 +59,7 @@ Use the authentication/authorization header option in the operations below depen
 ##### Images Creative
 
     echo "**********Search For Images Creative**********\n\n";
-	$rootEndpoint = "https://connect.gettyimages.com";
-    $endpoint = $rootEndpoint."/v3/search/images/creative";
+    $endpoint = "https://connect.gettyimages.com/v3/search/images/creative";
     $queryParams = array("phrase" => "kitties");
     $endpoint = $endpoint. (strpos($endpoint, '?') === FALSE ? '?' : ''). http_build_query($queryParams);
 
@@ -76,8 +73,7 @@ Use the authentication/authorization header option in the operations below depen
 ##### Images Editorial
 
     echo "**********Search For Images Editorial**********\n\n";
-	$rootEndpoint = "https://connect.gettyimages.com";
-    $endpoint = $rootEndpoint."/v3/search/images/editorial";
+    $endpoint = "https://connect.gettyimages.com/v3/search/images/editorial";
     $queryParams = array("phrase" => "kitties");
     $endpoint = $endpoint. (strpos($endpoint, '?') === FALSE ? '?' : ''). http_build_query($queryParams);
 
@@ -91,8 +87,7 @@ Use the authentication/authorization header option in the operations below depen
 ### Image Metadata
 
     echo "**********Search For Images Editorial**********\n\n";
-	$rootEndpoint = "https://connect.gettyimages.com";
-    $endpoint = $rootEndpoint."/v3/search/images/images/83454811,186239980";
+    $endpoint = "https://connect.gettyimages.com/v3/search/images/images/83454811,186239980";
     
     $curl = getCurl($endpoint);
     curl_setopt($curl,CURLOPT_HTTPHEADER,array("Api-Key:".$client_key));
@@ -104,9 +99,8 @@ Use the authentication/authorization header option in the operations below depen
 ### Downloads
 
     echo "**********Download Image**********\n\n";
-	$rootEndpoint = "https://connect.gettyimages.com";
     $imageIdToGet = 83454811;
-    $endpoint = $rootEndpoint."/v3/downloads/".$imageIdToGet;
+    $endpoint = "https://connect.gettyimages.com/v3/downloads/".$imageIdToGet;
 
     $headersToSend = array(CURLOPT_HTTPHEADER => array("Api-Key:".$client_key,
                            "Authorization: ".$tokenType." ".$token),
