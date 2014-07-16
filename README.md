@@ -247,9 +247,7 @@ Example of the ***page*** and ***page_size*** query parameters to your search re
 
 ### Throttling
 
-Api-Keys have associated rate limits. These limits can be found on your [Mashery account](https://gettyimages.mashery.com/apps/mykeys) page.
-
-Click the **View Report** link on your key to get the current status of your rate limit.
+Api-Keys have associated rate limits. These limits can be found on your [Mashery account](https://gettyimages.mashery.com/apps/mykeys) page. Click the **View Report** link on your key to get the current status of your rate limit.
 
 There are two rate limits and each limit has its own error message.
 
