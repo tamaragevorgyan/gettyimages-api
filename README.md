@@ -237,19 +237,27 @@ All requests to connect.gettyimages.com require the use of an Api-Key for purpos
 
 ### Authorization
 
-An authorization header is required to perform download operations, as well as to get some specific fields in searches. The Authorization header format is the word **Bearer** followed by the `access_token` you received from the oauth2/token call, as shown below
+Certain Connect endpoints require authorization via an access token. An access token can be acquired using a Connect [OAuth2](/oauth2.md) flow. Authorization is passed in through an Authorization header with the following format
+
+    Authorization: Bearer {access_token}
+
+The example below calls the OAuth2 [client credentials flow](oauth2.md#client-credentials-flow)
 
     curl -d 'grant_type=client_credentials&client_id=j878g39yx378pa77djthzzpn&client_secret=hZJS5A3GJpJvcGhaXwev3kwmq3DgtfcQmEuGbGruQBfsz' https://connect.gettyimages.com/oauth2/token
 
-This operation responds with
+to get an `access_token`
 
     {"access_token":"token_string","token_type":"Bearer","expires_in":"1800"}
 
-where the actual access token has been replaced with "token_string".  This is an example of the OAuth2 credential flow. For other authorization methods, please see our OAuth2 [documentation](/oauth2.md).
+where the actual access token has been replaced with "token_string".
 
-Here is how to use the Authorization header to download the image `sample.jpg` to your current directory.
+We can now plug in the `access_token` to download the image `sample.jpg` to the  current directory.
 
     curl -H "Api-Key:j878g39yx378pa77djthzzpn" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o sample.jpg
+
+If authorization is missing, the client is presented with an authorization challenge in the response headers
+
+    WWW-Authenticate: Bearer realm="Download",error="invalid_token",error_description="The access token is missing"
 
 ### Hypermedia
 
