@@ -99,6 +99,47 @@ All timestamps are returned in [ISO 8601](http://www.w3.org/TR/NOTE-datetime) fo
 
     YYYY-MM-DDTHH:MM:SSZ
 
+#### Summary, Detail, and Custom Representations
+
+Some fields are computationally expensive for Connect to provide, or require additional authorization access privileges. Therefore, when a client retrieves a resource, the response defaults to a subset of the data fields for that resource. This is the `summary_set` representation of the resource. Clients can specify additional fields be returned for a resource using the `fields` querystring parameter. Connect provides a `detail_set` specifier that will include additional fields from a pre-defined set.
+
+[example]
+
+Alternately, clients can pass a comma delimited list of the specific fields they are interested in.
+
+[example]
+
+Some fields are in neither `summary_set` nor `detail_set` and must be explicitly specified.
+
+[example]
+
+##### Downloadable Sizes
+
+Calculating download authorizations for the various available sizes of an image is computationally expensive. Therefore, clients must explicitly specify that they want this information via the `fields` querystring parameter. The following tables explain the available arguments and show the allowed `fields` arguments for the endpoints that can return sizes and downloads.
+
+| argument          | description                                                             |
+|-------------------|-------------------------------------------------------------------------|
+| downloads         | returns downloadable sizes, with hypermedia links to download each size |
+| download_sizes    | returns downloadable sizes, without hypermedia links                    |
+| largest_downloads | returns hypermedia links to download the largest size                   |
+
+| endpoints                    | download_sizes | downloads | largest_downloads |
+|------------------------------|----------------|-----------|-------------------|
+| `v3/search/images`           |                |           |        X          |
+| `v3/search/images/creative`  |                |           |        X          |
+| `v3/search/images/editorial` |                |           |        X          |
+| `v3/images`                  |      X         |     X     |        X          |
+
+##### Display Sizes
+
+Display sizes can be retrieved by passing any of the following arguments in the `fields` parameter.
+
+| argument | description                                        |
+|----------|----------------------------------------------------|
+| comp     | largest available display size                     |
+| preview  | medium display size, approximately 400 pixels wide |
+| thumb    | smallest display size, usually 170 pixels wide     |
+
 ### Parameters
 
 Some Connect endpoints take parameters specified as a segment in the path.
@@ -269,17 +310,3 @@ We support cross origin resource sharing. All endpoints will return the header:
 ### Timezones
 
 We use UTC as the timezone for our date fields.
-
-
-## Getty Images Concepts
-
-### Images sizes
-If explicitly specified (by asking for 'sizes' in the 'fields' parameter) when querying image metadata, sizes will be included, indicating height and width by pixels.  Size tokens from previous Connect versions are no longer honored.
-
-### Display vs Download
-When retrieving images via search or asset metadata operations, you have the option of retrieving various URIs for image display (e.g. uri-preview, uri-comp, etc).  These are for displaying within the context of your application and are not licensed for re-use outside the context of your application.  Depending on various rules (client application permissions, user type, image type image size) the images may be watermarked.
-
-Downloads (available through 'downloads' and 'largestdownloads' fields) allow non-watermarked images to be licensed and downloaded for re-consumption by the end user (consistent with all licensing permissions and restrictions as if the user had downloaded the image through the [gettyimages.com](http://gettyimages.com) or [thinkstockphotos.com](http://thinkstockphotos.com) websites.
-
-### Product Types, Authorizations, and Downloads
-**TODO: Explain the basic concepts of product types (GI types you only have one applicable agreement, TS types you may have multiples and so need to choose).  And how they affect image authorization and downloading.**
