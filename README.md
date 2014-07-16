@@ -116,42 +116,65 @@ In the last example, the `fields` querystring parameter will limit the response 
 
 ### Errors
 
-There are four possible types of client errors on API calls to Connect endpoints
-that receive request headers or request bodies.
+There are the most common errors a client may receive when calling Connect.
 
-1. Sending misspelled or improperly formatted query parameters will result in a `400 Bad Request` response.
+1. Sending misspelled or improperly formatted request bodies or querystring parameters will result in a `400 Bad Request` response.
 
-	    HTTP/1.1 400 Bad Request
-    	Content-Type: application/json; charset=utf-8
-    	Content-Length: 67
-    	{
-    		"Message":"Invalid Request. Possible required parameter missing."
-    	}
-    
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json; charset=utf-8
+Content-Length: 67
 
-2. Omitting, misspelling or sending invalid Api-Key will result in a `403 Forbidden` response.
+{
+    "Message":"Invalid Request. Possible required parameter missing."
+}
+```
 
-	    HTTP/1.1 403 Forbidden
-	    Content-Length: 31
-	    Content-Type: application/json
-	    {
-	       message=Account Inactive
-	    }
+1. Omitting, misspelling or sending invalid Api-Key will result in a `403 Forbidden: Account Inactive` response.
 
-5. Submitting invalid `id`'s will result in a `404 Image Not Found` response.
+```http
+HTTP/1.1 403 Forbidden
+Content-Length: 31
+Content-Type: application/json
 
-    	HTTP/1.1 404 Not Found
-    	Content-Length: 73
-    	{
-    		ErrorCode=ImageNotFound,
-    		ErrorMessage=Image not found: 452O76944
-    	}
+{
+    message=Account Inactive
+}
+```
 
-Additionally, image downloads will result in a `303 See Other` response.
+1. Submitting invalid image `id`'s will result in a `404 Image Not Found` response.
 
-    	`HTTP/1.1 303 See Other`
+```http
+HTTP/1.1 404 Not Found
+Content-Length: 73
 
+{
+    ErrorCode=ImageNotFound,
+    ErrorMessage=Image not found: 452O76944
+}
+```
 
+1. Exceeding your Api-Key's [call per second limit](#throttling) will result in a `403 Forbidden: Account Over Queries Per Second Limit` response.
+
+```http
+HTTP/1.1 403 Forbidden 
+X-Error-Detail:  Account Over Queries Per Second Limit
+
+{
+    "message":"Account Over Queries Per Second Limit"
+}
+```
+
+1. Exceeding your Api-Key's [call per day limit](#throttling) will result in a `403 Forbidden: Account Over Rate Limit` response.
+
+```http
+HTTP/1.1 403 Forbidden 
+X-Error-Detail:  Account Over Rate Limit
+
+{
+    "message":"Account Over Rate Limit"
+}
+```
 
 ### Http Verbs
 
