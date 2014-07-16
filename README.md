@@ -103,15 +103,15 @@ All timestamps are returned in [ISO 8601](http://www.w3.org/TR/NOTE-datetime) fo
 
 Some Connect endpoints take parameters specified as a segment in the path.
 
-    curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/**452224426**"
+    curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426"
 
 Additional options can be specified as HTTP querystring parameters.
 
-    curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/search/images?**phrase=books**"
+    curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/search/images?phrase=books"
 
 Some resources allow filtering on their representations, using the `fields` querystring parameter.
 
-    curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426?**fields=id,title**"
+    curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426?fields=id,title"
 
 In the last example, the response will contain only the fields `id` and `title`.
 
