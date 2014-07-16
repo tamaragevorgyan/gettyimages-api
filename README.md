@@ -226,12 +226,12 @@ A POST to the provided URI with the Api-Key and Authorization headers will downl
 
 ### Pagination
 
-Connect automatically provides support for pagination of your search results. Pagination can be controlled by using the `page` and `page_size` query string parameters.
+Many Connect endpoints provide support for pagination of results. Pagination can be controlled by using the `page` and `page_size` querystring parameters. Default values will be used if none are provided.
 
-- `page` parameter defaults at 1.
-- Search results have a default `page_size` of 30 items per `page`.  The maximum number of items per `page` is 100.
+- The `page` parameter defaults to 1.
+- Search results default to a `page_size` of 30 items per `page`. The maximum `page_size` is 100.
 
-This example demonstrates requesting the first page, containing 20 items, of the search results.
+This example demonstrates requesting the first page, containing 20 items, of search results.
 
     curl -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/search/images?phrase=dogs&page=1&page_size=20"
 
