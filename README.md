@@ -1,11 +1,11 @@
 # Getty Images Connect API
 
-The Getty Images Connect API gives developers access to our core capabilities.
-- <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Search" target="_blank">Search</a> for images from our extensive catalog.
-- Get <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Images" target="_blank">metadata</a>, such as the photographer's name, associated with images.
-- <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Downloads" target="_blank">Download</a> files at various sizes using standard Getty Images product types (e.g. Editorial Subscription, Easy Access, Thinkstock Subscriptions).
+Seamlessly integrate Getty Images' expansive digital content, powerful search technology, and rich metadata into your publishing tools, products and services!
+- <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Search" target="_blank">Search</a> for images from our extensive creative and editorial catalogs.
+- Get <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Images" target="_blank">image metadata</a>.
+- <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Downloads" target="_blank">Download</a> files using your Getty Images products (e.g., Editorial subscriptions, Easy Access, Thinkstock Subscriptions and Image Packs).
  
-This page describes the current version of Connect. <a href="v2/README.md" target="_blank">Documentation for prior versions</a> is also available.
+This page describes Connect version 3.0. <a href="v2/README.md" target="_blank">Documentation for prior versions</a> is also available.
 
 ## Quick links
 
