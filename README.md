@@ -147,7 +147,7 @@ Connect returns all date/time values in [ISO 8601](http://www.w3.org/TR/NOTE-dat
 
 #### Summary, Detail, and Custom Representations
 
-Some fields are computationally expensive for Connect to provide, or require additional authorization access privileges. Therefore, when a client retrieves a resource, the response defaults to a subset of the data fields for that resource. This is the `summary_set` representation of the resource. Clients can specify additional fields be returned for a resource using the `fields` querystring parameter. Connect provides a `detail_set` specifier that will include additional fields from a pre-defined set.
+Some fields are computationally expensive for Connect to provide or require additional authorization access privileges. Therefore, when a client retrieves a resource, the response defaults to a subset of the data fields for that resource. This is the `summary_set` representation of the resource. Clients can specify additional fields be returned for a resource using the `fields` querystring parameter. Connect provides a `detail_set` specifier that will include additional fields from a pre-defined set.
 
     curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426?fields=detail_set 
 
