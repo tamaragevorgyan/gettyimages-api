@@ -254,7 +254,7 @@ A POST to the provided URI with a valid Api-Key and access token will download t
 
 ### HTTP Redirects
 
-Connect uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirection is not an error and clients should follow that redirect. Redirect responses will have a `Location` header field which contains the URI of the resource to which the client should repeat the requests. Connect currently uses <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.3" target="_blank">`302 Found`</a> and <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.4" target="_blank">`303 See Other`</a> for redirects.
+Connect uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection and be prepared to follow the redirect. Redirect responses will have a `Location` header field which contains the URI of the resource to which the client should repeat the requests. Connect currently uses <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.3" target="_blank">`302 Found`</a> and <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.4" target="_blank">`303 See Other`</a> for redirects.
 
 ### Errors
 
