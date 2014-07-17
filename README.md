@@ -165,7 +165,7 @@ Some fields require additional authorization access and must be explicitly speci
 
 ##### Downloadable Sizes
 
-Calculating download authorizations for the various available sizes of an image is computationally expensive. Therefore, clients must explicitly specify that they want this information via the `fields` querystring parameter. Clients must also provide an [access token](#authorizations) to retrieve downloadable sizes.
+Calculating download authorizations for the various available sizes of an image is computationally expensive. Therefore, clients must explicitly specify that they want this information via the `fields` querystring parameter. Clients must also provide an [access token](#authorization) to retrieve downloadable sizes.
 
 The following tables explain the available arguments and show the allowed `fields` arguments for the endpoints that can return sizes and downloads.
 
