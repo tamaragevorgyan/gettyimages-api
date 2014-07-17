@@ -189,16 +189,15 @@ Authorizing download of an image is computationally expensive. Therefore, client
 
 Note that clients using the `download_sizes` or `largest_downloads` arguments must also provide an [access token](#authorization).
 
-
 ##### Display Sizes
 
 Display sizes can be retrieved by passing any of the following arguments in the `fields` parameter.
 
-| argument | description           |
-|----------|-----------------------|
-| comp     | largest display size  |
-| preview  | medium display size   |
-| thumb    | smallest display size |
+| `fields` argument | description           |
+|-------------------|-----------------------|
+| `comp`            | largest display size  |
+| `preview`         | medium display size   |
+| `thumb`           | smallest display size |
 
 ### Resources
 
