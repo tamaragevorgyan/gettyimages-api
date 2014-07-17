@@ -50,19 +50,18 @@ This page describes the current version of Connect. [Documentation for prior ver
 
 - [Endpoint Documentation](#endpoint-documentation)
 - [Current Version](#current-version)
-- [Schema](#schema)
-- [Parameters](#parameters)
-- [Errors](#errors)
-- [Http Verbs](#http-verbs)
-- [Http Redirects](#http-redirects)
 - [Authentication](#authentication)
 - [Authorization](#authorization)
+- [Schema](#schema)
+- [Http Verbs](#http-verbs)
+- [Http Redirects](#http-redirects)
+- [Parameters](#parameters)
+- [Errors](#errors)
 - [Hypermedia](#hypermedia)
 - [Pagination](#pagination)
 - [Rate Limiting](#throttling)
 - [Cross Origin Resource Sharing](#cross-origin-resource-sharing)
 - [Timezones](#timezones)
-
 
 ### Endpoint Documentation
 
@@ -73,6 +72,37 @@ We use [Swagger](https://helloreverb.com/developers/swagger) to document Connect
 Connect is currently at version 3. Use the following base URI to access version 3 endpoints.
 
     https://connect.gettyimages.com/v3/
+
+### Authentication
+
+All requests to Connect require an Api-Key to authenticate the client.
+
+    curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426"
+
+### Authorization
+
+Some Connect endpoints require or optionally accept authorization via an access token. An access token can be acquired using a Connect [OAuth2 flow](/oauth2.md#authorization-grant-flows). The access token is passed via the HTTP `Authorization` header.
+
+    Authorization: Bearer {access_token}
+
+This example calls the OAuth2 [client credentials flow](oauth2.md#client-credentials-flow) to get an `access_token` (where the actual access token has been replaced with "token_string").
+
+    curl -d 'grant_type=client_credentials&client_id=j878g39yx378pa77djthzzpn&client_secret=hZJS5A3GJpJvcGhaXwev3kwmq3DgtfcQmEuGbGruQBfsz' "https://connect.gettyimages.com/oauth2/token"
+    
+    HTTP/1.1 200 OK
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 10870
+    
+    {"access_token":"token_string","token_type":"Bearer","expires_in":"1800"}
+
+We can use the access token to download the image `sample.jpg` to the  current directory.
+
+    curl -H "Api-Key:j878g39yx378pa77djthzzpn" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o sample.jpg
+
+If authorization is required but missing, the client recieves an authorization challenge in the response.
+
+    HTTP/1.1 401 Unauthorized
+    WWW-Authenticate: Bearer realm="Download",error="invalid_token",error_description="The access token is missing"
 
 ### Schema
 
@@ -145,6 +175,21 @@ Display sizes can be retrieved by passing any of the following arguments in the 
 | preview  | medium display size, approximately 400 pixels wide |
 | thumb    | smallest display size, usually 170 pixels wide     |
 
+### Http Verbs
+
+Where possible, Connect strives to use appropriate HTTP verbs for each action.
+
+Verb	| Description
+------ | -----------------------------------------------
+GET	| Used for retrieving resources.
+POST	| Used for creating resources, or performing custom actions.
+PUT	| Used for replacing resources or collections. For PUT requests with no body attribute, be sure to set the Content-Length header to zero.
+DELETE	| Used for deleting resources.
+
+### HTTP Redirects
+
+Connect uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirection is not an error and clients should follow that redirect. Redirect responses will have a `Location` header field which contains the URI of the resource to which the client should repeat the requests. Connect currently uses [`302 Found`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.3) and [`303 See Other`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.4) for redirects.
+
 ### Parameters
 
 Some Connect endpoints take parameters specified as a segment in the path.
@@ -213,52 +258,6 @@ There are the most common errors a client may receive when calling Connect.
         "message": "Account Over Rate Limit"
     }
     ```
-
-### Http Verbs
-
-Where possible, Connect strives to use appropriate HTTP verbs for each action.
-
-Verb	| Description
------- | -----------------------------------------------
-GET	| Used for retrieving resources.
-POST	| Used for creating resources, or performing custom actions.
-PUT	| Used for replacing resources or collections. For PUT requests with no body attribute, be sure to set the Content-Length header to zero.
-DELETE	| Used for deleting resources.
-
-### HTTP Redirects
-
-Connect uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirection is not an error and clients should follow that redirect. Redirect responses will have a `Location` header field which contains the URI of the resource to which the client should repeat the requests. Connect currently uses [`302 Found`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.3) and [`303 See Other`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.4) for redirects.
-
-### Authentication
-
-All requests to Connect require an Api-Key to authenticate the client.
-
-    curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426"
-
-### Authorization
-
-Some Connect endpoints require or optionally accept authorization via an access token. An access token can be acquired using a Connect [OAuth2 flow](/oauth2.md#authorization-grant-flows). The access token is passed via the HTTP `Authorization` header.
-
-    Authorization: Bearer {access_token}
-
-This example calls the OAuth2 [client credentials flow](oauth2.md#client-credentials-flow) to get an `access_token` (where the actual access token has been replaced with "token_string").
-
-    curl -d 'grant_type=client_credentials&client_id=j878g39yx378pa77djthzzpn&client_secret=hZJS5A3GJpJvcGhaXwev3kwmq3DgtfcQmEuGbGruQBfsz' "https://connect.gettyimages.com/oauth2/token"
-    
-    HTTP/1.1 200 OK
-    Content-Type: application/json; charset=utf-8
-    Content-Length: 10870
-    
-    {"access_token":"token_string","token_type":"Bearer","expires_in":"1800"}
-
-We can use the access token to download the image `sample.jpg` to the  current directory.
-
-    curl -H "Api-Key:j878g39yx378pa77djthzzpn" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o sample.jpg
-
-If authorization is required but missing, the client recieves an authorization challenge in the response.
-
-    HTTP/1.1 401 Unauthorized
-    WWW-Authenticate: Bearer realm="Download",error="invalid_token",error_description="The access token is missing"
 
 ### Hypermedia
 
