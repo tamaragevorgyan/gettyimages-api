@@ -71,7 +71,7 @@ Connect is currently at version 3. Use the following base URI to access version 
 
 ### Authentication
 
-All requests to Connect require an Api-Key to authenticate the client. Pass the Api-Key via the custom `Api-Key` HTTP Header.
+Connect requires all requests include an Api-Key to authenticate the client. Pass the Api-Key via the custom `Api-Key` HTTP Header.
 
     curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426"
 
