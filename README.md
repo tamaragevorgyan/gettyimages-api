@@ -56,8 +56,8 @@ This page describes the current version of Connect. [Documentation for prior ver
 - [Http Verbs](#http-verbs)
 - [Http Redirects](#http-redirects)
 - [Parameters](#parameters)
-- [Errors](#errors)
 - [Hypermedia](#hypermedia)
+- [Errors](#errors)
 - [Pagination](#pagination)
 - [Rate Limiting](#throttling)
 - [Cross Origin Resource Sharing](#cross-origin-resource-sharing)
@@ -206,6 +206,28 @@ Some resources allow filtering on their representations, using the `fields` quer
 
 In the last example, the response will contain only the fields `id` and `title`.
 
+### Hypermedia
+
+All resources may have one or more URI properties linking to other resources. These provide explicit URIs to additional resources, saving Connect clients from the need to construct the URIs on their own.
+
+Here's an example of a search result providing a URI for downloading the image's largest size.
+
+```json
+"images": [
+    {
+        "id": "3231670",
+         "largestDownloads": [
+            {
+                "product-type": "premiumaccess",
+                "uri": "https://connect.gettyimages.com/Public/3.0/downloads/3231670"
+            }
+        ]
+    }
+]
+```
+
+A POST to the provided URI with a valid Api-Key and access token will download the image.
+
 ### Errors
 
 There are the most common errors a client may receive when calling Connect.
@@ -258,28 +280,6 @@ There are the most common errors a client may receive when calling Connect.
         "message": "Account Over Rate Limit"
     }
     ```
-
-### Hypermedia
-
-All resources may have one or more URI properties linking to other resources. These provide explicit URIs to additional resources, saving Connect clients from the need to construct the URIs on their own.
-
-Here's an example of a search result providing a URI for downloading the image's largest size.
-
-```json
-"images": [
-    {
-        "id": "3231670",
-         "largestDownloads": [
-            {
-                "product-type": "premiumaccess",
-                "uri": "https://connect.gettyimages.com/Public/3.0/downloads/3231670"
-            }
-        ]
-    }
-]
-```
-
-A POST to the provided URI with a valid Api-Key and access token will download the image.
 
 ### Pagination
 
