@@ -141,7 +141,7 @@ All Connect access is over HTTPS. All data is sent and received as JSON.
 
     {"result_count":867845,"images":[ /* snipped */ ]}
 
-All timestamps are returned in [ISO 8601](http://www.w3.org/TR/NOTE-datetime) format.
+Connect returns all date/time values in [ISO 8601](http://www.w3.org/TR/NOTE-datetime) format.
 
     YYYY-MM-DDTHH:MM:SSZ
 
