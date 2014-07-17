@@ -159,6 +159,10 @@ Some fields are in neither `summary_set` nor `detail_set` and must be explicitly
 
     curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426?fields=download_sizes"
 
+Some fields require additional authorization access and must be explicitly specified. In these cases clients must also provide an `access_token`.
+
+    curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" -H "Authorization: Bearer {access_token}" "https://connect.gettyimages.com/v3/images/452224426?fields=downloads"
+
 ##### Downloadable Sizes
 
 Calculating download authorizations for the various available sizes of an image is computationally expensive. Therefore, clients must explicitly specify that they want this information via the `fields` querystring parameter. Clients must also provide an [access token](#authorizations) to retrieve downloadable sizes.
