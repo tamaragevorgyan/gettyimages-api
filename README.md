@@ -105,14 +105,14 @@ There are two throttling limits and each has its own error message.
 - Calls per second
     ```
     HTTP/1.1 403 Forbidden
-    X-Error-Detail:  Account Over Queries Per Second Limit
+    X-Error-Detail: Account Over Queries Per Second Limit
 
     {"message":"Account Over Queries Per Second Limit"}
     ```
 - Calls per day
     ```
     HTTP/1.1 403 Forbidden
-    X-Error-Detail:  Account Over Rate Limit
+    X-Error-Detail: Account Over Rate Limit
 
     {"message":"Account Over Rate Limit"}
     ```
