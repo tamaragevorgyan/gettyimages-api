@@ -5,7 +5,7 @@ The Getty Images Connect API gives developers access to our core capabilities.
 - Get <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Images" target="_blank">metadata</a>, such as the photographer's name, associated with images.
 - <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Downloads" target="_blank">Download</a> files at various sizes using standard Getty Images product types (e.g. Editorial Subscription, Easy Access, Thinkstock Subscriptions).
  
-This page describes the current version of Connect. <a href="v2/README.md target="_blank">Documentation for prior versions</a> is also available.
+This page describes the current version of Connect. <a href="v2/README.md" target="_blank">Documentation for prior versions</a> is also available.
 
 ## Quick links
 
