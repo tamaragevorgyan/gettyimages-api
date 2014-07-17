@@ -54,10 +54,10 @@ This page describes Connect version 3.0. <a href="v2/README.md" target="_blank">
 - [Request Throttling](#request-throttling)
 - [Schema](#schema)
 - [Resources](#resources)
-- [Http Verbs](#http-verbs)
+- [HTTP Verbs](#http-verbs)
 - [Parameters](#parameters)
 - [Hypermedia](#hypermedia)
-- [Http Redirects](#http-redirects)
+- [HTTP Redirects](#http-redirects)
 - [Errors](#errors)
 - [Pagination](#pagination)
 - [Cross Origin Resource Sharing](#cross-origin-resource-sharing)
@@ -196,7 +196,7 @@ Display sizes can be retrieved by passing any of the following arguments in the 
 
 Connect provides a RESTful API centered around resources, identified by a URI, that can be acted upon by the standard [HTTP verbs](#http-verbs). Descriptions of the Connect resources are provided on our <a href="https://connect.gettyimages.com/swagger" target="_blank">interactive documentation page</a>.
 
-### Http Verbs
+### HTTP Verbs
 
 Where possible, Connect strives to use appropriate HTTP verbs for each action.
 
