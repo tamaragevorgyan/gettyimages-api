@@ -147,7 +147,12 @@ Connect returns date/time values in <a href="http://www.w3.org/TR/NOTE-datetime"
 
 #### Summary, Detail, and Custom Representations
 
-Some fields are computationally expensive for Connect to provide or require additional authorization access privileges. Therefore, when a client retrieves a resource, the response defaults to a subset of the data fields for that resource. This is the `summary_set` representation of the resource. Clients can specify additional fields be returned for a resource using the `fields` querystring parameter. Connect provides a `detail_set` specifier that will include additional fields from a pre-defined set.
+Some fields are computationally expensive for Connect to provide or require additional access privileges. Therefore, when a client retrieves a resource, the response defaults to a subset of the data fields for that resource. This is the `summary_set` representation of the resource. Both of the following produce the same response.
+
+    curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426? 
+    curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426?fields=summary_set
+
+Clients can specify additional fields be returned for a resource using the `fields` querystring parameter. Connect provides a `detail_set` specifier that will include additional fields from a pre-defined set.
 
     curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426?fields=detail_set 
 
@@ -159,28 +164,29 @@ Some fields are in neither `summary_set` nor `detail_set` and must be explicitly
 
     curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426?fields=download_sizes"
 
-Some fields require additional authorization access and must be explicitly specified. In these cases clients must also provide an `access_token`.
+Some fields require additional access priviledges and must be explicitly specified. In these cases clients must also provide an `access_token`.
 
     curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" -H "Authorization: Bearer {access_token}" "https://connect.gettyimages.com/v3/images/452224426?fields=downloads"
 
 ##### Download Sizes
 
-Calculating download authorizations for the various available sizes of an image is computationally expensive. Therefore, clients must explicitly specify that they want this information via the `fields` querystring parameter. Clients must also provide an [access token](#authorization) to retrieve downloadable sizes.
+Authorizing download of an image is computationally expensive. Therefore, clients that wish to receive details of available download sizes for images must explicitly specify that they want this information via the `fields` querystring parameter. The following tables show the available and allowed `fields` arguments for the endpoints that can return sizes and/or links to the downloadable image.
 
-The following tables explain the available arguments and show the allowed `fields` arguments for the endpoints that can return sizes and downloads.
+| `fields` argument   | description                                                   |
+|---------------------|---------------------------------------------------------------|
+| `downloads`         | returns downloadable sizes, with hypermedia download links    |
+| `download_sizes`    | returns downloadable sizes, without hypermedia download links |
+| `largest_downloads` | returns hypermedia download links to the largest size         |
 
-| argument          | description                                                             |
-|-------------------|-------------------------------------------------------------------------|
-| downloads         | returns downloadable sizes, with hypermedia links to download each size |
-| download_sizes    | returns downloadable sizes, without hypermedia links                    |
-| largest_downloads | returns hypermedia links to download the largest size                   |
+| endpoints                    | `download_sizes` | `downloads` | `largest_downloads` |
+|------------------------------|------------------|-------------|---------------------|
+| `v3/search/images`           |                  |             |          X          |
+| `v3/search/images/creative`  |                  |             |          X          |
+| `v3/search/images/editorial` |                  |             |          X          |
+| `v3/images`                  |        X         |       X     |          X          |
 
-| endpoints                    | download_sizes | downloads | largest_downloads |
-|------------------------------|----------------|-----------|-------------------|
-| `v3/search/images`           |                |           |        X          |
-| `v3/search/images/creative`  |                |           |        X          |
-| `v3/search/images/editorial` |                |           |        X          |
-| `v3/images`                  |      X         |     X     |        X          |
+Note that clients using the `download_sizes` or `largest_downloads` arguments must also provide an [access token](#authorization).
+
 
 ##### Display Sizes
 
