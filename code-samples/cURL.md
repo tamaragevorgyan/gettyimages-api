@@ -1,6 +1,5 @@
 
 #cURL
----
 
 ### Authentication
 
