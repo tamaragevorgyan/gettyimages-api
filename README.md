@@ -23,7 +23,7 @@ This page describes Connect version 3.0. <a href="v2/README.md" target="_blank">
 1. <a href="https://api.gettyimages.com/login/login" target="_blank">Sign in</a> with your Mashery Member credentials.
 2. Click the **My Account** link near the top right of the page.
 3. Click the **Get API keys** button.
-4. Register your application and select your desired type of Api-Key. Two options are available:
+4. Register your application and select your desired type of Api-Key. We provide two key options.
     -  **Issue a new key for Getty Test**
         - Use to test Getty Images Connect functionality including: image search and metadata, download, and account management.
     - **Issue a new key for Connect Embed**
@@ -32,7 +32,7 @@ This page describes Connect version 3.0. <a href="v2/README.md" target="_blank">
 ### If you do not have a Mashery Member account
 
 1. <a href="https://api.gettyimages.com/member/register" target="_blank">Register</a> a new Mashery Member account and your application.
-2. Select your desired type of Api-Key. Two options are available:
+2. Select your desired type of Api-Key. We provide two key options.
     -  **Issue a new key for Getty Test**
         - Use to test Getty Images Connect functionality including: image search and metadata, download, and account management.
     - **Issue a new key for Connect Embed**
@@ -89,7 +89,7 @@ Acquire an access token using one of the Connect [OAuth2 flows](oauth2.md#author
     Content-Type: application/json; charset=utf-8
     Content-Length: 123
     
-    {"access_token": "{token_string}", "token_type":"Bearer", "expires_in":"1800"}
+    {"access_token": "{token_string}", "token_type": "Bearer", "expires_in": "1800"}
 
 If elevated client privilege is required but missing, Connect returns an authorization challenge in the response.
 
@@ -107,14 +107,14 @@ There are two throttling limits and each has its own error message.
     HTTP/1.1 403 Forbidden
     X-Error-Detail: Account Over Queries Per Second Limit
 
-    {"message":"Account Over Queries Per Second Limit"}
+    {"message": "Account Over Queries Per Second Limit"}
     ```
 - Calls per day limit
     ```
     HTTP/1.1 403 Forbidden
     X-Error-Detail: Account Over Rate Limit
 
-    {"message":"Account Over Rate Limit"}
+    {"message": "Account Over Rate Limit"}
     ```
 
 ### Schema
@@ -322,6 +322,6 @@ This example demonstrates requesting the first page, containing 20 items, of sea
 
 ### Cross Origin Resource Sharing
 
-We support cross origin resource sharing ([CORS](http://www.w3.org/TR/cors/)). All endpoints will return the header:
+We support cross origin resource sharing ([CORS](http://www.w3.org/TR/cors/)). All endpoints return the following header.
 
     Access-Control-Allow-Origin: *
