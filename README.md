@@ -1,5 +1,3 @@
-# Getty Images Connect API
-
 The Getty Images Connect API allows developers to
 
 - <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Search" target="_blank">Search</a> for images from our extensive catalog.
