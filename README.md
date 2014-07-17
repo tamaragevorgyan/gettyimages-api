@@ -71,17 +71,17 @@ Connect is currently at version 3. Use the following base URI to access version 
 
 ### Authentication
 
-All requests to Connect require an Api-Key to authenticate the client.
+All requests to Connect require an Api-Key to authenticate the client. Pass the Api-Key via the custom `Api-Key` HTTP Header.
 
     curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426"
 
 ### Authorization
 
-Some Connect endpoints require or optionally accept authorization via an access token. An access token can be acquired using a Connect [OAuth2 flow](/oauth2.md#authorization-grant-flows). The access token is passed via the HTTP `Authorization` header.
+Some Connect endpoints require or optionally accept authorization via an access token. The access token is passed via the standard `Authorization` HTTP header, as type `Bearer`.
 
-    Authorization: Bearer {access_token}
+    curl -H "Api-Key:j878g39yx378pa77djthzzpn" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o sample.jpg
 
-This example calls the OAuth2 [client credentials flow](oauth2.md#client-credentials-flow) to get an `access_token` (where the actual access token has been replaced with "token_string").
+An access token can be acquired using one of the Connect [OAuth2 flows](/oauth2.md#authorization-grant-flows). This example uses the OAuth2 [client credentials flow](oauth2.md#client-credentials-flow).
 
     curl -d 'grant_type=client_credentials&client_id=j878g39yx378pa77djthzzpn&client_secret=hZJS5A3GJpJvcGhaXwev3kwmq3DgtfcQmEuGbGruQBfsz' "https://connect.gettyimages.com/oauth2/token"
     
@@ -89,11 +89,7 @@ This example calls the OAuth2 [client credentials flow](oauth2.md#client-credent
     Content-Type: application/json; charset=utf-8
     Content-Length: 10870
     
-    {"access_token":"token_string","token_type":"Bearer","expires_in":"1800"}
-
-We can use the access token to download the image `sample.jpg` to the  current directory.
-
-    curl -H "Api-Key:j878g39yx378pa77djthzzpn" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o sample.jpg
+    {"access_token":"{token_string}","token_type":"Bearer","expires_in":"1800"}
 
 If authorization is required but missing, the client recieves an authorization challenge in the response.
 
