@@ -10,7 +10,7 @@ This page describes the current version of Connect. [Documentation for prior ver
 ## Quick links
 
 - [Getting Started](#getting-started)
-- [Connect Overview (below)](#connect-overview)
+- [Connect Overview](#connect-overview)
 - [OAuth2 Access Tokens](oauth2.md)
 - [Interactive Documentation](https://connect.gettyimages.com/swagger)
 - [Code Samples](code-samples)
