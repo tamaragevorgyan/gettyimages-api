@@ -48,24 +48,20 @@ This page describes the current version of Connect. [Documentation for prior ver
 
 ## Connect Overview
 
-- [Endpoint Documentation](#endpoint-documentation)
 - [Current Version](#current-version)
 - [Authentication](#authentication)
 - [Authorization](#authorization)
+- [Request Throttling](#request-throttling)
 - [Schema](#schema)
+- [Resources](#resources)
 - [Http Verbs](#http-verbs)
-- [Http Redirects](#http-redirects)
 - [Parameters](#parameters)
 - [Hypermedia](#hypermedia)
+- [Http Redirects](#http-redirects)
 - [Errors](#errors)
 - [Pagination](#pagination)
-- [Rate Limiting](#throttling)
 - [Cross Origin Resource Sharing](#cross-origin-resource-sharing)
 - [Timezones](#timezones)
-
-### Endpoint Documentation
-
-We use [Swagger](https://helloreverb.com/developers/swagger) to document Connect endpoints. You can interact directly with Connect via our [Swagger page (https://connect.gettyimages.com/swagger)](https://connect.gettyimages.com/swagger) after acquiring an Api Key.
 
 ### Current Version
 
@@ -103,6 +99,27 @@ If authorization is required but missing, the client recieves an authorization c
 
     HTTP/1.1 401 Unauthorized
     WWW-Authenticate: Bearer realm="Download",error="invalid_token",error_description="The access token is missing"
+
+### Request Throttling
+
+Api-Keys have associated throttle limits. These limits can be found on your [account page](https://api.gettyimages.com/apps/mykeys). Click the **View Report** link on your key to get the current status of your limits.
+
+There are two throttling limits and each has its own error message.
+
+- Calls per second
+    ```
+    HTTP/1.1 403 Forbidden
+    X-Error-Detail:  Account Over Queries Per Second Limit
+
+    {"message":"Account Over Queries Per Second Limit"}
+    ```
+- Calls per day
+    ```
+    HTTP/1.1 403 Forbidden
+    X-Error-Detail:  Account Over Rate Limit
+
+    {"message":"Account Over Rate Limit"}
+    ```
 
 ### Schema
 
@@ -175,6 +192,10 @@ Display sizes can be retrieved by passing any of the following arguments in the 
 | preview  | medium display size, approximately 400 pixels wide |
 | thumb    | smallest display size, usually 170 pixels wide     |
 
+### Resources
+
+We use [Swagger](https://helloreverb.com/developers/swagger) to document Connect endpoints. You can interact directly with Connect via our [Swagger page (https://connect.gettyimages.com/swagger)](https://connect.gettyimages.com/swagger) after acquiring an Api Key.
+
 ### Http Verbs
 
 Where possible, Connect strives to use appropriate HTTP verbs for each action.
@@ -185,10 +206,6 @@ GET	| Used for retrieving resources.
 POST	| Used for creating resources, or performing custom actions.
 PUT	| Used for replacing resources or collections. For PUT requests with no body attribute, be sure to set the Content-Length header to zero.
 DELETE	| Used for deleting resources.
-
-### HTTP Redirects
-
-Connect uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirection is not an error and clients should follow that redirect. Redirect responses will have a `Location` header field which contains the URI of the resource to which the client should repeat the requests. Connect currently uses [`302 Found`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.3) and [`303 See Other`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.4) for redirects.
 
 ### Parameters
 
@@ -227,6 +244,10 @@ Here's an example of a search result providing a URI for downloading the image's
 ```
 
 A POST to the provided URI with a valid Api-Key and access token will download the image.
+
+### HTTP Redirects
+
+Connect uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirection is not an error and clients should follow that redirect. Redirect responses will have a `Location` header field which contains the URI of the resource to which the client should repeat the requests. Connect currently uses [`302 Found`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.3) and [`303 See Other`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.4) for redirects.
 
 ### Errors
 
@@ -291,27 +312,6 @@ Many Connect endpoints provide support for pagination of results. Pagination can
 This example demonstrates requesting the first page, containing 20 items, of search results.
 
     curl -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/search/images?phrase=dogs&page=1&page_size=20"
-
-### Throttling
-
-Api-Keys have associated throttle limits. These limits can be found on your [account page](https://api.gettyimages.com/apps/mykeys). Click the **View Report** link on your key to get the current status of your limits.
-
-There are two throttling limits and each has its own error message.
-
-- Calls per second
-    ```
-    HTTP/1.1 403 Forbidden
-    X-Error-Detail:  Account Over Queries Per Second Limit
-
-    {"message":"Account Over Queries Per Second Limit"}
-    ```
-- Calls per day
-    ```
-    HTTP/1.1 403 Forbidden
-    X-Error-Detail:  Account Over Rate Limit
-
-    {"message":"Account Over Rate Limit"}
-    ```
 
 ### Cross Origin Resource Sharing
 
