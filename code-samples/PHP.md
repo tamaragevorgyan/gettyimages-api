@@ -1,5 +1,4 @@
 #PHP
----
 ### Note on this sample code
 
 Please note the sample code assumes the following properties are set:
