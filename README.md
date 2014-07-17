@@ -141,7 +141,7 @@ All Connect access is over HTTPS. All data is sent and received as JSON.
 
     {"result_count":867845,"images":[ /* snipped */ ]}
 
-Connect returns date/time values in <a href="http://www.w3.org/TR/NOTE-datetime" target="_blank">ISO 8601</a> format.
+Connect returns UTC date/time values in <a href="http://www.w3.org/TR/NOTE-datetime" target="_blank">ISO 8601</a> format.
 
     YYYY-MM-DDTHH:MM:SSZ
 
@@ -322,10 +322,6 @@ This example demonstrates requesting the first page, containing 20 items, of sea
 
 ### Cross Origin Resource Sharing
 
-We support cross origin resource sharing. All endpoints will return the header:
+We support cross origin resource sharing ([CORS](http://www.w3.org/TR/cors/)). All endpoints will return the header:
 
     Access-Control-Allow-Origin: *
-
-### Timezones
-
-We use UTC as the timezone for our date fields.
