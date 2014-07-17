@@ -77,17 +77,17 @@ Connect requires all requests include an Api-Key to authenticate the client. Pas
 
 ### Authorization
 
-Some Connect endpoints require or optionally accept authorization via an access token. The access token is passed via the standard `Authorization` HTTP header, as type `Bearer`.
+Connect allows, or in some cases requires, requests to include an access token to authorize access. Pass the access token via the standard `Authorization` HTTP header, as type `Bearer`.
 
     curl -H "Api-Key:j878g39yx378pa77djthzzpn" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o sample.jpg
 
-An access token can be acquired using one of the Connect [OAuth2 flows](/oauth2.md#authorization-grant-flows). This example uses the OAuth2 [client credentials flow](oauth2.md#client-credentials-flow).
+Acquire an access token using one of the Connect [OAuth2 flows](/oauth2.md#authorization-grant-flows). This example uses the OAuth2 [client credentials flow](oauth2.md#client-credentials-flow).
 
     curl -d 'grant_type=client_credentials&client_id=j878g39yx378pa77djthzzpn&client_secret=hZJS5A3GJpJvcGhaXwev3kwmq3DgtfcQmEuGbGruQBfsz' "https://connect.gettyimages.com/oauth2/token"
     
     HTTP/1.1 200 OK
     Content-Type: application/json; charset=utf-8
-    Content-Length: 10870
+    Content-Length: 123
     
     {"access_token":"{token_string}","token_type":"Bearer","expires_in":"1800"}
 
