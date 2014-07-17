@@ -194,7 +194,7 @@ Display sizes can be retrieved by passing any of the following arguments in the 
 
 ### Resources
 
-We use [Swagger](https://helloreverb.com/developers/swagger) to document Connect endpoints. You can interact directly with Connect via our [Swagger page (https://connect.gettyimages.com/swagger)](https://connect.gettyimages.com/swagger) after acquiring an Api Key.
+Connect provides a RESTful API centered around resources, identified by a URI, that can be acted upon by the standard [HTTP verbs](#http-verbs). Descriptions of the Connect resources are provided on our [interactive documentation page](https://connect.gettyimages.com/swagger).
 
 ### Http Verbs
 
