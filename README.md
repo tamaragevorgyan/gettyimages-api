@@ -147,12 +147,12 @@ Connect returns date/time values in <a href="http://www.w3.org/TR/NOTE-datetime"
 
 #### Summary, Detail, and Custom Representations
 
-Some fields are computationally expensive for Connect to provide or require additional access privileges. Therefore, when a client retrieves a resource, the response defaults to a subset of the data fields for that resource. This is the `summary_set` representation of the resource. Both of the following produce the same response.
+Some fields are computationally expensive for Connect to provide or require additional access privileges. Therefore, when a client retrieves a resource, Connect returns a default `summary_set` of the data fields for that resource. Clients can specify additional fields be returned for a resource using the `fields` querystring parameter. Both of the following produce the same response.
 
     curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426? 
     curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426?fields=summary_set
 
-Clients can specify additional fields be returned for a resource using the `fields` querystring parameter. Connect provides a `detail_set` specifier that will include additional fields from a pre-defined set.
+Connect provides a `detail_set` specifier that will include additional fields from a pre-defined set.
 
     curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426?fields=detail_set 
 
