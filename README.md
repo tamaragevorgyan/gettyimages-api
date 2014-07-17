@@ -194,11 +194,11 @@ Note that clients using the `download_sizes` or `largest_downloads` arguments mu
 
 Display sizes can be retrieved by passing any of the following arguments in the `fields` parameter.
 
-| argument | description                                        |
-|----------|----------------------------------------------------|
-| comp     | largest available display size                     |
-| preview  | medium display size, approximately 400 pixels wide |
-| thumb    | smallest display size, usually 170 pixels wide     |
+| argument | description           |
+|----------|-----------------------|
+| comp     | largest display size  |
+| preview  | medium display size   |
+| thumb    | smallest display size |
 
 ### Resources
 
@@ -206,14 +206,12 @@ Connect provides a RESTful API centered around resources, identified by a URI, t
 
 ### HTTP Verbs
 
-Where possible, Connect strives to use appropriate HTTP verbs for each action.
+Connect strives to use appropriate HTTP verbs to perform actions on our resources.
 
-Verb	| Description
------- | -----------------------------------------------
-GET	| Used for retrieving resources.
-POST	| Used for creating resources, or performing custom actions.
-PUT	| Used for replacing resources or collections. For PUT requests with no body attribute, be sure to set the Content-Length header to zero.
-DELETE	| Used for deleting resources.
+| verb	| description                                            |
+|------| -------------------------------------------------------|
+| GET 	| use to retrieve a resources or collection              |
+| POST	| use to creating a resource, or perform a custom action |
 
 ### Parameters
 
