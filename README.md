@@ -3,7 +3,7 @@
 Seamlessly integrate Getty Images' expansive digital content, powerful search technology, and rich metadata into your publishing tools, products and services!
 - <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Search" target="_blank">Search</a> for images from our extensive creative and editorial catalogs.
 - Get <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Images" target="_blank">image metadata</a>.
-- <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Downloads" target="_blank">Download</a> files using your Getty Images products (e.g., Editorial subscriptions, Easy Access, Thinkstock Subscriptions and Image Packs).
+- <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Downloads" target="_blank">Download</a> files using your Getty Images products (e.g., Editorial subscriptions, Easy Access, Thinkstock Subscriptions, and Image Packs).
  
 This page describes Connect version 3.0. <a href="v2/README.md" target="_blank">Documentation for prior versions</a> is also available.
 
@@ -44,7 +44,7 @@ This page describes Connect version 3.0. <a href="v2/README.md" target="_blank">
 
 1. Finish reading this overview.
 2. Play with and learn more about the technical details using our interactive <a href="https://connect.gettyimages.com/swagger/ui/index.html" target="_blank">endpoint documentation</a>.
-3. Begin developing your application! All calls must be [authenticated](#authentication) with your Api-Key. To [authorize](#authorization) access to protected resources (e.g. `https://connect.gettyimages.com/v3/downloads/{id}`), get an access token using the [OAuth 2 client credentials flow](oauth2.md#client-credentials-flow).
+3. Begin developing your application! All calls must be [authenticated](#authentication) with your Api-Key. To [authorize](#authorization) access to protected resources (e.g. `https://connect.gettyimages.com/v3/downloads/{id}`) get an access token using the [OAuth 2 client credentials flow](oauth2.md#client-credentials-flow).
 
 ## Connect Overview
 
@@ -77,7 +77,7 @@ Connect requires all requests include an Api-Key to authenticate the client. Pas
 
 ### Authorization
 
-Connect allows, and in some cases requires, requests to include an access token to authorize elevated client privileges. Pass the access token via the standard `Authorization` HTTP header, as type `Bearer`.
+Connect allows, and in some cases requires, requests to include an access token to authorize elevated client privileges. Pass the access token via the standard `Authorization` HTTP header as type `Bearer`.
 
     curl -H "Api-Key:j878g39yx378pa77djthzzpn" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o sample.jpg
 
@@ -89,7 +89,7 @@ Acquire an access token using one of the Connect [OAuth2 flows](oauth2.md#author
     Content-Type: application/json; charset=utf-8
     Content-Length: 123
     
-    {"access_token":"{token_string}","token_type":"Bearer","expires_in":"1800"}
+    {"access_token": "{token_string}", "token_type":"Bearer", "expires_in":"1800"}
 
 If elevated client privilege is required but missing, Connect returns an authorization challenge in the response.
 
@@ -139,7 +139,7 @@ All Connect access is over HTTPS. All data is sent and received as JSON.
     Content-Length: 29728
     Connection: keep-alive
 
-    {"result_count":867845,"images":[ /* snipped */ ]}
+    {"result_count": 867845, "images": [ /* snipped */ ]}
 
 Connect returns UTC date/time values in <a href="http://www.w3.org/TR/NOTE-datetime" target="_blank">ISO 8601</a> format.
 
@@ -176,8 +176,8 @@ Authorizing download of an image is computationally expensive. Therefore, client
 
 | `fields` argument   | description                                                   |
 |---------------------|---------------------------------------------------------------|
-| `downloads`         | returns downloadable sizes, with hypermedia download links    |
-| `download_sizes`    | returns downloadable sizes, without hypermedia download links |
+| `downloads`         | returns downloadable sizes with hypermedia download links    |
+| `download_sizes`    | returns downloadable sizes without hypermedia download links |
 | `largest_downloads` | returns hypermedia download links to the largest size         |
 
 | endpoints                    | `download_sizes` | `downloads` | `largest_downloads` |
@@ -207,12 +207,12 @@ Connect provides a RESTful API centered around resources, identified by a URI, t
 
 Connect strives to use appropriate HTTP verbs to perform actions on our [resources](#resources).
 
-| verb  	| description                                            |
-|--------| -------------------------------------------------------|
-| GET 	  | use to retrieve a resources or collection              |
-| POST	  | use to creating a resource, or perform a custom action |
-| PUT    | *unsupported at this time*                             |
-| DELETE | *unsupported at this time*                             |
+| verb  	| description                                           |
+|--------| ------------------------------------------------------|
+| GET 	  | use to retrieve a resources or collection             |
+| POST	  | use to creating a resource or perform a custom action |
+| PUT    | *unsupported at this time*                            |
+| DELETE | *unsupported at this time*                            |
 
 ### Parameters
 
@@ -224,11 +224,11 @@ Additional options can be specified as HTTP querystring parameters.
 
     curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/search/images?phrase=books"
 
-Some resources allow filtering on their representations, using the `fields` querystring parameter.
+Some resources allow filtering on their representations using the `fields` querystring parameter.
 
     curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426?fields=id,title"
 
-In the last example, the response will contain only the fields `id` and `title`.
+In the last example the response will contain only the fields `id` and `title`.
 
 ### Hypermedia
 
@@ -269,7 +269,7 @@ There are the most common errors a client may receive when calling Connect.
         "message": "Invalid Request. Possible required parameter missing."
     }
     ```
-1. Omitting, misspelling or sending invalid Api-Key will result in a `403 Forbidden: Account Inactive` response.
+1. Omitting, misspelling, or sending invalid Api-Key will result in a `403 Forbidden: Account Inactive` response.
     ```http
     HTTP/1.1 403 Forbidden
     Content-Type: application/json; charset=utf-8
