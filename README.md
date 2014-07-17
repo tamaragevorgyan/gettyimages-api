@@ -91,7 +91,7 @@ Acquire an access token using one of the Connect [OAuth2 flows](oauth2.md#author
     
     {"access_token":"{token_string}","token_type":"Bearer","expires_in":"1800"}
 
-If elevated client privilege is required but missing, the client receives an authorization challenge in the response.
+If elevated client privilege is required but missing, Connect returns an authorization challenge in the response.
 
     HTTP/1.1 401 Unauthorized
     WWW-Authenticate: Bearer realm="Download",error="invalid_token",error_description="The access token is missing"
