@@ -98,18 +98,18 @@ If elevated client privilege is required but missing, Connect returns an authori
 
 ### Request Throttling
 
-Api-Keys have associated throttle limits. These limits can be found on your <a href="https://api.gettyimages.com/apps/mykeys" target="_blank">account page</a>. Click the **View Report** link on your key to get the current status of your limits.
+Connect throttles client requests based on limits associated with the client's Api-Key. These limits can be viewed on your <a href="https://api.gettyimages.com/apps/mykeys" target="_blank">account page</a>. Click the **View Report** link on your key to get the current status of an Api-Key's limits.
 
 There are two throttling limits and each has its own error message.
 
-- Calls per second
+- Calls per second limit
     ```
     HTTP/1.1 403 Forbidden
     X-Error-Detail: Account Over Queries Per Second Limit
 
     {"message":"Account Over Queries Per Second Limit"}
     ```
-- Calls per day
+- Calls per day limit
     ```
     HTTP/1.1 403 Forbidden
     X-Error-Detail: Account Over Rate Limit
