@@ -1,26 +1,26 @@
 # Getty Images Connect API
 
 The Getty Images Connect API gives developers access to our core capabilities.
-- [Search](https://connect.gettyimages.com/swagger/ui/index.html#!/Search) for images from our extensive catalog.
-- Get [metadata](https://connect.gettyimages.com/swagger/ui/index.html#!/Images), such as the photographer's name, associated with images.
-- [Download](https://connect.gettyimages.com/swagger/ui/index.html#!/Downloads) files at various sizes using standard Getty Images product types (e.g. Editorial Subscription, Easy Access, Thinkstock Subscriptions).
+- <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Search" target="_blank">Search</a> for images from our extensive catalog.
+- Get <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Images" target="_blank">metadata</a>, such as the photographer's name, associated with images.
+- <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Downloads" target="_blank">Download</a> files at various sizes using standard Getty Images product types (e.g. Editorial Subscription, Easy Access, Thinkstock Subscriptions).
  
-This page describes Connect version 3.0. [Documentation for prior versions](v2/README.md) is also available.
+This page describes the current version of Connect. <a href="v2/README.md target="_blank">Documentation for prior versions</a> is also available.
 
 ## Quick links
 
 - [Getting Started](#getting-started)
 - [Connect Overview](#connect-overview)
-- [OAuth2 Access Tokens](oauth2.md)
-- [Interactive Documentation](https://connect.gettyimages.com/swagger)
-- [Code Samples](code-samples)
-- [Release Notes](release-notes.md)
+- <a href="oauth2.md" target="_blank">OAuth2 Access Tokens</a>
+- <a href="https://connect.gettyimages.com/swagger" target="_blank">Interactive Documentation</a>
+- <a href="code-samples" target="_blank">Code Samples</a>
+- <a href="release-notes.md" target="_blank">Release Notes</a>
 
 ## Getting Started
 
 ### If you already have a Mashery Member account
 
-1. [Sign in](https://api.gettyimages.com/login/login) with your Mashery Member credentials.
+1. <a href="https://api.gettyimages.com/login/login" target="_blank">Sign in</a> with your Mashery Member credentials.
 2. Click the **My Account** link near the top right of the page.
 3. Click the **Get API keys** button.
 4. Register your application and select your desired type of Api-Key. Two options are available:
@@ -31,7 +31,7 @@ This page describes Connect version 3.0. [Documentation for prior versions](v2/R
 
 ### If you do not have a Mashery Member account
 
-1. [Register](https://api.gettyimages.com/member/register) a new Mashery Member account and your application.
+1. <a href="https://api.gettyimages.com/member/register" target="_blank">Register</a> a new Mashery Member account and your application.
 2. Select your desired type of Api-Key. Two options are available:
     -  **Issue a new key for Getty Test**
         - Use to test Getty Images Connect functionality including: image search and metadata, download, and account management.
@@ -43,7 +43,7 @@ This page describes Connect version 3.0. [Documentation for prior versions](v2/R
 ### After registering an application and receiving an Api-Key
 
 1. Finish reading this overview.
-2. Play with and learn more about the technical details using our interactive [endpoint documentation](https://connect.gettyimages.com/swagger/ui/index.html).
+2. Play with and learn more about the technical details using our interactive <a href="https://connect.gettyimages.com/swagger/ui/index.html" target="_blank">endpoint documentation</a>.
 3. Begin developing your application! All calls must be [authenticated](#authentication) with your Api-Key. To [authorize](#authorization) access to protected resources (e.g. `https://connect.gettyimages.com/v3/downloads/{id}`), get an access token using the [OAuth 2 client credentials flow](oauth2.md#client-credentials-flow).
 
 ## Connect Overview
@@ -91,14 +91,14 @@ Acquire an access token using one of the Connect [OAuth2 flows](/oauth2.md#autho
     
     {"access_token":"{token_string}","token_type":"Bearer","expires_in":"1800"}
 
-If authorization is required but missing, the client recieves an authorization challenge in the response.
+If authorization is required but missing, the client receives an authorization challenge in the response.
 
     HTTP/1.1 401 Unauthorized
     WWW-Authenticate: Bearer realm="Download",error="invalid_token",error_description="The access token is missing"
 
 ### Request Throttling
 
-Api-Keys have associated throttle limits. These limits can be found on your [account page](https://api.gettyimages.com/apps/mykeys). Click the **View Report** link on your key to get the current status of your limits.
+Api-Keys have associated throttle limits. These limits can be found on your <a href="https://api.gettyimages.com/apps/mykeys" target="_blank">account page</a>. Click the **View Report** link on your key to get the current status of your limits.
 
 There are two throttling limits and each has its own error message.
 
@@ -141,7 +141,7 @@ All Connect access is over HTTPS. All data is sent and received as JSON.
 
     {"result_count":867845,"images":[ /* snipped */ ]}
 
-Connect returns all date/time values in [ISO 8601](http://www.w3.org/TR/NOTE-datetime) format.
+All timestamps are returned in <a href="http://www.w3.org/TR/NOTE-datetime" target="_blank">ISO 8601</a> format.
 
     YYYY-MM-DDTHH:MM:SSZ
 
@@ -194,7 +194,7 @@ Display sizes can be retrieved by passing any of the following arguments in the 
 
 ### Resources
 
-Connect provides a RESTful API centered around resources, identified by a URI, that can be acted upon by the standard [HTTP verbs](#http-verbs). Descriptions of the Connect resources are provided on our [interactive documentation page](https://connect.gettyimages.com/swagger).
+Connect provides a RESTful API centered around resources, identified by a URI, that can be acted upon by the standard [HTTP verbs](#http-verbs). Descriptions of the Connect resources are provided on our <a href="https://connect.gettyimages.com/swagger" target="_blank">interactive documentation page</a>.
 
 ### Http Verbs
 
@@ -247,7 +247,7 @@ A POST to the provided URI with a valid Api-Key and access token will download t
 
 ### HTTP Redirects
 
-Connect uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirection is not an error and clients should follow that redirect. Redirect responses will have a `Location` header field which contains the URI of the resource to which the client should repeat the requests. Connect currently uses [`302 Found`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.3) and [`303 See Other`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.4) for redirects.
+Connect uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirection is not an error and clients should follow that redirect. Redirect responses will have a `Location` header field which contains the URI of the resource to which the client should repeat the requests. Connect currently uses <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.3" target="_blank">`302 Found`</a> and <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.4" target="_blank">`303 See Other`</a> for redirects.
 
 ### Errors
 
