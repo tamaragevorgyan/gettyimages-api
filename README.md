@@ -1,4 +1,4 @@
-# Getty Images Connect API
+# Getty Images Connect API 3.0
 
 Seamlessly integrate Getty Images' expansive digital content, powerful search technology, and rich metadata into your publishing tools, products and services!
 - <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Search" target="_blank">Search</a> for images from our extensive creative and editorial catalogs.
