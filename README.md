@@ -1,25 +1,26 @@
-The Getty Images Connect API allows developers to
+# Getty Images Connect API
 
-- <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Search" target="_blank">Search</a> for images from our extensive catalog.
-- Get <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Images" target="_blank">metadata</a> , such as the photographer's name, associated with images.
-- <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Downloads" target="_blank">Download</a> files at various sizes using standard Getty Images product types (e.g. Editorial Subscription, Easy Access, Thinkstock Subscriptions).
+The Getty Images Connect API allows developers to
+- [Search](https://connect.gettyimages.com/swagger/ui/index.html#!/Search) for images from our extensive catalog.
+- Get [metadata](https://connect.gettyimages.com/swagger/ui/index.html#!/Images), such as the photographer's name, associated with images.
+- [Download](https://connect.gettyimages.com/swagger/ui/index.html#!/Downloads) files at various sizes using standard Getty Images product types (e.g. Editorial Subscription, Easy Access, Thinkstock Subscriptions).
  
 This page describes the current version of Connect. [Documentation for prior versions](v2/README.md) is also available.
 
 ## Quick links
 
-- [Getting Started](#getting-README.md)
+- [Getting Started](#getting-started)
 - [Connect Overview](#connect-overview)
-- <a href="oauth2.md" target="_blank">OAuth2 Access Tokens</a>
-- <a href="https://connect.gettyimages.com/swagger" target="_blank">Interactive Documentation</a>
-- <a href="code-samples" target="_blank">Code Samples</a>
-- <a href="release-notes.md" target="_blank">Release Notes</a>
+- [OAuth2 Access Tokens](oauth2.md)
+- [Interactive Documentation](https://connect.gettyimages.com/swagger)
+- [Code Samples](code-samples)
+- [Release Notes](release-notes.md)
 
 ## Getting Started
 
 ### If you already have a Mashery Member account
 
-1. <a href="https://api.gettyimages.com/login/login" target="_blank">Sign in</a> with your Mashery Member credentials.
+1. [Sign in](https://api.gettyimages.com/login/login) with your Mashery Member credentials.
 2. Click the **My Account** link near the top right of the page.
 3. Click the **Get API keys** button.
 4. Register your application and select your desired type of Api-Key. Two options are available:
@@ -30,7 +31,7 @@ This page describes the current version of Connect. [Documentation for prior ver
 
 ### If you do not have a Mashery Member account
 
-1. <a href="https://api.gettyimages.com/member/register" target="_blank">Register</a> a new Mashery Member account and your application.
+1. [Register](https://api.gettyimages.com/member/register) a new Mashery Member account and your application.
 2. Select your desired type of Api-Key. Two options are available:
     -  **Issue a new key for Getty Test**
         - Use to test Getty Images Connect functionality including: image search and metadata, download, and account management.
@@ -42,8 +43,8 @@ This page describes the current version of Connect. [Documentation for prior ver
 ### After registering an application and receiving an Api-Key
 
 1. Finish reading this overview.
-2. Play with and learn more about the technical details using our interactive <a href="https://connect.gettyimages.com/swagger/ui/index.html" target="_blank">endpoint documentation</a>.
-3. Begin developing your application! All calls must be [authenticated](#authentication) with your Api-Key. To [authorize](#authorization) access to protected resources (e.g. `https://connect.gettyimages.com/v3/downloads/{id}`), get an access token using the <a href="oauth2.md#client-credentials-flow" target="_blank">OAuth 2 client credentials flow</a>.
+2. Play with and learn more about the technical details using our interactive [endpoint documentation](https://connect.gettyimages.com/swagger/ui/index.html).
+3. Begin developing your application! All calls must be [authenticated](#authentication) with your Api-Key. To [authorize](#authorization) access to protected resources (e.g. `https://connect.gettyimages.com/v3/downloads/{id}`), get an access token using the [OAuth 2 client credentials flow](oauth2.md#client-credentials-flow).
 
 ## Connect Overview
 
@@ -62,10 +63,6 @@ This page describes the current version of Connect. [Documentation for prior ver
 - [Cross Origin Resource Sharing](#cross-origin-resource-sharing)
 - [Timezones](#timezones)
 
-### Endpoint Documentation
-
-We use <a href="https://helloreverb.com/developers/swagger" target="_blank">Swagger</a> to document Connect endpoints. You can interact directly with Connect via our <a href="https://connect.gettyimages.com/swagger" target="_blank">Swagger page (https://connect.gettyimages.com/swagger)</a> after acquiring an Api Key.
-
 ### Current Version
 
 Connect is currently at version 3. Use the following base URI to access version 3 endpoints.
@@ -74,34 +71,51 @@ Connect is currently at version 3. Use the following base URI to access version 
 
 ### Authentication
 
-All requests to Connect require an Api-Key to authenticate the client.
+Connect requires all requests include an Api-Key to authenticate the client. Pass the Api-Key via the custom `Api-Key` HTTP Header.
 
     curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426"
 
 ### Authorization
 
-Some Connect endpoints require or optionally accept authorization via an access token. An access token can be acquired using a Connect <a href="/oauth2.md#authorization-grant-flows" target="_blank">OAuth2 flow</a>. The access token is passed via the HTTP `Authorization` header.
+Connect allows, or in some cases requires, requests to include an access token to authorize access. Pass the access token via the standard `Authorization` HTTP header, as type `Bearer`.
 
-    Authorization: Bearer {access_token}
+    curl -H "Api-Key:j878g39yx378pa77djthzzpn" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o sample.jpg
 
-This example calls the OAuth2 <a href="oauth2.md#client-credentials-flow" target="_blank">client credentials flow</a> to get an `access_token` (where the actual access token has been replaced with "token_string").
+Acquire an access token using one of the Connect [OAuth2 flows](/oauth2.md#authorization-grant-flows). This example uses the OAuth2 [client credentials flow](oauth2.md#client-credentials-flow).
 
     curl -d 'grant_type=client_credentials&client_id=j878g39yx378pa77djthzzpn&client_secret=hZJS5A3GJpJvcGhaXwev3kwmq3DgtfcQmEuGbGruQBfsz' "https://connect.gettyimages.com/oauth2/token"
     
     HTTP/1.1 200 OK
     Content-Type: application/json; charset=utf-8
-    Content-Length: 10870
+    Content-Length: 123
     
-    {"access_token":"token_string","token_type":"Bearer","expires_in":"1800"}
-
-We can use the access token to download the image `sample.jpg` to the  current directory.
-
-    curl -H "Api-Key:j878g39yx378pa77djthzzpn" -H "Authorization: Bearer {access_token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o sample.jpg
+    {"access_token":"{token_string}","token_type":"Bearer","expires_in":"1800"}
 
 If authorization is required but missing, the client recieves an authorization challenge in the response.
 
     HTTP/1.1 401 Unauthorized
     WWW-Authenticate: Bearer realm="Download",error="invalid_token",error_description="The access token is missing"
+
+### Request Throttling
+
+Api-Keys have associated throttle limits. These limits can be found on your [account page](https://api.gettyimages.com/apps/mykeys). Click the **View Report** link on your key to get the current status of your limits.
+
+There are two throttling limits and each has its own error message.
+
+- Calls per second
+    ```
+    HTTP/1.1 403 Forbidden
+    X-Error-Detail: Account Over Queries Per Second Limit
+
+    {"message":"Account Over Queries Per Second Limit"}
+    ```
+- Calls per day
+    ```
+    HTTP/1.1 403 Forbidden
+    X-Error-Detail: Account Over Rate Limit
+
+    {"message":"Account Over Rate Limit"}
+    ```
 
 ### Schema
 
@@ -127,7 +141,7 @@ All Connect access is over HTTPS. All data is sent and received as JSON.
 
     {"result_count":867845,"images":[ /* snipped */ ]}
 
-All timestamps are returned in <a href="http://www.w3.org/TR/NOTE-datetime" target="_blank">ISO 8601</a> format
+All timestamps are returned in [ISO 8601](http://www.w3.org/TR/NOTE-datetime) format.
 
     YYYY-MM-DDTHH:MM:SSZ
 
@@ -145,9 +159,13 @@ Some fields are in neither `summary_set` nor `detail_set` and must be explicitly
 
     curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426?fields=download_sizes"
 
+Some fields require additional authorization access and must be explicitly specified. In these cases clients must also provide an `access_token`.
+
+    curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" -H "Authorization: Bearer {access_token}" "https://connect.gettyimages.com/v3/images/452224426?fields=downloads"
+
 ##### Downloadable Sizes
 
-Calculating download authorizations for the various available sizes of an image is computationally expensive. Therefore, clients must explicitly specify that they want this information via the `fields` querystring parameter. Clients must also provide an <a href="#authorizations" target="_blank">access token</a> to retrieve downloadable sizes.
+Calculating download authorizations for the various available sizes of an image is computationally expensive. Therefore, clients must explicitly specify that they want this information via the `fields` querystring parameter. Clients must also provide an [access token](#authorizations) to retrieve downloadable sizes.
 
 The following tables explain the available arguments and show the allowed `fields` arguments for the endpoints that can return sizes and downloads.
 
@@ -174,6 +192,10 @@ Display sizes can be retrieved by passing any of the following arguments in the 
 | preview  | medium display size, approximately 400 pixels wide |
 | thumb    | smallest display size, usually 170 pixels wide     |
 
+### Resources
+
+Connect provides a RESTful API centered around resources, identified by a URI, that can be acted upon by the standard [HTTP verbs](#http-verbs). Descriptions of the Connect resources are provided on our [interactive documentation page](https://connect.gettyimages.com/swagger).
+
 ### Http Verbs
 
 Where possible, Connect strives to use appropriate HTTP verbs for each action.
@@ -184,10 +206,6 @@ GET	| Used for retrieving resources.
 POST	| Used for creating resources, or performing custom actions.
 PUT	| Used for replacing resources or collections. For PUT requests with no body attribute, be sure to set the Content-Length header to zero.
 DELETE	| Used for deleting resources.
-
-### HTTP Redirects
-
-Connect uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirection is not an error and clients should follow that redirect. Redirect responses will have a `Location` header field which contains the URI of the resource to which the client should repeat the requests. Connect currently uses <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.3" target="_blank">`302 Found`</a> and <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.4" target="_blank">`303 See Other`</a> for redirects.
 
 ### Parameters
 
@@ -204,6 +222,32 @@ Some resources allow filtering on their representations, using the `fields` quer
     curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/images/452224426?fields=id,title"
 
 In the last example, the response will contain only the fields `id` and `title`.
+
+### Hypermedia
+
+All resources may have one or more URI properties linking to other resources. These provide explicit URIs to additional resources, saving Connect clients from the need to construct the URIs on their own.
+
+Here's an example of a search result providing a URI for downloading the image's largest size.
+
+```json
+"images": [
+    {
+        "id": "3231670",
+         "largestDownloads": [
+            {
+                "product-type": "premiumaccess",
+                "uri": "https://connect.gettyimages.com/Public/3.0/downloads/3231670"
+            }
+        ]
+    }
+]
+```
+
+A POST to the provided URI with a valid Api-Key and access token will download the image.
+
+### HTTP Redirects
+
+Connect uses HTTP redirection where appropriate. Clients should assume that any request may result in a redirection. Receiving an HTTP redirection is not an error and clients should follow that redirect. Redirect responses will have a `Location` header field which contains the URI of the resource to which the client should repeat the requests. Connect currently uses [`302 Found`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.3) and [`303 See Other`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.4) for redirects.
 
 ### Errors
 
@@ -258,28 +302,6 @@ There are the most common errors a client may receive when calling Connect.
     }
     ```
 
-### Hypermedia
-
-All resources may have one or more URI properties linking to other resources. These provide explicit URIs to additional resources, saving Connect clients from the need to construct the URIs on their own.
-
-Here's an example of a search result providing a URI for downloading the image's largest size.
-
-```json
-"images": [
-    {
-        "id": "3231670",
-         "largestDownloads": [
-            {
-                "product-type": "premiumaccess",
-                "uri": "https://connect.gettyimages.com/Public/3.0/downloads/3231670"
-            }
-        ]
-    }
-]
-```
-
-A POST to the provided URI with a valid Api-Key and access token will download the image.
-
 ### Pagination
 
 Many Connect endpoints provide support for pagination of results. Pagination can be controlled by using the `page` and `page_size` querystring parameters. Default values will be used if none are provided.
@@ -290,27 +312,6 @@ Many Connect endpoints provide support for pagination of results. Pagination can
 This example demonstrates requesting the first page, containing 20 items, of search results.
 
     curl -H "Api-Key:j878g39yx378pa77djthzzpn" "https://connect.gettyimages.com/v3/search/images?phrase=dogs&page=1&page_size=20"
-
-### Throttling
-
-Api-Keys have associated throttle limits. These limits can be found on your <a href="https://api.gettyimages.com/apps/mykeys" target="_blank">account page</a>. Click the **View Report** link on your key to get the current status of your limits.
-
-There are two throttling limits and each has its own error message.
-
-- Calls per second
-    ```
-    HTTP/1.1 403 Forbidden
-    X-Error-Detail:  Account Over Queries Per Second Limit
-
-    {"message":"Account Over Queries Per Second Limit"}
-    ```
-- Calls per day
-    ```
-    HTTP/1.1 403 Forbidden
-    X-Error-Detail:  Account Over Rate Limit`
-
-    {"message":"Account Over Rate Limit"}
-    ```
 
 ### Cross Origin Resource Sharing
 
