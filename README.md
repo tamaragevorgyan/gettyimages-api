@@ -69,7 +69,6 @@ This page describes Connect version 3.0. <a href="v2/README.md" target="_blank">
 - [Errors](#errors)
 - [Pagination](#pagination)
 - [Cross Origin Resource Sharing](#cross-origin-resource-sharing)
-- [Timezones](#timezones)
 
 ### Current Version
 
