@@ -6,6 +6,7 @@ Getty Images Connect API Version 3.0
 
 - Simplified authentication and authorization. Client applications no longer need to maintain session tokens. Instead, applications identify themselves on every call to Connect with an Api-Key. Resources that require or support authorization based on user identity will accept OAuth2 access tokens in addition to the application’s Api-Key.
 - RESTful API for working with image and metadata resources leveraging HTTP verbs and returning standard HTTP Status codes.
+- Improved search performance: now twice as fast!
 - Simplified image download process by providing direct download links in search and metadata resources.
 - [Interactive documentation](https://connect.gettyimages.com/swagger/ui/index.html) that is always up-to-date and in sync with our latest API functionality.
 
