@@ -295,7 +295,7 @@ There are the most common errors a client may receive when calling Connect.
         "message": "Image not found: 452O76944"
     }
     ```
-1. Exceeding your Api-Key's [call per second throttle limit](#throttling) will result in a `403 Forbidden: Account Over Queries Per Second Limit` response.
+1. Exceeding your Api-Key's [call per second throttle limit](#request-throttling) will result in a `403 Forbidden: Account Over Queries Per Second Limit` response.
     ```http
     HTTP/1.1 403 Forbidden
     X-Error-Detail:  Account Over Queries Per Second Limit
@@ -305,7 +305,7 @@ There are the most common errors a client may receive when calling Connect.
         "message": "Account Over Queries Per Second Limit"
     }
     ```
-1. Exceeding your Api-Key's [call per day throttle limit](#throttling) will result in a `403 Forbidden: Account Over Rate Limit` response.
+1. Exceeding your Api-Key's [call per day throttle limit](#request-throttling) will result in a `403 Forbidden: Account Over Rate Limit` response.
     ```http
     HTTP/1.1 403 Forbidden
     X-Error-Detail:  Account Over Rate Limit
