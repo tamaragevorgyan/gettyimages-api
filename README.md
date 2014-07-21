@@ -9,9 +9,9 @@ This page describes Connect version 3.0. <a href="v2/README.md" target="_blank">
 
 ## New Features
 
+- __Improved search performance: now twice as fast!__
 - Simplified authentication and authorization. Client applications no longer need to maintain session tokens. Instead, applications identify themselves on every call to Connect with an Api-Key. Resources that require or support authorization based on user identity will accept OAuth2 access tokens in addition to the application’s Api-Key.
 - RESTful API for working with image and metadata resources leveraging HTTP verbs and returning standard HTTP Status codes.
-- Improved search performance: now twice as fast!
 - Simplified image download process by providing direct download links in search and metadata resources.
 - <a href="https://connect.gettyimages.com/swagger" target="_blank">Interactive documentation</a> that is always up-to-date and in sync with our latest API functionality.
 
