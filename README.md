@@ -13,7 +13,7 @@ This page describes Connect version 3.0. <a href="v2/README.md" target="_blank">
 - RESTful API for working with image and metadata resources leveraging HTTP verbs and returning standard HTTP Status codes.
 - Improved search performance: now twice as fast!
 - Simplified image download process by providing direct download links in search and metadata resources.
-- [Interactive documentation](https://connect.gettyimages.com/swagger/ui/index.html) that is always up-to-date and in sync with our latest API functionality.
+- <a href="https://connect.gettyimages.com/swagger" target="_blank">Interactive documentation</a> that is always up-to-date and in sync with our latest API functionality.
 
 ## Quick links
 
