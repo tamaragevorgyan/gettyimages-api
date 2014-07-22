@@ -9,37 +9,37 @@ download on Getty Images using an active download agreement.
 
 ##Steps to Get Started
 1. [Register for API credentials](https://api.gettyimages.com/member/register) via our portal.
-2. Familiarize yourself with the [core concepts] (https://github.com/gettyimages/connect/blob/master/README.md#core-concepts) and the API operations.
-3. Begin developing your application, using the [Client Credentials flow] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/oauth2/README.md#client-credentials-flow) on the OAuth 2 endpoint.
+2. Familiarize yourself with the [core concepts] (#core-concepts) and the API operations.
+3. Begin developing your application, using the [Client Credentials flow] (../oauth2.md#client-credentials-flow) on the OAuth 2 endpoint.
 
 We will reach out to you concerning commercialization of your application.
 
 ##Endpoints
 
 ###Session operations
-- **[<code>POST</code> OAuth 2.0] (https://github.com/gettyimages/connect/tree/master/documentation/endpoints/oauth2)**
-- **[<code>POST</code> CreateSession](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/session/CreateSession.md)**
-- **[<code>POST</code> RenewSession](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/session/RenewSession.md)**
+- **[<code>POST</code> OAuth 2.0] (../oauth2.md)**
+- **[<code>POST</code> CreateSession](endpoints/session/CreateSession.md)**
+- **[<code>POST</code> RenewSession](endpoints/session/RenewSession.md)**
 
 ###Search operations
-- **[<code>POST</code> SearchForImages](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/search/SearchForImages.md)**
-- **[<code>POST</code> GetImageDetails](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/search/GetImageDetails.md)**
-- **[<code>POST</code> GetEventDetails](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/search/GetEventDetails.md)**
-- **[<code>POST</code> SearchForVideos](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/search/SearchForVideos.md)**
+- **[<code>POST</code> SearchForImages](endpoints/search/SearchForImages.md)**
+- **[<code>POST</code> GetImageDetails](endpoints/search/GetImageDetails.md)**
+- **[<code>POST</code> GetEventDetails](endpoints/search/GetEventDetails.md)**
+- **[<code>POST</code> SearchForVideos](endpoints/search/SearchForVideos.md)**
 
 ###Download operations
-- **[<code>POST</code> GetImageDownloadAuthorizations](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/download/GetImageDownloadAuthorizations.md)**
-- **[<code>POST</code> GetLargestImageDownloadAuthorizations](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/download/GetLargestImageDownloadAuthorizations.md)**
-- **[<code>POST</code> CreateDownloadRequest](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/download/CreateDownloadRequest.md)**
+- **[<code>POST</code> GetImageDownloadAuthorizations](endpoints/download/GetImageDownloadAuthorizations.md)**
+- **[<code>POST</code> GetLargestImageDownloadAuthorizations](endpoints/download/GetLargestImageDownloadAuthorizations.md)**
+- **[<code>POST</code> CreateDownloadRequest](endpoints/download/CreateDownloadRequest.md)**
 
 ###Lightbox operations
-- **[<code>POST</code> CreateLightbox] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/CreateLightbox.md)**
-- **[<code>POST</code> GetLightbox] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/GetLightbox.md)**
-- **[<code>POST</code> CreateLightboxItems] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/CreateLightboxItems.md)**
-- **[<code>POST</code> DeleteLightboxItems] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/DeleteLightboxItems.md)**
-- **[<code>POST</code> DeleteLightbox] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/DeleteLightbox.md)**
-- **[<code>POST</code> GetLightboxHeaders] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/GetLightboxHeaders.md)**
-- **[<code>POST</code> UpdateLightboxHeader] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/lightbox/UpdateLightboxHeader.md)**
+- **[<code>POST</code> CreateLightbox] (endpoints/lightbox/CreateLightbox.md)**
+- **[<code>POST</code> GetLightbox] (endpoints/lightbox/GetLightbox.md)**
+- **[<code>POST</code> CreateLightboxItems] (endpoints/lightbox/CreateLightboxItems.md)**
+- **[<code>POST</code> DeleteLightboxItems] (endpoints/lightbox/DeleteLightboxItems.md)**
+- **[<code>POST</code> DeleteLightbox] (endpoints/lightbox/DeleteLightbox.md)**
+- **[<code>POST</code> GetLightboxHeaders] (endpoints/lightbox/GetLightboxHeaders.md)**
+- **[<code>POST</code> UpdateLightboxHeader] (endpoints/lightbox/UpdateLightboxHeader.md)**
 
 ##Core Concepts
 
@@ -48,7 +48,7 @@ All operations in the Getty Images Connect API require an access token
 argument provided in the RequestHeader. Authorization is granted and an access token based on application and user credentials. The access token securely identifies the caller of an operation. When called, an operation checks the validity of the token before executing the request. A malformed, invalid, or expired token causes an operation to fail.
 
 Clients get access tokens by authenticating themselves using one of the OAuth2 authorization flows.
-(Before OAuth2, tokens were retrieved by calling the CreateSession operation.) Most client applications are required to provide the API credentials and a specific user's credentials. For more information, see our [OAuth2 documentation] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/oauth2/README.md).
+(Before OAuth2, tokens were retrieved by calling the CreateSession operation.) Most client applications are required to provide the API credentials and a specific user's credentials. For more information, see our [OAuth2 documentation] (../oauth2.md).
 
 ###Secure-Only Operations
 Some operations are secure only. These operation must be called over an SSL 
