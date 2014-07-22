@@ -19,7 +19,7 @@ We will reach out to you concerning commercialization of your application.
 ###Session operations
 - **[<code>POST</code> OAuth 2.0] (../oauth2.md)**
 - **[<code>POST</code> CreateSession](endpoints/session/CreateSession.md)**
-- **[<code>POST</code> RenewSession](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/session/RenewSession.md)**
+- **[<code>POST</code> RenewSession](endpoints/session/RenewSession.md)**
 
 ###Search operations
 - **[<code>POST</code> SearchForImages](endpoints/search/SearchForImages.md)**
