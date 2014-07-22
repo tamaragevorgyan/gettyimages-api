@@ -17,7 +17,7 @@ We will reach out to you concerning commercialization of your application.
 ##Endpoints
 
 ###Session operations
-- **[<code>POST</code> OAuth 2.0] (../oauth2.md)**
+- **[<code>POST</code> OAuth 2.0] (endpoints/oauth2/README.md)**
 - **[<code>POST</code> CreateSession](endpoints/session/CreateSession.md)**
 - **[<code>POST</code> RenewSession](endpoints/session/RenewSession.md)**
 
