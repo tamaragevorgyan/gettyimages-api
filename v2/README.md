@@ -9,7 +9,7 @@ download on Getty Images using an active download agreement.
 
 ##Steps to Get Started
 1. [Register for API credentials](https://api.gettyimages.com/member/register) via our portal.
-2. Familiarize yourself with the [core concepts] (https://github.com/gettyimages/connect/blob/master/README.md#core-concepts) and the API operations.
+2. Familiarize yourself with the [core concepts] (#core-concepts) and the API operations.
 3. Begin developing your application, using the [Client Credentials flow] (https://github.com/gettyimages/connect/blob/master/documentation/endpoints/oauth2/README.md#client-credentials-flow) on the OAuth 2 endpoint.
 
 We will reach out to you concerning commercialization of your application.
@@ -17,7 +17,7 @@ We will reach out to you concerning commercialization of your application.
 ##Endpoints
 
 ###Session operations
-- **[<code>POST</code> OAuth 2.0] (https://github.com/gettyimages/connect/tree/master/documentation/endpoints/oauth2)**
+- **[<code>POST</code> OAuth 2.0] (../oauth2.md)**
 - **[<code>POST</code> CreateSession](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/session/CreateSession.md)**
 - **[<code>POST</code> RenewSession](https://github.com/gettyimages/connect/tree/master/documentation/endpoints/session/RenewSession.md)**
 
