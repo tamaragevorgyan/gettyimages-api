@@ -48,7 +48,7 @@ All operations in the Getty Images Connect API require an access token
 argument provided in the RequestHeader. Authorization is granted and an access token based on application and user credentials. The access token securely identifies the caller of an operation. When called, an operation checks the validity of the token before executing the request. A malformed, invalid, or expired token causes an operation to fail.
 
 Clients get access tokens by authenticating themselves using one of the OAuth2 authorization flows.
-(Before OAuth2, tokens were retrieved by calling the CreateSession operation.) Most client applications are required to provide the API credentials and a specific user's credentials. For more information, see our [OAuth2 documentation] (../oauth2.md).
+(Before OAuth2, tokens were retrieved by calling the CreateSession operation.) Most client applications are required to provide the API credentials and a specific user's credentials. For more information, see our [OAuth2 documentation] (endpoints/oauth2/README.md).
 
 ###Secure-Only Operations
 Some operations are secure only. These operation must be called over an SSL 
