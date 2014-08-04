@@ -8,6 +8,7 @@ Getty Images Connect API Version 3.0
 - RESTful API for working with image and metadata resources leveraging HTTP verbs and returning standard HTTP Status codes.
 - Simplified image download process by providing direct download links in search and metadata resources.
 - [Interactive documentation](https://connect.gettyimages.com/swagger/ui/index.html) that is always up-to-date and in sync with our latest API functionality.
+- Most operations accept the Accept-Language header ([GET /v3/downloads being an exception).  A blank or invalid Accept-Language header defaults to "en-us" for United States English.
 
 ### Additional Notes
 
