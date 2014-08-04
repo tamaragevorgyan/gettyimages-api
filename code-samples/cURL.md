@@ -39,6 +39,6 @@ NOTE: This operation requires an Authorization Header
 	curl -H "Api-Key:{your-api-key}" -H "Authorization: Bearer {your-token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o 83454811.jpg
 
 ### Countries
-NOTE: This operation requires an Accept-Language Header.  A missing or invalid Accept-Language header returns results in en-US (United States English).
+NOTE: This operation accepts an `Accept-Language` HTTP Header.  A missing or invalid `Accept-Language` HTTP header returns results in `en-US` (United States English).
 
-	curl -H "Accept-Language:{your language}" https://connect.gettyimages.com/v3/countries
+	curl -H "Api-Key:{your-api-key}" -H "Accept-Language:{your language}" https://connect.gettyimages.com/v3/countries
