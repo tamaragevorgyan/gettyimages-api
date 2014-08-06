@@ -23,12 +23,16 @@ Use the authentication/authorization header option in the operations below depen
 
 ##### Images
     curl {headers} https://connect.gettyimages.com/v3/search/images?phrase=kitties
+
 ##### Images Creative
     curl {headers} https://connect.gettyimages.com/v3/search/images/creative?phrase=kitties
+
 ##### Images Editorial
     curl {headers} https://connect.gettyimages.com/v3/search/images/editorial?phrase=kitties
+
 ##### Paging Results
     curl {headers} https://connect.gettyimages.com/v3/search/images?phrase=kitties&page=1&page_size=10
+
 ### Image Metadata
 NOTE: Some command line tools may require you to quote the url
 
@@ -36,9 +40,9 @@ NOTE: Some command line tools may require you to quote the url
 ### Downloads
 NOTE: This operation requires an Authorization Header
 
-	curl -H "Api-Key:{your-api-key}" -H "Authorization: Bearer {your-token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o 83454811.jpg
+    curl -H "Api-Key:{your-api-key}" -H "Authorization: Bearer {your-token}" https://connect.gettyimages.com/v3/downloads/83454811 -d "'" -L -o 83454811.jpg
 
 ### Countries
-NOTE: This operation accepts an `Accept-Language` HTTP Header.  A missing or invalid `Accept-Language` HTTP header returns results in `en-US` (United States English).
+This endpoint returns allowed country codes for use with other endpoints. It supports localization.
 
-	curl -H "Api-Key:{your-api-key}" -H "Accept-Language:{your language}" https://connect.gettyimages.com/v3/countries
+    curl -i -H "Api-Key:{your-api-key}" -H "Accept-Language:en-US" https://connect.gettyimages.com/v3/countries
