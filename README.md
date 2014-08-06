@@ -4,8 +4,7 @@ Seamlessly integrate Getty Images' expansive digital content, powerful search te
 - <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Search" target="_blank">Search</a> for images from our extensive creative and editorial catalogs.
 - Get <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Images" target="_blank">image metadata</a>.
 - <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Downloads" target="_blank">Download</a> files using your Getty Images products (e.g., Editorial subscriptions, Easy Access, Thinkstock Subscriptions, and Image Packs).
-- List countries and country codes using <a href="https://connect.gettyimages.com/swagger/ui/index.html#!/Countries" target="_blank">Countries</a>.
- 
+
 This page describes Connect version 3.0. <a href="v2/README.md" target="_blank">Documentation for prior versions</a> is also available.
 
 ## New Features
@@ -14,7 +13,7 @@ This page describes Connect version 3.0. <a href="v2/README.md" target="_blank">
 - RESTful API for working with image and metadata resources leveraging HTTP verbs and returning standard HTTP Status codes.
 - Simplified image download process by providing direct download links in search and metadata resources.
 - <a href="https://connect.gettyimages.com/swagger" target="_blank">Interactive documentation</a> that is always up-to-date and in sync with our latest API functionality.
-- Connect supports localization of search phrases and results via the `Accept-Language` HTTP header. *Please Note:*  Not all languages are supported the Connect API.
+- Localization support using the `Accept-Language` HTTP header.
 
 ## Quick links
 
@@ -104,15 +103,6 @@ If elevated client privilege is required but missing, Connect returns an authori
 
     HTTP/1.1 401 Unauthorized
     WWW-Authenticate: Bearer realm="Download",error="invalid_token",error_description="The access token is missing"
-
-### Country Codes
-
-The Connect `GET /v3/Countries` returns a list of ISO country names and two and three character ISO country codes corresponding to a specified HTTP `Accept-Language:` header.  `GET /v3/Countries` will return the entire list of countries if
-- The `Accept-Language:{language}` (i.e. the `Accept-Language: en` HTTP header is omitted),
-- The language is omitted form the HTTP header (i.e. `Accept-Language:`), or 
-- the language is invalid or malformed (i.e., `Accept-Header: xx`).
-
-     curl -i -H "Accept-Language:en-US" https://connect.gettyimages.com:443/v3/Countries
 
 ### Request Throttling
 
@@ -347,22 +337,7 @@ We support cross origin resource sharing ([CORS](http://www.w3.org/TR/cors/)). A
 
 ### Localization
 
-Connect returns results in many languages.  You can request endpoint results in a language using the HTTP 1.1 `Accept-Language` header.  The `Accept-Language:` header is defined by HTTP 1.1 (RFC 2616) as having a language code, an optional language range and an optional optional quality value.  Connect implements the `language` value as 
-- a two character ISO language code,
-- an optional two character ISO country code preceeded by a hyphen ('-'), and 
-- an optional "q" number preceeded by a semicolon and followed by = and a number between 0.0 and 1.0 in increments of 0.1 (see RFC 2616 for the meaning of the "q" number.
-
-Valid `language` specifications include
-- `en`:  results in English are requested,
-- `en-US`: results in United States English 
-- `en-US;q=0.9,es`
-
-Connect will return results in `en-US` if
-- you omit the `Accept-Language:{language}` HTTP header, 
-- omit the `language` or 
-- specify a `language` or `country` not known to Connect.
-
-`Accept-Language:` identifies a language, its optional country of usage, and an optional using its two character ISO code, `en` or `es`, and, optionally, a hyphen and two letter country ISO country code and an optional :
-- `en` specifies English,
-- `en-US` specifies English as spoken in the United States, or
-- `en-UK` for English as spoken in the United Kingdon.
+Many Connect endpoints provide support for localization of certain request or response fields using the `Accept-Language` HTTP header. This header value defaults to `en-US` if
+- the client omits the `Accept-Language` HTTP header,
+- the client omits a locale, or
+- the client specifies an unsupported locale.
