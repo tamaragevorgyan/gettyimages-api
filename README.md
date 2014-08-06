@@ -341,3 +341,8 @@ Many Connect endpoints provide support for localization of certain request or re
 - the client omits the `Accept-Language` HTTP header,
 - the client omits a locale, or
 - the client specifies an unsupported locale.
+
+This example will return country names in French.
+
+    curl -i -H "Api-Key:j878g39yx378pa77djthzzpn" -H "Accept-Language:fr" https://connect.gettyimages.com/v3/countries
+    
