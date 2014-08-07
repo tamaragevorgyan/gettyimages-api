@@ -112,6 +112,42 @@ Use the authentication/authorization header option in the operations below depen
     echo "Download Code: ".$response["http_code"] . "\n";
     echo "Download Headers: ".$response['header'] . "\n";
 
+### Collections
+
+Use the authentication/authorization header option in the operations below depending on the operation used:
+
+    echo "**********Collections **********\n\n";
+    $endpoint = "https://connect.gettyimages.com/v3/collections";
+
+    $headersToSend = array(CURLOPT_HTTPHEADER => array("Api-Key:".$client_key,
+                        "Authorization: ".$tokenType." ".$token),
+                          CURLOPT_PROXY => "127.0.0.1:8888",
+                          CURLOPT_FOLLOWLOCATION => TRUE); //this lets curl follow the 303
+
+    $curl = getCurl($endpoint,$headersToSend);
+    $response = executeCurl($curl);
+
+    $response = json_decode($response['body'],true);
+
+    echo "Collections returned ". json_encode($response["collections"]) . "\n\n\n";
+
+### Countries
+
+    echo "**********Countries **********\n\n";
+    $endpoint = "https://connect.gettyimages.com/v3/countries";
+
+    $headersToSend = array(CURLOPT_HTTPHEADER => array("Api-Key:".$client_key,
+                "Authorization: ".$tokenType." ".$token),
+                  CURLOPT_PROXY => "127.0.0.1:8888",
+                  CURLOPT_FOLLOWLOCATION => TRUE); //this lets curl follow the 303
+
+    $curl = getCurl($endpoint,$headersToSend);
+    $response = executeCurl($curl);
+
+    $response = json_decode($response['body'],true);
+
+    echo "Countries returned ". json_encode($response["countries"]) . "\n\n\n";
+
 ### Helper Functions
 
 ##### executeCurl
