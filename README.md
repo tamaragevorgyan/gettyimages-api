@@ -332,7 +332,7 @@ This example demonstrates requesting the first page, containing 20 items, of sea
 
 ### Cross Origin Resource Sharing
 
-We support cross origin resource sharing ([CORS](http://www.w3.org/TR/cors/)). All endpoints return the following header.
+We support cross origin resource sharing ([CORS](http://www.w3.org/TR/cors/)). All endpoints, besides OAuth, return the following header.
 
     Access-Control-Allow-Origin: *
 
