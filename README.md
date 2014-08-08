@@ -203,7 +203,9 @@ Display sizes can be retrieved by passing any of the following arguments in the 
 
 | `fields` argument | description           |
 |-------------------|-----------------------|
-| `comp`            | largest display size  |
+| `display_set`     | all display sizes     |
+| `high_res_comp`   | largest display size  |
+| `comp`            | large display size    |
 | `preview`         | medium display size   |
 | `thumb`           | smallest display size |
 
