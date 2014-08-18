@@ -70,7 +70,7 @@ This page describes Connect version 3.0. <a href="v2/README.md" target="_blank">
 - [Pagination](#pagination)
 - [Cross Origin Resource Sharing](#cross-origin-resource-sharing)
 - [Localization](#localization)
-- [oEmbed](#oEmbed)
+- [oEmbed](#oembed)
 
 ### Current Version
 
