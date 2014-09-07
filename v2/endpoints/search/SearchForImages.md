@@ -229,11 +229,11 @@ The SearchForImages JSON response has this form:
 	        "Category": "",
 	        "Id": "",
 	        "ImageCount": int,
-            "Text": ""
-          }
-        ]
-      }
-    }
+	        "Text": "",
+	      }
+	    ]
+	  }
+	}
 
 ###ResponseHeader fields
 The ResponseHeader contains metadata about the operation execution and response.
