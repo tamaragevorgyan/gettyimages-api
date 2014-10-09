@@ -325,7 +325,7 @@ There are the most common errors a client may receive when calling Connect.
 Many Connect endpoints provide support for pagination of results. Pagination can be controlled by using the `page` and `page_size` querystring parameters. Default values will be used if none are provided.
 
 - The `page` parameter defaults to 1.
-- Search results default to a `page_size` of 30 items per `page`. The maximum `page_size` is 100.
+- Search results default to a `page_size` of 30 items per `page`. Valid values are: 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 25, 30, 50, 60, 75, 100.
 
 This example demonstrates requesting the first page, containing 20 items, of search results.
 
