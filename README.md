@@ -250,15 +250,24 @@ Here's an example of a search result providing a URI for downloading the image's
 ```json
 "images": [
     {
-        "id": "3231670",
-         "largestDownloads": [
+      "id": "3231670",
+      "largest_downloads": [
+        {
+          "media_type": "image/jpeg",
+          "bytes": 2226077,
+          "downloads": [
             {
-                "product-type": "premiumaccess",
-                "uri": "https://connect.gettyimages.com/Public/3.0/downloads/3231670"
+              "product_type": "premiumaccess",
+              "uri": "https://connect.gettyimages.com/v3/downloads/3231670"
             }
-        ]
+          ],
+          "height": 3000,
+          "width": 1607
+        }
+      ]
     }
-]
+  ]
+
 ```
 
 A POST to the provided URI with a valid Api-Key and access token will download the image.
