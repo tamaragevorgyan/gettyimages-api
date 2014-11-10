@@ -23,6 +23,7 @@ This page describes Connect version 3.0. <a href="v2/README.md" target="_blank">
 - <a href="https://connect.gettyimages.com/swagger" target="_blank">Interactive Documentation</a>
 - <a href="code-samples" target="_blank">Code Samples</a>
 - <a href="release-notes.md" target="_blank">Release Notes</a>
+- [Getty Images API SDKs](#sdks)
 
 ## Getting Started
 
@@ -434,3 +435,12 @@ Example response:
 1. Call CreateSession or OAuth with system/key and user credentials to create an authentication token.
 2. Call SearchForImages to find images specifying the search is for embeddable images only, by adding the Filter property EmbedContentOnly (boolean) within the SearchForImagesRequestBody.
 3. Call oEmbed with each of the asset ids of the embeddable images that you wish to use.
+
+## SDKs
+SDKs for our API are available for multiple languages:
+- <a href="https://github.com/gettyimages/connect_sdk_csharp" target="_blank">C#</a>
+- <a href="https://github.com/gettyimages/connect_sdk_java" target="_blank">Java</a>
+- <a href="https://github.com/gettyimages/connect_sdk_nodejs" target="_blank">Node.js</a>
+- <a href="https://github.com/gettyimages/connect_sdk_objective-c" target="_blank">Objective-C (iOS and OS X)</a>
+- <a href="https://github.com/gettyimages/connect_sdk_php" target="_blank">PHP</a>
+- <a href="https://github.com/gettyimages/connect_sdk_ruby" target="_blank">Ruby</a>
