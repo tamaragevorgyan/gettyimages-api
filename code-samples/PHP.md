@@ -8,6 +8,8 @@ Please note the sample code assumes the following properties are set:
 
 The code also utilizes the [helper functions](#helper-functions) at the bottom of this file.  
 
+If this is too much php twiddling for your liking, you could check out the sdk over at [github/gettyimages/connect_sdk_php](http://www.github.com/gettyimages/connect_sdk_php) 
+
 #### A few things about Curl Settings
 For troubleshooting purposes there are a few settings that can be used to configure curl.  All these settings go into the CURLOPT_HEADER php array.
 
