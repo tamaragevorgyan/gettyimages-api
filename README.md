@@ -219,12 +219,12 @@ Connect provides a RESTful API centered around resources, identified by a URI, t
 
 Connect strives to use appropriate HTTP verbs to perform actions on our [resources](#resources).
 
-| verb  	| description                                           |
-|--------| ------------------------------------------------------|
-| GET 	  | use to retrieve a resources or collection             |
-| POST	  | use to creating a resource or perform a custom action |
-| PUT    | *unsupported at this time*                            |
-| DELETE | *unsupported at this time*                            |
+| verb   | description                                          |
+|--------| -----------------------------------------------------|
+| GET 	 | use to retrieve a resources or collection            |
+| POST	 | use to create a resource or perform a custom action  |
+| PUT    | use to store an entity under a specific resource     |
+| DELETE | *unsupported at this time*                           |
 
 ### Parameters
 
