@@ -385,9 +385,13 @@ In addition, you should use the optional caller parameter, providing descriptive
 
 The oEmbed request returns JSON. If the *optional* "format" parameter is used it must contain the value "json". Other formats are not supported and using another value such as "xml" will result in a 501 (Not Implemented) error.
 
+The rendered embed content may include an optional caption that is displayed when a user mouses over an image, or on a mobile device chooses to show the caption from the radial menu. To include the optional caption in the embed use the optional parameter, "caption" and set the value to "true".
+
+    caption: true
+
 Example request:
 
-	http://embed.gettyimages.com/oembed?url=http%3a%2f%2fgty.im%2f74917285&caller=example.com
+	http://embed.gettyimages.com/oembed?url=http%3a%2f%2fgty.im%2f74917285&caller=example.com&caption=true
 
 
 ##### Response
@@ -416,7 +420,7 @@ Example response:
 		"version": "1.0",
 		"height": 643,
 		"width": 395,
-		"html": "\u003cdiv style=\"background-color:#fff;display:inline-block;font-family:'Helvetica Neue',Arial,sans-serif;color:#a7a7a7;font-size:11px;width:100%;max-width:395px;min-width:300px;\"\u003e\u003cdiv style=\"overflow:hidden;position:relative;height:0;padding:150.379747% 0 49px 0;width:100%;\"\u003e\u003ciframe src=\"//localhost:3000/embed/74917285?et=GCDFoeg3T3xB1L6jmY5dDQ\u0026sig=mXFz-gxQc_lIp2nmITlHtjjKIvYL1UD6e5yjuPDQ9FU=\" width=\"395\" height=\"643\" scrolling=\"no\" frameborder=\"0\" style=\"display:inline-block;position:absolute;top:0;left:0;width:100%;height:100%;\"\u003e\u003c/iframe\u003e\u003c/div\u003e\u003cp style=\"margin:0;\"\u003e\u003c/p\u003e\u003cdiv style=\"padding:0;margin:4px 0 0 10px;text-align:left;\"\u003e\u003ca href=\"http://www.gettyimages.com/detail/74917285\" target=\"_blank\" style=\"color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;\"\u003e#74917285\u003c/a\u003e / \u003ca href=\"http://www.gettyimages.com\" target=\"_blank\" style=\"color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;\"\u003egettyimages.com\u003c/a\u003e\u003c/div\u003e\u003c/div\u003e",
+		"html": "\u003cdiv style=\"background-color:#fff;display:inline-block;font-family:'Helvetica Neue',Arial,sans-serif;color:#a7a7a7;font-size:11px;width:100%;max-width:395px;min-width:300px;\"\u003e\u003cdiv style=\"overflow:hidden;position:relative;height:0;padding:150.379747% 0 49px 0;width:100%;\"\u003e\u003ciframe src=\"//localhost:3000/embed/74917285?et=GCDFoeg3T3xB1L6jmY5dDQ\u0026sig=mXFz-gxQc_lIp2nmITlHtjjKIvYL1UD6e5yjuPDQ9FU=\u0026caption=true\" width=\"395\" height=\"643\" scrolling=\"no\" frameborder=\"0\" style=\"display:inline-block;position:absolute;top:0;left:0;width:100%;height:100%;\"\u003e\u003c/iframe\u003e\u003c/div\u003e\u003cp style=\"margin:0;\"\u003e\u003c/p\u003e\u003cdiv style=\"padding:0;margin:4px 0 0 10px;text-align:left;\"\u003e\u003ca href=\"http://www.gettyimages.com/detail/74917285\" target=\"_blank\" style=\"color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;\"\u003e#74917285\u003c/a\u003e / \u003ca href=\"http://www.gettyimages.com\" target=\"_blank\" style=\"color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;\"\u003egettyimages.com\u003c/a\u003e\u003c/div\u003e\u003c/div\u003e",
 		"title": "Model Released Basketball",
 		"caption": "Model Released: Two young men outdoors, one man holding basketball, portrait (Photo by Black 100/Getty Images)",
 		"photographer": "Black 100",
