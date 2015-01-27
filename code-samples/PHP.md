@@ -1,4 +1,4 @@
-#PHP
+# PHP Sample Code
 ### Note on this sample code
 
 Please note the sample code assumes the following properties are set:
@@ -18,7 +18,7 @@ For troubleshooting purposes there are a few settings that can be used to config
     //this will set curl to use a local proxy on port 8888s
     CURLOPT_PROXY => "127.0.0.1:8888"
 
-##### SSL Errors? 
+##### SSL Errors?
 Testing localy or proxy server with HTTPS passthrough and you're getting ssl validation errors?
 
     CURLOPT_SSL_VERIFYHOST => 0
@@ -39,7 +39,7 @@ An Authorization header is required to perform download operations. The format o
      */
 
     echo "**********Authenticate Client Credentials**********\n\n";
-    $endpoint = "https://connect.gettyimages.com/oauth2/token";
+    $endpoint = "https://api.gettyimages.com/oauth2/token";
     $curl = getCurlForFormPost($endpoint);
     setFormData($curl, array("grant_type" => "client_credentials",
                              "client_id" => $client_key,
@@ -60,7 +60,7 @@ Use the authentication/authorization header option in the operations below depen
 ##### Images
 
     echo "**********Search For Images**********\n\n";
-    $endpoint = "https://connect.gettyimages.com/v3/search/images";
+    $endpoint = "https://api.gettyimages.com/v3/search/images";
     $queryParams = array("phrase" => "kitties");
     $endpoint = $endpoint. (strpos($endpoint, '?') === FALSE ? '?' : ''). http_build_query($queryParams);
 
@@ -74,7 +74,7 @@ Use the authentication/authorization header option in the operations below depen
 ##### Images Creative
 
     echo "**********Search For Images Creative**********\n\n";
-    $endpoint = "https://connect.gettyimages.com/v3/search/images/creative";
+    $endpoint = "https://api.gettyimages.com/v3/search/images/creative";
     $queryParams = array("phrase" => "kitties");
     $endpoint = $endpoint. (strpos($endpoint, '?') === FALSE ? '?' : ''). http_build_query($queryParams);
 
@@ -88,7 +88,7 @@ Use the authentication/authorization header option in the operations below depen
 ##### Images Editorial
 
     echo "**********Search For Images Editorial**********\n\n";
-    $endpoint = "https://connect.gettyimages.com/v3/search/images/editorial";
+    $endpoint = "https://api.gettyimages.com/v3/search/images/editorial";
     $queryParams = array("phrase" => "kitties");
     $endpoint = $endpoint. (strpos($endpoint, '?') === FALSE ? '?' : ''). http_build_query($queryParams);
 
@@ -102,8 +102,8 @@ Use the authentication/authorization header option in the operations below depen
 ### Image Metadata
 
     echo "**********Search For Images Editorial**********\n\n";
-    $endpoint = "https://connect.gettyimages.com/v3/search/images/images/83454811,186239980";
-    
+    $endpoint = "https://api.gettyimages.com/v3/search/images/images/83454811,186239980";
+
     $curl = getCurl($endpoint);
     curl_setopt($curl,CURLOPT_HTTPHEADER,array("Api-Key:".$client_key));
 
@@ -115,7 +115,7 @@ Use the authentication/authorization header option in the operations below depen
 
     echo "**********Download Image**********\n\n";
     $imageIdToGet = 83454811;
-    $endpoint = "https://connect.gettyimages.com/v3/downloads/".$imageIdToGet;
+    $endpoint = "https://api.gettyimages.com/v3/downloads/".$imageIdToGet;
 
     $headersToSend = array(CURLOPT_HTTPHEADER => array("Api-Key:".$client_key,
                            "Authorization: ".$tokenType." ".$token),
@@ -132,7 +132,7 @@ Use the authentication/authorization header option in the operations below depen
 Use the authentication/authorization header option in the operations below depending on the operation used:
 
     echo "**********Collections **********\n\n";
-    $endpoint = "https://connect.gettyimages.com/v3/collections";
+    $endpoint = "https://api.gettyimages.com/v3/collections";
 
     $headersToSend = array(CURLOPT_HTTPHEADER => array("Api-Key:".$client_key,
                         "Authorization: ".$tokenType." ".$token),
@@ -148,7 +148,7 @@ Use the authentication/authorization header option in the operations below depen
 ### Countries
 
     echo "**********Countries **********\n\n";
-    $endpoint = "https://connect.gettyimages.com/v3/countries";
+    $endpoint = "https://api.gettyimages.com/v3/countries";
 
     $headersToSend = array(CURLOPT_HTTPHEADER => array("Api-Key:".$client_key,
                 "Authorization: ".$tokenType." ".$token),
@@ -176,20 +176,20 @@ Use the authentication/authorization header option in the operations below depen
       if(!$optionsToAdd) {
         return $defaults;
       }
-  
-      if(array_key_exists(CURLOPT_HTTPHEADER,$optionsToAdd)) {    
+
+      if(array_key_exists(CURLOPT_HTTPHEADER,$optionsToAdd)) {
         if(array_key_exists(CURLOPT_HTTPHEADER, $defaults)) {
           $defaultHeaders = $defaults[CURLOPT_HTTPHEADER];
           $additionalHeaders = $optionsToAdd[CURLOPT_HTTPHEADER];
-  
+
           $mergedHeaders = $defaultHeaders + $additionalHeaders;
           $defaults[CURLOPT_HTTPHEADER] = $mergedHeaders;
           unset($optionsToAdd[CURLOPT_HTTPHEADER]);
         }
       }
-  
+
       $mergedOptions = $defaults + $optionsToAdd;
-  
+
       return $mergedOptions;
     }
 
@@ -200,9 +200,9 @@ Use the authentication/authorization header option in the operations below depen
         $response = curl_exec($curl);
 
         $error = curl_error($curl);
-        $result = array( 'header' => '', 
-                         'body' => '', 
-                         'curl_error' => '', 
+        $result = array( 'header' => '',
+                         'body' => '',
+                         'curl_error' => '',
                          'http_code' => '',
                          'last_url' => '');
         if ( $error != "" )
@@ -245,11 +245,11 @@ Use the authentication/authorization header option in the operations below depen
     }
 
     /**
-     *  Configures a curl object for form posting by getting a post request 
+     *  Configures a curl object for form posting by getting a post request
      *  and setting the content-type to 'application/x-www-form-urlencoded'
      */
     function getCurlForFormPost($url) {
-      $curlOptions = array(CURLOPT_HTTPHEADER => array("Content-Type: application/x-www-form-urlencoded")); 
+      $curlOptions = array(CURLOPT_HTTPHEADER => array("Content-Type: application/x-www-form-urlencoded"));
       $curl = getCurlForPost($url,$curlOptions);
 
       return $curl;
@@ -285,7 +285,7 @@ Use the authentication/authorization header option in the operations below depen
      */
     function getCurlForJSONPost($url, $data) {
       $data_string = json_encode($data,JSON_UNESCAPED_SLASHES);
-      $options = array(         
+      $options = array(
           CURLOPT_POSTFIELDS => $data_string,
           CURLOPT_HTTPHEADER => array('Content-Type: application/json','Content-Length: ' . strlen($data_string))
       );

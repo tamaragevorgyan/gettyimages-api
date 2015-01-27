@@ -1,8 +1,8 @@
-#Java Script Example Code
+# JavaScript Sample Code
 
 ### Authentication
 
-An Api-Key header is needed to authenticate to the Api and will allow you to access read-only operations. The following javascript defines a function that sets the Api-Key header for the current request:
+An Api-Key header is needed to authenticate to the Api and will allow you to access read-only operations. The following JavaScript defines a function that sets the Api-Key header for the current request:
 
     var appendApiKeyHeader = function( xhr ) {
       xhr.setRequestHeader('Api-Key', 'your-api-key')
@@ -10,7 +10,7 @@ An Api-Key header is needed to authenticate to the Api and will allow you to acc
 
 ### Authorization
 
-By design CORS headers for OAuth2 will prevent client-side javascript from posting to get security credentials.
+By design CORS headers for OAuth2 will prevent client-side JavaScript from posting to get security credentials.
 
 ### Search
 
@@ -24,7 +24,7 @@ The following sample code utilizes the appendApiKeyHeader function defined above
       $.ajax({
         type: "GET",
         beforeSend: appendApiKeyHeader,
-        url: "https://connect.gettyimages.com/v3/search",
+        url: "https://api.gettyimages.com/v3/search",
         data: searchRequest})
         .success(function (data, textStatus, jqXHR) { /* use search results */ })
         .fail(function (data, err) { /* handle errors */ });
@@ -38,7 +38,7 @@ The following sample code utilizes the appendApiKeyHeader function defined above
       $.ajax({
         type: "GET",
         beforeSend: appendApiKeyHeader,
-        url: "https://connect.gettyimages.com/v3/search/creative",
+        url: "https://api.gettyimages.com/v3/search/creative",
         data: searchRequest})
         .success(function (data, textStatus, jqXHR) { /* use search results */ })
         .fail(function (data, err) { /* handle errors */ });
@@ -52,7 +52,7 @@ The following sample code utilizes the appendApiKeyHeader function defined above
       $.ajax({
         type: "GET",
         beforeSend: appendApiKeyHeader,
-        url: "https://connect.gettyimages.com/v3/search/editorial",
+        url: "https://api.gettyimages.com/v3/search/editorial",
         data: searchRequest})
         .success(function (data, textStatus, jqXHR) { /* use search results */ })
         .fail(function (data, err) { /* handle errors */ });
@@ -64,7 +64,7 @@ The following sample code utilizes the appendApiKeyHeader function defined above
       $.ajax({
         type: "GET",
         beforeSend: appendApiKeyHeader,
-        url: "https://connect.gettyimages.com/v3/images/{id}"})
+        url: "https://api.gettyimages.com/v3/images/{id}"})
         .success(function (data, textStatus, jqXHR) { /* use image metadata */ })
         .fail(function (data, err) { /* handle errors */ });
     }
