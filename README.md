@@ -439,9 +439,9 @@ Example response:
 
 ## SDKs
 SDKs for our API are available for multiple languages:
-- <a href="https://github.com/gettyimages/connect_sdk_csharp" target="_blank">C#</a>
-- <a href="https://github.com/gettyimages/connect_sdk_java" target="_blank">Java</a>
-- <a href="https://github.com/gettyimages/connect_sdk_nodejs" target="_blank">Node.js</a>
-- <a href="https://github.com/gettyimages/connect_sdk_objective-c" target="_blank">Objective-C (iOS and OS X)</a>
-- <a href="https://github.com/gettyimages/connect_sdk_php" target="_blank">PHP</a>
-- <a href="https://github.com/gettyimages/connect_sdk_ruby" target="_blank">Ruby</a>
+- <a href="https://github.com/gettyimages/gettyimages-api_dotnet" target="_blank">C#</a>
+- <a href="https://github.com/gettyimages/gettyimages-api_java" target="_blank">Java</a>
+- <a href="https://github.com/gettyimages/gettyimages-api_nodejs" target="_blank">Node.js</a>
+- <a href="https://github.com/gettyimages/gettyimages-api_objective-c" target="_blank">Objective-C (iOS and OS X)</a>
+- <a href="https://github.com/gettyimages/gettyimages-api_php" target="_blank">PHP</a>
+- <a href="https://github.com/gettyimages/gettyimages-api_ruby" target="_blank">Ruby</a>
