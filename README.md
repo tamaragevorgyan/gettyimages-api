@@ -30,7 +30,7 @@ This page describes the Getty Images API version 3.0. <a href="v2/README.md" tar
 
 ### If you already have a Mashery Member account
 
-1. <a href="https://api.gettyimages.com/login/login" target="_blank">Sign in</a> with your Mashery Member credentials.
+1. <a href="https://developer.gettyimages.com/login/login" target="_blank">Sign in</a> with your Mashery Member credentials.
 2. Click the **My Account** link near the top right of the page.
 3. Click the **Get API keys** button.
 4. Register your application and select your desired type of Api-Key. We provide two key options.
@@ -41,7 +41,7 @@ This page describes the Getty Images API version 3.0. <a href="v2/README.md" tar
 
 ### If you do not have a Mashery Member account
 
-1. <a href="https://api.gettyimages.com/member/register" target="_blank">Register</a> a new Mashery Member account and your application.
+1. <a href="https://developer.gettyimages.com/member/register" target="_blank">Register</a> a new Mashery Member account and your application.
 2. Select your desired type of Api-Key. We provide two key options.
     -  **Issue a new key for Getty Test**
         - Use to test Getty Images API functionality including: image search and metadata, download, and account management.
