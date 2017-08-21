@@ -46,10 +46,17 @@ An Authorization header is required to perform download operations. The format o
                              "client_secret" => $client_secret));
 
     $resultObj = executeCurl($curl);
-    $response = json_decode($resultObj['body'],true);
+    
+    // extract json token from header response
+    $pattern = '/\{(?:[^{}]|(?R))*\}/';
 
-    $token = $response["access_token"];
-    $tokenType = $response["token_type"];
+    preg_match_all($pattern, $resultObj['body'], $matches);
+    
+    // output match
+    $responseHeader = $matches[0][0];
+    
+    $token = $responseHeader["access_token"];
+    $tokenType = $responseHeader["token_type"];
 
     echo "Token Response: $token\n";
 
@@ -115,10 +122,13 @@ Use the authentication/authorization header option in the operations below depen
 
     echo "**********Download Image**********\n\n";
     $imageIdToGet = 83454811;
-    $endpoint = "https://api.gettyimages.com/v3/downloads/".$imageIdToGet;
+    $endpoint = "https://api.gettyimages.com/v3/downloads/images/".$imageIdToGet;
 
-    $headersToSend = array(CURLOPT_HTTPHEADER => array("Api-Key:".$client_key,
-                           "Authorization: ".$tokenType." ".$token),
+    $headersToSend = array(CURLOPT_HTTPHEADER => array(
+                                                    "Api-Key:".$client_key,
+                                                    "Authorization: ".$tokenType." ".$token,
+                                                    "Content-length:"
+                                                ),
                             CURLOPT_FOLLOWLOCATION => TRUE); //this lets curl follow the 303
 
     $curl = getCurlForPost($endpoint,$headersToSend);
